@@ -141,30 +141,36 @@ function aah_civicrm_themes(&$themes) {
   _aah_civix_civicrm_themes($themes);
 }
 
-// --- Functions below this ship commented out. Uncomment as required. ---
+/**
+ * Implements hook_civicrm_coreResourceList().
+ */
+function aah_civicrm_coreResourceList(&$items, $region) {
+  if (!CRM_Aah::isActive()) {
+    return;
+  }
+
+  if ($region == 'html-header') {
+    $resources = CRM_Core_Resources::singleton();
+    $resources->addStyleFile('aah', 'aah/css/bootstrap.css', -500, 'html-header');
+    // Seems we do not need this: $resources->addStyleFile('aah', 'aah/css/civicrm.css', 99, 'html-header');
+    $resources->addScriptFile('aah', 'aah/js/bootstrap.js', 1000, 'html-header');
+    $resources->addScriptFile('aah', 'aah/js/aah.js', 1000, 'html-header');
+  }
+}
 
 /**
- * Implements hook_civicrm_preProcess().
- *
- * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_preProcess
- *
-function aah_civicrm_preProcess($formName, &$form) {
+ * Implements hook_civicrm_pageRun().
+ */
+function aah_civicrm_pageRun(&$page) {
+  return;
+  if (!CRM_Aah::isActive()) {
+    return;
+  }
 
-} // */
+  $pageName = $page->getVar('_name');
 
-/**
- * Implements hook_civicrm_navigationMenu().
- *
- * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_navigationMenu
- *
-function aah_civicrm_navigationMenu(&$menu) {
-  _aah_civix_insert_navigation_menu($menu, 'Mailings', array(
-    'label' => E::ts('New subliminal message'),
-    'name' => 'mailing_subliminal_message',
-    'url' => 'civicrm/mailing/subliminal',
-    'permission' => 'access CiviMail',
-    'operator' => 'OR',
-    'separator' => 0,
-  ));
-  _aah_civix_navigationMenu($menu);
-} // */
+  if ($pageName == 'CRM_Contact_Page_View_Summary') {
+    // CRM_Core_Resources::singleton()->addScriptFile('aah', 'js/contact-summary.js');
+  }
+}
+

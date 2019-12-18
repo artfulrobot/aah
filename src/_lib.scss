@@ -1,0 +1,33 @@
+$colourArtfulBrightBlue :#2c98ed;
+$colourArtfulDarkBlue :#02477d;
+$colourArtfulBrightBlueHigh :lighten($colourArtfulBrightBlue, 20%);
+$colourArtfulAmber :#ffcc00;
+$colourHighlight : lighten($colourArtfulAmber, 30%);
+$colourVeryLightBlue: #e0effb;
+
+$colourText : #222;
+$colourDarkGrey : #333;
+$colourMidGrey : #555;
+$colourWhitishText : #eee;
+
+$colourWidgetBackground : #f8f8f8;
+$colourWidgetBorder : #e8e8e8;
+$colourWidgetBackgroundLightest : #fcfcfc;
+$colourSubtleHoverLightBlueGrey: #e6edf2;
+$colourTabsBg: #eae9e4;
+
+$colourWidgetSelectedBackground : lighten($colourArtfulBrightBlue, 25%);
+$colourWidgetCouldSelectBackground : lighten($colourArtfulBrightBlue, 30%);
+$colourBackground : #f3f2ed;
+$colourBackgroundShade : darken(#f3f2ed, 10%);
+$colourBlueGrey: mix($colourBackground, $colourArtfulBrightBlue, 65%);
+
+$colourGreenStrongBg: #97d462;
+$colourGreenHint: #e9f9db;
+$colourGreen2: mix($colourGreenStrongBg, $colourGreenHint, 50%);
+
+$colourAmberStrongBg: #eaa75c;
+$colourAmberHint: #ffedcc;
+$colourRedDanger: #a00;
+// #e8c6a2
+

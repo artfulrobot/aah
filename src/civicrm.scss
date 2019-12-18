@@ -1,0 +1,704 @@
+@import 'lib';
+
+// This file whips CiviCRM's old classes into shape.
+
+body.page-civicrm {
+  h1.page-header {
+    display:none; // CiviCRM seems to output this anyways.
+  }
+
+  // Don't limit width in CiviCRM since it uses background-color on some headings which then look odd.
+  h3, h4, h5 { max-width:none; }
+  #page {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+// Provide some space at sides on angular pages at least.
+body.page-civicrm-a #content {
+  max-width: 1200px;
+  margin-left:auto;
+  margin-right:auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+#printer-friendly {
+  display:none; // It's never really printer friendly...
+}
+@media print {
+  #civicrm-footer,
+  #access,
+  #civicrm-menu
+  { display:none; }
+  body.page-civicrm {
+    padding-top:0;
+  }
+}
+
+// My Quickform patch for radios.
+.crm-profile .radio-wrapper { display:block; }
+
+// Override Mosaico.
+#bootstrap-theme .crm-mosaico-template-item {
+  display:flex;
+  width:100%;
+}
+#bootstrap-theme .crm-mosaico-template-item .crm-mosaico-template-title-wrapper {
+  height:unset;
+  flex: 1 0 160px;
+}
+#bootstrap-theme .crm-mosaico-template-item .crm-mosaico-template-image-wrapper {
+  flex: 0 0 160px;
+}
+
+// Calm bootstrap a bit.
+body#bootstrap-theme, #bootstrap-theme {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: inherit;
+}
+#bootstrap-theme {
+  @each $h in h1 h2 h3 h4 h5 h6 {
+    #{$h} {
+      small, .small {
+        color:inherit;
+      }
+    }
+  }
+}
+
+// CiviCRM override default general styles {{{
+#civicrm-menu, #root-menu-div ul,
+.ui-widget {
+  font-family: Lato;
+}
+.ui-widget {
+  font-size:1em; // disable 1.1
+}
+// h3s are used throughout
+.crm-container h3 {
+  background: transparent;
+  margin: 2.5rem 0 0.5rem;
+  font-size: (20rem/16);
+}
+// }}}
+// Override bootstrap
+.label { color:inherit; }
+// jQuery UI {{{
+.ui-widget-header {
+  background:$colourWidgetBackground;
+  border:none;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  background:$colourWidgetBackground;
+  border:none;
+  border-radius: 0;
+  &:hover {
+    background: $colourSubtleHoverLightBlueGrey;
+  }
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  background:$colourWidgetBackground;
+  border:none;
+  border-radius: 0;
+  background: $colourWidgetSelectedBackground;
+  &:hover {
+    background: $colourSubtleHoverLightBlueGrey;
+  }
+  color: $colourArtfulBrightBlue;
+  a:link, a:visited {
+    color: $colourArtfulBrightBlue;
+  }
+
+}
+// }}}
+// Component: Actions ribbon (e.g. at top of Contact screen) and .action-link which seems to be very similar {{{
+.crm-actions-ribbon {
+  &>ul {
+    margin: 1rem 0;
+    padding: 0;
+    li {
+      list-style: none;
+      display: inline-block;
+      margin-right: 1rem;
+    }
+  }
+}
+// Until Javascript sets display: block, hide the actions popup.
+#crm-contact-actions-list { display: none; }
+.action-link {
+  a {
+    margin-right: 1rem;
+  }
+}
+
+//}}}
+// Component: Accordians. {{{
+.crm-accordion-wrapper.collapsed {
+  .crm-accordion-body { display: none; }
+}
+.crm-accordion-header {
+  color: $colourArtfulDarkBlue;
+  padding: 0.5rem 1rem;
+  background-color: $colourBlueGrey;
+  transition: background-color 0.2s;
+
+  &.active {
+    background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
+    color: $colourArtfulDarkBlue;
+  }
+  &:hover, &.active:hover {
+    background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
+  }
+}
+.crm-accordion-wrapper {
+  margin-bottom: 1rem;
+  //&.collapsed { }
+}
+#crm-container #civicrm-dashboard .widget-controls, // has own css, requires this specificity.
+.crm-accordion-body {
+  background: $colourSubtleHoverLightBlueGrey;
+  padding: 1rem;
+  border-radius: 0;
+  border:none;
+  border-bottom: solid 1px rgba(0,0,0,0.2);
+}
+// This is another sort of collapsible content
+.crm-collapsible {
+  margin: 0.5rem 0;
+  background-color: $colourBlueGrey;
+  transition: background-color 0.2s;
+  padding: 0.5rem 1rem;
+
+  &.collapsed {
+    &>div { display:none; }
+    &>.collapsible-title {
+      display:block;
+    }
+  }
+  .collapsible-title {
+    color: $colourArtfulDarkBlue;
+    cursor: pointer;
+  }
+}
+
+// }}}
+// Component: Buttons {{{
+
+// Some buttons look like this:
+// .crm-button
+//   i.crm-i
+//   input[type=submit]
+.crm-button {
+  position: relative;
+  i {
+    position: absolute;
+    pointer-events: none;
+    color: white;
+    line-height: 1;
+    top: 0.15rem;
+    left: 0.75rem;
+  }
+  input.crm-form-submit,
+  input[type="button"] {
+    display:inline-block;
+    padding:0.25rem 1rem 0.25rem 2rem;
+    background: $colourArtfulBrightBlue;
+    border:none;
+    border-radius: 3px;
+    color:white;
+    text-shadow: none;
+    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+
+    &:hover {
+      background-color: darken($colourArtfulBrightBlue, 10%);
+    }
+  }
+}
+
+// Link buttons
+a.button,
+a.button:link,
+a.button:visited,
+.ui-dialog-buttonset .ui-button
+{
+  display:inline-block;
+  padding:0.25rem 1rem;
+  background: $colourArtfulBrightBlue;
+  border:none;
+  border-radius: 3px;
+  color:white;
+  text-shadow: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+
+  &:active,
+  &:hover {
+    background-color: darken($colourArtfulBrightBlue, 10%);
+    text-decoration: none;
+  }
+}
+// Sets of buttons.
+.crm-submit-buttons {
+  margin-bottom: 1rem;
+  .crm-button { margin-right: 1rem; }
+}
+
+// }}}
+// Component crm-hover-button {{{
+// I think these can just be normal links, not sure what buttonising them does.
+.crm-hover-button {
+  display: inline-block;
+  padding: 0 0.5rem;
+  margin-right: 0.5rem;
+}
+// }}}
+// Component: help {{{
+.crm-container .help, .crm-container #help {
+  padding: 1rem;
+  border-radius: 0;
+  border:none;
+  background: $colourVeryLightBlue;
+  border-left:4px solid $colourArtfulBrightBlue;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+// }}}
+// Component data tables {{{
+.dataTables_wrapper .dataTables_paginate {
+
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0 0.5rem;
+  &.current,
+  &.current:hover {
+    background:none;
+    border:none;
+    border: solid 1px $colourArtfulBrightBlue;
+    background: $colourVeryLightBlue;
+  }
+}
+// Make the alternate row shading more subtle.
+.crm-container .odd-row, .crm-container .odd, tbody.scrollContent {
+	background-color: $colourWidgetBackgroundLightest;
+}
+.crm-container .even-row, .crm-container .even, tbody.scrollContent tr.alternateRow {
+  background: $colourWidgetBackground;
+}
+.crm-container table.row-highlight tr.even-row:hover, .crm-container table.row-highlight tr.even:hover, .crm-container .even-row.crm-row-selected, .crm-container .even.crm-row-selected,
+.crm-container table.row-highlight tr:hover, .crm-container .crm-row-selected {
+  background: $colourSubtleHoverLightBlueGrey;
+}
+// }}}
+// Component: sticky table heads. xxx probably want to tame this... {{{
+thead tr:first-child {
+	position: sticky;
+	top: 2.6rem;
+	z-index: 20;
+} // }}}
+// Component: Notifications {{{
+#crm-notification-container {
+	min-width: 30rem;
+	max-width: 45rem;
+  color: $colourText;
+  position: fixed;
+  top: 3rem;
+  right: 1rem;
+}
+// Close button
+#crm-notification-container .ui-notify-message a.ui-notify-cross {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+	float: none;
+	font-size: 1rem;
+	text-shadow: none;
+	padding: 0.2rem 0.75rem;
+	color: white;
+  border: solid 1px white;
+  border-radius: 2px;
+}
+#crm-notification-container div.ui-notify-message-style {
+	background: white;
+  border-left: solid 4px $colourAmberStrongBg;
+	box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+#crm-notification-container div.ui-notify-message {
+  position: relative;
+	padding: 0;
+  margin-bottom: 1rem;
+	border-radius: 2px;
+	max-height: calc(100vh - 45px);
+	overflow: auto;
+  color: $colourText;
+
+  h1 {
+    color: black;
+    background: $colourAmberStrongBg;
+    font-size: 1rem;
+    margin:0 0 1rem;
+    padding: 1rem 1rem 1rem 3rem;
+  }
+  .notify-content {
+    padding: 0 1rem;
+  }
+
+}
+// The ticks and other icons...
+.crm-container div.ui-notify-message div.icon, .crm-status-icon {
+	background: none; // Disable CiviCRM's style
+	//width: 24px; height: 24px;
+	margin-right: 0; // override
+  text-indent: 0;
+  float:none;
+
+  position: absolute;
+  top:1rem;
+  left:1rem;
+
+  &::before {
+    content:'\26A0';
+    display:block;
+    width: 1.5rem;
+    height: 1.5rem;
+    text-align:center;
+    color: $colourText;
+  } // Warning sign.
+}
+.crm-container div.ui-notify-message.success div.icon, .crm-status-icon.success {
+  &::before { content:'\2714'; } // Tick.
+}
+
+// }}}
+// Component: Select 2 {{{
+.select2-container .select2-choice {
+	background-color: $colourSubtleHoverLightBlueGrey;
+	background-color: $colourWidgetBackground;
+	filter: none;
+	background-image: none;
+}
+.select2-container .select2-choice .select2-arrow {
+	border-left: 1px solid #aaa;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: none;
+	filter: none;
+	background-image:none;
+}
+.select2-container .select2-choice,
+.select2-container-multi .select2-choices {
+  border-color: rgba(0,0,0,0.2);
+  border-radius: 2px;
+}
+// }}}
+// Component: Footer {{{
+#civicrm-footer {
+  margin-top: 5rem;
+  text-align: center;
+  font-size: (12rem/16);
+  opacity: 0.8;
+}
+//}}}
+// Component: Status {{{
+.status {
+  &.crm-error {
+    background: $colourRedDanger;
+    border-radius: 2px;
+    padding: 0 0.5rem;
+    margin:0 0.5rem;
+    color:white;
+    a:link, a:visited {
+      color:white;
+    }
+  }
+}
+// }}}
+// Component help icon {{{
+a.helpicon {
+  &::before {
+    display:inline-block;
+    content: '?';
+    line-height: 1;
+    width: 1rem;
+    text-align:center;
+    background: $colourBlueGrey;
+    border-radius: 1rem;
+    background-clip: border-box;
+  }
+}
+// }}}
+// Component: Access keys {{{
+#access {
+  margin-top: 1rem;
+  font-size: (14rem/16);
+}
+// }}}
+// Component: table.form-layout {{{
+table.form-layout {
+  th, td {
+    border:none;
+  }
+}
+// Component: table.form-layout-compressed {{{
+table.form-layout-compressed {
+  th, td {
+    padding:0.5rem;
+    border:none;
+    font-size: (14rem/16);
+  }
+}
+// }}}
+// Specific Page: Contact Summary page {{{
+.crm-inline-edit {
+  position: relative;
+
+  // content that comes up when you hover over an editable chunk of the contact page.
+  .crm-edit-help {
+    display:none;
+    position: absolute;
+    top: -1.4rem;
+    left: -1px;
+    height: 1.4rem;
+    background: $colourWidgetBackground;
+    padding: 0 1rem;
+    line-height: 1.4rem;
+    border:solid 1px $colourArtfulBrightBlue;
+    border-bottom-style:none;
+  }
+
+  &:hover {
+    outline: $colourArtfulBrightBlue solid 1px;
+    .crm-edit-help {
+      display:block;
+    }
+  }
+
+  // The edit forms within:
+  .crm-container-snippet {
+    overflow: auto;
+  }
+}
+// Main tabs (make 'em vertical) {{{
+#mainTabContainer {
+  display: grid;
+  grid-template-columns: 12rem auto;
+  padding:0;
+  border:none;
+
+  // The tabs {{{
+  .crm-contact-tabs-list {
+    padding:0;
+    background-color: $colourSubtleHoverLightBlueGrey;
+    border-left: solid 1px rgba(0,0,0,0.1);
+    margin: 0;
+    border-radius: 0;
+
+    li.crm-tab-button {
+      background:none;
+      display:block;
+      float:none;
+      top:0;
+      margin-right:0;
+
+      &:first-child {
+        border-top:none;
+      }
+
+      a { float:none; }
+      // This would be an accessibility fail, but as it happens you can't tab through the tabs anyway...
+
+      &:not(.ui-tabs-active) {
+        border-bottom: solid 1px rgba(0,0,0,0.05);
+      }
+    }
+    // This is the <a> element
+    .ui-tabs-anchor {
+      display:flex;
+      align-items: center;
+      padding: 0.5rem 1rem !important; // needs important as style being overridden uses it.
+
+      &:focus {
+        outline: none;
+      }
+
+      i { flex: 0 0 1.2rem; }
+      span { flex: 1 1 auto; padding-left:1em; }
+      em { flex: 0 0 auto; }
+    }
+    // active / selected tab
+    li.crm-tab-button.ui-state-active {
+      background: $colourWidgetBackground; //xxx
+      border-bottom:none;
+    }
+    // active <a>
+    li.crm-tab-button.ui-state-active .ui-tabs-anchor {
+      background: $colourWidgetBackground;
+      background: white;
+      color: black;
+      border-bottom:none;
+      font-weight: bold;
+    }
+    li.ui-tabs-active {
+      // Remove the -1px margin bottom added by jQueryUI
+      margin-bottom:0;
+    }
+  } // }}}
+  // The content
+  .ui-tabs-panel {
+    padding: 1rem;
+  }
+}
+// }}}
+// Contact summary tab {{{
+.crm-container div.contact_panel {
+  display:grid;
+  grid-template-columns: repeat(2, minmax(15rem, 1fr));
+  grid-gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+// These containers split left and right sections.
+// It's a shame really because it makes for uneven vertical gaps.
+// To counter this we do a fake full height thing by setting the background colour.
+#crm-container div.contactCardRight,
+#crm-container div.contactCardLeft {
+  width: auto;
+  background: $colourWidgetBackground;
+  border-left: solid 1px $colourWidgetBorder;
+  // Keep all content at this height.
+  // &>div, &>div>div, &>div>div>div { height: 100%; }
+}
+.crm-summary-block {
+  margin-bottom: 1px;
+}
+
+// .crm-inline-block-content
+//  .crm-summary-row
+//    .crm-label
+//    .crm-content
+.crm-inline-block-content {
+  background: white;
+  background: $colourWidgetBackground;
+  padding:1rem;
+
+  .crm-label {
+    font-size: (14rem/16);
+  }
+}
+
+// This affects things like the fields on the contact summary page
+div.crm-summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: (5rem/16);
+
+  .crm-label { flex: 0 0 8rem;  }
+  .crm-content { flex: 1 0 8rem;  }
+
+}
+
+// Make the dividing line sharper and more subtle.
+#crm-container .separator {
+  border-bottom: solid 1px rgba(0,0,0,0.2);
+}
+
+
+
+// }}}
+// Contributions {{{
+table {
+  margin:1rem 0;
+}
+#crm-container th.contriTotalLeft,
+#crm-container th.contriTotalRight {
+  border:none;
+}
+// }}}
+
+// }}}
+// Specific Page: Fix dashboard layout {{{
+#civicrm-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  #column-0 {
+    flex: 1 0 40%;
+  }
+  #column-1 {
+    flex: 1 0 60%;
+  }
+}
+// }}}
+
+#crm-container ul.wizard-bar {
+  border:none;
+}
+// This affects a lot, including the content pane of tabbed content.
+.ui-widget-content {
+  border-color: $colourWidgetBorder;
+  background: $colourWidgetBackground;
+  background: white;
+}
+
+
+// I don't know why but CiviCRM sets a -10px margin on this that we have to undo.
+#crm-container div.crm-summary-contactname-block {
+  margin-top:0;
+}
+
+#crm-container #civicrm-dashboard h3.widget-header {
+  color: $colourText;
+}
+
+
+// @todo comments
+.crmMailing .preview-popup, .crmMailing .preview-contact, .crmMailing .preview-group {
+  height:6rem;
+}
+
+.crm-tag-item {
+  line-height:1.25;
+}
+
+// The default font size for data on contact screens etc. is 11px!
+.crm-container div.crm-clear {
+  font-size:inherit;
+}
+
+// Tabs (e.g. Contributions/Recurring Contributions) {{{
+.crm-container .crm-tab-button a,
+.crm-container .ui-tabs .ui-tabs-nav li a
+{
+  padding: 0.5rem 1rem !important; // we have to use important because we're overriding another !important(!)
+}
+.crm-container ul li.crm-tab-button {
+  &.ui-state-active {
+    background: none;
+    border-bottom: solid 2px $colourArtfulBrightBlue;
+  }
+  // Bit of spacing before the count number.
+  em {
+    margin-left: 1rem;
+    display: inline-block;
+  }
+}
+// }}}
+
+.crm-container .crm-form-block {
+  background-color: white;
+  padding: 1rem;
+}
+
+.crm-container input { box-sizing: border-box; }
+
+
+#secondaryTabContainer {
+  border:none;
+  padding:0;
+}
+
+

@@ -1,3 +1,6 @@
 // @import "~bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap-sprockets";
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Reset bootstrap's 10px
+html { font-size: 16px; }

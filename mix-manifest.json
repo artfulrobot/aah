@@ -1,4 +1,6 @@
 {
-    "/dist/app.js": "/dist/app.js",
-    "/dist/app.css": "/dist/app.css"
+    "/aah/js/aah.js": "/aah/js/aah.js",
+    "/aah/js/bootstrap.js": "/aah/js/bootstrap.js",
+    "/aah/css/bootstrap.css": "/aah/css/bootstrap.css",
+    "/aah/css/civicrm.css": "/aah/css/civicrm.css"
 }
