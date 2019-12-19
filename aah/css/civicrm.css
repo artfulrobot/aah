@@ -180,6 +180,11 @@ body#bootstrap-theme,
   margin-right: 1rem;
 }
 
+.crm-accordion-wrapper {
+  margin-bottom: 1rem;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+}
+
 .crm-accordion-wrapper.collapsed .crm-accordion-body {
   display: none;
 }
@@ -202,17 +207,12 @@ body#bootstrap-theme,
   background-color: #5baff1;
 }
 
-.crm-accordion-wrapper {
-  margin-bottom: 1rem;
-}
-
 #crm-container #civicrm-dashboard .widget-controls,
 .crm-accordion-body {
   background: #e6edf2;
   padding: 1rem;
   border-radius: 0;
   border: none;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
 .crm-collapsible {
@@ -292,10 +292,13 @@ a.button:visited:hover,
   text-decoration: none;
 }
 
+.crm-inline-button,
 .crm-submit-buttons {
   margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
+.crm-inline-button .crm-button,
 .crm-submit-buttons .crm-button {
   margin-right: 1rem;
 }
@@ -350,6 +353,22 @@ tbody.scrollContent tr.alternateRow {
   background: #e6edf2;
 }
 
+.crm-container input[type="text"],
+.crm-container input[type="password"],
+.crm-container textarea {
+  border-color: rgba(0, 0, 0, 0.2);
+}
+
+.crm-form-checkbox,
+.crm-form-radio {
+  position: absolute;
+}
+
+.crm-form-checkbox + label,
+.crm-form-radio + label {
+  padding-left: 1.5rem;
+}
+
 thead tr:first-child {
   position: -webkit-sticky;
   position: sticky;
@@ -399,12 +418,12 @@ thead tr:first-child {
   color: black;
   background: #eaa75c;
   font-size: 1rem;
-  margin: 0 0 1rem;
+  margin: 0;
   padding: 1rem 1rem 1rem 3rem;
 }
 
 #crm-notification-container div.ui-notify-message .notify-content {
-  padding: 0 1rem;
+  padding: 1rem;
 }
 
 .crm-container div.ui-notify-message div.icon,
@@ -434,26 +453,58 @@ thead tr:first-child {
 }
 
 .select2-container .select2-choice {
-  background-color: #e6edf2;
-  background-color: #f8f8f8;
+  background-color: white;
   -webkit-filter: none;
           filter: none;
   background-image: none;
 }
 
 .select2-container .select2-choice .select2-arrow {
+  width: 1.8rem;
   border-left: 1px solid #aaa;
   background-color: rgba(0, 0, 0, 0.1);
-  border-radius: none;
+  border-radius: 0;
   -webkit-filter: none;
           filter: none;
   background-image: none;
+  text-align: center;
+}
+
+.select2-container .select2-choice .select2-arrow b {
+  width: 18px;
+  display: inline-block;
 }
 
 .select2-container .select2-choice,
 .select2-container-multi .select2-choices {
   border-color: rgba(0, 0, 0, 0.2);
   border-radius: 2px;
+}
+
+.select2-container .select2-choice abbr {
+  top: 10px;
+  right: 2.2rem;
+}
+
+.select2-container {
+  min-width: 7rem;
+}
+
+.select2-container-multi {
+  min-width: 14rem;
+}
+
+.select2-container .select2-choice {
+  height: 2.25rem;
+}
+
+.select2-arrow,
+.select2-chosen {
+  padding: 0.25rem 0;
+}
+
+.select2-container .select2-choice > .select2-chosen {
+  margin-right: 2rem;
 }
 
 #civicrm-footer {
@@ -492,20 +543,48 @@ a.helpicon::before {
   font-size: 0.875rem;
 }
 
+table.form-layout {
+  width: 100%;
+}
+
 table.form-layout th,
 table.form-layout td {
+  padding: 0.25rem 0.5rem;
   border: none;
+}
+
+table.form-layout-compressed {
+  width: 100%;
 }
 
 table.form-layout-compressed th,
 table.form-layout-compressed td {
-  padding: 0.5rem;
+  padding: 0.25rem 0.5rem;
   border: none;
   font-size: 0.875rem;
 }
 
+.crm-summary-display_name {
+  margin-top: 1rem;
+  font-size: 1.6875rem;
+}
+
+.crm-summary-display_name .crm-summary-link {
+  display: inline-block;
+  background: red;
+  width: 1rem;
+  height: 1rem;
+}
+
 .crm-inline-edit {
   position: relative;
+}
+
+.crm-inline-edit .crm-container-snippet {
+  padding: 1rem;
+  background: white;
+  overflow: auto;
+  max-width: 100%;
 }
 
 .crm-inline-edit .crm-edit-help {
@@ -529,10 +608,6 @@ table.form-layout-compressed td {
   display: block;
 }
 
-.crm-inline-edit .crm-container-snippet {
-  overflow: auto;
-}
-
 #mainTabContainer {
   display: grid;
   grid-template-columns: 12rem auto;
@@ -549,11 +624,13 @@ table.form-layout-compressed td {
 }
 
 #mainTabContainer .crm-contact-tabs-list li.crm-tab-button {
+  margin: 0;
   background: none;
   display: block;
   float: none;
   top: 0;
   margin-right: 0;
+  border-bottom: solid 1px rgba(0, 0, 0, 0.05);
 }
 
 #mainTabContainer .crm-contact-tabs-list li.crm-tab-button:first-child {
@@ -562,10 +639,6 @@ table.form-layout-compressed td {
 
 #mainTabContainer .crm-contact-tabs-list li.crm-tab-button a {
   float: none;
-}
-
-#mainTabContainer .crm-contact-tabs-list li.crm-tab-button:not(.ui-tabs-active) {
-  border-bottom: solid 1px rgba(0, 0, 0, 0.05);
 }
 
 #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor {
@@ -589,16 +662,23 @@ table.form-layout-compressed td {
   -webkit-box-flex: 1;
           flex: 1 1 auto;
   padding-left: 1em;
+  font-size: 0.875rem;
 }
 
 #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor em {
   -webkit-box-flex: 0;
           flex: 0 0 auto;
+  background: #02477d;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  padding: 0 0.3rem;
+  color: white;
+  font-style: normal;
+  font-weight: bold;
 }
 
 #mainTabContainer .crm-contact-tabs-list li.crm-tab-button.ui-state-active {
   background: #f8f8f8;
-  border-bottom: none;
 }
 
 #mainTabContainer .crm-contact-tabs-list li.crm-tab-button.ui-state-active .ui-tabs-anchor {
@@ -635,13 +715,13 @@ table.form-layout-compressed td {
   margin-bottom: 1px;
 }
 
-.crm-inline-block-content {
+#contact-summary .crm-inline-block-content {
   background: white;
   background: #f8f8f8;
   padding: 1rem;
 }
 
-.crm-inline-block-content .crm-label {
+#contact-summary .crm-inline-block-content .crm-label {
   font-size: 0.875rem;
 }
 
@@ -673,6 +753,16 @@ table {
 #crm-container th.contriTotalLeft,
 #crm-container th.contriTotalRight {
   border: none;
+}
+
+#crm-record-log {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+#crm-record-log span {
+  margin-right: 1rem;
 }
 
 #civicrm-dashboard {
@@ -725,7 +815,18 @@ table {
 
 .crm-container .crm-tab-button a,
 .crm-container .ui-tabs .ui-tabs-nav li a {
-  padding: 0.5rem 1rem !important;
+  padding: 0.5rem 1rem;
+}
+
+.crm-container .crm-tab-button a em,
+.crm-container .ui-tabs .ui-tabs-nav li a em {
+  background: #02477d;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  padding: 0 0.3rem;
+  color: white;
+  font-style: normal;
+  font-weight: bold;
 }
 
 .crm-container ul li.crm-tab-button.ui-state-active {

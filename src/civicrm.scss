@@ -141,8 +141,11 @@ body#bootstrap-theme, #bootstrap-theme {
 
 //}}}
 // Component: Accordians. {{{
-.crm-accordion-wrapper.collapsed {
-  .crm-accordion-body { display: none; }
+.crm-accordion-wrapper {
+  margin-bottom: 1rem;
+  border-bottom: solid 1px $colourFormElementsBorder;
+
+  &.collapsed .crm-accordion-body { display: none; }
 }
 .crm-accordion-header {
   color: $colourArtfulDarkBlue;
@@ -158,17 +161,12 @@ body#bootstrap-theme, #bootstrap-theme {
     background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
   }
 }
-.crm-accordion-wrapper {
-  margin-bottom: 1rem;
-  //&.collapsed { }
-}
 #crm-container #civicrm-dashboard .widget-controls, // has own css, requires this specificity.
 .crm-accordion-body {
   background: $colourSubtleHoverLightBlueGrey;
   padding: 1rem;
   border-radius: 0;
   border:none;
-  border-bottom: solid 1px rgba(0,0,0,0.2);
 }
 // This is another sort of collapsible content
 .crm-collapsible {
@@ -245,8 +243,10 @@ a.button:visited,
   }
 }
 // Sets of buttons.
+.crm-inline-button,
 .crm-submit-buttons {
   margin-bottom: 1rem;
+  margin-top: 1rem;
   .crm-button { margin-right: 1rem; }
 }
 
@@ -296,6 +296,22 @@ a.button:visited,
   background: $colourSubtleHoverLightBlueGrey;
 }
 // }}}
+// Component: Form elements {{{
+.crm-container {
+  input[type="text"], input[type="password"], textarea {
+    border-color: $colourFormElementsBorder;
+  }
+}
+// Stop the labels butting right up against the tick boxes.
+// Using padding so we don't create an unclickable gap.
+.crm-form-checkbox, .crm-form-radio {
+  position: absolute;
+}
+.crm-form-checkbox+label,
+.crm-form-radio+label {
+  padding-left: 1.5rem;
+}
+// }}}
 // Component: sticky table heads. xxx probably want to tame this... {{{
 thead tr:first-child {
 	position: sticky;
@@ -342,11 +358,11 @@ thead tr:first-child {
     color: black;
     background: $colourAmberStrongBg;
     font-size: 1rem;
-    margin:0 0 1rem;
+    margin:0;
     padding: 1rem 1rem 1rem 3rem;
   }
   .notify-content {
-    padding: 0 1rem;
+    padding: 1rem;
   }
 
 }
@@ -378,23 +394,43 @@ thead tr:first-child {
 // }}}
 // Component: Select 2 {{{
 .select2-container .select2-choice {
-	background-color: $colourSubtleHoverLightBlueGrey;
-	background-color: $colourWidgetBackground;
+	// background-color: $colourSubtleHoverLightBlueGrey;
+	// background-color: $colourWidgetBackground;
+	background-color: white;
 	filter: none;
 	background-image: none;
 }
 .select2-container .select2-choice .select2-arrow {
+  width: 1.8rem;
 	border-left: 1px solid #aaa;
   background-color: rgba(0,0,0,0.1);
-  border-radius: none;
+  border-radius: 0;
 	filter: none;
 	background-image:none;
+  text-align: center;
+  b { width: 18px;display:inline-block; }
 }
 .select2-container .select2-choice,
 .select2-container-multi .select2-choices {
   border-color: rgba(0,0,0,0.2);
   border-radius: 2px;
 }
+.select2-container .select2-choice abbr {
+  top: 10px;
+  right: 2.2rem;
+}
+.select2-container {
+  min-width: 7rem;
+}
+.select2-container-multi {
+  min-width: 14rem;
+}
+.select2-container .select2-choice {
+  height: 2.25rem;
+}
+.select2-arrow,
+.select2-chosen { padding: 0.25rem 0; }
+.select2-container .select2-choice > .select2-chosen { margin-right: 2rem; }
 // }}}
 // Component: Footer {{{
 #civicrm-footer {
@@ -440,22 +476,48 @@ a.helpicon {
 // }}}
 // Component: table.form-layout {{{
 table.form-layout {
+  width: 100%;
   th, td {
+    padding: 0.25rem 0.5rem;
     border:none;
   }
-}
+} // }}}
 // Component: table.form-layout-compressed {{{
 table.form-layout-compressed {
+  width: 100%;
   th, td {
-    padding:0.5rem;
+    padding: 0.25rem 0.5rem;
     border:none;
     font-size: (14rem/16);
   }
 }
 // }}}
-// Specific Page: Contact Summary page {{{
+// Specific Page: Contact page {{{
+.crm-summary-display_name {
+  margin-top:1rem;
+  font-size: (27rem/16);
+  .crm-summary-link {
+    display:inline-block;
+    background:red;
+    width: 1rem;
+    height: 1rem;
+    //.icon crm-icon Individual-icon
+    .crm-icon {
+// @todo
+    }
+  }
+}
+// Inline clickable edit things {{{
 .crm-inline-edit {
   position: relative;
+
+  // The edit forms within:
+  .crm-container-snippet {
+    padding: 1rem;
+    background:white;
+    overflow: auto;
+    max-width: 100%;
+  }
 
   // content that comes up when you hover over an editable chunk of the contact page.
   .crm-edit-help {
@@ -478,11 +540,7 @@ table.form-layout-compressed {
     }
   }
 
-  // The edit forms within:
-  .crm-container-snippet {
-    overflow: auto;
-  }
-}
+} // }}}
 // Main tabs (make 'em vertical) {{{
 #mainTabContainer {
   display: grid;
@@ -499,6 +557,7 @@ table.form-layout-compressed {
     border-radius: 0;
 
     li.crm-tab-button {
+      margin:0;
       background:none;
       display:block;
       float:none;
@@ -512,9 +571,8 @@ table.form-layout-compressed {
       a { float:none; }
       // This would be an accessibility fail, but as it happens you can't tab through the tabs anyway...
 
-      &:not(.ui-tabs-active) {
-        border-bottom: solid 1px rgba(0,0,0,0.05);
-      }
+      //&:not(.ui-tabs-active)
+      border-bottom: solid 1px rgba(0,0,0,0.05);
     }
     // This is the <a> element
     .ui-tabs-anchor {
@@ -527,13 +585,23 @@ table.form-layout-compressed {
       }
 
       i { flex: 0 0 1.2rem; }
-      span { flex: 1 1 auto; padding-left:1em; }
-      em { flex: 0 0 auto; }
+      span { flex: 1 1 auto; padding-left:1em; font-size: (14rem/16); }
+      // Item count
+      em {
+        flex: 0 0 auto;
+        background: $colourArtfulDarkBlue;
+        border-radius: 0.5rem;
+        font-size: (13rem/16);
+        padding: 0 0.3rem;
+        color:white;
+        font-style:normal;
+        font-weight:bold;
+      }
     }
     // active / selected tab
     li.crm-tab-button.ui-state-active {
       background: $colourWidgetBackground; //xxx
-      border-bottom:none;
+      // border-bottom:none;
     }
     // active <a>
     li.crm-tab-button.ui-state-active .ui-tabs-anchor {
@@ -581,13 +649,15 @@ table.form-layout-compressed {
 //  .crm-summary-row
 //    .crm-label
 //    .crm-content
-.crm-inline-block-content {
-  background: white;
-  background: $colourWidgetBackground;
-  padding:1rem;
+#contact-summary {
+  .crm-inline-block-content {
+    background: white;
+    background: $colourWidgetBackground;
+    padding:1rem;
 
-  .crm-label {
-    font-size: (14rem/16);
+    .crm-label {
+      font-size: (14rem/16);
+    }
   }
 }
 
@@ -620,6 +690,16 @@ table {
 }
 // }}}
 
+// Component: Footer {{{
+#crm-record-log {
+  margin-top: 2rem;
+  font-size: (12rem/16);
+  opacity: 0.8;
+  span { margin-right: 1rem; }
+}
+//}}}
+// other tabs {{{
+// }}}
 // }}}
 // Specific Page: Fix dashboard layout {{{
 #civicrm-dashboard {
@@ -673,7 +753,16 @@ table {
 .crm-container .crm-tab-button a,
 .crm-container .ui-tabs .ui-tabs-nav li a
 {
-  padding: 0.5rem 1rem !important; // we have to use important because we're overriding another !important(!)
+  padding: 0.5rem 1rem; // we have to use important because we're overriding another !important(!)
+  em  {
+        background: $colourArtfulDarkBlue;
+        border-radius: 0.5rem;
+        font-size: (13rem/16);
+        padding: 0 0.3rem;
+        color:white;
+        font-style:normal;
+        font-weight:bold;
+  }
 }
 .crm-container ul li.crm-tab-button {
   &.ui-state-active {
