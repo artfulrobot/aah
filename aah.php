@@ -152,8 +152,14 @@ function aah_civicrm_coreResourceList(&$items, $region) {
   if ($region == 'html-header') {
     $resources = CRM_Core_Resources::singleton();
     $resources->addStyleFile('aah', 'aah/css/bootstrap.css', -500, 'html-header');
+    // $resources->addStyleFile('civicrm', 'css/crm-i.css', -500, 'html-header');
     // Seems we do not need this: $resources->addStyleFile('aah', 'aah/css/civicrm.css', 99, 'html-header');
-    $resources->addScriptFile('aah', 'aah/js/bootstrap.js', 1000, 'html-header');
+
+    //CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'base/js/modal.js', 1000, 'html-header');
+    //CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'base/js/button.js', 1000, 'html-header');
+    ////CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'js/noConflict.js', 1001, 'html-header');
+
+    //$resources->addScriptFile('aah', 'aah/js/bootstrap.js', 1000, 'html-header');
     $resources->addScriptFile('aah', 'aah/js/aah.js', 1000, 'html-header');
   }
 }

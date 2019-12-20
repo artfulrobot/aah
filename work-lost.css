@@ -256,16 +256,6 @@ a.ui-button:active,
   transition: background-color 0.2s;
 }
 
-.crm-accordion-header.active {
-  background-color: #5baff1;
-  color: #02477d;
-}
-
-.crm-accordion-header:hover,
-.crm-accordion-header.active:hover {
-  background-color: #5baff1;
-}
-
 .crm-accordion-header::before {
   content: "\F18E";
   font: normal normal normal 14px/1 FontAwesome;
@@ -280,7 +270,22 @@ a.ui-button:active,
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
   -webkit-transform: rotateZ(90deg);
-  transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}
+
+.crm-accordion-header.active {
+  background-color: #5baff1;
+  color: #02477d;
+}
+
+.crm-accordion-header:hover,
+.crm-accordion-header.active:hover {
+  background-color: #5baff1;
+}
+
+.crm-accordion-wrapper.collapsed .crm-accordion-header::before {
+  -webkit-transform: none;
+          transform: none;
 }
 
 #crm-container #civicrm-dashboard .widget-controls,
@@ -289,11 +294,6 @@ a.ui-button:active,
   padding: 1rem;
   border-radius: 0;
   border: none;
-}
-
-.crm-accordion-wrapper.collapsed .crm-accordion-header::before {
-  -webkit-transform: none;
-  transform: none;
 }
 
 .crm-collapsible {
@@ -330,16 +330,11 @@ a.ui-button:active,
   left: 0.75rem;
 }
 
-.crm-button input.crm-form-submit,
-.crm-button input[type="button"] {
-  padding: 0.25rem 1rem 0.25rem 2rem;
-}
-
 input.crm-form-submit,
 input[type="button"] {
   display: inline-block;
+  padding: 0.25rem 1rem 0.25rem 2rem;
   background: #2c98ed;
-  padding: 0.25rem 1rem;
   border: none;
   border-radius: 3px;
   color: white;
@@ -759,13 +754,13 @@ table.selector td > .crm-form-checkbox {
   position: static;
 }
 
-justincase .crm-container .crm-tab-button a,
-justincase .crm-container .ui-tabs .ui-tabs-nav li a {
+.crm-container .crm-tab-button a,
+.crm-container .ui-tabs .ui-tabs-nav li a {
   padding: 0.5rem 1rem;
 }
 
-justincase .crm-container .crm-tab-button a em,
-justincase .crm-container .ui-tabs .ui-tabs-nav li a em {
+.crm-container .crm-tab-button a em,
+.crm-container .ui-tabs .ui-tabs-nav li a em {
   background: #02477d;
   border-radius: 0.5rem;
   font-size: 0.8125rem;
@@ -775,12 +770,12 @@ justincase .crm-container .ui-tabs .ui-tabs-nav li a em {
   font-weight: bold;
 }
 
-justincase .crm-container ul li.crm-tab-button.ui-state-active {
+.crm-container ul li.crm-tab-button.ui-state-active {
   background: none;
   border-bottom: solid 2px #2c98ed;
 }
 
-justincase .crm-container ul li.crm-tab-button em {
+.crm-container ul li.crm-tab-button em {
   margin-left: 1rem;
   display: inline-block;
 }
@@ -1064,32 +1059,6 @@ table {
 
 .crm-container div.crm-clear {
   font-size: inherit;
-}
-
-.crm-container .crm-tab-button a,
-.crm-container .ui-tabs .ui-tabs-nav li a {
-  padding: 0.5rem 1rem;
-}
-
-.crm-container .crm-tab-button a em,
-.crm-container .ui-tabs .ui-tabs-nav li a em {
-  background: #02477d;
-  border-radius: 0.5rem;
-  font-size: 0.8125rem;
-  padding: 0 0.3rem;
-  color: white;
-  font-style: normal;
-  font-weight: bold;
-}
-
-.crm-container ul li.crm-tab-button.ui-state-active {
-  background: none;
-  border-bottom: solid 2px #2c98ed;
-}
-
-.crm-container ul li.crm-tab-button em {
-  margin-left: 1rem;
-  display: inline-block;
 }
 
 .crm-container .crm-form-block {

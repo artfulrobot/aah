@@ -84,6 +84,27 @@ body#bootstrap-theme, #bootstrap-theme {
   margin: 2.5rem 0 0.5rem;
   font-size: (20rem/16);
 }
+.crm-i-green {
+  color: $colourGreenStrongBg;
+}
+
+.crm-i-red {
+  color: $colourRedDanger;
+}
+
+.crm-i-blue {
+  color: $colourArtfulDarkBlue;
+}
+
+#crm-container div#alpha-filter {
+  background-color: $colourWidgetBackground;
+  padding: 0.25rem 1rem;
+}
+
+// Remove extra icons not needed
+.crm-action-menu::before {
+  display: none;
+}
 // }}}
 // Override bootstrap
 .label { color:inherit; }
@@ -102,6 +123,19 @@ body#bootstrap-theme, #bootstrap-theme {
     background: $colourSubtleHoverLightBlueGrey;
   }
 }
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited,
+a.ui-button,
+a:link.ui-button,
+a:visited.ui-button,
+.ui-button {
+  color: inherit;
+  margin-right: 0;
+  border: none;
+}
+
+
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
@@ -116,7 +150,27 @@ body#bootstrap-theme, #bootstrap-theme {
   a:link, a:visited {
     color: $colourArtfulBrightBlue;
   }
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus,
+.ui-button:hover,
+.ui-button:focus {
+  background: #127fd4; // @todo what colour?
+  color: inherit;
+  border: none;
+}
 
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+  background: #127fd4; // @todo what colour?
 }
 // }}}
 // Component: Actions ribbon (e.g. at top of Contact screen) and .action-link which seems to be very similar {{{
@@ -134,6 +188,7 @@ body#bootstrap-theme, #bootstrap-theme {
 // Until Javascript sets display: block, hide the actions popup.
 #crm-contact-actions-list { display: none; }
 .action-link {
+  margin: 1rem 0;
   a {
     margin-right: 1rem;
   }
@@ -149,7 +204,7 @@ body#bootstrap-theme, #bootstrap-theme {
 }
 .crm-accordion-header {
   color: $colourArtfulDarkBlue;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 0.5rem 2.5rem;
   background-color: $colourBlueGrey;
   transition: background-color 0.2s;
 
@@ -161,6 +216,22 @@ body#bootstrap-theme, #bootstrap-theme {
     background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
   }
 }
+.crm-accordion-header::before {
+  content: "\F18E";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  display: block;
+  position: absolute;
+  margin-left: -1.5rem;
+  margin-top: 0.25rem;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  -webkit-transform: rotateZ(90deg);
+          transform: rotateZ(90deg);
+}
 #crm-container #civicrm-dashboard .widget-controls, // has own css, requires this specificity.
 .crm-accordion-body {
   background: $colourSubtleHoverLightBlueGrey;
@@ -168,6 +239,11 @@ body#bootstrap-theme, #bootstrap-theme {
   border-radius: 0;
   border:none;
 }
+.crm-accordion-wrapper.collapsed .crm-accordion-header::before {
+  -webkit-transform: none;
+          transform: none;
+}
+
 // This is another sort of collapsible content
 .crm-collapsible {
   margin: 0.5rem 0;
@@ -206,18 +282,23 @@ body#bootstrap-theme, #bootstrap-theme {
   }
   input.crm-form-submit,
   input[type="button"] {
-    display:inline-block;
     padding:0.25rem 1rem 0.25rem 2rem;
-    background: $colourArtfulBrightBlue;
-    border:none;
-    border-radius: 3px;
-    color:white;
-    text-shadow: none;
-    box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  }
+}
+input.crm-form-submit,
+input[type="button"] {
+  display:inline-block;
+  background: $colourArtfulBrightBlue;
+  padding:0.25rem 1rem;
+  border:none;
+  border-radius: 3px;
+  color:white;
+  text-shadow: none;
+  // box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  box-shadow: none;
 
-    &:hover {
-      background-color: darken($colourArtfulBrightBlue, 10%);
-    }
+  &:hover {
+    background-color: darken($colourArtfulBrightBlue, 10%);
   }
 }
 
@@ -225,6 +306,7 @@ body#bootstrap-theme, #bootstrap-theme {
 a.button,
 a.button:link,
 a.button:visited,
+.ui-button,
 .ui-dialog-buttonset .ui-button
 {
   display:inline-block;
@@ -250,6 +332,37 @@ a.button:visited,
   .crm-button { margin-right: 1rem; }
 }
 
+// 'more' buttons {{{
+.btn-slide {
+  position: relative;
+
+  .panel {
+    display: none;
+    position: absolute;
+    right: 0;
+    width: 15rem;
+    padding: 0;
+    margin: 0;
+    background: white;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    li {
+      list-style: none;
+      font-size: 0.875rem;
+      padding: 0;
+      a {
+        display: block;
+        padding: 0.25rem 1rem;
+        text-decoration: none;
+        &:hover {
+          background: #e6edf2;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+// }}}
 // }}}
 // Component crm-hover-button {{{
 // I think these can just be normal links, not sure what buttonising them does.
@@ -265,9 +378,20 @@ a.button:visited,
   border-radius: 0;
   border:none;
   background: $colourVeryLightBlue;
-  border-left:4px solid $colourArtfulBrightBlue;
+  border-left: 2rem solid $colourArtfulBrightBlue;;
   font-size: 1rem;
   margin-bottom: 1rem;
+  &::before {
+    position: absolute;
+    margin-left: -2.2rem;
+    content: "\F0EB";
+    font-size: 1.25rem;
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    color: white;
+  }
 }
 // }}}
 // Component data tables {{{
@@ -311,6 +435,28 @@ a.button:visited,
 .crm-form-radio+label {
   padding-left: 1.5rem;
 }
+// }}}
+// Component: icon picker {{{
+.crm-container a.crm-icon-picker-button {
+  display: inline-block;
+  min-width: 10em;
+  height: 1.5rem;
+  text-align: inherit;
+  color: white;
+}
+
+#crmIconPicker a.ui-button {
+  box-sizing: content-box;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  color: white !important;
+}
+
+.crm-container a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
+  padding: .4em .2em;
+}
+
+
 // }}}
 // Component: sticky table heads. xxx probably want to tame this... {{{
 thead tr:first-child {
@@ -366,10 +512,36 @@ thead tr:first-child {
   }
 
 }
+// Component: non popup messages {{{
+div.messages {
+  background: #fdf8e8;
+  border: none;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: solid 2rem #eaa75c;
+  position: relative;
+}
+
+div.messages .icon {
+  position: absolute;
+  top: 1rem;
+  left: -2rem;
+  width: 2rem;
+  text-align: center;
+}
+
+div.messages .icon.inform-icon::before {
+  display: inline-block;
+  content: "\F05A";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  color: white;
+}
+// }}}
+
 // The ticks and other icons...
 .crm-container div.ui-notify-message div.icon, .crm-status-icon {
-	background: none; // Disable CiviCRM's style
-	//width: 24px; height: 24px;
 	margin-right: 0; // override
   text-indent: 0;
   float:none;
@@ -457,14 +629,14 @@ thead tr:first-child {
 // Component help icon {{{
 a.helpicon {
   &::before {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    content: "\F059";
     display:inline-block;
-    content: '?';
     line-height: 1;
-    width: 1rem;
     text-align:center;
-    background: $colourBlueGrey;
-    border-radius: 1rem;
-    background-clip: border-box;
+    color: $colourArtfulBrightBlue;
   }
 }
 // }}}
@@ -492,20 +664,98 @@ table.form-layout-compressed {
   }
 }
 // }}}
+
+// Component: table selector {{{
+table.selector {
+  width: 100%;
+}
+
+table.selector th,
+table.selector td {
+  padding: 0.25rem 0.5rem;
+  border: none;
+  font-size: 0.875rem;
+}
+
+table.selector th > .crm-form-checkbox,
+table.selector td > .crm-form-checkbox {
+  position: static;
+}
+// }}}
+// Component: tabs {{{
+justincase {
+.crm-container .crm-tab-button a,
+.crm-container .ui-tabs .ui-tabs-nav li a {
+  padding: 0.5rem 1rem;
+}
+
+.crm-container .crm-tab-button a em,
+.crm-container .ui-tabs .ui-tabs-nav li a em {
+  background: $colourArtfulDarkBlue;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
+  padding: 0 0.3rem;
+  color: white;
+  font-style: normal;
+  font-weight: bold;
+}
+
+.crm-container ul li.crm-tab-button.ui-state-active {
+  background: none;
+  border-bottom: solid 2px #2c98ed;
+}
+
+.crm-container ul li.crm-tab-button em {
+  margin-left: 1rem;
+  display: inline-block;
+}
+}
+// }}}
+
+.crm-summary-link {
+  display: inline-block;
+  color: $colourArtfulDarkBlue;
+  width: 2rem;
+  height: 2rem;
+}
+
+.crm-summary-link .crm-icon {
+  line-height: 2rem;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+}
+
+.crm-summary-link .crm-icon.Individual-icon::before {
+  content: "\F2BD";
+  display: inline-block;
+}
+
+.crm-summary-link .crm-icon.Organization-icon::before {
+  content: "\F0F7";
+  display: inline-block;
+}
+
+.crm-summary-link .crm-tooltip-wrapper {
+  display: none;
+  position: absolute;
+  background: white;
+  padding: 0 1rem;
+  font-size: 1rem;
+  z-index: 1;
+  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.crm-summary-link.crm-tooltip-active .crm-tooltip-wrapper {
+  display: block;
+}
+
+
 // Specific Page: Contact page {{{
 .crm-summary-display_name {
   margin-top:1rem;
   font-size: (27rem/16);
-  .crm-summary-link {
-    display:inline-block;
-    background:red;
-    width: 1rem;
-    height: 1rem;
-    //.icon crm-icon Individual-icon
-    .crm-icon {
-// @todo
-    }
-  }
+  color: $colourArtfulDarkBlue;
 }
 // Inline clickable edit things {{{
 .crm-inline-edit {
@@ -749,7 +999,7 @@ table {
   font-size:inherit;
 }
 
-// Tabs (e.g. Contributions/Recurring Contributions) {{{
+// xxx Tabs (e.g. Contributions/Recurring Contributions) {{{
 .crm-container .crm-tab-button a,
 .crm-container .ui-tabs .ui-tabs-nav li a
 {
