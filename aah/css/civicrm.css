@@ -59,44 +59,6 @@ body.page-civicrm-a #content {
           flex: 0 0 160px;
 }
 
-body#bootstrap-theme,
-#bootstrap-theme {
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  background-color: inherit;
-}
-
-#bootstrap-theme h1 small,
-#bootstrap-theme h1 .small {
-  color: inherit;
-}
-
-#bootstrap-theme h2 small,
-#bootstrap-theme h2 .small {
-  color: inherit;
-}
-
-#bootstrap-theme h3 small,
-#bootstrap-theme h3 .small {
-  color: inherit;
-}
-
-#bootstrap-theme h4 small,
-#bootstrap-theme h4 .small {
-  color: inherit;
-}
-
-#bootstrap-theme h5 small,
-#bootstrap-theme h5 .small {
-  color: inherit;
-}
-
-#bootstrap-theme h6 small,
-#bootstrap-theme h6 .small {
-  color: inherit;
-}
-
 #civicrm-menu,
 #root-menu-div ul,
 .ui-widget {
@@ -136,6 +98,12 @@ body#bootstrap-theme,
 
 .label {
   color: inherit;
+}
+
+.panel-heading h1,
+.panel-heading h2,
+.panel-heading h3 {
+  margin: 0;
 }
 
 .ui-widget-header {
@@ -334,6 +302,11 @@ a.ui-button:active,
   line-height: 1;
   top: 0.15rem;
   left: 0.75rem;
+}
+
+.crm-button.btn i.crm-i {
+  position: static;
+  margin-right: 0.5em;
 }
 
 .crm-button input.crm-form-submit,
@@ -694,6 +667,16 @@ div.messages .icon.inform-icon::before {
   margin-right: 2rem;
 }
 
+.crm-select2-row-description {
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.form-control.select2-container {
+  padding: 0;
+  border: none;
+}
+
 #civicrm-footer {
   margin-top: 5rem;
   text-align: center;
@@ -814,6 +797,10 @@ justincase .crm-container ul li.crm-tab-button em {
 
 .hiddenElement {
   display: none;
+}
+
+.prettyprint {
+  white-space: pre-wrap;
 }
 
 .crm-summary-link {

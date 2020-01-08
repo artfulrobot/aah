@@ -2,6 +2,7 @@
 
 // This file whips CiviCRM's old classes into shape.
 
+// Page {{{
 body.page-civicrm {
   h1.page-header {
     display:none; // CiviCRM seems to output this anyways.
@@ -23,7 +24,8 @@ body.page-civicrm-a #content {
   margin-right:auto;
   padding-left: 1rem;
   padding-right: 1rem;
-}
+} // }}}
+// Print stuff {{{
 #printer-friendly {
   display:none; // It's never really printer friendly...
 }
@@ -35,12 +37,13 @@ body.page-civicrm-a #content {
   body.page-civicrm {
     padding-top:0;
   }
-}
+} // }}}
 
-// My Quickform patch for radios.
+// Component: Radio inputs in [public] Profile forms {{{
 .crm-profile .radio-wrapper { display:block; }
+// }}}
 
-// Override Mosaico.
+// Override Mosaico. {{{
 #bootstrap-theme .crm-mosaico-template-item {
   display:flex;
   width:100%;
@@ -51,25 +54,7 @@ body.page-civicrm-a #content {
 }
 #bootstrap-theme .crm-mosaico-template-item .crm-mosaico-template-image-wrapper {
   flex: 0 0 160px;
-}
-
-// Calm bootstrap a bit.
-body#bootstrap-theme, #bootstrap-theme {
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  background-color: inherit;
-}
-#bootstrap-theme {
-  @each $h in h1 h2 h3 h4 h5 h6 {
-    #{$h} {
-      small, .small {
-        color:inherit;
-      }
-    }
-  }
-}
-
+} // }}}
 // CiviCRM override default general styles {{{
 #civicrm-menu, #root-menu-div ul,
 .ui-widget {
@@ -106,9 +91,14 @@ body#bootstrap-theme, #bootstrap-theme {
   display: none;
 }
 // }}}
-// Override bootstrap
+// Bootstrap overrides {{{
 .label { color:inherit; }
-// jQuery UI {{{
+// Tame headings in panels.
+.panel-heading {
+  h1, h2, h3 { margin: 0; }
+}
+// }}}
+// jQuery UI overrides {{{
 .ui-widget-header {
   background:$colourWidgetBackground;
   border:none;
@@ -287,6 +277,13 @@ a.ui-button:active,
     top: 0.15rem;
     left: 0.75rem;
   }
+
+  // When it's a bootstrap button...
+  &.btn i.crm-i {
+    position: static;
+    margin-right: 0.5em;
+  }
+
   input.crm-form-submit,
   input[type="button"] {
     padding:0.25rem 1rem 0.25rem 2rem;
@@ -612,6 +609,17 @@ div.messages .icon.inform-icon::before {
 .select2-arrow,
 .select2-chosen { padding: 0.25rem 0; }
 .select2-container .select2-choice > .select2-chosen { margin-right: 2rem; }
+
+.crm-select2-row-description {
+  font-size: (12rem/16);
+  color: $colourMidGrey;
+}
+
+// When used with a bootstrap .form-control...
+.form-control.select2-container {
+  padding: 0;
+  border:none;
+}
 // }}}
 // Component: Footer {{{
 #civicrm-footer {
@@ -739,6 +747,12 @@ justincase {
 // Functional class: hiddenElement {{{
 // Used on the main CiviCRM dashboard page, not sure if it has more general use.
 .hiddenElement { display: none; }
+// }}}
+// Functional class: .prettyprint {{{
+// Used on the APIv4 explorer
+.prettyprint {
+  white-space: pre-wrap;
+}
 // }}}
 
 .crm-summary-link {
@@ -1070,3 +1084,21 @@ table {
 }
 
 
+
+// /// Calm bootstrap a bit.
+// /body#bootstrap-theme, #bootstrap-theme {
+// /  font-family: inherit;
+// /  font-size: inherit;
+// /  color: inherit;
+// /  background-color: inherit;
+// /}
+// /#bootstrap-theme {
+// /  @each $h in h1 h2 h3 h4 h5 h6 {
+// /    #{$h} {
+// /      small, .small {
+// /        color:inherit;
+// /      }
+// /    }
+// /  }
+// /}
+// /
