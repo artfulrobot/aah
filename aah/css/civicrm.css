@@ -248,12 +248,18 @@ a.ui-button:active,
   display: none;
 }
 
+#crm-container .widget-content .crm-accordion-wrapper.collapsed .crm-accordion-header,
+#crm-container .widget-content .crm-accordion-header {
+  background-image: none !important;
+}
+
 .crm-accordion-header {
-  color: #02477d;
   padding: 0.5rem 1rem 0.5rem 2.5rem;
   background-color: #add3ed;
+  color: #02477d;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
+  cursor: pointer;
 }
 
 .crm-accordion-header.active {
@@ -394,6 +400,7 @@ a.button:visited:hover,
 
 .btn-slide {
   position: relative;
+  cursor: pointer;
 }
 
 .btn-slide .panel {
@@ -470,13 +477,13 @@ a.button:visited:hover,
 .crm-container .odd-row,
 .crm-container .odd,
 tbody.scrollContent {
-  background-color: #fcfcfc;
+  background: #f8f8f8;
 }
 
 .crm-container .even-row,
 .crm-container .even,
 tbody.scrollContent tr.alternateRow {
-  background: #f8f8f8;
+  background-color: #fcfcfc;
 }
 
 .crm-container table.row-highlight tr.even-row:hover,
@@ -580,6 +587,7 @@ thead tr:first-child {
   padding: 1rem;
 }
 
+div.status,
 div.messages {
   background: #fdf8e8;
   border: none;
@@ -722,6 +730,21 @@ a.helpicon::before {
   font-size: 0.875rem;
 }
 
+#crm-container table {
+  border-collapse: collapse;
+}
+
+#crm-container table td,
+#crm-container table th {
+  padding: 0.5rem 1rem;
+  border: solid 1px #e8e8e8;
+  background-clip: padding-box;
+}
+
+#crm-container table th {
+  background: #e6edf2;
+}
+
 table.form-layout {
   width: 100%;
 }
@@ -745,6 +768,10 @@ table.form-layout-compressed td {
 
 table.selector {
   width: 100%;
+}
+
+table.selector tr.disabled td {
+  opacity: 0.35;
 }
 
 table.selector th,
@@ -783,6 +810,10 @@ justincase .crm-container ul li.crm-tab-button.ui-state-active {
 justincase .crm-container ul li.crm-tab-button em {
   margin-left: 1rem;
   display: inline-block;
+}
+
+.hiddenElement {
+  display: none;
 }
 
 .crm-summary-link {

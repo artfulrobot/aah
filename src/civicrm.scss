@@ -202,11 +202,18 @@ a.ui-button:active,
 
   &.collapsed .crm-accordion-body { display: none; }
 }
+// 2 dashboard.css overrides
+#crm-container .widget-content .crm-accordion-wrapper.collapsed .crm-accordion-header,
+#crm-container .widget-content .crm-accordion-header {
+  background-image: none !important;
+}
+// Generally we don't need such specificity
 .crm-accordion-header {
-  color: $colourArtfulDarkBlue;
   padding: 0.5rem 1rem 0.5rem 2.5rem;
   background-color: $colourBlueGrey;
+  color: $colourArtfulDarkBlue;
   transition: background-color 0.2s;
+  cursor: pointer;
 
   &.active {
     background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
@@ -335,6 +342,7 @@ a.button:visited,
 // 'more' buttons {{{
 .btn-slide {
   position: relative;
+  cursor:pointer;
 
   .panel {
     display: none;
@@ -364,7 +372,7 @@ a.button:visited,
 }
 // }}}
 // }}}
-// Component crm-hover-button {{{
+// Component: crm-hover-button {{{
 // I think these can just be normal links, not sure what buttonising them does.
 .crm-hover-button {
   display: inline-block;
@@ -394,7 +402,7 @@ a.button:visited,
   }
 }
 // }}}
-// Component data tables {{{
+// Component: data tables {{{
 .dataTables_wrapper .dataTables_paginate {
 
 }
@@ -410,10 +418,10 @@ a.button:visited,
 }
 // Make the alternate row shading more subtle.
 .crm-container .odd-row, .crm-container .odd, tbody.scrollContent {
-	background-color: $colourWidgetBackgroundLightest;
+  background: $colourWidgetBackground;
 }
 .crm-container .even-row, .crm-container .even, tbody.scrollContent tr.alternateRow {
-  background: $colourWidgetBackground;
+	background-color: $colourWidgetBackgroundLightest;
 }
 .crm-container table.row-highlight tr.even-row:hover, .crm-container table.row-highlight tr.even:hover, .crm-container .even-row.crm-row-selected, .crm-container .even.crm-row-selected,
 .crm-container table.row-highlight tr:hover, .crm-container .crm-row-selected {
@@ -513,6 +521,7 @@ thead tr:first-child {
 
 }
 // Component: non popup messages {{{
+div.status,
 div.messages {
   background: #fdf8e8;
   border: none;
@@ -612,8 +621,9 @@ div.messages .icon.inform-icon::before {
   opacity: 0.8;
 }
 //}}}
-// Component: Status {{{
+// Component: The "Status" bit in the footer {{{
 .status {
+
   &.crm-error {
     background: $colourRedDanger;
     border-radius: 2px;
@@ -626,7 +636,7 @@ div.messages .icon.inform-icon::before {
   }
 }
 // }}}
-// Component help icon {{{
+// Component: help icon {{{
 a.helpicon {
   &::before {
     font: normal normal normal 14px/1 FontAwesome;
@@ -644,6 +654,19 @@ a.helpicon {
 #access {
   margin-top: 1rem;
   font-size: (14rem/16);
+}
+// }}}
+// Component: tables {{{
+#crm-container table {
+  border-collapse: collapse;
+  td, th {
+    padding: 0.5rem 1rem;
+    border: solid 1px $colourWidgetBorder;
+    background-clip: padding-box; // Stop Firefox drawing backgrounds over borders.
+  }
+  th {
+    background: $colourSubtleHoverLightBlueGrey;
+  }
 }
 // }}}
 // Component: table.form-layout {{{
@@ -668,19 +691,21 @@ table.form-layout-compressed {
 // Component: table selector {{{
 table.selector {
   width: 100%;
+  tr.disabled td { opacity: 0.35; }
+
+  th,
+  td {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    font-size: 0.875rem;
+
+    &> .crm-form-checkbox {
+      position: static;
+    }
+  }
 }
 
-table.selector th,
-table.selector td {
-  padding: 0.25rem 0.5rem;
-  border: none;
-  font-size: 0.875rem;
-}
 
-table.selector th > .crm-form-checkbox,
-table.selector td > .crm-form-checkbox {
-  position: static;
-}
 // }}}
 // Component: tabs {{{
 justincase {
@@ -710,6 +735,10 @@ justincase {
   display: inline-block;
 }
 }
+// }}}
+// Functional class: hiddenElement {{{
+// Used on the main CiviCRM dashboard page, not sure if it has more general use.
+.hiddenElement { display: none; }
 // }}}
 
 .crm-summary-link {
