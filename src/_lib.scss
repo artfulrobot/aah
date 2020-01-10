@@ -1,6 +1,7 @@
 $colourArtfulBrightBlue :#2c98ed;
 $colourArtfulDarkBlue :#02477d;
 $colourArtfulBrightBlueHigh :lighten($colourArtfulBrightBlue, 20%);
+$colourArtfulMutedBlue:  #b3d2ea;
 $colourArtfulAmber :#ffcc00;
 $colourHighlight : lighten($colourArtfulAmber, 30%);
 $colourVeryLightBlue: #e0effb;
@@ -14,6 +15,7 @@ $colourWidgetBackground : #f8f8f8;
 $colourWidgetBorder : #e8e8e8;
 $colourWidgetBackgroundLightest : #fcfcfc;
 $colourSubtleHoverLightBlueGrey: #e6edf2;
+$colourSubtleHoverLightBlueGreyTint: #c6d5df;
 $colourTabsBg: #eae9e4;
 $colourFormElementsBorder: rgba(0, 0, 0, 0.2);
 
@@ -28,6 +30,7 @@ $colourGreenHint: #e9f9db;
 $colourGreen2: mix($colourGreenStrongBg, $colourGreenHint, 50%);
 
 $colourAmberStrongBg: #eaa75c;
+$colourAmberLightBg: #fdf8e8;
 $colourAmberHint: #ffedcc;
 $colourRedDanger: #a00;
 // #e8c6a2

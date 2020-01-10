@@ -26,7 +26,9 @@ body.page-civicrm-a #content {
   padding-right: 1rem;
 } // }}}
 // Print stuff {{{
-#printer-friendly {
+#printer-friendly,
+.ui-button.crm-dialog-titlebar-print
+{
   display:none; // It's never really printer friendly...
 }
 @media print {
@@ -39,11 +41,8 @@ body.page-civicrm-a #content {
   }
 } // }}}
 
-// Component: Radio inputs in [public] Profile forms {{{
-.crm-profile .radio-wrapper { display:block; }
-// }}}
 
-// Override Mosaico. {{{
+// Override: Mosaico. {{{
 #bootstrap-theme .crm-mosaico-template-item {
   display:flex;
   width:100%;
@@ -55,7 +54,7 @@ body.page-civicrm-a #content {
 #bootstrap-theme .crm-mosaico-template-item .crm-mosaico-template-image-wrapper {
   flex: 0 0 160px;
 } // }}}
-// CiviCRM override default general styles {{{
+// Override: CiviCRM override default general styles {{{
 #civicrm-menu, #root-menu-div ul,
 .ui-widget {
   font-family: Lato;
@@ -91,14 +90,16 @@ body.page-civicrm-a #content {
   display: none;
 }
 // }}}
-// Bootstrap overrides {{{
+// Override: Bootstrap {{{
 .label { color:inherit; }
+// Bootstrap says all .labels should be inline but CiviCRM uses the class on td...
+td.label { display: table-cell; }
 // Tame headings in panels.
 .panel-heading {
   h1, h2, h3 { margin: 0; }
 }
 // }}}
-// jQuery UI overrides {{{
+// Override: jQuery UI {{{
 .ui-widget-header {
   background:$colourWidgetBackground;
   border:none;
@@ -335,6 +336,28 @@ a.button:visited,
   margin-top: 1rem;
   .crm-button { margin-right: 1rem; }
 }
+// Remove top margin from buttons when they're the first child of a td
+td>.crm-submit-buttons:first-child {
+  margin-top: 0;
+}
+
+// Buttons in title bars.
+.ui-dialog-titlebar {
+  .ui-dialog-titlebar-close, // This class is mis-used for various types of button.
+  button, span.ui-button {
+    border-radius: 0;
+    background: transparent;
+    border: solid 1px $colourArtfulBrightBlue;
+    color: $colourArtfulBrightBlue;
+    box-shadow: none;
+    width: 1.6rem; // There's inline style attribute applied forcing positioning, so this is as wide as we can go.
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.5);
+      border: solid 1px $colourArtfulBrightBlue;
+    }
+  }
+}
 
 // 'more' buttons {{{
 .btn-slide {
@@ -358,6 +381,7 @@ a.button:visited,
       a {
         display: block;
         padding: 0.25rem 1rem;
+        margin:0;
         text-decoration: none;
         &:hover {
           background: #e6edf2;
@@ -383,7 +407,7 @@ a.button:visited,
   border-radius: 0;
   border:none;
   background: $colourVeryLightBlue;
-  border-left: 2rem solid $colourArtfulBrightBlue;;
+  border-left: 2rem solid $colourArtfulMutedBlue;
   font-size: 1rem;
   margin-bottom: 1rem;
   &::before {
@@ -399,32 +423,6 @@ a.button:visited,
   }
 }
 // }}}
-// Component: data tables {{{
-.dataTables_wrapper .dataTables_paginate {
-
-}
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-  padding: 0 0.5rem;
-  &.current,
-  &.current:hover {
-    background:none;
-    border:none;
-    border: solid 1px $colourArtfulBrightBlue;
-    background: $colourVeryLightBlue;
-  }
-}
-// Make the alternate row shading more subtle.
-.crm-container .odd-row, .crm-container .odd, tbody.scrollContent {
-  background: $colourWidgetBackground;
-}
-.crm-container .even-row, .crm-container .even, tbody.scrollContent tr.alternateRow {
-	background-color: $colourWidgetBackgroundLightest;
-}
-.crm-container table.row-highlight tr.even-row:hover, .crm-container table.row-highlight tr.even:hover, .crm-container .even-row.crm-row-selected, .crm-container .even.crm-row-selected,
-.crm-container table.row-highlight tr:hover, .crm-container .crm-row-selected {
-  background: $colourSubtleHoverLightBlueGrey;
-}
-// }}}
 // Component: Form elements {{{
 .crm-container {
   input[type="text"], input[type="password"], textarea {
@@ -433,13 +431,50 @@ a.button:visited,
 }
 // Stop the labels butting right up against the tick boxes.
 // Using padding so we don't create an unclickable gap.
-.crm-form-checkbox, .crm-form-radio {
+.crm-form-checkbox,
+.crm-form-radio {
   position: absolute;
+
+  // Except where this is the only element.
+  &:last-child {
+    position: static;
+  }
+
+  &+label, &+.description {
+    padding-left: 1.5rem;
+  }
 }
-.crm-form-checkbox+label,
-.crm-form-radio+label {
-  padding-left: 1.5rem;
-}
+// I'm not sure what this is. {{{
+.crm-section {
+  display: flex;
+  flex-wrap: wrap;
+
+  &>.label {
+    flex: 0 1 12rem;
+    padding-right: 1rem;
+    font-size: inherit;
+    display: inline-block;
+    text-align: right; // Bootstrap sets it center
+  }
+  &>.content {
+    flex: 1 0 12rem;
+    margin-right: 2rem;
+
+    // Special treatment of radios, checkboxes.
+    .crm-form-checkbox, .crm-form-radio {
+      position: static;
+
+      &+label {
+        display: inline;
+        margin-right: 4rem;
+        padding-left: 0;
+      }
+    }
+  }
+
+
+} // }}}
+
 // }}}
 // Component: icon picker {{{
 .crm-container a.crm-icon-picker-button {
@@ -469,7 +504,39 @@ thead tr:first-child {
 	top: 2.6rem;
 	z-index: 20;
 } // }}}
-// Component: Notifications {{{
+// Component: Notifications - non popups {{{
+div.status,
+div.messages {
+  background: $colourAmberLightBg;
+  border: none;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: solid 2rem $colourAmberStrongBg;
+
+  position: relative;
+
+  // Hide unsightly image icon.
+  img[alt="status"] { display:none; }
+}
+
+div.messages .icon {
+  position: absolute;
+  top: 1rem;
+  left: -2rem;
+  width: 2rem;
+  text-align: center;
+}
+
+div.messages .icon.inform-icon::before {
+  display: inline-block;
+  content: "\F05A";
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  color: white;
+}
+// }}}
+// Component: Notifications - popups {{{
 #crm-notification-container {
 	min-width: 30rem;
 	max-width: 45rem;
@@ -490,12 +557,33 @@ thead tr:first-child {
 	color: white;
   border: solid 1px white;
   border-radius: 2px;
+  text-decoration: none;
+  &:hover, &:active {
+    background: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+  }
 }
+
 #crm-notification-container div.ui-notify-message-style {
 	background: white;
   border-left: solid 4px $colourAmberStrongBg;
 	box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
+// Special colours.
+#crm-notification-container div.ui-notify-message-style {
+  &.success {
+    border-left-color: $colourGreenStrongBg;
+    div.icon { color: white; }
+    h1 { background-color: $colourGreenStrongBg; color: white; }
+  }
+  &.error {
+    div.icon { color: white; }
+    border-left-color: $colourRedDanger;
+    h1 { background-color: $colourRedDanger; color: white; }
+  }
+}
+
+
 #crm-notification-container div.ui-notify-message {
   position: relative;
 	padding: 0;
@@ -511,40 +599,13 @@ thead tr:first-child {
     font-size: 1rem;
     margin:0;
     padding: 1rem 1rem 1rem 3rem;
+    min-height: 3.7rem; // Sometimes it is empty.
   }
   .notify-content {
     padding: 1rem;
   }
 
 }
-// Component: non popup messages {{{
-div.status,
-div.messages {
-  background: #fdf8e8;
-  border: none;
-  margin: 1rem 0;
-  padding: 1rem;
-  border-left: solid 2rem #eaa75c;
-  position: relative;
-}
-
-div.messages .icon {
-  position: absolute;
-  top: 1rem;
-  left: -2rem;
-  width: 2rem;
-  text-align: center;
-}
-
-div.messages .icon.inform-icon::before {
-  display: inline-block;
-  content: "\F05A";
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  color: white;
-}
-// }}}
 
 // The ticks and other icons...
 .crm-container div.ui-notify-message div.icon, .crm-status-icon {
@@ -569,6 +630,9 @@ div.messages .icon.inform-icon::before {
   &::before { content:'\2714'; } // Tick.
 }
 
+// }}}
+// Component: Radio inputs in [public] Profile forms {{{
+.crm-profile .radio-wrapper { display:block; }
 // }}}
 // Component: Select 2 {{{
 .select2-container .select2-choice {
@@ -610,7 +674,13 @@ div.messages .icon.inform-icon::before {
 .select2-chosen { padding: 0.25rem 0; }
 .select2-container .select2-choice > .select2-chosen { margin-right: 2rem; }
 
+// Row description is smaller secondary text
+// it should be only shown when the drop-down is open.
 .crm-select2-row-description {
+  display:none;
+}
+.select2-results .crm-select2-row-description {
+  display: block;
   font-size: (12rem/16);
   color: $colourMidGrey;
 }
@@ -621,140 +691,7 @@ div.messages .icon.inform-icon::before {
   border:none;
 }
 // }}}
-// Component: Footer {{{
-#civicrm-footer {
-  margin-top: 5rem;
-  text-align: center;
-  font-size: (12rem/16);
-  opacity: 0.8;
-}
-//}}}
-// Component: The "Status" bit in the footer {{{
-.status {
-
-  &.crm-error {
-    background: $colourRedDanger;
-    border-radius: 2px;
-    padding: 0 0.5rem;
-    margin:0 0.5rem;
-    color:white;
-    a:link, a:visited {
-      color:white;
-    }
-  }
-}
-// }}}
-// Component: help icon {{{
-a.helpicon {
-  &::before {
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    content: "\F059";
-    display:inline-block;
-    line-height: 1;
-    text-align:center;
-    color: $colourArtfulBrightBlue;
-  }
-}
-// }}}
-// Component: Access keys {{{
-#access {
-  margin-top: 1rem;
-  font-size: (14rem/16);
-}
-// }}}
-// Component: tables {{{
-#crm-container table {
-  border-collapse: collapse;
-  td, th {
-    padding: 0.5rem 1rem;
-    border: solid 1px $colourWidgetBorder;
-    background-clip: padding-box; // Stop Firefox drawing backgrounds over borders.
-  }
-  th {
-    background: $colourSubtleHoverLightBlueGrey;
-  }
-}
-// }}}
-// Component: table.form-layout {{{
-table.form-layout {
-  width: 100%;
-  th, td {
-    padding: 0.25rem 0.5rem;
-    border:none;
-  }
-} // }}}
-// Component: table.form-layout-compressed {{{
-table.form-layout-compressed {
-  width: 100%;
-  th, td {
-    padding: 0.25rem 0.5rem;
-    border:none;
-    font-size: (14rem/16);
-  }
-}
-// }}}
-
-// Component: table selector {{{
-table.selector {
-  width: 100%;
-  tr.disabled td { opacity: 0.35; }
-
-  th,
-  td {
-    padding: 0.25rem 0.5rem;
-    border: none;
-    font-size: 0.875rem;
-
-    &> .crm-form-checkbox {
-      position: static;
-    }
-  }
-}
-
-
-// }}}
-// Component: tabs {{{
-justincase {
-.crm-container .crm-tab-button a,
-.crm-container .ui-tabs .ui-tabs-nav li a {
-  padding: 0.5rem 1rem;
-}
-
-.crm-container .crm-tab-button a em,
-.crm-container .ui-tabs .ui-tabs-nav li a em {
-  background: $colourArtfulDarkBlue;
-  border-radius: 0.5rem;
-  font-size: 0.8125rem;
-  padding: 0 0.3rem;
-  color: white;
-  font-style: normal;
-  font-weight: bold;
-}
-
-.crm-container ul li.crm-tab-button.ui-state-active {
-  background: none;
-  border-bottom: solid 2px #2c98ed;
-}
-
-.crm-container ul li.crm-tab-button em {
-  margin-left: 1rem;
-  display: inline-block;
-}
-}
-// }}}
-// Functional class: hiddenElement {{{
-// Used on the main CiviCRM dashboard page, not sure if it has more general use.
-.hiddenElement { display: none; }
-// }}}
-// Functional class: .prettyprint {{{
-// Used on the APIv4 explorer
-.prettyprint {
-  white-space: pre-wrap;
-}
-// }}}
-
+// Component: Summary links {{{
 .crm-summary-link {
   display: inline-block;
   color: $colourArtfulDarkBlue;
@@ -791,8 +728,167 @@ justincase {
 
 .crm-summary-link.crm-tooltip-active .crm-tooltip-wrapper {
   display: block;
+} // }}}
+// Component: Footer {{{
+#civicrm-footer {
+  margin-top: 5rem;
+  text-align: center;
+  font-size: (12rem/16);
+  opacity: 0.8;
+}
+// Component: "Status" bit in the footer {{{
+.status {
+
+  &.crm-error {
+    background: $colourRedDanger;
+    border-radius: 2px;
+    padding: 0 0.5rem;
+    margin:0 0.5rem;
+    color:white;
+    a:link, a:visited {
+      color:white;
+    }
+  }
+}
+// }}}
+//}}}
+// Component: help icon {{{
+a.helpicon {
+  &::before {
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    content: "\F059";
+    display:inline-block;
+    line-height: 1;
+    text-align:center;
+    color: $colourArtfulBrightBlue;
+  }
+}
+// }}}
+// Component: Access keys {{{
+#access {
+  margin-top: 1rem;
+  font-size: (14rem/16);
+}
+// }}}
+// Component: Tabs (e.g. Contributions/Recurring Contributions) {{{
+.crm-container .crm-tab-button a,
+.crm-container .ui-tabs .ui-tabs-nav li a
+{
+  padding: 0.5rem 1rem; // we have to use important because we're overriding another !important(!)
+  em  {
+        background: $colourArtfulBrightBlue;
+        border-radius: 0.5rem;
+        font-size: (13rem/16);
+        padding: 0 0.3rem;
+        color:white;
+        font-style:normal;
+        font-weight:bold;
+        &:empty { display: none; }
+  }
+}
+.crm-container ul li.crm-tab-button {
+  &.ui-state-active {
+    background: none;
+    border-bottom: solid 2px $colourArtfulBrightBlue;
+  }
+  // Bit of spacing before the count number.
+  em {
+    margin-left: 1rem;
+    display: inline-block;
+  }
+}
+// }}}
+// Component: tables {{{
+#crm-container table {
+  border-collapse: collapse;
+  td, th {
+    padding: 0.5rem 1rem;
+    background-clip: padding-box; // Stop Firefox drawing backgrounds over borders.
+  }
+  td {
+    border: solid 1px $colourWidgetBorder;
+  }
+  th {
+    background-color: $colourSubtleHoverLightBlueGrey;
+    border: solid 1px $colourSubtleHoverLightBlueGreyTint;
+  }
+}
+// }}}
+// Component: table.form-layout {{{
+#crm-container table.form-layout {
+  width: 100%;
+  th, td {
+    padding: 0.25rem 0.5rem;
+    border:none;
+  }
+} // }}}
+// Component: table.form-layout-compressed {{{
+table.form-layout-compressed {
+  width: 100%;
+  th, td {
+    padding: 0.25rem 0.5rem;
+    border:none;
+    font-size: (14rem/16);
+  }
+}
+// }}}
+// Component: table selector {{{
+table.selector {
+  width: 100%;
+  tr.disabled td { opacity: 0.35; }
+
+  th,
+  td {
+    padding: 0.25rem 0.5rem;
+    border: none;
+    font-size: 0.875rem;
+
+    &> .crm-form-checkbox {
+      position: static;
+    }
+  }
 }
 
+
+// }}}
+// Component: data tables {{{
+.dataTables_wrapper .dataTables_paginate {
+
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  padding: 0 0.5rem;
+  &.current,
+  &.current:hover {
+    border:none;
+    border: solid 1px $colourArtfulBrightBlue;
+    background-color: $colourVeryLightBlue;
+    background-image: none;
+  }
+}
+// Make the alternate row shading more subtle.
+.crm-container .odd-row, .crm-container .odd, tbody.scrollContent {
+  background-color: $colourWidgetBackground;
+}
+.crm-container .even-row, .crm-container .even, tbody.scrollContent tr.alternateRow {
+	background-color: $colourWidgetBackgroundLightest;
+}
+.crm-container table.row-highlight tr.even-row:hover, .crm-container table.row-highlight tr.even:hover, .crm-container .even-row.crm-row-selected, .crm-container .even.crm-row-selected,
+.crm-container table.row-highlight tr:hover, .crm-container .crm-row-selected {
+  background-color: $colourSubtleHoverLightBlueGrey;
+}
+// }}}
+// Functional class: hiddenElement {{{
+// Used on the main CiviCRM dashboard page, not sure if it has more general use.
+.hiddenElement { display: none; }
+// }}}
+// Functional class: .prettyprint {{{
+// Used on the APIv4 explorer
+.prettyprint {
+  white-space: pre-wrap;
+}
+// }}}
 
 // Specific Page: Contact page {{{
 .crm-summary-display_name {
@@ -835,7 +931,7 @@ justincase {
 
 } // }}}
 // Main tabs (make 'em vertical) {{{
-#mainTabContainer {
+.crm-contact-page #mainTabContainer {
   display: grid;
   grid-template-columns: 12rem auto;
   padding:0;
@@ -879,10 +975,11 @@ justincase {
 
       i { flex: 0 0 1.2rem; }
       span { flex: 1 1 auto; padding-left:1em; font-size: (14rem/16); }
-      // Item count
+      // Item count in Contact tabs
       em {
         flex: 0 0 auto;
         background: $colourArtfulDarkBlue;
+        background: $colourArtfulBrightBlue;
         border-radius: 0.5rem;
         font-size: (13rem/16);
         padding: 0 0.3rem;
@@ -890,6 +987,10 @@ justincase {
         font-style:normal;
         font-weight:bold;
       }
+    }
+    // Hide blob when there's a zero count
+    .crm-count-, .crm-count-0 {
+      em { display:none; }
     }
     // active / selected tab
     li.crm-tab-button.ui-state-active {
@@ -1006,6 +1107,12 @@ table {
   }
 }
 // }}}
+// Specific Page: Extensions {{{
+// Hide the counts in <em> - they don't contain anything
+.crm-container .ui-tabs .ui-tabs-nav.crm-extensions-tabs-list  li a em {
+  display:none;
+}
+// }}}
 
 #crm-container ul.wizard-bar {
   border:none;
@@ -1042,33 +1149,6 @@ table {
   font-size:inherit;
 }
 
-// xxx Tabs (e.g. Contributions/Recurring Contributions) {{{
-.crm-container .crm-tab-button a,
-.crm-container .ui-tabs .ui-tabs-nav li a
-{
-  padding: 0.5rem 1rem; // we have to use important because we're overriding another !important(!)
-  em  {
-        background: $colourArtfulDarkBlue;
-        border-radius: 0.5rem;
-        font-size: (13rem/16);
-        padding: 0 0.3rem;
-        color:white;
-        font-style:normal;
-        font-weight:bold;
-  }
-}
-.crm-container ul li.crm-tab-button {
-  &.ui-state-active {
-    background: none;
-    border-bottom: solid 2px $colourArtfulBrightBlue;
-  }
-  // Bit of spacing before the count number.
-  em {
-    margin-left: 1rem;
-    display: inline-block;
-  }
-}
-// }}}
 
 .crm-container .crm-form-block {
   background-color: white;
