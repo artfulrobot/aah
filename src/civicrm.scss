@@ -42,6 +42,9 @@ body.page-civicrm-a #content {
 } // }}}
 
 
+// Override: Aaah theme! {{{
+#crm-container li { max-width: none; }
+// }}}
 // Override: Mosaico. {{{
 #bootstrap-theme .crm-mosaico-template-item {
   display:flex;
@@ -164,6 +167,11 @@ a.ui-button:active,
   background: #127fd4; // @todo what colour?
 }
 // }}}
+// Override: Case {{{
+.crmCaseType tr.addRow td {
+  background: $colourSubtleHoverLightBlueGrey border-box !important;
+}
+// }}}
 // Component: Actions ribbon (e.g. at top of Contact screen) and .action-link which seems to be very similar {{{
 .crm-actions-ribbon {
   &>ul {
@@ -186,13 +194,14 @@ a.ui-button:active,
 }
 
 //}}}
-// Component: Accordians. {{{
+// Component: Accordians (various types). {{{
 .crm-accordion-wrapper {
   margin-bottom: 1rem;
   border-bottom: solid 1px $colourFormElementsBorder;
 
   &.collapsed .crm-accordion-body { display: none; }
 }
+
 // 2 dashboard.css overrides
 #crm-container .widget-content .crm-accordion-wrapper.collapsed .crm-accordion-header,
 #crm-container .widget-content .crm-accordion-header {
@@ -244,10 +253,11 @@ a.ui-button:active,
 
 // This is another sort of collapsible content
 .crm-collapsible {
+  position: relative;
   margin: 0.5rem 0;
-  background-color: $colourBlueGrey;
   transition: background-color 0.2s;
-  padding: 0.5rem 1rem;
+  padding: 3rem 1rem 0.5rem; // 3rem to allow for absolutely positioned title.
+  background-color: $colourSubtleHoverLightBlueGrey;
 
   &.collapsed {
     &>div { display:none; }
@@ -258,6 +268,10 @@ a.ui-button:active,
   .collapsible-title {
     color: $colourArtfulDarkBlue;
     cursor: pointer;
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    border: none;
   }
 }
 
@@ -275,8 +289,11 @@ a.ui-button:active,
     pointer-events: none;
     color: white;
     line-height: 1;
-    top: 0.15rem;
     left: 0.75rem;
+    // Center vertically
+    top: 50%;
+    transform: translateY(-0.55rem);
+
   }
 
   // When it's a bootstrap button...
@@ -290,6 +307,7 @@ a.ui-button:active,
     padding:0.25rem 1rem 0.25rem 2rem;
   }
 }
+button.crm-button,
 input.crm-form-submit,
 input[type="button"] {
   display:inline-block;
@@ -305,6 +323,10 @@ input[type="button"] {
   &:hover {
     background-color: darken($colourArtfulBrightBlue, 10%);
   }
+}
+// Angular buttons specify an icon on the button with the crm-icon attr.
+button.crm-button[crm-icon] {
+  padding-left: 2.1rem;
 }
 
 // Link buttons
@@ -420,6 +442,18 @@ td>.crm-submit-buttons:first-child {
     font-size: inherit;
     text-rendering: auto;
     color: white;
+  }
+}
+// }}}
+// Component: Fieldset {{{
+#crm-container fieldset {
+  padding-top: 3rem;
+  position: relative;
+  &>legend {
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    border-style:none;
   }
 }
 // }}}
@@ -544,6 +578,7 @@ div.messages .icon.inform-icon::before {
   position: fixed;
   top: 3rem;
   right: 1rem;
+  z-index: 100000;
 }
 // Close button
 #crm-notification-container .ui-notify-message a.ui-notify-cross {
@@ -593,6 +628,7 @@ div.messages .icon.inform-icon::before {
 	overflow: auto;
   color: $colourText;
 
+
   h1 {
     color: black;
     background: $colourAmberStrongBg;
@@ -618,18 +654,48 @@ div.messages .icon.inform-icon::before {
   left:1rem;
 
   &::before {
-    content:'\26A0';
+    content:'\26A0';// Warning sign.
+    content:'\270b'; // Hand up emoji
     display:block;
     width: 1.5rem;
     height: 1.5rem;
     text-align:center;
-    color: $colourText;
-  } // Warning sign.
+    color: white;
+  }
 }
 .crm-container div.ui-notify-message.success div.icon, .crm-status-icon.success {
   &::before { content:'\2714'; } // Tick.
 }
 
+// }}}
+// Component: Notifications - angular ajax {{{
+// div.crm-status-box-outer[.status-success] (this seems to have its opacity managed by js)
+//   div.crm-status-box-inner
+//     div.crm-status-box-msg
+.crm-status-box-outer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 100000;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  min-width: 8rem;
+  max-width: 13rem;
+  text-align: center;
+
+  &.status-success {
+    background: $colourGreenStrongBg;
+    .crm-status-box-msg { color: white; }
+  }
+  &.status-error {
+    background: $colourRedDanger;
+    .crm-status-box-msg { color: white; }
+  }
+}
+.crm-status-box-msg {
+  color: $colourArtfulDarkBlue;
+}
 // }}}
 // Component: Radio inputs in [public] Profile forms {{{
 .crm-profile .radio-wrapper { display:block; }
@@ -773,6 +839,16 @@ a.helpicon {
 }
 // }}}
 // Component: Tabs (e.g. Contributions/Recurring Contributions) {{{
+
+// Override the styles for the li.
+
+// Some other CSS highlights the active li
+.crm-container .ui-tabs .ui-tabs-nav li.ui-state-active {
+  background: transparent;
+  border-bottom: solid 2px $colourArtfulBrightBlue;
+}
+
+// This is the actual clickable tab:
 .crm-container .crm-tab-button a,
 .crm-container .ui-tabs .ui-tabs-nav li a
 {
@@ -788,6 +864,7 @@ a.helpicon {
         &:empty { display: none; }
   }
 }
+// @todo specify that ul!
 .crm-container ul li.crm-tab-button {
   &.ui-state-active {
     background: none;
@@ -825,7 +902,7 @@ a.helpicon {
   }
 } // }}}
 // Component: table.form-layout-compressed {{{
-table.form-layout-compressed {
+#crm-container table.form-layout-compressed {
   width: 100%;
   th, td {
     padding: 0.25rem 0.5rem;
@@ -835,7 +912,7 @@ table.form-layout-compressed {
 }
 // }}}
 // Component: table selector {{{
-table.selector {
+#crm-container table.selector {
   width: 100%;
   tr.disabled td { opacity: 0.35; }
 
@@ -881,7 +958,7 @@ table.selector {
 // }}}
 // Functional class: hiddenElement {{{
 // Used on the main CiviCRM dashboard page, not sure if it has more general use.
-.hiddenElement { display: none; }
+#crm-container .hiddenElement { display: none; }
 // }}}
 // Functional class: .prettyprint {{{
 // Used on the APIv4 explorer
@@ -1111,6 +1188,35 @@ table {
 // Hide the counts in <em> - they don't contain anything
 .crm-container .ui-tabs .ui-tabs-nav.crm-extensions-tabs-list  li a em {
   display:none;
+}
+// }}}
+// Specific Page: Admin overview {{{
+#id_Customize_Data_and_Screens_show,
+#id_Communications_show,
+#id_Localization_show,
+#id_Users_and_Permissions_show,
+#id_System_Settings_show,
+#id_CiviContribute_show,
+#id_CiviMail_show,
+#id_CiviCase_show,
+#id_CiviReport_show,
+#id_CiviCampaign_show,
+#id_CiviMember_show,
+#id_CiviEvent_show,
+#id_Customize_Data_and_Screens,
+#id_Communications,
+#id_Localization,
+#id_Users_and_Permissions,
+#id_System_Settings,
+#id_CiviContribute,
+#id_CiviMail,
+#id_CiviCase,
+#id_CiviReport,
+#id_CiviCampaign,
+#id_CiviMember,
+#id_CiviEvent
+{
+  background: white;
 }
 // }}}
 
