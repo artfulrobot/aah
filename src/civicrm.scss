@@ -478,17 +478,20 @@ td>.crm-submit-buttons:first-child {
     padding-left: 1.5rem;
   }
 }
-// I'm not sure what this is. {{{
+// These sections are used (at least) in the angular page template to group fields togehter {{{
+// They contain a div.label and a div.value.
 .crm-section {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 
   &>.label {
-    flex: 0 1 12rem;
+    flex: 0 0 12rem;
     padding-right: 1rem;
     font-size: inherit;
     display: inline-block;
     text-align: right; // Bootstrap sets it center
+    label { white-space: normal; } // Bootstrap says no wrap
   }
   &>.content {
     flex: 1 0 12rem;
@@ -508,6 +511,16 @@ td>.crm-submit-buttons:first-child {
 
 
 } // }}}
+.crm-form-date-wrapper {
+  display: inline-block;
+  &>input.crm-form-date { display:inline-block; }
+  &>input.crm-form-date { width: 10rem; margin-right: 1rem; }
+  &>input.crm-form-time { width: 5rem; }
+}
+// Date Picker elements use this
+.crm-placeholder-icon::placeholder {
+  font: normal normal normal 14px/1 FontAwesome;
+}
 
 // }}}
 // Component: icon picker {{{

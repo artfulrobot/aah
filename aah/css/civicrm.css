@@ -519,15 +519,20 @@ td > .crm-submit-buttons:first-child {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
 
 .crm-section > .label {
   -webkit-box-flex: 0;
-          flex: 0 1 12rem;
+          flex: 0 0 12rem;
   padding-right: 1rem;
   font-size: inherit;
   display: inline-block;
   text-align: right;
+}
+
+.crm-section > .label label {
+  white-space: normal;
 }
 
 .crm-section > .content {
@@ -546,6 +551,43 @@ td > .crm-submit-buttons:first-child {
   display: inline;
   margin-right: 4rem;
   padding-left: 0;
+}
+
+.crm-form-date-wrapper {
+  display: inline-block;
+}
+
+.crm-form-date-wrapper > input.crm-form-date {
+  display: inline-block;
+}
+
+.crm-form-date-wrapper > input.crm-form-date {
+  width: 10rem;
+  margin-right: 1rem;
+}
+
+.crm-form-date-wrapper > input.crm-form-time {
+  width: 5rem;
+}
+
+.crm-placeholder-icon::-webkit-input-placeholder {
+  font: normal normal normal 14px/1 FontAwesome;
+}
+
+.crm-placeholder-icon::-moz-placeholder {
+  font: normal normal normal 14px/1 FontAwesome;
+}
+
+.crm-placeholder-icon:-ms-input-placeholder {
+  font: normal normal normal 14px/1 FontAwesome;
+}
+
+.crm-placeholder-icon::-ms-input-placeholder {
+  font: normal normal normal 14px/1 FontAwesome;
+}
+
+.crm-placeholder-icon::placeholder {
+  font: normal normal normal 14px/1 FontAwesome;
 }
 
 .crm-container a.crm-icon-picker-button {
