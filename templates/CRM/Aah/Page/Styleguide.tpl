@@ -108,25 +108,52 @@ hi.
                 </li>
               </ul>
             </div>
-
-
             <div class="clear"></div>
           </div>
         </div>
       </div>
-
-
     </li>
     <li>
       <a class="button edit" href="#"><span><i class="crm-i fa-pencil"></i>&nbsp;                 Edit              </span></a>            </li>
-
     <li class="crm-delete-action crm-contact-delete">
-      <a class="button delete" href="/civicrm/contact/view/delete?reset=1&amp;delete=1&amp;cid=260"><span><i class="crm-i fa-trash"></i>&nbsp;               Delete Contact            </span></a>          </li>
-
-
+      <a class="button delete" href="#"><span><i class="crm-i fa-trash"></i>&nbsp;               Delete Contact            </span></a>          </li>
   </ul>
   <div class="clear"></div>
 </div>
+
 {/literal}
+</article>
+
+<article>
+<h1>Other buttons</h1>
+<div>
+  <p>Without .btn</p>
+  <button class="crm-button btn-secondary">Secondary</button> <button class="crm-button btn-primary">Primary</button>
+  <p>With .btn</p>
+  <button class="crm-button btn btn-secondary">Secondary</button> <button class="crm-button btn btn-primary">Primary</button>
+</div>
+</article>
+
+<article>
+<h1>Notifications</h1>
+
+<div class="message status no-popup">
+  <div class="icon inform-icon"></div>
+    No contributions have been recorded from this contact.
+  </div>
+</div>
+
+<div class="messages error no-popup">
+  Some error (I'm not sure if this construct is in use in CiviCRM Core. Maybe a Drupal thing)
+</div>
+
+<p>#help</p>
+<div id="help" class="description section-hidden-border">Administer your CiviCRM site using the links on this page. Click <img src="http://localhost:8080/sites/all/modules/civicrm/i/TreePlus.gif" alt="plus sign" style="vertical-align: bottom; height: 20px; width: 20px;"> for descriptions of the options in each section.</div>
+<p>.help</p>
+<div class="help">
+  Click <a class="action-item" href>Record Contribution</a> to record a new contribution received from this contact.
+  Click <a class="action-item" href>Submit Credit Card Contribution</a> to process a new contribution on behalf of the contributor using their credit card.
+</div>
+
 </article>
 

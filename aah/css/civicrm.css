@@ -103,6 +103,7 @@ body.page-civicrm-a #content {
 
 td.label {
   display: table-cell;
+  text-align: right;
 }
 
 .panel-heading h1,
@@ -232,8 +233,8 @@ a.ui-button:active,
 
 .crm-accordion-header {
   padding: 0.5rem 1rem 0.5rem 2.5rem;
-  background-color: #add3ed;
   color: #02477d;
+  background-color: #add3ed;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
   cursor: pointer;
@@ -246,6 +247,14 @@ a.ui-button:active,
 
 .crm-accordion-header:hover,
 .crm-accordion-header.active:hover {
+  background-color: #5baff1;
+}
+
+.crm-accordion-wrapper.collapsed .crm-accordion-header {
+  background-color: rgba(186, 208, 223, 0.27);
+}
+
+.crm-accordion-wrapper.collapsed .crm-accordion-header:hover {
   background-color: #5baff1;
 }
 
@@ -268,7 +277,7 @@ a.ui-button:active,
 
 #crm-container #civicrm-dashboard .widget-controls,
 .crm-accordion-body {
-  background: #e6edf2;
+  background: rgba(186, 208, 223, 0.27);
   padding: 1rem;
   border-radius: 0;
   border: none;
@@ -285,7 +294,7 @@ a.ui-button:active,
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
   padding: 3rem 1rem 0.5rem;
-  background-color: #e6edf2;
+  background: rgba(186, 208, 223, 0.27);
 }
 
 .crm-collapsible.collapsed > div {
@@ -347,6 +356,12 @@ button.crm-button:hover,
 input.crm-form-submit:hover,
 input[type="button"]:hover {
   background-color: #127fd4;
+}
+
+button.crm-button.btn-secondary,
+input.crm-form-submit.btn-secondary,
+input[type="button"].btn-secondary {
+  background: #02477d;
 }
 
 button.crm-button[crm-icon] {
@@ -531,6 +546,7 @@ td > .crm-submit-buttons:first-child {
   text-align: right;
 }
 
+.crm-section > .label,
 .crm-section > .label label {
   white-space: normal;
 }
@@ -620,10 +636,16 @@ div.status,
 div.messages {
   background: #fdf8e8;
   border: none;
+  border-left: solid 2rem #eaa75c;
   margin: 1rem 0;
   padding: 1rem;
-  border-left: solid 2rem #eaa75c;
   position: relative;
+}
+
+div.status.error,
+div.messages.error {
+  background: #fdf8e8;
+  border-left-color: #a00;
 }
 
 div.status img[alt="status"],
@@ -631,7 +653,7 @@ div.messages img[alt="status"] {
   display: none;
 }
 
-div.messages .icon {
+div.message .icon {
   position: absolute;
   top: 1rem;
   left: -2rem;
@@ -639,7 +661,7 @@ div.messages .icon {
   text-align: center;
 }
 
-div.messages .icon.inform-icon::before {
+div.message .icon::before {
   display: inline-block;
   content: "\F05A";
   font: normal normal normal 14px/1 FontAwesome;
@@ -990,9 +1012,14 @@ a.helpicon::before {
   border: solid 1px #e8e8e8;
 }
 
-#crm-container table th {
+#crm-container table thead th {
   background-color: #e6edf2;
   border: solid 1px #c6d5df;
+}
+
+#crm-container table tbody th {
+  background-color: #f3f6f9;
+  border: solid 1px #e3eaef;
 }
 
 #crm-container table.form-layout {
@@ -1036,10 +1063,6 @@ a.helpicon::before {
   position: static;
 }
 
-.dataTables_wrapper {
-  overflow: auto;
-}
-
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   padding: 0 0.5rem;
 }
@@ -1071,6 +1094,10 @@ tbody.scrollContent tr.alternateRow {
 .crm-container table.row-highlight tr:hover,
 .crm-container .crm-row-selected {
   background-color: #e6edf2;
+}
+
+.crm-container .crm-row-selected {
+  background-color: #fdf8e8;
 }
 
 #crm-container .hiddenElement {
@@ -1401,6 +1428,24 @@ table.activity-search-options td {
 #id_CiviMember,
 #id_CiviEvent {
   background: white;
+}
+
+form#CaseView table.case-summary {
+  width: 100%;
+}
+
+form#CaseView table.case-summary .form-layout-compressed {
+  margin: 0;
+}
+
+form#CaseView table.case-summary .form-layout-compressed td {
+  font-size: inherit;
+}
+
+form#CaseView table.case-summary td.label {
+  font-size: inherit;
+  text-align: left;
+  font-weight: normal;
 }
 
 #crm-container ul.wizard-bar {

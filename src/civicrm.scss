@@ -96,7 +96,10 @@ body.page-civicrm-a #content {
 // Override: Bootstrap {{{
 .label { color:inherit; }
 // Bootstrap says all .labels should be inline but CiviCRM uses the class on td...
-td.label { display: table-cell; }
+td.label {
+  display: table-cell; // overrides bootstrap's 'inline-block'
+  text-align: right; // overrides bootstrap's 'center'
+}
 // Tame headings in panels.
 .panel-heading {
   h1, h2, h3 { margin: 0; }
@@ -210,8 +213,8 @@ a.ui-button:active,
 // Generally we don't need such specificity
 .crm-accordion-header {
   padding: 0.5rem 1rem 0.5rem 2.5rem;
-  background-color: $colourBlueGrey;
   color: $colourArtfulDarkBlue;
+  background-color: $colourBlueGrey;
   transition: background-color 0.2s;
   cursor: pointer;
 
@@ -220,6 +223,14 @@ a.ui-button:active,
     color: $colourArtfulDarkBlue;
   }
   &:hover, &.active:hover {
+    background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
+  }
+}
+
+// When collapsed, use a subtle backcolor.
+.crm-accordion-wrapper.collapsed .crm-accordion-header {
+  background-color: $colourLayeredBackground;
+  &:hover {
     background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
   }
 }
@@ -241,7 +252,7 @@ a.ui-button:active,
 }
 #crm-container #civicrm-dashboard .widget-controls, // has own css, requires this specificity.
 .crm-accordion-body {
-  background: $colourSubtleHoverLightBlueGrey;
+  background: $colourLayeredBackground;
   padding: 1rem;
   border-radius: 0;
   border:none;
@@ -257,7 +268,7 @@ a.ui-button:active,
   margin: 0.5rem 0;
   transition: background-color 0.2s;
   padding: 3rem 1rem 0.5rem; // 3rem to allow for absolutely positioned title.
-  background-color: $colourSubtleHoverLightBlueGrey;
+  background: $colourLayeredBackground;
 
   &.collapsed {
     &>div { display:none; }
@@ -322,6 +333,10 @@ input[type="button"] {
 
   &:hover {
     background-color: darken($colourArtfulBrightBlue, 10%);
+  }
+
+  &.btn-secondary {
+    background: $colourArtfulDarkBlue;
   }
 }
 // Angular buttons specify an icon on the button with the crm-icon attr.
@@ -491,6 +506,7 @@ td>.crm-submit-buttons:first-child {
     font-size: inherit;
     display: inline-block;
     text-align: right; // Bootstrap sets it center
+    &,
     label { white-space: normal; } // Bootstrap says no wrap
   }
   &>.content {
@@ -556,32 +572,40 @@ div.status,
 div.messages {
   background: $colourAmberLightBg;
   border: none;
+  border-left: solid 2rem $colourAmberStrongBg;
   margin: 1rem 0;
   padding: 1rem;
-  border-left: solid 2rem $colourAmberStrongBg;
 
   position: relative;
 
+  &.error {
+    background: $colourAmberLightBg;
+    border-left-color: $colourRedDanger;
+  }
   // Hide unsightly image icon.
   img[alt="status"] { display:none; }
+
+}
+div.message {
+  .icon {
+    position: absolute;
+    top: 1rem;
+    left: -2rem;
+    width: 2rem;
+    text-align: center;
+
+    &::before {
+      display: inline-block;
+      content: "\F05A"; // Default icon
+      font: normal normal normal 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      color: white;
+    }
+    // &.inform-icon::before (default)
+  }
 }
 
-div.messages .icon {
-  position: absolute;
-  top: 1rem;
-  left: -2rem;
-  width: 2rem;
-  text-align: center;
-}
-
-div.messages .icon.inform-icon::before {
-  display: inline-block;
-  content: "\F05A";
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  color: white;
-}
 // }}}
 // Component: Notifications - popups {{{
 #crm-notification-container {
@@ -900,9 +924,17 @@ a.helpicon {
   td {
     border: solid 1px $colourWidgetBorder;
   }
-  th {
-    background-color: $colourSubtleHoverLightBlueGrey;
-    border: solid 1px $colourSubtleHoverLightBlueGreyTint;
+  thead {
+    th {
+      background-color: $colourSubtleHoverLightBlueGrey;
+      border: solid 1px $colourSubtleHoverLightBlueGreyTint;
+    }
+  }
+  tbody {
+    th {
+      background-color: mix($colourSubtleHoverLightBlueGrey, white);
+      border: solid 1px mix($colourSubtleHoverLightBlueGreyTint, white);
+    }
   }
 }
 // }}}
@@ -945,8 +977,10 @@ a.helpicon {
 // }}}
 // Component: data tables {{{
 .dataTables_wrapper {
-  // At least let them scroll on mobile...
-  overflow: auto;
+  // Idea: At least let them scroll on mobile...
+  // overflow: auto;
+  // Reality: doing this makes something odd happen, and hides the first row!
+  // Better to apply it to the container.
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   padding: 0 0.5rem;
@@ -968,6 +1002,9 @@ a.helpicon {
 .crm-container table.row-highlight tr.even-row:hover, .crm-container table.row-highlight tr.even:hover, .crm-container .even-row.crm-row-selected, .crm-container .even.crm-row-selected,
 .crm-container table.row-highlight tr:hover, .crm-container .crm-row-selected {
   background-color: $colourSubtleHoverLightBlueGrey;
+}
+.crm-container .crm-row-selected {
+  background-color: $colourAmberLightBg;
 }
 // }}}
 // Functional class: hiddenElement {{{
@@ -1302,6 +1339,26 @@ table.activity-search-options {
 #id_CiviEvent
 {
   background: white;
+}
+// }}}
+// Specific Page: Case (new) {{{
+// #crm-main-content-wrapper td.view-value input { display: block; content: ''; }
+
+form#CaseView {
+  table.case-summary {
+    width: 100%;
+
+    // Remove vertical margins on tables within tds
+    .form-layout-compressed { margin:0; }
+    .form-layout-compressed td { font-size: inherit; }
+
+    // Remove bootstrap's .label styles
+    td.label {
+      font-size: inherit;
+      text-align: left;
+      font-weight: normal;
+    }
+  }
 }
 // }}}
 

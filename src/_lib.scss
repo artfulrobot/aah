@@ -14,7 +14,12 @@ $colourWhitishText : #eee;
 $colourWidgetBackground : #f8f8f8;
 $colourWidgetBorder : #e8e8e8;
 $colourWidgetBackgroundLightest : #fcfcfc;
+
+// This colour is used as the background to most boxes.
 $colourSubtleHoverLightBlueGrey: #e6edf2;
+
+$colourLayeredBackground: rgba(186, 208, 223, 0.27);
+
 $colourSubtleHoverLightBlueGreyTint: #c6d5df;
 $colourTabsBg: #eae9e4;
 $colourFormElementsBorder: rgba(0, 0, 0, 0.2);
@@ -23,6 +28,7 @@ $colourWidgetSelectedBackground : lighten($colourArtfulBrightBlue, 25%);
 $colourWidgetCouldSelectBackground : lighten($colourArtfulBrightBlue, 30%);
 $colourBackground : #f3f2ed;
 $colourBackgroundShade : darken(#f3f2ed, 10%);
+// This colour is quite strong.
 $colourBlueGrey: mix($colourBackground, $colourArtfulBrightBlue, 65%);
 
 $colourGreenStrongBg: #97d462;
