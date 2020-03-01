@@ -206,6 +206,7 @@ a.ui-button:active,
   border-bottom: solid 1px $colourFormElementsBorder;
 
   &.collapsed .crm-accordion-body { display: none; }
+  &.collapsed { border-bottom: none; }
 }
 
 // Generally we don't need such specificity
@@ -287,11 +288,27 @@ a.ui-button:active,
 // Component: Buttons {{{
 
 // Some buttons look like this:
+//
 // .crm-button
 //   i.crm-i
 //   input[type=submit]
+//
+// Some like:
+// a.crm-button
+//   span
+//     i.crm-i
+//     button text
+//
+// Some like this:
+// button.btn.crm-button
+//   i.crm-i.fa-xxx
+//   button text
+
 .crm-button {
   position: relative;
+
+  margin-right: 1.6rem;
+
   i {
     position: absolute;
     pointer-events: none;
@@ -301,13 +318,13 @@ a.ui-button:active,
     // Center vertically
     top: 50%;
     transform: translateY(-0.88rem);
-
   }
 
-  // When it's a bootstrap button...
+  // When it's a bootstrap button we have to position the icon differently.
   &.btn i.crm-i {
-    position: static;
-    margin-right: 0.5em;
+    // position: static;
+    // transform: none;
+    // margin-right: 0.5em;
   }
 
   input.crm-form-submit,
@@ -325,8 +342,8 @@ input[type="button"] {
   border-radius: 3px;
   color:white;
   text-shadow: none;
-  // box-shadow: 0 0 6px rgba(0,0,0,0.2);
   box-shadow: none;
+  vertical-align: baseline;
 
   &:hover {
     background-color: darken($colourArtfulBrightBlue, 10%);
@@ -535,6 +552,12 @@ td>.crm-submit-buttons:first-child {
   font: normal normal normal 14px/1 FontAwesome;
 }
 
+// }}}
+// Component: form-inline {{{
+// Used in APIv4 explorer if nowhere else.
+.form-inline {
+  &>span { display: inline-block; vertical-align: baseline; }
+}
 // }}}
 // Component: icon picker {{{
 .crm-container a.crm-icon-picker-button {
@@ -913,6 +936,12 @@ a.helpicon {
     display: inline-block;
   }
 }
+
+// Bootstrap tabs.
+.panel-heading.nav-tabs {
+  // Remove margin when used as a panel heading as it causes an unsightly white bit.
+  margin-top:0;
+}
 // }}}
 // Component: tables {{{
 #crm-container table {
@@ -1035,7 +1064,7 @@ table.crm-info-panel {
 
   // The edit forms within:
   .crm-container-snippet {
-    padding: 1.6rem;
+    padding: 0 1rem;
     background:white;
     overflow: auto;
     max-width: 100%;
@@ -1244,7 +1273,9 @@ table.crm-info-panel {
     background: white;
     background: $colourWidgetBackground;
     padding:1.6rem;
-
+  }
+  .crm-inline-block-content,
+  .crm-inline-edit-form {
     .crm-label {
       font-size: (22.4rem/16);
     }
@@ -1345,6 +1376,8 @@ table.activity-search-options {
   }
   .widget-content .crm-accordion-header {
     background-image: none;
+    // Override dashboard.css
+    background-color: $colourLayeredBackground;
   }
 
 }
