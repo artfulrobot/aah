@@ -1,3 +1,7 @@
+body.page-civicrm {
+  font-size: 16px;
+}
+
 body.page-civicrm h1.page-header {
   display: none;
 }
@@ -9,17 +13,17 @@ body.page-civicrm h5 {
 }
 
 body.page-civicrm #page {
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-top: 1.6rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 }
 
 body.page-civicrm-a #content {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 }
 
 #printer-friendly,
@@ -72,8 +76,8 @@ body.page-civicrm-a #content {
 
 .crm-container h3 {
   background: transparent;
-  margin: 2.5rem 0 0.5rem;
-  font-size: 1.25rem;
+  margin: 4rem 0 0.8rem;
+  font-size: 2rem;
 }
 
 .crm-i-green {
@@ -90,7 +94,7 @@ body.page-civicrm-a #content {
 
 #crm-container div#alpha-filter {
   background-color: #f8f8f8;
-  padding: 0.25rem 1rem;
+  padding: 0.4rem 1.6rem;
 }
 
 .crm-action-menu::before {
@@ -195,14 +199,14 @@ a.ui-button:active,
 }
 
 .crm-actions-ribbon > ul {
-  margin: 1rem 0;
+  margin: 1.6rem 0;
   padding: 0;
 }
 
 .crm-actions-ribbon > ul li {
   list-style: none;
   display: inline-block;
-  margin-right: 1rem;
+  margin-right: 1.6rem;
 }
 
 #crm-contact-actions-list {
@@ -210,15 +214,15 @@ a.ui-button:active,
 }
 
 .action-link {
-  margin: 1rem 0;
+  margin: 1.6rem 0;
 }
 
 .action-link a {
-  margin-right: 1rem;
+  margin-right: 1.6rem;
 }
 
 .crm-accordion-wrapper {
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -232,7 +236,7 @@ a.ui-button:active,
 }
 
 .crm-accordion-header {
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  padding: 0.8rem 1.6rem 0.8rem 4rem;
   color: #02477d;
   background-color: #add3ed;
   -webkit-transition: background-color 0.2s;
@@ -265,8 +269,8 @@ a.ui-button:active,
   text-rendering: auto;
   display: block;
   position: absolute;
-  margin-left: -1.5rem;
-  margin-top: 0.25rem;
+  margin-left: -2.4rem;
+  margin-top: 0.4rem;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
@@ -278,7 +282,7 @@ a.ui-button:active,
 #crm-container #civicrm-dashboard .widget-controls,
 .crm-accordion-body {
   background: rgba(186, 208, 223, 0.27);
-  padding: 1rem;
+  padding: 1.6rem;
   border-radius: 0;
   border: none;
 }
@@ -290,10 +294,10 @@ a.ui-button:active,
 
 .crm-collapsible {
   position: relative;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
   -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
-  padding: 3rem 1rem 0.5rem;
+  padding: 4.8rem 1.6rem 0.8rem;
   background: rgba(186, 208, 223, 0.27);
 }
 
@@ -309,8 +313,8 @@ a.ui-button:active,
   color: #02477d;
   cursor: pointer;
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  top: 0.8rem;
+  left: 0.8rem;
   border: none;
 }
 
@@ -323,10 +327,10 @@ a.ui-button:active,
   pointer-events: none;
   color: white;
   line-height: 1;
-  left: 0.75rem;
+  left: 1.2rem;
   top: 50%;
-  -webkit-transform: translateY(-0.55rem);
-          transform: translateY(-0.55rem);
+  -webkit-transform: translateY(-0.88rem);
+          transform: translateY(-0.88rem);
 }
 
 .crm-button.btn i.crm-i {
@@ -336,7 +340,7 @@ a.ui-button:active,
 
 .crm-button input.crm-form-submit,
 .crm-button input[type="button"] {
-  padding: 0.25rem 1rem 0.25rem 2rem;
+  padding: 0.4rem 1.6rem 0.4rem 3.2rem;
 }
 
 button.crm-button,
@@ -344,7 +348,7 @@ input.crm-form-submit,
 input[type="button"] {
   display: inline-block;
   background: #2c98ed;
-  padding: 0.25rem 1rem;
+  padding: 0.4rem 1.6rem;
   border: none;
   border-radius: 3px;
   color: white;
@@ -365,7 +369,7 @@ input[type="button"].btn-secondary {
 }
 
 button.crm-button[crm-icon] {
-  padding-left: 2.1rem;
+  padding-left: 3.36rem;
 }
 
 a.button,
@@ -374,7 +378,7 @@ a.button:visited,
 .ui-button,
 .ui-dialog-buttonset .ui-button {
   display: inline-block;
-  padding: 0.25rem 1rem;
+  padding: 0.4rem 1.6rem;
   background: #2c98ed;
   border: none;
   border-radius: 3px;
@@ -399,13 +403,13 @@ a.button:visited:hover,
 
 .crm-inline-button,
 .crm-submit-buttons {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
 }
 
 .crm-inline-button .crm-button,
 .crm-submit-buttons .crm-button {
-  margin-right: 1rem;
+  margin-right: 1.6rem;
 }
 
 td > .crm-submit-buttons:first-child {
@@ -420,7 +424,7 @@ td > .crm-submit-buttons:first-child {
   border: solid 1px #2c98ed;
   color: #2c98ed;
   box-shadow: none;
-  width: 1.6rem;
+  width: 2.56rem;
 }
 
 .ui-dialog-titlebar .ui-dialog-titlebar-close:hover,
@@ -439,7 +443,7 @@ td > .crm-submit-buttons:first-child {
   display: none;
   position: absolute;
   right: 0;
-  width: 15rem;
+  width: 24rem;
   padding: 0;
   margin: 0;
   background: white;
@@ -449,13 +453,13 @@ td > .crm-submit-buttons:first-child {
 
 .btn-slide .panel li {
   list-style: none;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   padding: 0;
 }
 
 .btn-slide .panel li a {
   display: block;
-  padding: 0.25rem 1rem;
+  padding: 0.4rem 1.6rem;
   margin: 0;
   text-decoration: none;
 }
@@ -467,27 +471,27 @@ td > .crm-submit-buttons:first-child {
 
 .crm-hover-button {
   display: inline-block;
-  padding: 0 0.5rem;
-  margin-right: 0.5rem;
+  padding: 0 0.8rem;
+  margin-right: 0.8rem;
 }
 
 .crm-container .help,
 .crm-container #help {
-  padding: 1rem;
+  padding: 1.6rem;
   border-radius: 0;
   border: none;
   background: #e0effb;
-  border-left: 2rem solid #7cb5e1;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  border-left: 3.2rem solid #7cb5e1;
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 
 .crm-container .help::before,
 .crm-container #help::before {
   position: absolute;
-  margin-left: -2.2rem;
+  margin-left: -3.52rem;
   content: "\F0EB";
-  font-size: 1.25rem;
+  font-size: 2rem;
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -496,14 +500,14 @@ td > .crm-submit-buttons:first-child {
 }
 
 #crm-container fieldset {
-  padding-top: 3rem;
+  padding-top: 4.8rem;
   position: relative;
 }
 
 #crm-container fieldset > legend {
   position: absolute;
-  top: 0.5rem;
-  left: 1rem;
+  top: 0.8rem;
+  left: 1.6rem;
   border-style: none;
 }
 
@@ -527,20 +531,20 @@ td > .crm-submit-buttons:first-child {
 .crm-form-checkbox + .description,
 .crm-form-radio + label,
 .crm-form-radio + .description {
-  padding-left: 1.5rem;
+  padding-left: 2.4rem;
 }
 
 .crm-section {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
 }
 
 .crm-section > .label {
   -webkit-box-flex: 0;
-          flex: 0 0 12rem;
-  padding-right: 1rem;
+          flex: 0 0 19.2rem;
+  padding-right: 1.6rem;
   font-size: inherit;
   display: inline-block;
   text-align: right;
@@ -553,8 +557,8 @@ td > .crm-submit-buttons:first-child {
 
 .crm-section > .content {
   -webkit-box-flex: 1;
-          flex: 1 0 12rem;
-  margin-right: 2rem;
+          flex: 1 0 19.2rem;
+  margin-right: 3.2rem;
 }
 
 .crm-section > .content .crm-form-checkbox,
@@ -565,7 +569,7 @@ td > .crm-submit-buttons:first-child {
 .crm-section > .content .crm-form-checkbox + label,
 .crm-section > .content .crm-form-radio + label {
   display: inline;
-  margin-right: 4rem;
+  margin-right: 6.4rem;
   padding-left: 0;
 }
 
@@ -578,12 +582,12 @@ td > .crm-submit-buttons:first-child {
 }
 
 .crm-form-date-wrapper > input.crm-form-date {
-  width: 10rem;
-  margin-right: 1rem;
+  width: 16rem;
+  margin-right: 1.6rem;
 }
 
 .crm-form-date-wrapper > input.crm-form-time {
-  width: 5rem;
+  width: 8rem;
 }
 
 .crm-placeholder-icon::-webkit-input-placeholder {
@@ -609,15 +613,15 @@ td > .crm-submit-buttons:first-child {
 .crm-container a.crm-icon-picker-button {
   display: inline-block;
   min-width: 10em;
-  height: 1.5rem;
+  height: 2.4rem;
   text-align: inherit;
   color: white;
 }
 
 #crmIconPicker a.ui-button {
   box-sizing: content-box;
-  margin-bottom: 0.5rem;
-  margin-right: 1rem;
+  margin-bottom: 0.8rem;
+  margin-right: 1.6rem;
   color: white !important;
 }
 
@@ -628,7 +632,7 @@ td > .crm-submit-buttons:first-child {
 thead tr:first-child {
   position: -webkit-sticky;
   position: sticky;
-  top: 2.6rem;
+  top: 4.16rem;
   z-index: 20;
 }
 
@@ -636,9 +640,9 @@ div.status,
 div.messages {
   background: #fdf8e8;
   border: none;
-  border-left: solid 2rem #eaa75c;
-  margin: 1rem 0;
-  padding: 1rem;
+  border-left: solid 3.2rem #eaa75c;
+  margin: 1.6rem 0;
+  padding: 1.6rem;
   position: relative;
 }
 
@@ -655,9 +659,9 @@ div.messages img[alt="status"] {
 
 div.message .icon {
   position: absolute;
-  top: 1rem;
-  left: -2rem;
-  width: 2rem;
+  top: 1.6rem;
+  left: -3.2rem;
+  width: 3.2rem;
   text-align: center;
 }
 
@@ -671,23 +675,23 @@ div.message .icon::before {
 }
 
 #crm-notification-container {
-  min-width: 30rem;
-  max-width: 45rem;
+  min-width: 48rem;
+  max-width: 72rem;
   color: #222;
   position: fixed;
-  top: 3rem;
-  right: 1rem;
+  top: 4.8rem;
+  right: 1.6rem;
   z-index: 100000;
 }
 
 #crm-notification-container .ui-notify-message a.ui-notify-cross {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.6rem;
+  right: 1.6rem;
   float: none;
-  font-size: 1rem;
+  font-size: 1.6rem;
   text-shadow: none;
-  padding: 0.2rem 0.75rem;
+  padding: 0.32rem 1.2rem;
   color: white;
   border: solid 1px white;
   border-radius: 2px;
@@ -703,7 +707,7 @@ div.message .icon::before {
 #crm-notification-container div.ui-notify-message-style {
   background: white;
   border-left: solid 4px #eaa75c;
-  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
 }
 
 #crm-notification-container div.ui-notify-message-style.success {
@@ -735,7 +739,7 @@ div.message .icon::before {
 #crm-notification-container div.ui-notify-message {
   position: relative;
   padding: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   border-radius: 2px;
   max-height: calc(100vh - 45px);
   overflow: auto;
@@ -745,14 +749,14 @@ div.message .icon::before {
 #crm-notification-container div.ui-notify-message h1 {
   color: black;
   background: #eaa75c;
-  font-size: 1rem;
+  font-size: 1.6rem;
   margin: 0;
-  padding: 1rem 1rem 1rem 3rem;
-  min-height: 3.7rem;
+  padding: 1.6rem 1.6rem 1.6rem 4.8rem;
+  min-height: 5.92rem;
 }
 
 #crm-notification-container div.ui-notify-message .notify-content {
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .crm-container div.ui-notify-message div.icon,
@@ -761,8 +765,8 @@ div.message .icon::before {
   text-indent: 0;
   float: none;
   position: absolute;
-  top: 1rem;
-  left: 1rem;
+  top: 1.6rem;
+  left: 1.6rem;
 }
 
 .crm-container div.ui-notify-message div.icon::before,
@@ -770,8 +774,8 @@ div.message .icon::before {
   content: '\26A0';
   content: '\270B';
   display: block;
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2.4rem;
+  height: 2.4rem;
   text-align: center;
   color: white;
 }
@@ -787,10 +791,10 @@ div.message .icon::before {
   right: 0;
   z-index: 100000;
   background: white;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.6rem;
   border-radius: 3px;
-  min-width: 8rem;
-  max-width: 13rem;
+  min-width: 12.8rem;
+  max-width: 20.8rem;
   text-align: center;
 }
 
@@ -826,7 +830,7 @@ div.message .icon::before {
 }
 
 .select2-container .select2-choice .select2-arrow {
-  width: 1.8rem;
+  width: 2.88rem;
   border-left: 1px solid #aaa;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0;
@@ -849,28 +853,28 @@ div.message .icon::before {
 
 .select2-container .select2-choice abbr {
   top: 10px;
-  right: 2.2rem;
+  right: 3.52rem;
 }
 
 .select2-container {
-  min-width: 7rem;
+  min-width: 11.2rem;
 }
 
 .select2-container-multi {
-  min-width: 14rem;
+  min-width: 22.4rem;
 }
 
 .select2-container .select2-choice {
-  height: 2.25rem;
+  height: 3.6rem;
 }
 
 .select2-arrow,
 .select2-chosen {
-  padding: 0.25rem 0;
+  padding: 0.4rem 0;
 }
 
 .select2-container .select2-choice > .select2-chosen {
-  margin-right: 2rem;
+  margin-right: 3.2rem;
 }
 
 .crm-select2-row-description {
@@ -879,7 +883,7 @@ div.message .icon::before {
 
 .select2-results .crm-select2-row-description {
   display: block;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   color: #555;
 }
 
@@ -891,12 +895,12 @@ div.message .icon::before {
 .crm-summary-link {
   display: inline-block;
   color: #02477d;
-  width: 2rem;
-  height: 2rem;
+  width: 3.2rem;
+  height: 3.2rem;
 }
 
 .crm-summary-link .crm-icon {
-  line-height: 2rem;
+  line-height: 3.2rem;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
@@ -916,10 +920,10 @@ div.message .icon::before {
   display: none;
   position: absolute;
   background: white;
-  padding: 0 1rem;
-  font-size: 1rem;
+  padding: 0 1.6rem;
+  font-size: 1.6rem;
   z-index: 1;
-  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
 }
 
 .crm-summary-link.crm-tooltip-active .crm-tooltip-wrapper {
@@ -927,17 +931,17 @@ div.message .icon::before {
 }
 
 #civicrm-footer {
-  margin-top: 5rem;
+  margin-top: 8rem;
   text-align: center;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   opacity: 0.8;
 }
 
 .status.crm-error {
   background: #a00;
   border-radius: 2px;
-  padding: 0 0.5rem;
-  margin: 0 0.5rem;
+  padding: 0 0.8rem;
+  margin: 0 0.8rem;
   color: white;
 }
 
@@ -958,8 +962,8 @@ a.helpicon::before {
 }
 
 #access {
-  margin-top: 1rem;
-  font-size: 0.875rem;
+  margin-top: 1.6rem;
+  font-size: 1.4rem;
 }
 
 .crm-container .ui-tabs .ui-tabs-nav li.ui-state-active {
@@ -969,15 +973,15 @@ a.helpicon::before {
 
 .crm-container .crm-tab-button a,
 .crm-container .ui-tabs .ui-tabs-nav li a {
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.6rem;
 }
 
 .crm-container .crm-tab-button a em,
 .crm-container .ui-tabs .ui-tabs-nav li a em {
   background: #2c98ed;
-  border-radius: 0.5rem;
-  font-size: 0.8125rem;
-  padding: 0 0.3rem;
+  border-radius: 0.8rem;
+  font-size: 1.3rem;
+  padding: 0 0.48rem;
   color: white;
   font-style: normal;
   font-weight: bold;
@@ -994,7 +998,7 @@ a.helpicon::before {
 }
 
 .crm-container ul li.crm-tab-button em {
-  margin-left: 1rem;
+  margin-left: 1.6rem;
   display: inline-block;
 }
 
@@ -1004,7 +1008,7 @@ a.helpicon::before {
 
 #crm-container table td,
 #crm-container table th {
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.6rem;
   background-clip: padding-box;
 }
 
@@ -1028,7 +1032,7 @@ a.helpicon::before {
 
 #crm-container table.form-layout th,
 #crm-container table.form-layout td {
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.8rem;
   border: none;
 }
 
@@ -1038,9 +1042,9 @@ a.helpicon::before {
 
 #crm-container table.form-layout-compressed th,
 #crm-container table.form-layout-compressed td {
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.8rem;
   border: none;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
 }
 
 #crm-container table.selector {
@@ -1053,9 +1057,9 @@ a.helpicon::before {
 
 #crm-container table.selector th,
 #crm-container table.selector td {
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.8rem;
   border: none;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
 }
 
 #crm-container table.selector th > .crm-form-checkbox,
@@ -1064,7 +1068,7 @@ a.helpicon::before {
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
-  padding: 0 0.5rem;
+  padding: 0 0.8rem;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
@@ -1109,8 +1113,8 @@ tbody.scrollContent tr.alternateRow {
 }
 
 .crm-summary-display_name {
-  margin-top: 1rem;
-  font-size: 1.6875rem;
+  margin-top: 1.6rem;
+  font-size: 2.7rem;
   color: #02477d;
 }
 
@@ -1119,7 +1123,7 @@ tbody.scrollContent tr.alternateRow {
 }
 
 .crm-inline-edit .crm-container-snippet {
-  padding: 1rem;
+  padding: 1.6rem;
   background: white;
   overflow: auto;
   max-width: 100%;
@@ -1128,12 +1132,12 @@ tbody.scrollContent tr.alternateRow {
 .crm-inline-edit .crm-edit-help {
   display: none;
   position: absolute;
-  top: -1.4rem;
+  top: -2.24rem;
   left: -1px;
-  height: 1.4rem;
+  height: 2.24rem;
   background: #f8f8f8;
-  padding: 0 1rem;
-  line-height: 1.4rem;
+  padding: 0 1.6rem;
+  line-height: 2.24rem;
   border: solid 1px #2c98ed;
   border-bottom-style: none;
 }
@@ -1165,7 +1169,7 @@ tbody.scrollContent tr.alternateRow {
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list li.crm-tab-button {
   -webkit-box-flex: 1;
           flex: 1 0 auto;
-  margin: 0 1rem 0 0;
+  margin: 0 1.6rem 0 0;
   background: none;
   display: block;
   float: none;
@@ -1187,7 +1191,7 @@ tbody.scrollContent tr.alternateRow {
   display: flex;
   -webkit-box-align: center;
           align-items: center;
-  padding: 0.5rem 1rem !important;
+  padding: 0.8rem 1.6rem !important;
 }
 
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor:focus {
@@ -1196,14 +1200,14 @@ tbody.scrollContent tr.alternateRow {
 
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor i {
   -webkit-box-flex: 0;
-          flex: 0 0 1.2rem;
+          flex: 0 0 1.92rem;
 }
 
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor span {
   -webkit-box-flex: 1;
           flex: 1 1 auto;
   padding-left: 1em;
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   display: none;
 }
 
@@ -1212,9 +1216,9 @@ tbody.scrollContent tr.alternateRow {
           flex: 0 0 auto;
   background: #02477d;
   background: #2c98ed;
-  border-radius: 0.5rem;
-  font-size: 0.8125rem;
-  padding: 0 0.3rem;
+  border-radius: 0.8rem;
+  font-size: 1.3rem;
+  padding: 0 0.48rem;
   color: white;
   font-style: normal;
   font-weight: bold;
@@ -1242,13 +1246,13 @@ tbody.scrollContent tr.alternateRow {
 }
 
 .crm-contact-page #mainTabContainer .ui-tabs-panel {
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 @media screen and (min-width: 768px) {
   .crm-contact-page #mainTabContainer {
     display: grid;
-    grid-template-columns: 5rem auto;
+    grid-template-columns: 8rem auto;
   }
 
   .crm-contact-page #mainTabContainer .crm-contact-tabs-list {
@@ -1266,7 +1270,7 @@ tbody.scrollContent tr.alternateRow {
 
 @media screen and (min-width: 1100px) {
   .crm-contact-page #mainTabContainer {
-    grid-template-columns: 12rem auto;
+    grid-template-columns: 19.2rem auto;
   }
 }
 
@@ -1281,8 +1285,8 @@ tbody.scrollContent tr.alternateRow {
     transition: opacity 0.2s;
     position: absolute;
     background-color: #e6edf2;
-    padding: 0.4rem 0.5rem;
-    left: 2.5rem;
+    padding: 0.64rem 0.8rem;
+    left: 4rem;
     top: 0;
     bottom: 0;
     width: 0;
@@ -1291,27 +1295,27 @@ tbody.scrollContent tr.alternateRow {
 
   .crm-contact-page #mainTabContainer .crm-contact-tabs-list li.crm-tab-button:hover a > span {
     opacity: 1;
-    width: 8rem;
+    width: 12.8rem;
   }
 }
 
 .crm-container div.contact_panel {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1rem;
-  margin-bottom: 1rem;
+  grid-gap: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 
 @media screen and (min-width: 768px) {
   .crm-container div.contact_panel {
-    grid-template-columns: repeat(2, minmax(15rem, 1fr));
+    grid-template-columns: repeat(2, minmax(24rem, 1fr));
   }
 }
 
 #crm-container div.contactCardRight,
 #crm-container div.contactCardLeft {
   -webkit-box-flex: 1;
-          flex: 1 0 12rem;
+          flex: 1 0 19.2rem;
   width: auto;
   background: #f8f8f8;
   border-left: solid 1px #e8e8e8;
@@ -1324,28 +1328,28 @@ tbody.scrollContent tr.alternateRow {
 #contact-summary .crm-inline-block-content {
   background: white;
   background: #f8f8f8;
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 #contact-summary .crm-inline-block-content .crm-label {
-  font-size: 0.875rem;
+  font-size: 1.4rem;
 }
 
 div.crm-summary-row {
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 0.3125rem;
+  margin-bottom: 0.5rem;
 }
 
 div.crm-summary-row .crm-label {
   -webkit-box-flex: 0;
-          flex: 0 0 8rem;
+          flex: 0 0 12.8rem;
 }
 
 div.crm-summary-row .crm-content {
   -webkit-box-flex: 1;
-          flex: 1 0 8rem;
+          flex: 1 0 12.8rem;
 }
 
 #crm-container .separator {
@@ -1353,7 +1357,7 @@ div.crm-summary-row .crm-content {
 }
 
 table {
-  margin: 1rem 0;
+  margin: 1.6rem 0;
 }
 
 #crm-container th.contriTotalLeft,
@@ -1369,18 +1373,18 @@ table.activity-search-options tr {
 
 table.activity-search-options td {
   -webkit-box-flex: 1;
-          flex: 1 0 12rem;
+          flex: 1 0 19.2rem;
   display: block;
 }
 
 #crm-record-log {
-  margin-top: 2rem;
-  font-size: 0.75rem;
+  margin-top: 3.2rem;
+  font-size: 1.2rem;
   opacity: 0.8;
 }
 
 #crm-record-log span {
-  margin-right: 1rem;
+  margin-right: 1.6rem;
 }
 
 #civicrm-dashboard {
@@ -1469,7 +1473,7 @@ form#CaseView table.case-summary td.label {
 .crmMailing .preview-popup,
 .crmMailing .preview-contact,
 .crmMailing .preview-group {
-  height: 6rem;
+  height: 9.6rem;
 }
 
 .crm-tag-item {
@@ -1482,7 +1486,7 @@ form#CaseView table.case-summary td.label {
 
 .crm-container .crm-form-block {
   background-color: white;
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .crm-container input {

@@ -4,6 +4,10 @@
 
 // Page {{{
 body.page-civicrm {
+
+  // Since we are (unfortunately) a bootstrap 3 based theme we have to set the body size to 16px
+  font-size: $font-size-base;
+
   h1.page-header {
     display:none; // CiviCRM seems to output this anyways.
   }
@@ -11,9 +15,9 @@ body.page-civicrm {
   // Don't limit width in CiviCRM since it uses background-color on some headings which then look odd.
   h3, h4, h5 { max-width:none; }
   #page {
-    padding-top: 1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-top: 1.6rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
   }
 }
 
@@ -22,8 +26,8 @@ body.page-civicrm-a #content {
   max-width: 1200px;
   margin-left:auto;
   margin-right:auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 } // }}}
 // Print stuff {{{
 #printer-friendly,
@@ -68,8 +72,8 @@ body.page-civicrm-a #content {
 // h3s are used throughout
 .crm-container h3 {
   background: transparent;
-  margin: 2.5rem 0 0.5rem;
-  font-size: (20rem/16);
+  margin: 4rem 0 0.8rem;
+  font-size: (32rem/16);
 }
 .crm-i-green {
   color: $colourGreenStrongBg;
@@ -85,7 +89,7 @@ body.page-civicrm-a #content {
 
 #crm-container div#alpha-filter {
   background-color: $colourWidgetBackground;
-  padding: 0.25rem 1rem;
+  padding: 0.4rem 1.6rem;
 }
 
 // Remove extra icons not needed
@@ -178,28 +182,28 @@ a.ui-button:active,
 // Component: Actions ribbon (e.g. at top of Contact screen) and .action-link which seems to be very similar {{{
 .crm-actions-ribbon {
   &>ul {
-    margin: 1rem 0;
+    margin: 1.6rem 0;
     padding: 0;
     li {
       list-style: none;
       display: inline-block;
-      margin-right: 1rem;
+      margin-right: 1.6rem;
     }
   }
 }
 // Until Javascript sets display: block, hide the actions popup.
 #crm-contact-actions-list { display: none; }
 .action-link {
-  margin: 1rem 0;
+  margin: 1.6rem 0;
   a {
-    margin-right: 1rem;
+    margin-right: 1.6rem;
   }
 }
 
 //}}}
 // Component: Accordians (various types). {{{
 .crm-accordion-wrapper {
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
   border-bottom: solid 1px $colourFormElementsBorder;
 
   &.collapsed .crm-accordion-body { display: none; }
@@ -212,7 +216,7 @@ a.ui-button:active,
 }
 // Generally we don't need such specificity
 .crm-accordion-header {
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
+  padding: 0.8rem 1.6rem 0.8rem 4rem;
   color: $colourArtfulDarkBlue;
   background-color: $colourBlueGrey;
   transition: background-color 0.2s;
@@ -241,8 +245,8 @@ a.ui-button:active,
   text-rendering: auto;
   display: block;
   position: absolute;
-  margin-left: -1.5rem;
-  margin-top: 0.25rem;
+  margin-left: -2.4rem;
+  margin-top: 0.4rem;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
   transition: transform 0.3s;
@@ -253,7 +257,7 @@ a.ui-button:active,
 #crm-container #civicrm-dashboard .widget-controls, // has own css, requires this specificity.
 .crm-accordion-body {
   background: $colourLayeredBackground;
-  padding: 1rem;
+  padding: 1.6rem;
   border-radius: 0;
   border:none;
 }
@@ -265,9 +269,9 @@ a.ui-button:active,
 // This is another sort of collapsible content
 .crm-collapsible {
   position: relative;
-  margin: 0.5rem 0;
+  margin: 0.8rem 0;
   transition: background-color 0.2s;
-  padding: 3rem 1rem 0.5rem; // 3rem to allow for absolutely positioned title.
+  padding: 4.8rem 1.6rem 0.8rem; // 4.8rem to allow for absolutely positioned title.
   background: $colourLayeredBackground;
 
   &.collapsed {
@@ -280,8 +284,8 @@ a.ui-button:active,
     color: $colourArtfulDarkBlue;
     cursor: pointer;
     position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.8rem;
+    left: 0.8rem;
     border: none;
   }
 }
@@ -300,10 +304,10 @@ a.ui-button:active,
     pointer-events: none;
     color: white;
     line-height: 1;
-    left: 0.75rem;
+    left: 1.2rem;
     // Center vertically
     top: 50%;
-    transform: translateY(-0.55rem);
+    transform: translateY(-0.88rem);
 
   }
 
@@ -315,7 +319,7 @@ a.ui-button:active,
 
   input.crm-form-submit,
   input[type="button"] {
-    padding:0.25rem 1rem 0.25rem 2rem;
+    padding:0.4rem 1.6rem 0.4rem 3.2rem;
   }
 }
 button.crm-button,
@@ -323,7 +327,7 @@ input.crm-form-submit,
 input[type="button"] {
   display:inline-block;
   background: $colourArtfulBrightBlue;
-  padding:0.25rem 1rem;
+  padding:0.4rem 1.6rem;
   border:none;
   border-radius: 3px;
   color:white;
@@ -341,7 +345,7 @@ input[type="button"] {
 }
 // Angular buttons specify an icon on the button with the crm-icon attr.
 button.crm-button[crm-icon] {
-  padding-left: 2.1rem;
+  padding-left: 3.36rem;
 }
 
 // Link buttons
@@ -352,7 +356,7 @@ a.button:visited,
 .ui-dialog-buttonset .ui-button
 {
   display:inline-block;
-  padding:0.25rem 1rem;
+  padding:0.4rem 1.6rem;
   background: $colourArtfulBrightBlue;
   border:none;
   border-radius: 3px;
@@ -369,9 +373,9 @@ a.button:visited,
 // Sets of buttons.
 .crm-inline-button,
 .crm-submit-buttons {
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  .crm-button { margin-right: 1rem; }
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
+  .crm-button { margin-right: 1.6rem; }
 }
 // Remove top margin from buttons when they're the first child of a td
 td>.crm-submit-buttons:first-child {
@@ -387,7 +391,7 @@ td>.crm-submit-buttons:first-child {
     border: solid 1px $colourArtfulBrightBlue;
     color: $colourArtfulBrightBlue;
     box-shadow: none;
-    width: 1.6rem; // There's inline style attribute applied forcing positioning, so this is as wide as we can go.
+    width: 2.56rem; // There's inline style attribute applied forcing positioning, so this is as wide as we can go.
 
     &:hover {
       background: rgba(255, 255, 255, 0.5);
@@ -405,7 +409,7 @@ td>.crm-submit-buttons:first-child {
     display: none;
     position: absolute;
     right: 0;
-    width: 15rem;
+    width: 24rem;
     padding: 0;
     margin: 0;
     background: white;
@@ -413,11 +417,11 @@ td>.crm-submit-buttons:first-child {
     z-index: 1;
     li {
       list-style: none;
-      font-size: 0.875rem;
+      font-size: 1.4rem;
       padding: 0;
       a {
         display: block;
-        padding: 0.25rem 1rem;
+        padding: 0.4rem 1.6rem;
         margin:0;
         text-decoration: none;
         &:hover {
@@ -434,24 +438,24 @@ td>.crm-submit-buttons:first-child {
 // I think these can just be normal links, not sure what buttonising them does.
 .crm-hover-button {
   display: inline-block;
-  padding: 0 0.5rem;
-  margin-right: 0.5rem;
+  padding: 0 0.8rem;
+  margin-right: 0.8rem;
 }
 // }}}
 // Component: help {{{
 .crm-container .help, .crm-container #help {
-  padding: 1rem;
+  padding: 1.6rem;
   border-radius: 0;
   border:none;
   background: $colourVeryLightBlue;
-  border-left: 2rem solid $colourArtfulMutedBlue;
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  border-left: 3.2rem solid $colourArtfulMutedBlue;
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
   &::before {
     position: absolute;
-    margin-left: -2.2rem;
+    margin-left: -3.52rem;
     content: "\F0EB";
-    font-size: 1.25rem;
+    font-size: 2rem;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
@@ -462,12 +466,12 @@ td>.crm-submit-buttons:first-child {
 // }}}
 // Component: Fieldset {{{
 #crm-container fieldset {
-  padding-top: 3rem;
+  padding-top: 4.8rem;
   position: relative;
   &>legend {
     position: absolute;
-    top: 0.5rem;
-    left: 1rem;
+    top: 0.8rem;
+    left: 1.6rem;
     border-style:none;
   }
 }
@@ -490,7 +494,7 @@ td>.crm-submit-buttons:first-child {
   }
 
   &+label, &+.description {
-    padding-left: 1.5rem;
+    padding-left: 2.4rem;
   }
 }
 // These sections are used (at least) in the angular page template to group fields togehter {{{
@@ -498,11 +502,11 @@ td>.crm-submit-buttons:first-child {
 .crm-section {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
 
   &>.label {
-    flex: 0 0 12rem;
-    padding-right: 1rem;
+    flex: 0 0 19.2rem;
+    padding-right: 1.6rem;
     font-size: inherit;
     display: inline-block;
     text-align: right; // Bootstrap sets it center
@@ -510,8 +514,8 @@ td>.crm-submit-buttons:first-child {
     label { white-space: normal; } // Bootstrap says no wrap
   }
   &>.content {
-    flex: 1 0 12rem;
-    margin-right: 2rem;
+    flex: 1 0 19.2rem;
+    margin-right: 3.2rem;
 
     // Special treatment of radios, checkboxes.
     .crm-form-checkbox, .crm-form-radio {
@@ -519,7 +523,7 @@ td>.crm-submit-buttons:first-child {
 
       &+label {
         display: inline;
-        margin-right: 4rem;
+        margin-right: 6.4rem;
         padding-left: 0;
       }
     }
@@ -530,8 +534,8 @@ td>.crm-submit-buttons:first-child {
 .crm-form-date-wrapper {
   display: inline-block;
   &>input.crm-form-date { display:inline-block; }
-  &>input.crm-form-date { width: 10rem; margin-right: 1rem; }
-  &>input.crm-form-time { width: 5rem; }
+  &>input.crm-form-date { width: 16rem; margin-right: 1.6rem; }
+  &>input.crm-form-time { width: 8rem; }
 }
 // Date Picker elements use this
 .crm-placeholder-icon::placeholder {
@@ -543,15 +547,15 @@ td>.crm-submit-buttons:first-child {
 .crm-container a.crm-icon-picker-button {
   display: inline-block;
   min-width: 10em;
-  height: 1.5rem;
+  height: 2.4rem;
   text-align: inherit;
   color: white;
 }
 
 #crmIconPicker a.ui-button {
   box-sizing: content-box;
-  margin-bottom: 0.5rem;
-  margin-right: 1rem;
+  margin-bottom: 0.8rem;
+  margin-right: 1.6rem;
   color: white !important;
 }
 
@@ -564,7 +568,7 @@ td>.crm-submit-buttons:first-child {
 // Component: sticky table heads. xxx probably want to tame this... {{{
 thead tr:first-child {
 	position: sticky;
-	top: 2.6rem;
+	top: 4.16rem;
 	z-index: 20;
 } // }}}
 // Component: Notifications - non popups {{{
@@ -572,9 +576,9 @@ div.status,
 div.messages {
   background: $colourAmberLightBg;
   border: none;
-  border-left: solid 2rem $colourAmberStrongBg;
-  margin: 1rem 0;
-  padding: 1rem;
+  border-left: solid 3.2rem $colourAmberStrongBg;
+  margin: 1.6rem 0;
+  padding: 1.6rem;
 
   position: relative;
 
@@ -589,9 +593,9 @@ div.messages {
 div.message {
   .icon {
     position: absolute;
-    top: 1rem;
-    left: -2rem;
-    width: 2rem;
+    top: 1.6rem;
+    left: -3.2rem;
+    width: 3.2rem;
     text-align: center;
 
     &::before {
@@ -609,23 +613,23 @@ div.message {
 // }}}
 // Component: Notifications - popups {{{
 #crm-notification-container {
-	min-width: 30rem;
-	max-width: 45rem;
+	min-width: 48rem;
+	max-width: 72rem;
   color: $colourText;
   position: fixed;
-  top: 3rem;
-  right: 1rem;
+  top: 4.8rem;
+  right: 1.6rem;
   z-index: 100000;
 }
 // Close button
 #crm-notification-container .ui-notify-message a.ui-notify-cross {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 1.6rem;
+  right: 1.6rem;
 	float: none;
-	font-size: 1rem;
+	font-size: 1.6rem;
 	text-shadow: none;
-	padding: 0.2rem 0.75rem;
+	padding: 0.32rem 1.2rem;
 	color: white;
   border: solid 1px white;
   border-radius: 2px;
@@ -639,7 +643,7 @@ div.message {
 #crm-notification-container div.ui-notify-message-style {
 	background: white;
   border-left: solid 4px $colourAmberStrongBg;
-	box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+	box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
 }
 // Special colours.
 #crm-notification-container div.ui-notify-message-style {
@@ -659,7 +663,7 @@ div.message {
 #crm-notification-container div.ui-notify-message {
   position: relative;
 	padding: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.6rem;
 	border-radius: 2px;
 	max-height: calc(100vh - 45px);
 	overflow: auto;
@@ -669,13 +673,13 @@ div.message {
   h1 {
     color: black;
     background: $colourAmberStrongBg;
-    font-size: 1rem;
+    font-size: 1.6rem;
     margin:0;
-    padding: 1rem 1rem 1rem 3rem;
-    min-height: 3.7rem; // Sometimes it is empty.
+    padding: 1.6rem 1.6rem 1.6rem 4.8rem;
+    min-height: 5.92rem; // Sometimes it is empty.
   }
   .notify-content {
-    padding: 1rem;
+    padding: 1.6rem;
   }
 
 }
@@ -687,15 +691,15 @@ div.message {
   float:none;
 
   position: absolute;
-  top:1rem;
-  left:1rem;
+  top:1.6rem;
+  left:1.6rem;
 
   &::before {
     content:'\26A0';// Warning sign.
     content:'\270b'; // Hand up emoji
     display:block;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 2.4rem;
+    height: 2.4rem;
     text-align:center;
     color: white;
   }
@@ -715,10 +719,10 @@ div.message {
   right: 0;
   z-index: 100000;
   background: white;
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.6rem;
   border-radius: 3px;
-  min-width: 8rem;
-  max-width: 13rem;
+  min-width: 12.8rem;
+  max-width: 20.8rem;
   text-align: center;
 
   &.status-success {
@@ -746,7 +750,7 @@ div.message {
 	background-image: none;
 }
 .select2-container .select2-choice .select2-arrow {
-  width: 1.8rem;
+  width: 2.88rem;
 	border-left: 1px solid #aaa;
   background-color: rgba(0,0,0,0.1);
   border-radius: 0;
@@ -762,20 +766,20 @@ div.message {
 }
 .select2-container .select2-choice abbr {
   top: 10px;
-  right: 2.2rem;
+  right: 3.52rem;
 }
 .select2-container {
-  min-width: 7rem;
+  min-width: 11.2rem;
 }
 .select2-container-multi {
-  min-width: 14rem;
+  min-width: 22.4rem;
 }
 .select2-container .select2-choice {
-  height: 2.25rem;
+  height: 3.6rem;
 }
 .select2-arrow,
-.select2-chosen { padding: 0.25rem 0; }
-.select2-container .select2-choice > .select2-chosen { margin-right: 2rem; }
+.select2-chosen { padding: 0.4rem 0; }
+.select2-container .select2-choice > .select2-chosen { margin-right: 3.2rem; }
 
 // Row description is smaller secondary text
 // it should be only shown when the drop-down is open.
@@ -784,7 +788,7 @@ div.message {
 }
 .select2-results .crm-select2-row-description {
   display: block;
-  font-size: (12rem/16);
+  font-size: (19.2rem/16);
   color: $colourMidGrey;
 }
 
@@ -798,12 +802,12 @@ div.message {
 .crm-summary-link {
   display: inline-block;
   color: $colourArtfulDarkBlue;
-  width: 2rem;
-  height: 2rem;
+  width: 3.2rem;
+  height: 3.2rem;
 }
 
 .crm-summary-link .crm-icon {
-  line-height: 2rem;
+  line-height: 3.2rem;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
@@ -823,10 +827,10 @@ div.message {
   display: none;
   position: absolute;
   background: white;
-  padding: 0 1rem;
-  font-size: 1rem;
+  padding: 0 1.6rem;
+  font-size: 1.6rem;
   z-index: 1;
-  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
+  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
 }
 
 .crm-summary-link.crm-tooltip-active .crm-tooltip-wrapper {
@@ -834,9 +838,9 @@ div.message {
 } // }}}
 // Component: Footer {{{
 #civicrm-footer {
-  margin-top: 5rem;
+  margin-top: 8rem;
   text-align: center;
-  font-size: (12rem/16);
+  font-size: (19.2rem/16);
   opacity: 0.8;
 }
 // Component: "Status" bit in the footer {{{
@@ -845,8 +849,8 @@ div.message {
   &.crm-error {
     background: $colourRedDanger;
     border-radius: 2px;
-    padding: 0 0.5rem;
-    margin:0 0.5rem;
+    padding: 0 0.8rem;
+    margin:0 0.8rem;
     color:white;
     a:link, a:visited {
       color:white;
@@ -871,8 +875,8 @@ a.helpicon {
 // }}}
 // Component: Access keys {{{
 #access {
-  margin-top: 1rem;
-  font-size: (14rem/16);
+  margin-top: 1.6rem;
+  font-size: (22.4rem/16);
 }
 // }}}
 // Component: Tabs (e.g. Contributions/Recurring Contributions) {{{
@@ -889,12 +893,12 @@ a.helpicon {
 .crm-container .crm-tab-button a,
 .crm-container .ui-tabs .ui-tabs-nav li a
 {
-  padding: 0.5rem 1rem; // we have to use important because we're overriding another !important(!)
+  padding: 0.8rem 1.6rem; // we have to use important because we're overriding another !important(!)
   em  {
         background: $colourArtfulBrightBlue;
-        border-radius: 0.5rem;
-        font-size: (13rem/16);
-        padding: 0 0.3rem;
+        border-radius: 0.8rem;
+        font-size: (20.8rem/16);
+        padding: 0 0.48rem;
         color:white;
         font-style:normal;
         font-weight:bold;
@@ -909,7 +913,7 @@ a.helpicon {
   }
   // Bit of spacing before the count number.
   em {
-    margin-left: 1rem;
+    margin-left: 1.6rem;
     display: inline-block;
   }
 }
@@ -918,7 +922,7 @@ a.helpicon {
 #crm-container table {
   border-collapse: collapse;
   td, th {
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1.6rem;
     background-clip: padding-box; // Stop Firefox drawing backgrounds over borders.
   }
   td {
@@ -942,7 +946,7 @@ a.helpicon {
 #crm-container table.form-layout {
   width: 100%;
   th, td {
-    padding: 0.25rem 0.5rem;
+    padding: 0.4rem 0.8rem;
     border:none;
   }
 } // }}}
@@ -950,9 +954,9 @@ a.helpicon {
 #crm-container table.form-layout-compressed {
   width: 100%;
   th, td {
-    padding: 0.25rem 0.5rem;
+    padding: 0.4rem 0.8rem;
     border:none;
-    font-size: (14rem/16);
+    font-size: (22.4rem/16);
   }
 }
 // }}}
@@ -963,9 +967,9 @@ a.helpicon {
 
   th,
   td {
-    padding: 0.25rem 0.5rem;
+    padding: 0.4rem 0.8rem;
     border: none;
-    font-size: 0.875rem;
+    font-size: 1.4rem;
 
     &> .crm-form-checkbox {
       position: static;
@@ -983,7 +987,7 @@ a.helpicon {
   // Better to apply it to the container.
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button {
-  padding: 0 0.5rem;
+  padding: 0 0.8rem;
   &.current,
   &.current:hover {
     border:none;
@@ -1020,8 +1024,8 @@ a.helpicon {
 
 // Specific Page: Contact page {{{
 .crm-summary-display_name {
-  margin-top:1rem;
-  font-size: (27rem/16);
+  margin-top:1.6rem;
+  font-size: (43.2rem/16);
   color: $colourArtfulDarkBlue;
 }
 // Inline clickable edit things {{{
@@ -1030,7 +1034,7 @@ a.helpicon {
 
   // The edit forms within:
   .crm-container-snippet {
-    padding: 1rem;
+    padding: 1.6rem;
     background:white;
     overflow: auto;
     max-width: 100%;
@@ -1040,12 +1044,12 @@ a.helpicon {
   .crm-edit-help {
     display:none;
     position: absolute;
-    top: -1.4rem;
+    top: -2.24rem;
     left: -1px;
-    height: 1.4rem;
+    height: 2.24rem;
     background: $colourWidgetBackground;
-    padding: 0 1rem;
-    line-height: 1.4rem;
+    padding: 0 1.6rem;
+    line-height: 2.24rem;
     border:solid 1px $colourArtfulBrightBlue;
     border-bottom-style:none;
   }
@@ -1076,7 +1080,7 @@ a.helpicon {
 
     li.crm-tab-button {
       flex: 1 0 auto;
-      margin:0 1rem 0 0;
+      margin:0 1.6rem 0 0;
       background:none;
       display:block;
       float:none;
@@ -1097,22 +1101,22 @@ a.helpicon {
     .ui-tabs-anchor {
       display:flex;
       align-items: center;
-      padding: 0.5rem 1rem !important; // needs important as style being overridden uses it.
+      padding: 0.8rem 1.6rem !important; // needs important as style being overridden uses it.
 
       &:focus {
         outline: none;
       }
 
-      i { flex: 0 0 1.2rem; }
-      span { flex: 1 1 auto; padding-left:1em; font-size: (14rem/16); display:none; }
+      i { flex: 0 0 1.92rem; }
+      span { flex: 1 1 auto; padding-left:1em; font-size: (22.4rem/16); display:none; }
       // Item count in Contact tabs
       em {
         flex: 0 0 auto;
         background: $colourArtfulDarkBlue;
         background: $colourArtfulBrightBlue;
-        border-radius: 0.5rem;
-        font-size: (13rem/16);
-        padding: 0 0.3rem;
+        border-radius: 0.8rem;
+        font-size: (20.8rem/16);
+        padding: 0 0.48rem;
         color:white;
         font-style:normal;
         font-weight:bold;
@@ -1142,18 +1146,18 @@ a.helpicon {
   } // }}}
   // The content
   .ui-tabs-panel {
-    padding: 1rem;
+    padding: 1.6rem;
   }
 }
 // Tablet+ moves tabs to the left {{{
 @media screen and (min-width: 768px) {
   .crm-contact-page #mainTabContainer {
     display: grid;
-    grid-template-columns: 5rem auto;
+    grid-template-columns: 8rem auto;
     .crm-contact-tabs-list {
       display:block; // disable flex now.
       li.crm-tab-button {
-        margin: 0; // remove the 1rem right margin
+        margin: 0; // remove the 1.6rem right margin
         a>span {
           display:block; // was 'none' for mobile.
         }
@@ -1166,7 +1170,7 @@ a.helpicon {
 // Wide screens {{{
 @media screen and (min-width: 1100px) {
   .crm-contact-page #mainTabContainer {
-    grid-template-columns: 12rem auto;
+    grid-template-columns: 19.2rem auto;
   }
 }
 // }}}
@@ -1182,8 +1186,8 @@ a.helpicon {
           transition: opacity 0.2s;
           position: absolute;
           background-color: $colourSubtleHoverLightBlueGrey;
-          padding: 0.4rem 0.5rem;
-          left: 2.5rem;
+          padding: 0.64rem 0.8rem;
+          left: 4rem;
           top:0;
           bottom:0;
           width: 0;
@@ -1191,7 +1195,7 @@ a.helpicon {
         }
         &:hover a>span {
           opacity: 1;
-          width: 8rem;
+          width: 12.8rem;
         }
       }
     }
@@ -1202,13 +1206,13 @@ a.helpicon {
 .crm-container div.contact_panel {
   display:grid;
   grid-template-columns: 1fr;
-  grid-gap: 1rem;
-  margin-bottom: 1rem;
+  grid-gap: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 // Above mobile... {{{
 @media screen and (min-width: 768px) {
   .crm-container div.contact_panel {
-    grid-template-columns: repeat(2, minmax(15rem, 1fr));
+    grid-template-columns: repeat(2, minmax(24rem, 1fr));
   }
 }
 // }}}
@@ -1218,7 +1222,7 @@ a.helpicon {
 // To counter this we do a fake full height thing by setting the background colour.
 #crm-container div.contactCardRight,
 #crm-container div.contactCardLeft {
-  flex: 1 0 12rem;
+  flex: 1 0 19.2rem;
   width: auto;
   background: $colourWidgetBackground;
   border-left: solid 1px $colourWidgetBorder;
@@ -1238,10 +1242,10 @@ a.helpicon {
   .crm-inline-block-content {
     background: white;
     background: $colourWidgetBackground;
-    padding:1rem;
+    padding:1.6rem;
 
     .crm-label {
-      font-size: (14rem/16);
+      font-size: (22.4rem/16);
     }
   }
 }
@@ -1250,10 +1254,10 @@ a.helpicon {
 div.crm-summary-row {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: (5rem/16);
+  margin-bottom: (8rem/16);
 
-  .crm-label { flex: 0 0 8rem;  }
-  .crm-content { flex: 1 0 8rem;  }
+  .crm-label { flex: 0 0 12.8rem;  }
+  .crm-content { flex: 1 0 12.8rem;  }
 
 }
 
@@ -1267,7 +1271,7 @@ div.crm-summary-row {
 // }}}
 // Contributions {{{
 table {
-  margin:1rem 0;
+  margin:1.6rem 0;
 }
 #crm-container th.contriTotalLeft,
 #crm-container th.contriTotalRight {
@@ -1278,16 +1282,16 @@ table {
 // Death to the table layout...
 table.activity-search-options {
   tr { display: flex; flex-wrap: wrap; }
-  td { flex: 1 0 12rem; display: block; }
+  td { flex: 1 0 19.2rem; display: block; }
 }
 // }}}
 
 // Component: Footer {{{
 #crm-record-log {
-  margin-top: 2rem;
-  font-size: (12rem/16);
+  margin-top: 3.2rem;
+  font-size: (19.2rem/16);
   opacity: 0.8;
-  span { margin-right: 1rem; }
+  span { margin-right: 1.6rem; }
 }
 //}}}
 // other tabs {{{
@@ -1385,7 +1389,7 @@ form#CaseView {
 
 // @todo comments
 .crmMailing .preview-popup, .crmMailing .preview-contact, .crmMailing .preview-group {
-  height:6rem;
+  height:9.6rem;
 }
 
 .crm-tag-item {
@@ -1400,7 +1404,7 @@ form#CaseView {
 
 .crm-container .crm-form-block {
   background-color: white;
-  padding: 1rem;
+  padding: 1.6rem;
 }
 
 .crm-container input { box-sizing: border-box; }

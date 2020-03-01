@@ -41,3 +41,5 @@ $colourAmberHint: #ffedcc;
 $colourRedDanger: #a00;
 // #e8c6a2
 
+// Bootstrap has 14px here. Nb. this is set here because our civicrm.scss file references it as well as our bootstrap.scss
+$font-size-base:          16px;
