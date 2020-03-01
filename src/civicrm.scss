@@ -71,9 +71,8 @@ body.page-civicrm-a #content {
 }
 // h3s are used throughout
 .crm-container h3 {
-  background: transparent;
   margin: 4rem 0 0.8rem;
-  font-size: (32rem/16);
+  font-size: (32rem/16); // 20px
 }
 .crm-i-green {
   color: $colourGreenStrongBg;
@@ -209,11 +208,6 @@ a.ui-button:active,
   &.collapsed .crm-accordion-body { display: none; }
 }
 
-// 2 dashboard.css overrides
-#crm-container .widget-content .crm-accordion-wrapper.collapsed .crm-accordion-header,
-#crm-container .widget-content .crm-accordion-header {
-  background-image: none !important;
-}
 // Generally we don't need such specificity
 .crm-accordion-header {
   padding: 0.8rem 1.6rem 0.8rem 4rem;
@@ -254,7 +248,6 @@ a.ui-button:active,
   -webkit-transform: rotateZ(90deg);
           transform: rotateZ(90deg);
 }
-#crm-container #civicrm-dashboard .widget-controls, // has own css, requires this specificity.
 .crm-accordion-body {
   background: $colourLayeredBackground;
   padding: 1.6rem;
@@ -884,9 +877,12 @@ a.helpicon {
 // Override the styles for the li.
 
 // Some other CSS highlights the active li
+.crm-container .ui-tabs .ui-tabs-nav li {
+  border-bottom: solid 2px transparent;
+}
 .crm-container .ui-tabs .ui-tabs-nav li.ui-state-active {
   background: transparent;
-  border-bottom: solid 2px $colourArtfulBrightBlue;
+  border-bottom-color: $colourArtfulBrightBlue;
 }
 
 // This is the actual clickable tab:
@@ -978,6 +974,11 @@ a.helpicon {
 }
 
 
+// }}}
+// Component: table crm-info-panel {{{
+table.crm-info-panel {
+  td.label { font-size: inherit; text-align: right; font-weight: normal; }
+}
 // }}}
 // Component: data tables {{{
 .dataTables_wrapper {
@@ -1298,15 +1299,58 @@ table.activity-search-options {
 // }}}
 // }}}
 //}}}
-// Specific Page: Fix dashboard layout {{{
-#civicrm-dashboard {
-  display: flex;
-  flex-wrap: wrap;
+// Specific Page: Dashboard {{{
+ // has own css, requires this specificity.
+#crm-container #civicrm-dashboard {
+  display: grid;
+  grid-template-columns: minmax(200px, 1fr); // mobile 1st.
+
+  margin: 0 -1rem;
+  .column { float: none; padding: 0 1rem; }
+
   #column-0 {
-    flex: 1 0 40%;
+    width: 100%;
   }
   #column-1 {
-    flex: 1 0 60%;
+    width: 100%;
+  }
+
+  // jQuery override for this context.
+  .ui-tabs .ui-tabs-panel {
+    padding: 1rem 0;
+  }
+  li.widget { // , #crm-container li.empty-placeholder
+    margin: 1.6rem 0;
+  }
+  .widget-wrapper {
+    box-shadow: none;
+    margin: 0;
+  }
+  .widget-controls {
+    background: $colourBlueGrey;
+    border-radius: 0;
+    border:none;
+    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
+    // Icon colour defined as white, not very visible.
+    .crm-i {
+      color: $colourArtfulDarkBlue;
+    }
+    // Remove underline
+    a:hover { text-decoration: none; }
+  }
+  h3.widget-header {
+    // color: $colourText;
+    color: $colourArtfulDarkBlue;
+    font-size: 1.6rem;
+  }
+  .widget-content .crm-accordion-header {
+    background-image: none;
+  }
+
+}
+@media screen and (min-width: 768px) {
+  #crm-container #civicrm-dashboard {
+    grid-template-columns: minmax(20rem, 60%) minmax(30rem, 40%);
   }
 }
 // }}}
@@ -1382,9 +1426,6 @@ form#CaseView {
   margin-top:0;
 }
 
-#crm-container #civicrm-dashboard h3.widget-header {
-  color: $colourText;
-}
 
 
 // @todo comments

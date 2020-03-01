@@ -6,7 +6,7 @@ return [
   'title'        => 'aah theme',
   'prefix'       => 'aah/',
   'url_callback' => '\\Civi\\Core\\Themes\\Resolvers::simple',
-  'excludes'     => [ 'css/contactSummary.css' ],
+  'excludes'     => [ 'css/contactSummary.css' ], // @todo redo 'css/dashboard.css'
   'search_order' => [
     0 => 'aah',
     1 => '_fallback_',
