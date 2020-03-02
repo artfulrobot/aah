@@ -1,12 +1,20 @@
 @import 'lib';
 
+// Note: ideally we only style things within the civicrm container, since it's
+// not our job to style stuff outside of that.
+// HOWEVER, at least in D7, CiviCRM content IS placed outside of the container, e.g. in sidebars and h1#page-title
+
 // This file whips CiviCRM's old classes into shape.
 
-// Page {{{
-body.page-civicrm {
+// Drupal helpfully does the following:
+// body.page-civicrm { }
+// body.page-civicrm-a #content { }
 
-  // Since we are (unfortunately) a bootstrap 3 based theme we have to set the body size to 16px
-  font-size: $font-size-base;
+// General {{{
+#crm-container {
+  padding-top: 1.6rem;
+  padding-left: 1.6rem;
+  padding-right: 1.6rem;
 
   h1.page-header {
     display:none; // CiviCRM seems to output this anyways.
@@ -14,21 +22,19 @@ body.page-civicrm {
 
   // Don't limit width in CiviCRM since it uses background-color on some headings which then look odd.
   h3, h4, h5 { max-width:none; }
-  #page {
-    padding-top: 1.6rem;
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
-  }
 }
 
 // Provide some space at sides on angular pages at least.
-body.page-civicrm-a #content {
+#crm-main-content-wrapper>.ng-scope {
   max-width: 1200px;
   margin-left:auto;
   margin-right:auto;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-} // }}}
+}
+// }}}
+
+// Override: Aaah theme! {{{
+#crm-container li { max-width: none; }
+// }}}
 // Print stuff {{{
 #printer-friendly,
 .ui-button.crm-dialog-titlebar-print
@@ -45,10 +51,6 @@ body.page-civicrm-a #content {
   }
 } // }}}
 
-
-// Override: Aaah theme! {{{
-#crm-container li { max-width: none; }
-// }}}
 // Override: Mosaico. {{{
 #bootstrap-theme .crm-mosaico-template-item {
   display:flex;
@@ -97,15 +99,22 @@ body.page-civicrm-a #content {
 }
 // }}}
 // Override: Bootstrap {{{
-.label { color:inherit; }
-// Bootstrap says all .labels should be inline but CiviCRM uses the class on td...
-td.label {
-  display: table-cell; // overrides bootstrap's 'inline-block'
-  text-align: right; // overrides bootstrap's 'center'
-}
-// Tame headings in panels.
-.panel-heading {
-  h1, h2, h3 { margin: 0; }
+#crm-container {
+  // Since we are (unfortunately) a bootstrap 3 based theme we have to set the body size to 16px
+  font-size: $font-size-base;
+
+  .label { color:inherit; }
+
+  // Bootstrap says all .labels should be inline but CiviCRM uses the class on td...
+  td.label {
+    display: table-cell; // overrides bootstrap's 'inline-block'
+    text-align: right; // overrides bootstrap's 'center'
+  }
+
+  // Tame headings in panels.
+  .panel-heading {
+    h1, h2, h3 { margin: 0; }
+  }
 }
 // }}}
 // Override: jQuery UI {{{
@@ -1491,20 +1500,3 @@ form#CaseView {
 
 
 
-// /// Calm bootstrap a bit.
-// /body#bootstrap-theme, #bootstrap-theme {
-// /  font-family: inherit;
-// /  font-size: inherit;
-// /  color: inherit;
-// /  background-color: inherit;
-// /}
-// /#bootstrap-theme {
-// /  @each $h in h1 h2 h3 h4 h5 h6 {
-// /    #{$h} {
-// /      small, .small {
-// /        color:inherit;
-// /      }
-// /    }
-// /  }
-// /}
-// /

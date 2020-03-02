@@ -74,5 +74,10 @@ $bootstrap-sass-asset-helper: true;
 @import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
 // }}}
 
-// Reset bootstrap's 10px
-// html { font-size: 16px; }
+
+// Since bootstrap is going to introduce styles on html, body, we need to do this:
+body {
+  font-size: $font-size-base;
+}
+// Borrow shoreditch's wizard CSS
+@import 'wizard.scss';

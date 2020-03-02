@@ -168,6 +168,8 @@ function aah_civicrm_coreResourceList(&$items, $region) {
  * Implements hook_civicrm_pageRun().
  */
 function aah_civicrm_pageRun(&$page) {
+//  CRM_Core_Resources::singleton()->addScript('document.addEventListener("DOMContentLoaded", function() { document.body.classList.add("' . $a . '") });');
+
   return;
   if (!CRM_Aah::isActive()) {
     return;

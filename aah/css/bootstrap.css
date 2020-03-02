@@ -8294,3 +8294,85 @@ button.close {
   }
 }
 
+body {
+  font-size: 16px;
+}
+
+ul.wizard-bar {
+  background-color: #f8f8f8;
+  border: 1px solid #e8e8e8;
+  height: 40px;
+  margin-top: 0;
+  overflow: hidden;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+ul.wizard-bar > li {
+  background-color: #f8f8f8;
+  border: 0;
+  border-radius: 0;
+  color: #222222;
+  display: inline-block;
+  font-size: 16px;
+  height: 42px;
+  line-height: 42px;
+  padding: 0 20px;
+  position: relative;
+}
+
+ul.wizard-bar > li:first-child {
+  padding-left: 28px;
+}
+
+ul.wizard-bar > li:not(:first-child) {
+  padding-left: 50px;
+}
+
+ul.wizard-bar > li::before {
+  border-bottom: 70px solid transparent;
+  border-left: 40px solid #f8f8f8;
+  border-top: 70px solid transparent;
+  content: '';
+  height: 0;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0;
+  z-index: 11;
+}
+
+ul.wizard-bar > li::after {
+  border-bottom: 70px solid transparent;
+  border-left: 40px solid #e8e8e8;
+  border-top: 70px solid transparent;
+  content: '';
+  height: 0;
+  position: absolute;
+  right: -22px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  width: 0;
+  z-index: 10;
+}
+
+ul.wizard-bar > li.current-step {
+  background-color: #02477d;
+  color: white;
+}
+
+ul.wizard-bar > li.current-step::before {
+  border-left-color: #02477d;
+}
+
+#wizard-steps + h1,
+#wizard-steps + h1 + .crm-submit-buttons,
+#wizard-steps + h2,
+#wizard-steps + h2 + .crm-submit-buttons {
+  display: none;
+}
+

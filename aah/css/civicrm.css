@@ -1,29 +1,27 @@
-body.page-civicrm {
-  font-size: 16px;
-}
-
-body.page-civicrm h1.page-header {
-  display: none;
-}
-
-body.page-civicrm h3,
-body.page-civicrm h4,
-body.page-civicrm h5 {
-  max-width: none;
-}
-
-body.page-civicrm #page {
+#crm-container {
   padding-top: 1.6rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
 }
 
-body.page-civicrm-a #content {
+#crm-container h1.page-header {
+  display: none;
+}
+
+#crm-container h3,
+#crm-container h4,
+#crm-container h5 {
+  max-width: none;
+}
+
+#crm-main-content-wrapper > .ng-scope {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
+}
+
+#crm-container li {
+  max-width: none;
 }
 
 #printer-friendly,
@@ -41,10 +39,6 @@ body.page-civicrm-a #content {
   body.page-civicrm {
     padding-top: 0;
   }
-}
-
-#crm-container li {
-  max-width: none;
 }
 
 #bootstrap-theme .crm-mosaico-template-item {
@@ -100,18 +94,22 @@ body.page-civicrm-a #content {
   display: none;
 }
 
-.label {
+#crm-container {
+  font-size: 16px;
+}
+
+#crm-container .label {
   color: inherit;
 }
 
-td.label {
+#crm-container td.label {
   display: table-cell;
   text-align: right;
 }
 
-.panel-heading h1,
-.panel-heading h2,
-.panel-heading h3 {
+#crm-container .panel-heading h1,
+#crm-container .panel-heading h2,
+#crm-container .panel-heading h3 {
   margin: 0;
 }
 
