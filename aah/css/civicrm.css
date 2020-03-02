@@ -889,7 +889,8 @@ body.aah-theme div.ui-notify-message.success div.icon::before,
   display: block;
 }
 
-.select2-container .select2-choice {
+.select2-container .select2-choices .select2-choice,
+.select2-container .select2-choices .select2-search-choice {
   background-color: white;
   -webkit-filter: none;
           filter: none;

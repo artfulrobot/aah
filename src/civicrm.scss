@@ -829,7 +829,10 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 .crm-profile .radio-wrapper { display:block; }
 // }}}
 // Component: Select 2 {{{
-.select2-container .select2-choice {
+//.select2-container-multi .select2-choices .select2-search-choice
+//.select2-container-multi  .select2-search-choice
+.select2-container .select2-choices .select2-choice,
+.select2-container .select2-choices .select2-search-choice {
 	// background-color: $colourSubtleHoverLightBlueGrey;
 	// background-color: $colourWidgetBackground;
 	background-color: white;
