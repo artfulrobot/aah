@@ -166,19 +166,50 @@ function aah_civicrm_coreResourceList(&$items, $region) {
 
 /**
  * Implements hook_civicrm_pageRun().
+ *
+ * @todo do for form pages
+ *
+ * We add various classes to the body element which enables our CSS to work.
+ *
+ * - always added: "aah-theme", "bootstrap3"
+ * - URL path, e.g. civicrm-contact-view
+ * - URL path, e.g. civicrm-contact-view
+ * - page name, e.g. crm-name-crm-case-page-tab
+ *
  */
 function aah_civicrm_pageRun(&$page) {
-//  CRM_Core_Resources::singleton()->addScript('document.addEventListener("DOMContentLoaded", function() { document.body.classList.add("' . $a . '") });');
 
-  return;
+}
+
+/**
+ */
+function aah_civicrm_alterContent(  &$content, $context, $tplName, &$object ) {
+
   if (!CRM_Aah::isActive()) {
+    // Don't do anything if we're not supposed to be active (then why were we called?)
     return;
   }
 
-  $pageName = $page->getVar('_name');
-
-  if ($pageName == 'CRM_Contact_Page_View_Summary') {
-    // CRM_Core_Resources::singleton()->addScriptFile('aah', 'js/contact-summary.js');
+  // Don't mess with ajax requests!
+  $is_ajax = (strtolower($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'xmlhttprequest');
+  if ($is_ajax) {
+    return;
   }
-}
 
+  $classes = ['crm-name-' . $object->getVar('_name'), implode('-', $object->urlPath)];
+  $safeClasses = '"aah-theme", "bootstrap3"';
+  foreach ($classes as $_) {
+    $_ = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $_));
+    if ($_) {
+      $safeClasses .= ", '$_'";
+    }
+  }
+  $script = "document.addEventListener('DOMContentLoaded', function() { document.body.classList.add($safeClasses); });console.warn('running $context for $tplName');";
+  $content = "<div class='aah-wrapper'>$content</div><script>$script</script>";
+
+  // CRM_Core_Resources::singleton()->addScript($script);
+
+  //if ($pageName == 'CRM_Contact_Page_View_Summary')
+    // CRM_Core_Resources::singleton()->addScriptFile('aah', 'js/contact-summary.js');
+
+}

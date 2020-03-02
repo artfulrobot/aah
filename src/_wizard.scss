@@ -1,0 +1,85 @@
+// This is mostly copied from Shoreditch's implementation.
+// The arrow-size determines the angle of the arrow.
+$arrow-size: 70px;
+$arrow-left: 40px;
+$wizard-height: 40px;
+
+ul.wizard-bar {
+  background-color: $colourWidgetBackground;
+  border: 1px solid $colourWidgetBorder ;
+  height: $wizard-height ;
+  margin-top: 0 ;
+  overflow: hidden;
+  padding: 0 ;
+  text-align: left ;
+  width: 100%;
+
+  > li {
+    background-color: $colourWidgetBackground;
+    border: 0 ;
+    border-radius: 0 ;
+    color: $gray-darker ;
+    display: inline-block ;
+    font-size: $font-size-base ;
+    //font-weight: $crm-font-weight-bold;
+    height: ($wizard-height + 2);
+    line-height: ($wizard-height + 2) ;
+    padding: 0 ($arrow-left / 2) ;
+    position: relative;
+
+    &:first-child {
+      padding-left: ($arrow-left * 28/40) ;
+    }
+
+    &:not(:first-child) {
+      padding-left: ($arrow-left * 5 / 4) ;
+    }
+
+    &::before {
+      border-bottom: $arrow-size solid transparent;
+      border-left: $arrow-left solid $colourWidgetBackground;
+      border-top: $arrow-size solid transparent;
+      content: '';
+      height: 0;
+      position: absolute;
+      right: (-$arrow-left / 2);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      z-index: 11;
+    }
+
+    &::after {
+      border-bottom: $arrow-size solid transparent;
+      border-left: $arrow-left solid $colourWidgetBorder;
+      border-top: $arrow-size solid transparent;
+      content: '';
+      height: 0;
+      position: absolute;
+      right: (-$arrow-left / 2 - 2);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      z-index: 10;
+    }
+
+    &.current-step {
+      background-color: $colourArtfulDarkBlue;
+      color: white;
+
+      &::before {
+        border-left-color: $colourArtfulDarkBlue;
+      }
+    }
+  }
+}
+
+#wizard-steps {
+  + h1,
+  + h2 {
+    &,
+    + .crm-submit-buttons {
+      display: none;
+    }
+  }
+}
