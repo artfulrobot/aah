@@ -360,7 +360,7 @@ body.aah-theme #access {
 
 // Some buttons look like this:
 //
-// .crm-button
+// span.crm-button[[.crm-i-button]]
 //   i.crm-i
 //   input[type=submit]
 //
@@ -375,37 +375,12 @@ body.aah-theme #access {
 //   i.crm-i.fa-xxx
 //   button text
 
-.crm-button {
-  position: relative;
-
-  margin-right: 1.6rem;
-
-  i {
-    position: absolute;
-    pointer-events: none;
-    color: white;
-    line-height: 1;
-    left: 1.2rem;
-    // Center vertically
-    top: 50%;
-    transform: translateY(-0.88rem);
-  }
-
-  // When it's a bootstrap button we have to position the icon differently.
-  &.btn i.crm-i {
-    // position: static;
-    // transform: none;
-    // margin-right: 0.5em;
-  }
-
-  input.crm-form-submit,
-  input[type="button"] {
-    padding:0.4rem 1.6rem 0.4rem 3.2rem;
-  }
-}
+// Generally, things that sould look like buttons:
+a.crm-button>span,
 button.crm-button,
 input.crm-form-submit,
-input[type="button"] {
+input[type="button"],
+input[type="submit"] {
   display:inline-block;
   background: $colourArtfulBrightBlue;
   padding:0.4rem 1.6rem;
@@ -424,10 +399,55 @@ input[type="button"] {
     background: $colourArtfulDarkBlue;
   }
 }
-// Angular buttons specify an icon on the button with the crm-icon attr.
-button.crm-button[crm-icon] {
-  padding-left: 3.36rem;
+
+span.crm-button {
+  position: relative;
+  margin-right: 1.6rem; // space before next button in a list of buttons.
+  padding: 0; // apply padding to the button itself, not the container (which is not clickable)
+  display: inline-block;
+
+  i {
+    position: absolute;
+    pointer-events: none;
+    color: white;
+    line-height: 1;
+    left: 1.2rem;
+    // Center vertically
+    top: 50%;
+    transform: translateY(-0.88rem);
+  }
+
+  input.crm-form-submit,
+  input[type="button"],
+  input[type="submit"] {
+    padding:0.4rem 1.6rem 0.4rem 3.2rem;
+    box-shadow: none;
+  }
 }
+
+a.crm-button {
+  position: relative;
+  margin-right: 1.6rem; // space before next button in a list of buttons.
+  padding: 0; // apply padding to the button itself, not the container (which is not clickable)
+  display: inline-block;
+
+  // &>span  much of this is above.
+  &>span { padding-left: 3.6rem; }
+
+  i {
+    position: absolute;
+    pointer-events: none;
+    color: white;
+    line-height: 1;
+    left: 1.2rem;
+    // Center vertically
+    top: 50%;
+    transform: translateY(-0.88rem);
+  }
+}
+
+// Angular buttons specify an icon on the button with the crm-icon attr.
+// button.crm-button[crm-icon] { }
 
 // Link buttons
 a.button,
@@ -456,7 +476,9 @@ a.button:visited,
 .crm-submit-buttons {
   margin-bottom: 1.6rem;
   margin-top: 1.6rem;
-  .crm-button { margin-right: 1.6rem; }
+  button.crm-button,
+  span.crm-button,
+  a.crm-button { margin-right: 1.6rem; }
 }
 // Remove top margin from buttons when they're the first child of a td
 td>.crm-submit-buttons:first-child {
@@ -831,6 +853,7 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 // Component: Select 2 {{{
 //.select2-container-multi .select2-choices .select2-search-choice
 //.select2-container-multi  .select2-search-choice
+.select2-container .select2-choice,
 .select2-container .select2-choices .select2-choice,
 .select2-container .select2-choices .select2-search-choice {
 	// background-color: $colourSubtleHoverLightBlueGrey;

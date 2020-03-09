@@ -1476,9 +1476,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/rich/civicrm-buildkit-docker/build/dmaster/sites/default/files/civicrm/ext/aah/src/bootstrap.js */"./src/bootstrap.js");
-__webpack_require__(/*! /home/rich/civicrm-buildkit-docker/build/dmaster/sites/default/files/civicrm/ext/aah/src/bootstrap.scss */"./src/bootstrap.scss");
-module.exports = __webpack_require__(/*! /home/rich/civicrm-buildkit-docker/build/dmaster/sites/default/files/civicrm/ext/aah/src/civicrm.scss */"./src/civicrm.scss");
+__webpack_require__(/*! /var/www/records.climateoutreach.org.uk/sites/all/modules/coin/civicrm/extensions/aah/src/bootstrap.js */"./src/bootstrap.js");
+__webpack_require__(/*! /var/www/records.climateoutreach.org.uk/sites/all/modules/coin/civicrm/extensions/aah/src/bootstrap.scss */"./src/bootstrap.scss");
+module.exports = __webpack_require__(/*! /var/www/records.climateoutreach.org.uk/sites/all/modules/coin/civicrm/extensions/aah/src/civicrm.scss */"./src/civicrm.scss");
 
 
 /***/ })

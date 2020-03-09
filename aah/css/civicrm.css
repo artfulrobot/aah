@@ -383,30 +383,11 @@ body.aah-theme #access {
   border: none;
 }
 
-.crm-button {
-  position: relative;
-  margin-right: 1.6rem;
-}
-
-.crm-button i {
-  position: absolute;
-  pointer-events: none;
-  color: white;
-  line-height: 1;
-  left: 1.2rem;
-  top: 50%;
-  -webkit-transform: translateY(-0.88rem);
-          transform: translateY(-0.88rem);
-}
-
-.crm-button input.crm-form-submit,
-.crm-button input[type="button"] {
-  padding: 0.4rem 1.6rem 0.4rem 3.2rem;
-}
-
+a.crm-button > span,
 button.crm-button,
 input.crm-form-submit,
-input[type="button"] {
+input[type="button"],
+input[type="submit"] {
   display: inline-block;
   background: #2c98ed;
   padding: 0.4rem 1.6rem;
@@ -418,20 +399,67 @@ input[type="button"] {
   vertical-align: baseline;
 }
 
+a.crm-button > span:hover,
 button.crm-button:hover,
 input.crm-form-submit:hover,
-input[type="button"]:hover {
+input[type="button"]:hover,
+input[type="submit"]:hover {
   background-color: #127fd4;
 }
 
+a.crm-button > span.btn-secondary,
 button.crm-button.btn-secondary,
 input.crm-form-submit.btn-secondary,
-input[type="button"].btn-secondary {
+input[type="button"].btn-secondary,
+input[type="submit"].btn-secondary {
   background: #02477d;
 }
 
-button.crm-button[crm-icon] {
-  padding-left: 3.36rem;
+span.crm-button {
+  position: relative;
+  margin-right: 1.6rem;
+  padding: 0;
+  display: inline-block;
+}
+
+span.crm-button i {
+  position: absolute;
+  pointer-events: none;
+  color: white;
+  line-height: 1;
+  left: 1.2rem;
+  top: 50%;
+  -webkit-transform: translateY(-0.88rem);
+          transform: translateY(-0.88rem);
+}
+
+span.crm-button input.crm-form-submit,
+span.crm-button input[type="button"],
+span.crm-button input[type="submit"] {
+  padding: 0.4rem 1.6rem 0.4rem 3.2rem;
+  box-shadow: none;
+}
+
+a.crm-button {
+  position: relative;
+  margin-right: 1.6rem;
+  padding: 0;
+  display: inline-block;
+}
+
+a.crm-button > span {
+  padding-left: 3.6rem;
+}
+
+a.crm-button i {
+  position: absolute;
+  pointer-events: none;
+  color: white;
+  line-height: 1;
+  left: 1.2rem;
+  top: 50%;
+  -webkit-transform: translateY(-0.88rem);
+          transform: translateY(-0.88rem);
 }
 
 a.button,
@@ -469,8 +497,12 @@ a.button:visited:hover,
   margin-top: 1.6rem;
 }
 
-.crm-inline-button .crm-button,
-.crm-submit-buttons .crm-button {
+.crm-inline-button button.crm-button,
+.crm-inline-button span.crm-button,
+.crm-inline-button a.crm-button,
+.crm-submit-buttons button.crm-button,
+.crm-submit-buttons span.crm-button,
+.crm-submit-buttons a.crm-button {
   margin-right: 1.6rem;
 }
 
@@ -889,6 +921,7 @@ body.aah-theme div.ui-notify-message.success div.icon::before,
   display: block;
 }
 
+.select2-container .select2-choice,
 .select2-container .select2-choices .select2-choice,
 .select2-container .select2-choices .select2-search-choice {
   background-color: white;
