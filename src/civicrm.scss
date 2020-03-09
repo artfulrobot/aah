@@ -50,6 +50,10 @@ body.aah-theme {
   #access {
     max-width: none;
   }
+  h1#page-title {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
 }
 // }}}
 // Avoid Flash Of Unstyled Content {{{
@@ -260,20 +264,36 @@ body.aah-theme #access {
 
 //}}}
 // Component: Accordions (various types). {{{
-.crm-accordion-wrapper {
+
+// Type 1: e.g. custom fields on contact summary form:
+// div.crm-collapsible[[.collapsed]]
+//   div.collapsible-title
+//   div.crm-summary-block
+//     div.crm-inline-edit ...
+
+// Type 2:
+// .crm-accordion-wrapper[[.collapsed]]
+//   .crm-accordion-header[[.active]]
+//   .crm-accordion-body
+
+
+.crm-collapsible, // Type 1
+.crm-accordion-wrapper { // Type 2
   margin-bottom: 1.6rem;
   margin-top: 1.6rem;
   border-bottom: solid 1px $colourFormElementsBorder;
 }
 
-// Generally we don't need such specificity
-.crm-accordion-header {
+.collapsible-title, // type 1
+.crm-accordion-header { // type 2
   padding: 0.8rem 1.6rem 0.8rem 4rem;
   color: $colourArtfulDarkBlue;
   background-color: $colourBlueGrey;
   transition: background-color 0.2s;
   cursor: pointer;
+}
 
+.crm-accordion-header { // type 2 only
   &.active {
     background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
     color: $colourArtfulDarkBlue;
@@ -283,7 +303,8 @@ body.aah-theme #access {
   }
 }
 
-.crm-accordion-header::before {
+.collapsible-title::before, // type 1
+.crm-accordion-header::before { // type 2
   content: "\F18E";
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -295,24 +316,28 @@ body.aah-theme #access {
   transition: transform 0.3s;
   transform: rotateZ(90deg);
 }
-.crm-accordion-body {
+.crm-collapsible>.crm-summary-block, // type 1
+.crm-accordion-body { // type 2
   background: $colourLayeredBackground;
   padding: 1.6rem;
   border-radius: 0;
   border:none;
   overflow: auto; // force it to encompass floated elements.
   transform: none;
+  // nicer animation on the body
   opacity: 1;
   transition: opacity 0.3s;
 }
 // When collapsed:
-.crm-accordion-wrapper.collapsed {
+.crm-collapsible.collapsed, // type 1
+.crm-accordion-wrapper.collapsed { // type 2
 
   // Remove the bottom border (asit tends to look like an underline)
   border-bottom: none;
 
   // Use a subtle backcolor.
-  .crm-accordion-header {
+  .collapsible-title, // type 1
+  .crm-accordion-header { // type 2
     background-color: $colourLayeredBackground;
     &:hover {
       background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
@@ -320,38 +345,15 @@ body.aah-theme #access {
   }
 
   // no rotation on the arrow pointing right.
-  .crm-accordion-header::before {
+  .collapsible-title::before, // type 1
+  .crm-accordion-header::before { // type 2
     transform: none;
   }
 
-  // nicer animation on the body
-  .crm-accordion-body {
+  &>.crm-summary-block, // type 1
+  .crm-accordion-body { // type 2
     display: none;
     opacity: 0;
-  }
-}
-
-// This is another sort of collapsible content
-.crm-collapsible {
-  position: relative;
-  margin: 0.8rem 0;
-  transition: background-color 0.2s;
-  padding: 4.8rem 1.6rem 0.8rem; // 4.8rem to allow for absolutely positioned title.
-  background: $colourLayeredBackground;
-
-  &.collapsed {
-    &>div { display:none; }
-    &>.collapsible-title {
-      display:block;
-    }
-  }
-  .collapsible-title {
-    color: $colourArtfulDarkBlue;
-    cursor: pointer;
-    position: absolute;
-    top: 0.8rem;
-    left: 0.8rem;
-    border: none;
   }
 }
 
@@ -579,11 +581,32 @@ body.aah-theme fieldset {
   }
 }
 // }}}
+// Component: form-block {{{
+// This is used a lot. We give it a white background although often it's under
+// another div which may have a semi-transparent background, so the white helps
+// keep the colours nice.
+.crm-form-block {
+  background-color: white;
+}
+// }}}
 // Component: Form elements {{{
 body.aah-theme {
   input[type="text"], input[type="password"], textarea {
     border-color: $colourFormElementsBorder;
   }
+
+
+  // Clumsy spinner inputs {{{
+  .ui-spinner input[type="text"] {
+    border: none;
+  }
+  .ui-spinner-button {
+    box-shadow: none;
+    border-radius: 0;
+    background: rgba(0,0,0,0.03);
+  }
+  // }}}
+
 }
 // Stop the labels butting right up against the tick boxes.
 // Using padding so we don't create an unclickable gap.
@@ -915,15 +938,24 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 .crm-summary-link {
   display: inline-block;
   color: $colourArtfulDarkBlue;
-  width: 3.2rem;
-  height: 3.2rem;
+  // width: 3.2rem; height: 3.2rem;
 }
 
 .crm-summary-link .crm-icon {
-  line-height: 3.2rem;
+  // line-height: 3.2rem;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
+}
+.crm-summary-display_name {
+  .crm-summary-link {
+    width: 3.2rem;
+    height: 3.2rem;
+  }
+
+  .crm-summary-link .crm-icon {
+    line-height: 3.2rem;
+  }
 }
 
 .crm-summary-link .crm-icon.Individual-icon::before {
@@ -936,19 +968,46 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
   display: inline-block;
 }
 
+// Popup contact summary boxes
 .crm-summary-link .crm-tooltip-wrapper {
   display: none;
   position: absolute;
   background: white;
   padding: 0 1.6rem;
   font-size: 1.6rem;
-  z-index: 1;
+  z-index: 21;
   box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
 }
 
 .crm-summary-link.crm-tooltip-active .crm-tooltip-wrapper {
   display: block;
-} // }}}
+}
+
+// The table of info
+table.crm-table-group-summary {
+  td { padding:0; }
+  .crm-section {
+    margin-bottom: 1rem;
+
+    &>.label {
+      flex: 0 1 13rem;
+      font-weight: normal;
+      font-size: 1.3rem;
+      text-align: left;
+      margin: 0;
+      padding: 0 1.6rem 0 0 ;
+      color: $colourText;
+    }
+    &>.content {
+      flex: 1 0 13rem;
+      margin: 0;
+    }
+    .clear { display: none; } // We don't need this and it interferes with grid.
+  }
+}
+
+
+// }}}
 // Component: Footer {{{
 #civicrm-footer {
   margin-top: 8rem;
@@ -1043,6 +1102,7 @@ body.aah-theme ul li.crm-tab-button {
 // Component: tables {{{
 body.aah-theme table {
   border-collapse: collapse;
+  width: 100%;
   td, th {
     padding: 0.8rem 1.6rem;
     background-clip: padding-box; // Stop Firefox drawing backgrounds over borders.
@@ -1154,6 +1214,10 @@ body.aah-theme .hiddenElement { display: none; }
 // Give full page width to the view.
 body.aah-theme.civicrm-contact-view {
   @extend %full-width-page;
+
+  table.dataTable {
+    font-size: 1.5rem; // sligntly smaller (worth it?)
+  }
 }
 .crm-summary-display_name {
   margin-top:1.6rem;
@@ -1233,7 +1297,7 @@ body.aah-theme.civicrm-contact-view {
     .ui-tabs-anchor {
       display:flex;
       align-items: center;
-      padding: 0.8rem 1.6rem !important; // needs important as style being overridden uses it.
+      padding: 0.8rem 1.6rem;
 
       &:focus {
         outline: none;
@@ -1252,6 +1316,7 @@ body.aah-theme.civicrm-contact-view {
         color:white;
         font-style:normal;
         font-weight:bold;
+        margin-left: 0.5rem; // Reduce gap
       }
     }
     // Hide blob when there's a zero count
@@ -1290,6 +1355,10 @@ body.aah-theme.civicrm-contact-view {
       display:block; // disable flex now.
       li.crm-tab-button {
         margin: 0; // remove the 1.6rem right margin
+        // The <a> element
+        .ui-tabs-anchor {
+          padding: 0.8rem 1rem;
+        }
         a>span {
           display:block; // was 'none' for mobile.
         }
@@ -1303,6 +1372,15 @@ body.aah-theme.civicrm-contact-view {
 @media screen and (min-width: 1100px) {
   .crm-contact-page #mainTabContainer {
     grid-template-columns: 19.2rem auto;
+
+    .crm-contact-tabs-list {
+      li.crm-tab-button {
+        // The <a> element
+        .ui-tabs-anchor {
+          padding: 0.8rem 1.6rem;
+        }
+      }
+    }
   }
 }
 // }}}
@@ -1360,6 +1438,8 @@ body.aah-theme.civicrm-contact-view {
   border-left: solid 1px $colourWidgetBorder;
   // Keep all content at this height.
   // &>div, &>div>div, &>div>div>div { height: 100%; }
+  &>div:first-child { margin-top: 0; }
+  &>div:last-child { margin-bottom: 0; }
 }
 .crm-summary-block {
   margin-bottom: 1px;
@@ -1588,11 +1668,6 @@ body.civicrm-contact-view-case {
   font-size:inherit;
 }
 
-
-.crm-container .crm-form-block {
-  background-color: white;
-  padding: 1.6rem;
-}
 
 .crm-container input { box-sizing: border-box; }
 

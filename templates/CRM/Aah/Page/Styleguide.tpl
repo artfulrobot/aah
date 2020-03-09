@@ -152,24 +152,65 @@
 </article>
 
 <article>
-<h1>Notifications</h1>
+  <h1>Notifications</h1>
 
 <div class="message status no-popup">
   <div class="icon inform-icon"></div>
   No contributions have been recorded from this contact.
 </div>
 
-<div class="messages error no-popup">
-  Some error (I'm not sure if this construct is in use in CiviCRM Core. Maybe a Drupal thing)
-</div>
+  <div class="messages error no-popup">
+    Some error (I'm not sure if this construct is in use in CiviCRM Core. Maybe a Drupal thing)
+  </div>
 
-<p>#help</p>
-<div id="help" class="description section-hidden-border">Administer your CiviCRM site using the links on this page. Click <img src="http://localhost:8080/sites/all/modules/civicrm/i/TreePlus.gif" alt="plus sign" style="vertical-align: bottom; height: 20px; width: 20px;"> for descriptions of the options in each section.</div>
-<p>.help</p>
-<div class="help">
-  Click <a class="action-item" href>Record Contribution</a> to record a new contribution received from this contact.
-  Click <a class="action-item" href>Submit Credit Card Contribution</a> to process a new contribution on behalf of the contributor using their credit card.
-</div>
+  <p>#help</p>
+  <div id="help" class="description section-hidden-border">Administer your CiviCRM site using the links on this page. Click <img src="http://localhost:8080/sites/all/modules/civicrm/i/TreePlus.gif" alt="plus sign" style="vertical-align: bottom; height: 20px; width: 20px;"> for descriptions of the options in each section.</div>
+  <p>.help</p>
+  <div class="help">
+    Click <a class="action-item" href>Record Contribution</a> to record a new contribution received from this contact.
+    Click <a class="action-item" href>Submit Credit Card Contribution</a> to process a new contribution on behalf of the contributor using their credit card.
+  </div>
 
+</article>
+
+
+<article>
+  <p>Pager inputs</p>
+  <span class="element-right">
+  Page <span class="ui-spinner ui-corner-all ui-widget ui-widget-content"><input size="2" maxlength="4" name="crmPID" type="text" value="1" aria-valuemin="1" aria-valuemax="10" aria-valuenow="1" autocomplete="off" class="ui-spinner-input" role="spinbutton"><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-up ui-corner-tr ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-n"></span><span class="ui-button-icon-space"> </span></a><a tabindex="-1" aria-hidden="true" class="ui-button ui-widget ui-spinner-button ui-spinner-down ui-corner-br ui-button-icon-only" role="button"><span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span><span class="ui-button-icon-space"> </span></a></span> of 10 </span>
+</article>
+
+
+
+<article>
+<h2>Custom field accordion on Contact summary screen</h2>
+{literal}
+<div class="customFieldGroup crm-collapsible ui-corner-all constituent_information crm-custom-set-block-1 collapsed">
+<div class="collapsible-title">
+Constituent Information
+</div>
+<div class="crm-summary-block" id="custom-set-block-1--1" style="display: none;">
+<div id="custom-set-content-1" class="crm-inline-edit" data-edit-params="{&quot;cid&quot;: &quot;14&quot;, &quot;class_name&quot;: &quot;CRM_Contact_Form_Inline_CustomData&quot;, &quot;groupID&quot;: &quot;1&quot;, &quot;customRecId&quot;: &quot;-1&quot;, &quot;cgcount&quot; : &quot;1&quot;}" data-dependent-fields="[&quot;#crm-communication-pref-content&quot;]">
+<div class="crm-clear crm-inline-block-content" title="Edit">
+<div class="crm-edit-help">
+<span class="crm-i fa-pencil"></span> Edit      </div>
+
+<div class="crm-summary-row">
+<div class="crm-label">Most Important Issue</div>
+<div class="crm-content crm-custom-data"></div>
+</div>
+<div class="crm-summary-row">
+<div class="crm-label">Marital Status</div>
+<div class="crm-content crm-custom-data"></div>
+</div>
+<div class="crm-summary-row">
+<div class="crm-label">Marriage Date</div>
+<div class="crm-content crm-custom-data"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{/literal}
 </article>
 
