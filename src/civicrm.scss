@@ -281,7 +281,15 @@ body.aah-theme #access {
 .crm-accordion-wrapper { // Type 2
   margin-bottom: 1.6rem;
   margin-top: 1.6rem;
+
   border-bottom: solid 1px $colourFormElementsBorder;
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .collapsible-title, // type 1
@@ -585,8 +593,15 @@ body.aah-theme fieldset {
 // This is used a lot. We give it a white background although often it's under
 // another div which may have a semi-transparent background, so the white helps
 // keep the colours nice.
+// @see Contact Edit screen
 .crm-form-block {
   background-color: white;
+  padding: 1.4rem;
+  // Sometimes (e.g. search form) these are nested.
+  .crm-form-block {
+    background: transparent;
+    padding: 0;
+  }
 }
 // }}}
 // Component: Form elements {{{
@@ -697,6 +712,18 @@ body.aah-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
 
 
 // }}}
+// Component: various icons {{{
+//.icon privacy-flag email-hold
+.icon.email-hold {
+  &::before {
+    content:'\26d4'; // No Entry red sign
+    display:inline-block;
+    width: 2.4rem;
+    height: 2.4rem;
+    text-align:center;
+  }
+}
+// }}}
 // Component: sticky table heads. xxx probably want to tame this... {{{
 thead tr:first-child {
 	position: sticky;
@@ -745,8 +772,11 @@ div.message {
 // }}}
 // Component: Notifications - popups {{{
 #crm-notification-container {
-	min-width: 48rem;
-	max-width: 72rem;
+
+  // Normally 25% but allow ourselves at least 20rem so 200px
+  width: 25%;
+	min-width: 20rem;
+
   color: $colourText;
   position: fixed;
   top: 4.8rem;
@@ -763,11 +793,11 @@ div.message {
 	text-shadow: none;
 	padding: 0.32rem 1.2rem;
 	color: white;
-  border: solid 1px white;
+  border: none;
   border-radius: 2px;
   text-decoration: none;
   &:hover, &:active {
-    background: rgba(255, 255, 255, 0.5);
+    color: $colourText;
     text-decoration: none;
   }
 }
@@ -805,13 +835,14 @@ div.message {
   h1 {
     color: black;
     background: $colourAmberStrongBg;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin:0;
-    padding: 1.6rem 1.6rem 1.6rem 4.8rem;
+    padding: 1.4rem 1.4rem 1.4rem 4.8rem;
     min-height: 5.92rem; // Sometimes it is empty.
   }
   .notify-content {
-    padding: 1.6rem;
+    padding: 1.4rem;
+    font-size: 1.4rem;
   }
 
 }
