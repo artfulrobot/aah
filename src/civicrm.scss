@@ -229,7 +229,11 @@ a.ui-button:active,
   animation: aahblockoverlay 10s infinite;
 }
 
-
+// The date picker widget has a fixed width, so we need to fix the padding or it does not fit.
+.ui-datepicker th, .ui-datepicker td {
+  // Feel ok about using !important here because this not something tht has the possiblity of nested elements.
+  padding: 0 !important;
+}
 // }}}
 // Override: Case {{{
 .crmCaseType tr.addRow td {
