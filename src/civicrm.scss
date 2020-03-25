@@ -57,7 +57,7 @@ body.aah-theme {
 }
 // }}}
 // Avoid Flash Of Unstyled Content {{{
-#page-title,
+body.page-civicrm #page-title, // Drupal specific!
 .aah-wrapper {
   opacity: 0;
   transition: opacity 0.3s ;
