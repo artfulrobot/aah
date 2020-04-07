@@ -257,8 +257,35 @@ body.aah-theme #access {
     }
   }
 }
-// Until Javascript sets display: block, hide the actions popup.
-#crm-contact-actions-list { display: none; }
+.crm-actions-ribbon
+.ac_results {
+  // Until Javascript sets display: block, hide the actions popup.
+  display: none;
+
+  position: absolute;
+  background: white;
+  z-index: 10;
+  width: 27rem;
+  padding: 0.5rem 0;
+  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+
+  ul {
+    padding: 0;
+    li {
+      display:block;
+      padding: 0;
+      margin: 0;
+      a {
+        display: block;
+        padding: 0.25rem 1rem;
+        line-height: 1.2;
+        &:hover {
+          background: $colourSubtleHoverLightBlueGrey;
+        }
+      }
+    }
+  }
+}
 .action-link {
   margin: 1.6rem 0;
   a {
@@ -444,6 +471,11 @@ a.crm-button {
   margin-right: 1.6rem; // space before next button in a list of buttons.
   padding: 0; // apply padding to the button itself, not the container (which is not clickable)
   display: inline-block;
+  &.crm-button:link,
+  &.crm-button:active,
+  &.crm-button:visited,
+  &.crm-button:hover
+  { text-decoration:none; }
 
   // &>span  much of this is above.
   &>span { padding-left: 3.6rem; }
@@ -542,7 +574,7 @@ td>.crm-submit-buttons:first-child {
         margin:0;
         text-decoration: none;
         &:hover {
-          background: #e6edf2;
+          background: $colourSubtleHoverLightBlueGrey;
           text-decoration: none;
         }
       }
