@@ -399,26 +399,36 @@ body.aah-theme #access {
 // }}}
 // Component: Buttons {{{
 
-// Some buttons look like this:
+// Some buttons look like this (type1)
 //
 // span.crm-button[[.crm-i-button]]
 //   i.crm-i
 //   input[type=submit]
 //
-// Some like:
+// Some like (type2)
+//
 // a.crm-button
 //   span
 //     i.crm-i
 //     button text
 //
-// Some like this:
+// Some like this (type3)
+//
 // button.btn.crm-button
 //   i.crm-i.fa-xxx
 //   button text
+//
+// Some (event online registration page, type4)
+//
+// button
+//   i.crm-i.fa-xxx
+//   button text
+//
 
 // Generally, things that sould look like buttons:
 a.crm-button>span,
 button.crm-button,
+#crm-main-content-wrapper button, // type 4
 input.crm-form-submit,
 input[type="button"],
 input[type="submit"] {
@@ -613,15 +623,31 @@ td>.crm-submit-buttons:first-child {
   }
 }
 // }}}
-// Component: Fieldset {{{
+// Component: Fieldset inc. accordion fieldsets {{{
 body.aah-theme fieldset {
   padding-top: 4.8rem;
   position: relative;
+
   &>legend {
     position: absolute;
     top: 0.8rem;
     left: 1.6rem;
     border-style:none;
+  }
+
+  &.crm-collapsible {
+    background: $colourLayeredBackground;
+    padding: 4.8rem 1.6rem 1.6rem;
+    &.collapsed {
+      background: transparent;
+      padding: 4.8rem 0 0 0;
+    }
+
+    &>legend {
+      top: 0;
+      left: 0;
+      font-size: inherit; // override bootstrap's 24px.
+    }
   }
 }
 // }}}
@@ -1265,6 +1291,22 @@ table.crm-info-panel {
   background-color: $colourAmberLightBg;
 }
 // }}}
+// Component: wysiwyg editor widgets {{{
+.replace-plain {
+  background: $colourLayeredBackground;
+  border: solid 1px $colourWidgetBorder;
+  padding: 1rem;
+  cursor: pointer;
+  font-size: 1.4rem; // smaller
+  &::before {
+    display:block;
+    content: "\f040  " attr(title);
+    white-space: pre; // otherwise we lose the space after the icon.
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+  }
+}
+// }}}
 // Functional class: hiddenElement {{{
 // Used on the main CiviCRM dashboard page, not sure if it has more general use.
 body.aah-theme .hiddenElement { display: none; }
@@ -1633,6 +1675,16 @@ table.activity-search-options {
 @media screen and (min-width: 768px) {
   #crm-container #civicrm-dashboard {
     grid-template-columns: minmax(20rem, 60%) minmax(30rem, 40%);
+  }
+}
+// }}}
+// Specific Page: Events Config {{{
+.CRM_Event_Form_ManageEvent_Registration {
+  // We need to change the checkboxes (radios?) away from absolute since
+  // this page puts a helpicon right by it.
+  .crm-form-checkbox //, .crm-form-radio
+  {
+    position: static;
   }
 }
 // }}}

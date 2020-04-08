@@ -5,6 +5,7 @@
 {include file="CRM/Aah/Page/notifications.tpl"}
 {include file="CRM/Aah/Page/accordions.tpl"}
 {include file="CRM/Aah/Page/pager.tpl"}
+{include file="CRM/Aah/Page/replace-plain.tpl"}
 
 
 

@@ -24,5 +24,8 @@
     <div>
       <a class="crm-button"><span><i class="crm-i fa-pencil"></i>Edit</span></a>
     </div>
+
+    <p>These buttons are on the Event » Online Registration page</p>
+    <button type="button" class="crm-profile-selector-preview crm-profile-selector-preview-show" title="Preview"><i class="crm-i fa-television"></i> Preview</button>
   </div>
 </article>
