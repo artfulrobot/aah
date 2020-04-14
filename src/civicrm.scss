@@ -1757,6 +1757,14 @@ body.civicrm-contact-view-case {
   @extend %full-width-page;
 }
 // }}}
+// Specific Page: Mailings Draft and Unscheduled {{{
+// The HTML for the top of this is truly hideous. So the css is hacky.
+form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-child {
+  min-width: 45%;
+}
+
+
+// }}}
 
 // This affects a lot, including the content pane of tabbed content.
 .ui-widget-content {
