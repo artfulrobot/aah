@@ -159,7 +159,7 @@ function aah_civicrm_coreResourceList(&$items, $region) {
     //CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'base/js/button.js', 1000, 'html-header');
     ////CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'js/noConflict.js', 1001, 'html-header');
 
-    //$resources->addScriptFile('aah', 'aah/js/bootstrap.js', 1000, 'html-header');
+    $resources->addScriptFile('aah', 'aah/js/bootstrap.js', 1000, 'html-header');
     $resources->addScriptFile('aah', 'aah/js/aah.js', 1000, 'html-header');
   }
 }

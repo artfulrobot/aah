@@ -1673,6 +1673,12 @@ body.civicrm-contact-view-case {
   @extend %full-width-page;
 }
 // }}}
+// Specific Page: APIv4 explorer {{{
+.aah-theme #bootstrap-theme.api4-explorer-page fieldset {
+  // override some very specific styling.
+  padding-top: 4.8rem;
+}
+// }}}
 
 // This affects a lot, including the content pane of tabbed content.
 .ui-widget-content {
