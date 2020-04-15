@@ -12,3 +12,7 @@ import 'bootstrap-sass/assets/javascripts/bootstrap/modal.js';
 import 'bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js';
 import 'bootstrap-sass/assets/javascripts/bootstrap/tab.js';
 // import 'bootstrap-sass/assets/javascripts/bootstrap/affix.js';
+
+(function($) {
+  $.fn.button.noConflict();
+})(jQuery);
