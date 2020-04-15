@@ -1762,6 +1762,13 @@ body.civicrm-contact-view-case {
   // override some very specific styling.
   padding-top: 4.8rem;
 }
+// Specific Page: Mailings Draft and Unscheduled {{{
+// The HTML for the top of this is truly hideous. So the css is hacky.
+form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-child {
+  min-width: 45%;
+}
+
+
 // }}}
 
 // This affects a lot, including the content pane of tabbed content.
