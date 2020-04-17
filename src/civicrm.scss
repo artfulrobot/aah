@@ -670,6 +670,17 @@ body.aah-theme fieldset {
 body.aah-theme {
   input[type="text"], input[type="password"], textarea {
     border-color: $colourFormElementsBorder;
+    &.error  {
+      border-color: $colourRedDanger;
+    }
+    margin-bottom: 0.2rem; // 2px - mainly to give some space to .crm-error which may follow.
+  }
+  .crm-error {
+    background: $colourRedDanger;
+    color: white;
+    border-radius: 3px;
+    display:inline-block;
+    padding: 0.4rem 1rem;
   }
 
 
