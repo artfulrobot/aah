@@ -1694,6 +1694,27 @@ table.activity-search-options {
   display:none;
 }
 // }}}
+// Specific Page: Status {{{
+.crm-status-item  {
+  background: $colourLayeredBackground;
+  margin-bottom: 1.6rem;
+
+  &>h3 {
+    margin:0;
+    padding: 1rem 1.6rem;
+    .css_right { float:right; }
+    
+  }
+  .crm-status-message-body {
+    padding: 1.6rem;
+    margin: 0;
+  }
+}
+// Override button colours.
+#crm-status-list .hush-menu button {
+  border: solid 1px white;
+}
+// }}}
 // Specific Page: Admin overview {{{
 #id_Customize_Data_and_Screens_show,
 #id_Communications_show,
