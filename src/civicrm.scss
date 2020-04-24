@@ -1765,6 +1765,43 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 
 
 // }}}
+// Specific Page: Mosaico templates {{{
+// The purpose of this is to format the thumbnail list of templates.
+// By default the name of the thumbnail has to fit in 160px width, which
+// doesn't work when you have long titles, especially important if using
+// the mosaic message templates extension where the title also includes
+// the template subject.
+.mosaico-templates-wrapper // increase specificity
+{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
+  grid-gap: 2rem;
+  span.thumbnail.crm-mosaico-template-item {
+    float:none;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 165px 1fr; // fixed thumbs, auto
+  }
+  div>.crm-mosaico-template-item {
+    float:none;
+
+    .crm-mosaico-template-actions-wrapper a.btn {
+      padding: 0.5rem 1rem;
+    }
+
+    .crm-mosaico-template-title-wrapper {
+      text-align: left;
+      height: unset;
+      padding: 1.6rem;
+      p {
+        position: static;
+        transform: none;
+        width: auto;
+      }
+    }
+  }
+}
+// }}}
 
 // This affects a lot, including the content pane of tabbed content.
 .ui-widget-content {
