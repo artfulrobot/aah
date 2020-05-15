@@ -1266,8 +1266,20 @@ body.aah-theme table.selector {
 
 // }}}
 // Component: table crm-info-panel {{{
-table.crm-info-panel {
-  td.label { font-size: inherit; text-align: right; font-weight: normal; }
+// These are layout tables where each row is a separate table (gee, thanks).
+body.aah-theme table.crm-info-panel {
+  // Reduce vertical margins as these are often presented in a list.
+  margin: 0.25rem 0;
+
+  td, th { border: none; }
+
+  td.label {
+    font-size: inherit;
+    text-align: right;
+    font-weight: normal;
+    width: 16rem;
+    white-space: normal; // override bootstrap
+  }
 }
 // }}}
 // Component: data tables {{{
@@ -1495,6 +1507,7 @@ body.aah-theme.civicrm-contact-view {
 
     .crm-contact-tabs-list {
       li.crm-tab-button {
+        white-space: normal; // For annoyingly long tab names.
         // The <a> element
         .ui-tabs-anchor {
           padding: 0.8rem 1.6rem;
