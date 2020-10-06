@@ -1,8 +1,37 @@
 # aah
 
-![Screenshot](/images/screenshot.png)
+Some screenshots:
 
-(*FIXME: In one or two paragraphs, describe what the extension does and why one would download it. *)
+## Contact summary
+
+Wide screens:
+
+![Screenshot](/images/contact%20summary%20-%20wide.png)
+
+Narrower screens:
+
+![Screenshot](/images/contact%20summary%20-%20narrow.png)
+
+Narrow screens:
+
+![Screenshot](/images/contact%20summary%20-%20mobile.png)
+
+
+## Contact Activities list
+
+Wide
+
+![Screenshot](/images/activities%20-%20wide.png)
+
+Narrow (note tables don't fit!)
+
+![Screenshot](/images/activities%20-%20mobile.png)
+
+## Advanced search
+
+![Screenshot](/images/advanced%20search.png)
+
+
 
 The extension is licensed under [AGPL-3.0](LICENSE.txt).
 
