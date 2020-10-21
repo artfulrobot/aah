@@ -51,7 +51,7 @@ install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
 cd <extension-dir>
-cv dl aah@https://github.com/FIXME/aah/archive/master.zip
+cv dl aah@https://github.com/artfulrobot/aah/archive/master.zip
 ```
 
 ## Installation (CLI, Git)
@@ -60,7 +60,7 @@ Sysadmins and developers may clone the [Git](https://en.wikipedia.org/wiki/Git) 
 install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
-git clone https://github.com/FIXME/aah.git
+git clone https://github.com/artfulrobot/aah.git
 cv en aah
 ```
 
