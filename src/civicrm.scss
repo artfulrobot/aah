@@ -448,6 +448,10 @@ input[type="submit"] {
   &.btn-secondary {
     background: $colourArtfulDarkBlue;
   }
+  &[disabled] {
+    opacity:0.35;
+    pointer-events: none;
+  }
 }
 
 span.crm-button {
