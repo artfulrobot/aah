@@ -807,11 +807,13 @@ body.aah-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
 }
 // }}}
 // Component: sticky table heads. xxx probably want to tame this... {{{
-thead tr:first-child {
+// We limit this to the main content wrapper to exclude modals.
+#crm-main-content-wrapper thead tr:first-child {
 	position: sticky;
 	top: 4.16rem;
 	z-index: 20;
-} // }}}
+}
+// }}}
 // Component: Notifications - non popups {{{
 div.status,
 div.messages {
@@ -1813,6 +1815,17 @@ body.civicrm-contact-view-case {
 }
 // }}}
 // Specific Page: APIv4 explorer {{{
+.aah-theme.crm-name-crm-api4-page-api4explorer {
+  // Allow full width page.
+  #crm-main-content-wrapper {
+    max-width: none;
+  }
+
+  // Nicer button spacing.
+  .explorer-params-panel button.pull-right {
+    margin-left: 1.6rem;
+  }
+}
 .aah-theme #bootstrap-theme.api4-explorer-page fieldset {
   // override some very specific styling.
   padding-top: 4.8rem;
