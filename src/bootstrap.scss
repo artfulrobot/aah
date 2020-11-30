@@ -4,8 +4,8 @@
 @import "lib";
 // Aah's configuration for bootstrap.
 
-//** Background color for `<body>`.
-$body-bg:              $colourBackground;
+// Background color for `<body>`.
+$body-bg: $colourBackground;
 // Prefer a more contrasty text.
 $text-color: $colourText;
 $brand-primary: $colourArtfulBrightBlue;

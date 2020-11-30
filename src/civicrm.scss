@@ -1043,6 +1043,12 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
   color: $colourMidGrey;
 }
 
+// Highlighted item.
+.select2-results .select2-highlighted {
+  background-color: $colourSubtleHoverLightBlueGrey;
+  color: black;
+}
+
 // When used with a bootstrap .form-control...
 .form-control.select2-container {
   padding: 0;
@@ -1080,6 +1086,11 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 
 .crm-summary-link .crm-icon.Organization-icon::before {
   content: "\F0F7";
+  display: inline-block;
+}
+.crm-summary-link .crm-icon.Organization-subtype-icon::before {
+  // fa-users
+  content: "\f0c0";
   display: inline-block;
 }
 
