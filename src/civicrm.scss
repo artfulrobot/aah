@@ -1266,7 +1266,16 @@ body.aah-theme table.form-layout-compressed {
 // Component: table selector {{{
 body.aah-theme table.selector {
   width: 100%;
-  tr.disabled td { opacity: 0.35; }
+  tr.disabled td {
+    // Nb. applying opacity here caused inaccessible 'more' menus. See issue https://github.com/artfulrobot/aah/issues/17
+
+    // Faded text.
+    color: #aaa;
+    // Also fade 'pre' boxes, e.g. scheduled jobs page.
+    pre {
+      opacity: 0.5;
+    }
+  }
 
   th,
   td {
