@@ -66,6 +66,12 @@ body.aah-theme {
   .aah-wrapper { opacity: 1; }
 }
 // }}}
+// Page title {{{
+// There's a chance this is specific to the Drupal 7 aaah theme, sorry about that.
+body.aah-theme #header #page-title {
+  margin: 0 1.6rem;
+}
+// }}}
 
 // Override: Aaah theme! {{{
 #crm-container li { max-width: none; }
@@ -1555,7 +1561,7 @@ body.aah-theme.civicrm-contact-view {
     }
   }
 }// }}}
-
+ // }}}
 // Contact summary tab {{{
 .crm-container div.contact_panel {
   display:grid;
@@ -1625,7 +1631,11 @@ body.aah-theme .separator {
   border-bottom: solid 1px rgba(0,0,0,0.2);
 }
 
-
+// Email form contains extraneous column.
+form#Email table.crm-inline-edit-form {
+  td:last-child { display: none; }
+  td[colspan]:last-child { display: table-cell; }
+}
 
 // }}}
 // Contributions {{{
