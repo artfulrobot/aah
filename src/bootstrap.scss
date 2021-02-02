@@ -15,7 +15,8 @@ $font-family-sans-serif:  "Lato", Helvetica, Arial, sans-serif;
 
 // Bootstrap build {{{
 // The following is required so that the boostrap-provided files can resolve references
-$bootstrap-sass-asset-helper: true;
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+$icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 /*!
  * Bootstrap v3.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 Twitter, Inc.
