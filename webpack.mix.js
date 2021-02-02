@@ -4,6 +4,7 @@ mix.js('src/bootstrap.js', 'aah/js/')
   .js('src/aah.js', 'aah/js/')
   .sass('src/bootstrap.scss', 'aah/css/')
   .sass('src/civicrm.scss', 'aah/css/')
+  .sass('src/dashboard.scss', 'aah/css/')
   .options({ processCssUrls: false })
 ;
 

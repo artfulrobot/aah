@@ -1688,60 +1688,71 @@ table.activity-search-options {
 // }}}
 //}}}
 // Specific Page: Dashboard {{{
+// WIP: this replaces dashboard.css
+
  // has own css, requires this specificity.
 #crm-container #civicrm-dashboard {
-  display: grid;
-  grid-template-columns: minmax(200px, 1fr); // mobile 1st.
 
-  margin: 0 -1rem;
-  .column { float: none; padding: 0 1rem; }
-
-  #column-0 {
-    width: 100%;
-  }
-  #column-1 {
-    width: 100%;
-  }
-
-  // jQuery override for this context.
-  .ui-tabs .ui-tabs-panel {
-    padding: 1rem 0;
-  }
-  li.widget { // , #crm-container li.empty-placeholder
-    margin: 1.6rem 0;
-  }
-  .widget-wrapper {
-    box-shadow: none;
-    margin: 0;
-  }
-  .widget-controls {
-    background: $colourBlueGrey;
-    border-radius: 0;
-    border:none;
-    padding: 0.8rem 1.2rem 0.8rem 1.2rem;
-    // Icon colour defined as white, not very visible.
-    .crm-i {
-      color: $colourArtfulDarkBlue;
-    }
-    // Remove underline
-    a:hover { text-decoration: none; }
-  }
   h3.widget-header {
     // color: $colourText;
     color: $colourArtfulDarkBlue;
     font-size: 1.6rem;
   }
-  .widget-content .crm-accordion-header {
-    background-image: none;
-    // Override dashboard.css
-    background-color: $colourLayeredBackground;
+
+  .crm-inactive-dashlet-fieldset {
+    legend {
+      font-size: 1.6rem;
+      background-color: transparent;
+    }
   }
 
-}
-@media screen and (min-width: 768px) {
-  #crm-container #civicrm-dashboard {
-    grid-template-columns: minmax(20rem, 60%) minmax(30rem, 40%);
+  // Overrides for 5.3x?+ dashboard.css
+  // Nb. there is no way to tell if an accordion is open or closed in the angular version.
+  .crm-dashlet-header {
+    background-color: $colourBlueGrey;
+    padding: 0 0.8rem;
+    h3 {
+      color: $colourArtfulDarkBlue;
+      font-size: 1.6rem;
+      padding: 0.8rem 1.6rem 0.8rem 0.8rem;
+    }
+
+    // crm-dashlet-collapse crm-i fa-caret-down
+    a.crm-i {
+      padding: 0.8rem;
+      &::before {
+        color: $colourArtfulDarkBlue;
+      }
+    }
+    a.crm-dashlet-collapse {
+      &::hover,
+      &::focus {
+        outline: none;
+      }
+      &::focus {
+        color: white;
+      }
+      &::before {
+        /* xxx */
+        content: "\F18E";
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: 1.6rem;
+        text-rendering: auto;
+        display: block;
+        transition: transform 0.3s;
+        transform: rotateZ(90deg);
+      }
+      &.fa-caret-down::before {
+        color: $colourArtfulDarkBlue;
+      }
+      &.fa-caret-right::before {
+        content: "\F18E"; // Override
+        transform: none;
+        color: $colourArtfulDarkBlue;
+      }
+    }
   }
+
 }
 // }}}
 // Specific Page: Events Config {{{
