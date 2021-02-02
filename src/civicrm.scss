@@ -1581,7 +1581,7 @@ body.aah-theme.civicrm-contact-view {
     }
   }
 }// }}}
-
+ // }}}
 // Contact summary tab {{{
 .crm-container div.contact_panel {
   display:grid;
@@ -1651,7 +1651,11 @@ body.aah-theme .separator {
   border-bottom: solid 1px rgba(0,0,0,0.2);
 }
 
-
+// Email form contains extraneous column.
+form#Email table.crm-inline-edit-form {
+  td:last-child { display: none; }
+  td[colspan]:last-child { display: table-cell; }
+}
 
 // }}}
 // Contributions {{{
@@ -1925,6 +1929,7 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 .crm-tag-item {
 	line-height: 1.25;
 	white-space: nowrap;
+  display: inline-block;
 	border: solid 1px rgba(0,0,0,0.2);
 	border-radius: 3px;
 	padding: 0 1rem;
