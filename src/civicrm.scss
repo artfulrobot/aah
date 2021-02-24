@@ -1943,3 +1943,9 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 
 
 
+// Specific page: membership renewal (admin form) {{{
+// Issue 22. The help icon crashes into the absolutely positioned checkbox.
+#is_different_contribution_contact {
+  position: static;
+}
+//}}}
