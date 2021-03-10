@@ -41,6 +41,58 @@ body.aah-theme {
 }
 //#crm-main-content-wrapper>.ng-scope {
 // }}}
+// Mostly functional rules copied from civicrm.css (5.35) {{{
+
+/* Use this class to hide text that should only be there for screen readers */
+.sr-only {
+   border: 0;
+   clip: rect(1px, 1px, 1px, 1px);
+   clip-path: inset(50%);
+   height: 1px;
+   width: 1px;
+   margin: -1px;
+   overflow: hidden;
+   padding: 0;
+   position: absolute;
+}
+
+.crm-container .crm-flex-box {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+.crm-container .crm-flex-box > * {
+  flex: 1;
+  box-sizing: border-box;
+  min-width: 0; /* prevents getting squashed by whitespace:nowrap content */
+}
+.crm-container .crm-flex-box > .crm-flex-2 {
+  flex: 2;
+}
+.crm-container .crm-flex-box > .crm-flex-3 {
+  flex: 3;
+}
+.crm-container .crm-flex-box > .crm-flex-4 {
+  flex: 4;
+}
+.crm-container .crm-flex-box > .crm-flex-5 {
+  flex: 5;
+}
+
+.crm-container .crm-draggable {
+  cursor: move;
+}
+
+#crm-container .hiddenElement,
+.crm-container .hiddenElement {
+  display: none;
+}
+
+#crm-container .clear,
+.crm-container .clear {
+  clear: both;
+}
+// }}}
 // Full width pages {{{
 // More efficient to list here.
 %full-width-page {
@@ -1686,10 +1738,11 @@ table.activity-search-options {
 // other tabs {{{
 // }}}
 // }}}
-//}}}
 // Specific Page: Dashboard {{{
 // WIP: this replaces dashboard.css
-
+body.aah-theme.civicrm-dashboard {
+  @extend %full-width-page;
+}
  // has own css, requires this specificity.
 #crm-container #civicrm-dashboard {
 
@@ -1707,6 +1760,9 @@ table.activity-search-options {
   }
 
   // Overrides for 5.3x?+ dashboard.css
+  .crm-dashlet {
+    box-shadow: none;
+  }
   // Nb. there is no way to tell if an accordion is open or closed in the angular version.
   .crm-dashlet-header {
     background-color: $colourBlueGrey;
