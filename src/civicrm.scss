@@ -1419,6 +1419,12 @@ body.aah-theme table.crm-info-panel {
   }
 }
 // }}}
+// Component: Matt’s checksum extension {{{
+// Flex does not work here.
+#Checksum > div > div.crm-section {
+  display: block;
+}
+// }}}
 // Functional class: hiddenElement {{{
 // Used on the main CiviCRM dashboard page, not sure if it has more general use.
 body.aah-theme .hiddenElement { display: none; }
