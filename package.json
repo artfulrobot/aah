@@ -1,28 +1,38 @@
 {
-  "name": "aah",
+  "name": "aaah",
   "version": "1.0.0",
-  "description": "![Screenshot](/images/screenshot.png)",
-  "main": "index.js",
+  "description": "",
+  "main": "ckeditor.custom.templates.js",
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run development -- --watch",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
-    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod2": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/artfulrobot/aaah.git"
+  },
+  "keywords": [],
   "author": "",
-  "license": "AGPL-3.0",
-  "dependencies": {
-    "bootstrap-sass": "^3.4.1"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/artfulrobot/aaah/issues"
   },
+  "homepage": "https://github.com/artfulrobot/aaah#readme",
   "devDependencies": {
-    "cross-env": "^6.0.3",
-    "laravel-mix": "^5.0.9",
+    "cross-env": "^7.0.3",
+    "laravel-mix": "^6.0.0",
     "node-sass": "^4.14.1",
+    "postcss": "^8.2.8",
     "resolve-url-loader": "^3.1.2",
     "sass-loader": "^8.0.2",
+    "vue": "^2.6.12",
     "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "bootstrap-sass": "^3.4.1"
   }
 }

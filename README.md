@@ -71,3 +71,19 @@ cv en aah
 ## Known Issues
 
 (* FIXME *)
+
+## Developers: how to build
+
+```sh
+# Install node code required for build
+npm i
+
+# Do a dev build
+npx mix build
+# Do a dev build and watch for changs
+npx mix watch
+
+# Do a production build (pls check in production builds)
+npx mix build -p
+
+```
