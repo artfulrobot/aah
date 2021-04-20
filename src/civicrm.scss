@@ -9,15 +9,14 @@
 // - page: e.g. crm-case-page-tab
 
 // General {{{
-body {
-  // Since we are (unfortunately) a bootstrap 3 based theme we have to set the body size to 16px
-  // in case the CMS's theme has set it to anything else.
-  font-size: $font-size-base !important;
-}
 #crm-container {
   padding-top: 1.6rem;
   padding-left: 1.6rem;
   padding-right: 1.6rem;
+
+  // Not sure about this !important
+  font-size: $font-size-base !important;
+
 
   h1.page-header {
     display:none; // CiviCRM seems to output this anyways.
@@ -25,6 +24,12 @@ body {
 
   // Don't limit width in CiviCRM since it uses background-color on some headings which then look odd.
   h3, h4, h5 { max-width:none; }
+}
+.crm-contaner {
+  // Insist on our own colour links within a CiviCRM container.
+  a,
+  a:visited { color: $colourArtfulBrightBlue; }
+  a:hover { color: $colourArtfulDarkBlue; }
 }
 
 // Provide some space at sides and assume a 1200px max by default.
@@ -482,13 +487,13 @@ body.aah-theme #access {
 //   button text
 //
 
-// Generally, things that sould look like buttons:
+// Generally, things that should look like buttons:
 a.crm-button>span,
 button.crm-button,
 #crm-main-content-wrapper button, // type 4
 input.crm-form-submit,
-input[type="button"],
-input[type="submit"] {
+.crm-container input[type="button"],
+.crm-container input[type="submit"] {
   display:inline-block;
   background: $colourArtfulBrightBlue;
   padding:0.4rem 1.6rem;
@@ -567,11 +572,11 @@ a.crm-button {
 // button.crm-button[crm-icon] { }
 
 // Link buttons
-a.button,
-a.button:link,
-a.button:visited,
-.ui-button,
-.ui-dialog-buttonset .ui-button
+.crm-container a.button,
+.crm-container a.button:link,
+.crm-container a.button:visited,
+.crm-container .ui-button,
+.crm-container .ui-dialog-buttonset .ui-button
 {
   display:inline-block;
   padding:0.4rem 1.6rem;
