@@ -1816,6 +1816,10 @@ body.aah-theme.civicrm-contact-view {
   &>div:first-child { margin-top: 0; }
   &>div:last-child { margin-bottom: 0; }
 }
+#crm-contact-thumbnail {
+  float:right;
+  padding: 1.6rem 1.6rem 0;
+}
 .crm-summary-block {
   margin-bottom: 1px;
 }
