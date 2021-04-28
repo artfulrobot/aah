@@ -75,11 +75,19 @@ cv en aah
 ## Developers: how to build
 
 ```sh
-# Install node code required for build
-npm i
+# Install yarn
+npm i -g yarn
+
+# Install the libs.
+yarn install
+npx mix # installs some other bits
+yarn install # don't know why we have to repeat.
 
 # Do a dev build
+npx mix
+# same as:
 npx mix build
+
 # Do a dev build and watch for changs
 npx mix watch
 
