@@ -733,6 +733,7 @@ body.aah-theme fieldset {
 }
 // }}}
 // Component: Form elements {{{
+// Note: crm-public-form-item
 body.aah-theme {
   input[type="text"], input[type="password"], textarea {
     border-color: $colourFormElementsBorder;
@@ -767,10 +768,12 @@ body.aah-theme {
 .crm-form-checkbox,
 .crm-form-radio {
   position: absolute;
+  display: block;
 
   // Except where this is the only element.
   &:last-child {
     position: static;
+    display: inline-block;
   }
 
   &+label, &+.description {
@@ -784,6 +787,12 @@ body.aah-theme {
   flex-wrap: wrap;
   margin-bottom: 1.6rem;
 
+  // Apply a default child selector because not /all/ crm-sections contain simple label, content parts.
+  // This should make everything except label, content parts behave like a normal block.
+  &>* {
+    flex: 0 1 100%;
+  }
+
   &>.label {
     flex: 0 0 19.2rem;
     padding-right: 1.6rem;
@@ -793,24 +802,47 @@ body.aah-theme {
     &,
     label { white-space: normal; } // Bootstrap says no wrap
   }
-  &>.content {
-    flex: 1 0 19.2rem;
-    margin-right: 3.2rem;
-
-    // Special treatment of radios, checkboxes.
-    .crm-form-checkbox, .crm-form-radio {
-      position: static;
-
-      &+label {
-        display: inline;
-        margin-right: 6.4rem;
-        padding-left: 0;
-      }
-    }
+  // When we have label, content, label, content, put some space between them.
+  &>.content + .label {
+    margin-left: 3.2rem;
   }
 
+  &>.content {
+    flex: 1 0 19.2rem;
 
-} // }}}
+    //margin-right: 3.2rem;
+
+    // Special treatment of radios, checkboxes.
+    // 2021-05-05: This seemed to offer inline radios/checkboxes, but it really fails on mobile.
+    // .crm-form-checkbox, .crm-form-radio {
+    //   // Un-do the earlier rules
+    //   position: static;
+    //   display: inline-block;
+
+    //   &+label {
+    //     display: inline;
+    //     margin-right: 6.4rem;
+    //     padding-left: 0;
+    //   }
+    // }
+  }
+}
+
+// Public forms, e.g. contribute.
+// .crm-section inside public forms: keep things simple.
+.crm-public-form-item .crm-section {
+  display:block;
+}
+// Go back to blocks layout on mobile.
+@media screen and (max-width: 767px) {
+  .crm-profile-view .crm-section .label {
+    text-align: left;
+    flex: 0 0 100%;
+  }
+}
+
+
+// }}}
 .crm-form-date-wrapper {
   display: inline-block;
   &>input.crm-form-date { display:inline-block; }
@@ -1052,6 +1084,17 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 .crm-profile .radio-wrapper { display:block; }
 // }}}
 // Component: Select 2 {{{
+
+
+// Public pages need to work on mobile but
+// select 2 is fond of setting a too-wide px width
+// So we have to overrule this with an ugly !important.
+.crm-public-form-item .select2-container {
+  width: 100% !important;
+  // Prefer to keep it not fully 100% if we can help it.
+  width: clamp(20rem, 100%, 35rem) !important;
+}
+
 //.select2-container-multi .select2-choices .select2-search-choice
 //.select2-container-multi  .select2-search-choice
 .select2-container .select2-choice,
