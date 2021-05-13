@@ -25,6 +25,12 @@
   // Don't limit width in CiviCRM since it uses background-color on some headings which then look odd.
   h3, h4, h5 { max-width:none; }
 }
+
+// jQuery modals are not inside #crm-container.
+body>.ui-dialog.crm-container {
+  font-size: $font-size-base !important;
+}
+
 .crm-contaner {
   // Insist on our own colour links within a CiviCRM container.
   a,
@@ -609,14 +615,16 @@ td>.crm-submit-buttons:first-child {
 
 // Buttons in title bars.
 .ui-dialog-titlebar {
+
   .ui-dialog-titlebar-close, // This class is mis-used for various types of button.
   button, span.ui-button {
-    border-radius: 0;
+    border-radius: 5px;
     background: transparent;
     border: solid 1px $colourArtfulBrightBlue;
     color: $colourArtfulBrightBlue;
     box-shadow: none;
     width: 2.56rem; // There's inline style attribute applied forcing positioning, so this is as wide as we can go.
+    padding: 0;
 
     &:hover {
       background: rgba(255, 255, 255, 0.5);
@@ -1016,11 +1024,11 @@ div.message {
     background: $colourAmberStrongBg;
     font-size: 1.4rem;
     margin:0;
-    padding: 1.4rem 1.4rem 1.4rem 4.8rem;
+    padding: 1.2rem 1.4rem 1rem 4.8rem;
     min-height: 5.92rem; // Sometimes it is empty.
   }
   .notify-content {
-    padding: 1.4rem;
+    padding: 1rem 1.4rem;
     font-size: 1.4rem;
   }
 
@@ -2068,6 +2076,11 @@ body.aah-theme.crm-name-crm-mailing-page-browse {
 // }}}
 // Specific page: CiviRules {{{
 body.aah-theme.crm-name-ruleview {
+  @extend %full-width-page;
+}
+// }}}
+// Specific Page: Manage Groups {{{
+body.aah-theme.crm-name-crm-group-page-group {
   @extend %full-width-page;
 }
 // }}}
