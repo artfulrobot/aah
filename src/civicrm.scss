@@ -1481,6 +1481,25 @@ body.aah-theme table.crm-info-panel {
   display: block;
 }
 // }}}
+// Component? Inline edit {{{
+.crm-inline-edit.form {
+  position: fixed;
+  background: white;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 4rem;
+  right: 4rem;
+  height: auto;
+  z-index: 2;
+  // This creates a modal-like impression.
+  box-shadow: 0 0 0 100vw rgba(255,255,255,0.9);
+  overflow: auto;
+  outline: $colourArtfulBrightBlue solid 1px;
+}
+// @todo make the tiny things like editing an activity subject bigger.
+.crm-editable>.crm-editable-form {
+}
+// }}}
 // Functional class: hiddenElement {{{
 // Used on the main CiviCRM dashboard page, not sure if it has more general use.
 body.aah-theme .hiddenElement { display: none; }
@@ -1917,6 +1936,12 @@ form#Email table.crm-inline-edit-form {
   td[colspan]:last-child { display: table-cell; }
 }
 
+// Since we're absolutely positioning the inputs, we need this or they get a bit lost:
+.crm-address-element {
+  position: relative;
+  display: inline-block;
+  margin-right:2rem;
+}
 // }}}
 // Contributions {{{
 table {
