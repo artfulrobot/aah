@@ -1343,6 +1343,7 @@ body.aah-theme ul li.crm-tab-button {
 body.aah-theme table {
   border-collapse: collapse;
   width: 100%;
+
   td, th {
     padding: 0.8rem 1.6rem;
     background-clip: padding-box; // Stop Firefox drawing backgrounds over borders.
@@ -1362,6 +1363,11 @@ body.aah-theme table {
       border: solid 1px mix($colourSubtleHoverLightBlueGreyTint, white);
     }
   }
+}
+body.aah-theme .cke_dialog_container table {
+  width: auto;
+  td, th { padding: 0 0.5rem; }
+  td { border: none; }
 }
 // }}}
 // Component: table.form-layout {{{
