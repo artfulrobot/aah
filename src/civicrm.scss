@@ -776,7 +776,7 @@ body.aah-theme {
 .crm-form-checkbox,
 .crm-form-radio {
   position: absolute;
-  display: block;
+  display: inline-block;
 
   // Except where this is the only element.
   &:last-child {
@@ -786,6 +786,9 @@ body.aah-theme {
 
   &+label, &+.description {
     padding-left: 2.4rem;
+
+    // The right margin pushes the next checkbox away from the label for the previous.
+    margin-right: 2.4rem;
   }
 }
 // These sections are used (at least) in the angular page template to group fields togehter {{{
