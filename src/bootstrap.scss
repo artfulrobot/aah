@@ -17,6 +17,9 @@ $font-family-sans-serif:  "Lato", Helvetica, Arial, sans-serif;
 // The following is required so that the boostrap-provided files can resolve references
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 $icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+
+// Without this, bootstrap thinks all labels should be white, which makes them hard to read on white backgrounds...
+$label-color: inherit;
 /*!
  * Bootstrap v3.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 Twitter, Inc.

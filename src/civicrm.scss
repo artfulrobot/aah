@@ -2136,6 +2136,15 @@ body.aah-theme.crm-name-ruleview {
   @extend %full-width-page;
 }
 // }}}
+// Specific page: Drupal user register form {{{
+#user-register-form {
+  #edit-civicrm-profile-register {
+    input[type="text"] {
+      border: solid 1px #eee;
+    }
+  }
+}
+// }}}
 // Specific Page: Manage Groups {{{
 body.aah-theme.crm-name-crm-group-page-group {
   @extend %full-width-page;
