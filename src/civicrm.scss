@@ -1990,6 +1990,26 @@ table.activity-search-options {
   tr { display: flex; flex-wrap: wrap; }
   td { flex: 1 0 19.2rem; display: block; }
 }
+table.contact-activity-selector-activity {
+  // Scheduled
+  tr.status-id-1 {
+    color: $colourArtfulDarkBlue;
+    &.status-overdue {
+      color: $colourRedDanger;
+    }
+
+    // Make the Scheduled date bold if overdue, but don't apply this to the inline editor
+    td.crmf-status_id>div:not(.crm-editable-editing) {
+      font-weight: bold;
+
+      &::before {
+        display: inline-block;
+        padding-right:0.7em;
+        content: '⚠️';
+      }
+    }
+  }
+}
 // }}}
 
 // Component: Footer {{{
