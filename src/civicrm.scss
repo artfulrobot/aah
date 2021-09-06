@@ -1066,17 +1066,21 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 // div.crm-status-box-outer[.status-success] (this seems to have its opacity managed by js)
 //   div.crm-status-box-inner
 //     div.crm-status-box-msg
+.crm-status-box-msg {
+  color: white;
+}
 .crm-status-box-outer {
   position: fixed;
-  top: 0;
-  right: 0;
+  top: 2px;
+  right: 2px;
   z-index: 100000;
-  background: white;
+  background: $colourArtfulBrightBlue;
   padding: 0.8rem 1.6rem;
   border-radius: 3px;
   min-width: 12.8rem;
   max-width: 20.8rem;
-  text-align: center;
+  text-align: left;
+  font-size: 1.4rem;
 
   &.status-success {
     background: $colourGreenStrongBg;
@@ -1087,8 +1091,30 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
     .crm-status-box-msg { color: white; }
   }
 }
-.crm-status-box-msg {
-  color: $colourArtfulDarkBlue;
+// Spinner for notifications .status-start notifications e.g. loading/saving.
+.crm-status-box-outer.status-start .crm-status-box-inner {
+  // Allow space for spinner.
+  padding-left: 2.5ch;
+}
+// The spinner.
+.crm-status-box-outer.status-start .crm-status-box-inner::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: -2.5ch;
+  display: block;
+  content:'';
+  line-height: 1;
+  animation: loading-status-message 1s infinite;
+  transform-origin: center;
+  width: 1.5ch;
+  height: 1.5ch;
+  border: dashed 1px white;
+  border-radius: 2ch;
+}
+@keyframes loading-status-message {
+  0% { transform:translateY(-50%); }
+  100% { transform: translateY(-50%) rotateZ(360deg); }
 }
 // }}}
 // Component: Radio inputs in [public] Profile forms {{{
