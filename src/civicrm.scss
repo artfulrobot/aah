@@ -2049,6 +2049,12 @@ table.contact-activity-selector-activity {
 // other tabs {{{
 // }}}
 // }}}
+// Specific Page: Contact Export {{{
+#crm-main-content-wrapper .crm-export-field-selector-outer thead tr:first-child {
+  // Remove sticky applied above.
+  position: static;
+}
+// }}}
 // Specific Page: Dashboard {{{
 // WIP: this replaces dashboard.css
 body.aah-theme.crm-name-crm-contact-page-dashboard {
