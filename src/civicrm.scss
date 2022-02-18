@@ -1180,6 +1180,10 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 .crm-select2-row-description {
   display:none;
 }
+.select2-results {
+  // this inherits 1rem = 10px in bs3 which is waaay too small.
+  font-size:1.4rem;
+}
 .select2-results .crm-select2-row-description {
   display: block;
   font-size: (19.2rem/16);
