@@ -919,6 +919,10 @@ body.aah-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
 	top: 4.16rem;
 	z-index: 20;
 }
+#crm-main-content-wrapper .crm-accordion-wrapper thead tr:first-child {
+  position: static;
+  top: 0;
+}
 // }}}
 // Component: Notifications - non popups {{{
 div.status,
@@ -1402,6 +1406,12 @@ body.aah-theme .cke_dialog_container table {
   td, th { padding: 0 0.5rem; }
   td { border: none; }
 }
+// When tables are on a background colour, we need to differentiate them.
+
+body.aah-theme .crm-accordion-wrapper table {
+  background-color: rgb(255, 255, 255, 0.9);
+}
+
 // }}}
 // Component: table.form-layout {{{
 body.aah-theme table.form-layout {
