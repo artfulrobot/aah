@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>HTML5</title>
+    <style>
+      html { font-size: 10px; }
+      body { font-size: 16px; }
+      .box { background-color: hsl(55, 80%, 80%); margin: 5px; width: 100px; line-height: 1; text-align: center; font-size: 10px; }
+      .reset1 {
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <p>The size of a <code>rem</code> is set by the <code>font-size</code> on the <code>html</code> tag. So this box is 10px high not 16px.</p>
+    <div style="height: 1rem; font-size: 1rem;" class="box">1rem - 10px</div>
+
+    <p>The problem is that 'rem' is document-wide. Once defined, by font-size
+      on the html tag, it cannot be changed. Changing the font-size on the body
+      tag <em>does change the font size that is inherited, down the chain, but
+      it does not change what 1rem evaluates to.</em>. BS3 includes this html
+      rule.</p>
+    <div class="reset1">
+      <div style="height: 1rem; font-size: 1rem;" class="box">1rem - 10px</div>
+    </div>
+
+  </body>
+</html>
