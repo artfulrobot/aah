@@ -1,7 +1,7 @@
 <?php
 
 require_once 'shetland.civix.php';
-use CRM_shetland_ExtensionUtil as E;
+use CRM_Shetland_ExtensionUtil as E;
 
 /**
  * Implements hook_civicrm_config().
@@ -145,7 +145,7 @@ function shetland_civicrm_themes(&$themes) {
  * Implements hook_civicrm_coreResourceList().
  */
 function shetland_civicrm_coreResourceList(&$items, $region) {
-  if (!CRM_shetland::isActive()) {
+  if (!CRM_Shetland::isActive()) {
     return;
   }
 
