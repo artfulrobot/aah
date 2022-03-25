@@ -1,15 +1,15 @@
 <?php
 
-class CRM_Shetlend {
+class CRM_Shetland {
   /** @var string */
   static $isActive;
 
   /**
-   * @return TRUE if Shetlend is active.
+   * @return TRUE if Shetland is active.
    */
   public static function isActive() {
     if (!isset(static::$isActive)) {
-      static::$isActive = Civi::service('themes')->getActiveThemeKey() === 'shetlend';
+      static::$isActive = Civi::service('themes')->getActiveThemeKey() === 'shetland';
     }
     return static::$isActive;
   }

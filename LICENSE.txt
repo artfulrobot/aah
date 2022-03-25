@@ -1,4 +1,4 @@
-Package: shetlend
+Package: shetland
 Copyright (C) 2019, Rich Lott / Artful Robot <forums@peopleandplanet.org>
 Licensed under the GNU Affero Public License 3.0 (below).
 

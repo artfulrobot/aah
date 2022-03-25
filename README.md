@@ -1,4 +1,4 @@
-# shetlend
+# shetland
 
 Some screenshots:
 
@@ -51,7 +51,7 @@ install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
 cd <extension-dir>
-cv dl shetlend@https://github.com/artfulrobot/shetlend/archive/master.zip
+cv dl shetland@https://github.com/artfulrobot/shetland/archive/master.zip
 ```
 
 ## Installation (CLI, Git)
@@ -60,8 +60,8 @@ Sysadmins and developers may clone the [Git](https://en.wikipedia.org/wiki/Git) 
 install it with the command-line tool [cv](https://github.com/civicrm/cv).
 
 ```bash
-git clone https://github.com/artfulrobot/shetlend.git
-cv en shetlend
+git clone https://github.com/artfulrobot/shetland.git
+cv en shetland
 ```
 
 ## Usage

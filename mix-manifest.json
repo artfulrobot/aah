@@ -1,7 +1,7 @@
 {
-    "/shetlend/js/bootstrap.js": "/shetlend/js/bootstrap.js",
-    "/shetlend/js/shetlend.js": "/shetlend/js/shetlend.js",
-    "/shetlend/css/dashboard.css": "/shetlend/css/dashboard.css",
-    "/shetlend/css/civicrm.css": "/shetlend/css/civicrm.css",
-    "/shetlend/css/bootstrap.css": "/shetlend/css/bootstrap.css"
+    "/shetland/js/bootstrap.js": "/shetland/js/bootstrap.js",
+    "/shetland/js/shetland.js": "/shetland/js/shetland.js",
+    "/shetland/css/dashboard.css": "/shetland/css/dashboard.css",
+    "/shetland/css/civicrm.css": "/shetland/css/civicrm.css",
+    "/shetland/css/bootstrap.css": "/shetland/css/bootstrap.css"
 }

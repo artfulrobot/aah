@@ -41,9 +41,9 @@ cd $SCRIPTPATH/.. || { echo "X hmmm. failed to cd $SCRIPTPATH/.."; exit 1; }
 # We should now be in the project root.
 CWD=$(pwd)
 PROJECT_NAME=$(basename "$CWD")
-if [ "$PROJECT_NAME" != 'shetlend' ]
+if [ "$PROJECT_NAME" != 'shetland' ]
 then
-  echo "X Expected repo to be in dir called 'shetlend'"
+  echo "X Expected repo to be in dir called 'shetland'"
   exit 1
 fi
 # Extract version
@@ -60,7 +60,7 @@ else
   echo "install xml_grep from 'xml-twig-tools' package or at least sed."
   VERSION='unknown'
 fi
-ARCHIVE_NAME="shetlend-$VERSION"
+ARCHIVE_NAME="shetland-$VERSION"
 
 cd ../ || { echo "X hmm. failed to go up dir."; exit 1; }
 [ -w ./ ] || { echo "X cannot write files in " `pwd`; exit 1;}

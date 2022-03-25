@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
-<extension key="shetlend" type="module">
-  <file>shetlend</file>
-  <name>Shetlend theme</name>
+<extension key="shetland" type="module">
+  <file>shetland</file>
+  <name>Shetland theme</name>
   <description>A kindly theme with Bootstrap support</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>Rich Lott / Artful Robot</author>
-    <email>forums@peopleandplanet.org</email>
+    <email>code.commits@peopleandplanet.org</email>
   </maintainer>
   <urls>
-    <url desc="Main Extension Page">https://github.com/artfulrobot/shetlend</url>
-    <url desc="Documentation">https://github.com/artfulrobot/shetlend</url>
-    <url desc="Support">https://github.com/artfulrobot/shetlend/issues</url>
+    <url desc="Main Extension Page">https://github.com/artfulrobot/aah</url>
+    <url desc="Documentation">https://github.com/artfulrobot/aah</url>
+    <url desc="Support">https://github.com/artfulrobot/aah/issues</url>
     <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
   </urls>
   <releaseDate>2020-12-14</releaseDate>
@@ -22,6 +22,6 @@
   </compatibility>
   <comments>This is my take on providing a modern and functionally useful theme for CiviCRM</comments>
   <civix>
-    <namespace>CRM/Shetlend</namespace>
+    <namespace>CRM/Shetland</namespace>
   </civix>
 </extension>

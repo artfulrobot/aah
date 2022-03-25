@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <menu>
   <item>
-    <path>civicrm/shetlend/styleguide</path>
-    <page_callback>CRM_Shetlend_Page_Styleguide</page_callback>
+    <path>civicrm/shetland/styleguide</path>
+    <page_callback>CRM_Shetland_Page_Styleguide</page_callback>
     <title>Styleguide</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>

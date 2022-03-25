@@ -1,10 +1,10 @@
 let mix = require('laravel-mix');
 
-mix.js('src/bootstrap.js', 'shetlend/js/')
-  .js('src/shetlend.js', 'shetlend/js/')
-  .sass('src/bootstrap.scss', 'shetlend/css/')
-  .sass('src/civicrm.scss', 'shetlend/css/')
-  .sass('src/dashboard.scss', 'shetlend/css/')
+mix.js('src/bootstrap.js', 'shetland/js/')
+  .js('src/shetland.js', 'shetland/js/')
+  .sass('src/bootstrap.scss', 'shetland/css/')
+  .sass('src/civicrm.scss', 'shetland/css/')
+  .sass('src/dashboard.scss', 'shetland/css/')
   .options({ processCssUrls: false })
 ;
 

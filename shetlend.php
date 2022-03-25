@@ -1,12 +1,14 @@
 <?php
 
 require_once 'shetland.civix.php';
-use CRM_shetland_ExtensionUtil as E;
+// phpcs:disable
+use CRM_Shetland_ExtensionUtil as E;
+// phpcs:enable
 
 /**
  * Implements hook_civicrm_config().
  *
- * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config/ 
+ * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config/
  */
 function shetland_civicrm_config(&$config) {
   _shetland_civix_civicrm_config($config);
@@ -141,75 +143,30 @@ function shetland_civicrm_themes(&$themes) {
   _shetland_civix_civicrm_themes($themes);
 }
 
-/**
- * Implements hook_civicrm_coreResourceList().
- */
-function shetland_civicrm_coreResourceList(&$items, $region) {
-  if (!CRM_shetland::isActive()) {
-    return;
-  }
-
-  if ($region == 'html-header') {
-    $resources = CRM_Core_Resources::singleton();
-    $resources->addStyleFile('shetland', 'shetland/css/bootstrap.css', -500, 'html-header');
-    // $resources->addStyleFile('civicrm', 'css/crm-i.css', -500, 'html-header');
-    // Seems we do not need this: $resources->addStyleFile('shetland', 'shetland/css/civicrm.css', 99, 'html-header');
-
-    //CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'base/js/modal.js', 1000, 'html-header');
-    //CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'base/js/button.js', 1000, 'html-header');
-    ////CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'js/noConflict.js', 1001, 'html-header');
-
-    $resources->addScriptFile('shetland', 'shetland/js/bootstrap.js', 1000, 'html-header');
-    $resources->addScriptFile('shetland', 'shetland/js/shetland.js', 1000, 'html-header');
-  }
-}
+// --- Functions below this ship commented out. Uncomment as required. ---
 
 /**
- * Implements hook_civicrm_pageRun().
+ * Implements hook_civicrm_preProcess().
  *
- * @todo do for form pages
- *
- * We add various classes to the body element which enables our CSS to work.
- *
- * - always added: "shetland-theme", "bootstrap3"
- * - URL path, e.g. civicrm-contact-view
- * - URL path, e.g. civicrm-contact-view
- * - page name, e.g. crm-name-crm-case-page-tab
- *
+ * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_preProcess
  */
-function shetland_civicrm_pageRun(&$page) {
-
-}
+//function shetland_civicrm_preProcess($formName, &$form) {
+//
+//}
 
 /**
+ * Implements hook_civicrm_navigationMenu().
+ *
+ * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_navigationMenu
  */
-function shetland_civicrm_alterContent(  &$content, $context, $tplName, &$object ) {
-
-  if (!CRM_Shetland::isActive()) {
-    // Don't do anything if we're not supposed to be active (then why were we called?)
-    return;
-  }
-
-  // Don't mess with ajax requests!
-  $is_ajax = (strtolower($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') === 'xmlhttprequest');
-  if ($is_ajax) {
-    return;
-  }
-
-  $classes = ['crm-name-' . $object->getVar('_name'), implode('-', $object->urlPath)];
-  $safeClasses = '"shetland-theme", "bootstrap3"';
-  foreach ($classes as $_) {
-    $_ = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $_));
-    if ($_) {
-      $safeClasses .= ", '$_'";
-    }
-  }
-  $script = "document.addEventListener('DOMContentLoaded', function() { document.body.classList.add($safeClasses); });console.warn('running $context for $tplName');";
-  $content = "<div class='shetland-wrapper'>$content</div><script>$script</script>";
-
-  // CRM_Core_Resources::singleton()->addScript($script);
-
-  //if ($pageName == 'CRM_Contact_Page_View_Summary')
-    // CRM_Core_Resources::singleton()->addScriptFile('shetland', 'js/contact-summary.js');
-
-}
+//function shetland_civicrm_navigationMenu(&$menu) {
+//  _shetland_civix_insert_navigation_menu($menu, 'Mailings', array(
+//    'label' => E::ts('New subliminal message'),
+//    'name' => 'mailing_subliminal_message',
+//    'url' => 'civicrm/mailing/subliminal',
+//    'permission' => 'access CiviMail',
+//    'operator' => 'OR',
+//    'separator' => 0,
+//  ));
+//  _shetland_civix_navigationMenu($menu);
+//}

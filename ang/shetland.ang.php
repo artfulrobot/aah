@@ -4,15 +4,15 @@
 // \https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_angularModules/n
 return [
   'js' => [
-    'ang/shetlend.js',
-    'ang/shetlend/*.js',
-    'ang/shetlend/*/*.js',
+    'ang/shetland.js',
+    'ang/shetland/*.js',
+    'ang/shetland/*/*.js',
   ],
   'css' => [
-    'ang/shetlend.css',
+    'ang/shetland.css',
   ],
   'partials' => [
-    'ang/shetlend',
+    'ang/shetland',
   ],
   'requires' => [
     'crmUi',
