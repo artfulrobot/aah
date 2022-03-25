@@ -1,7 +1,7 @@
 {
-    "/aah/js/bootstrap.js": "/aah/js/bootstrap.js",
-    "/aah/js/aah.js": "/aah/js/aah.js",
-    "/aah/css/dashboard.css": "/aah/css/dashboard.css",
-    "/aah/css/civicrm.css": "/aah/css/civicrm.css",
-    "/aah/css/bootstrap.css": "/aah/css/bootstrap.css"
+    "/shetlend/js/bootstrap.js": "/shetlend/js/bootstrap.js",
+    "/shetlend/js/shetlend.js": "/shetlend/js/shetlend.js",
+    "/shetlend/css/dashboard.css": "/shetlend/css/dashboard.css",
+    "/shetlend/css/civicrm.css": "/shetlend/css/civicrm.css",
+    "/shetlend/css/bootstrap.css": "/shetlend/css/bootstrap.css"
 }

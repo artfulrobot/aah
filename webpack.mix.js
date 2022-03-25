@@ -1,10 +1,10 @@
 let mix = require('laravel-mix');
 
-mix.js('src/bootstrap.js', 'aah/js/')
-  .js('src/aah.js', 'aah/js/')
-  .sass('src/bootstrap.scss', 'aah/css/')
-  .sass('src/civicrm.scss', 'aah/css/')
-  .sass('src/dashboard.scss', 'aah/css/')
+mix.js('src/bootstrap.js', 'shetlend/js/')
+  .js('src/shetlend.js', 'shetlend/js/')
+  .sass('src/bootstrap.scss', 'shetlend/css/')
+  .sass('src/civicrm.scss', 'shetlend/css/')
+  .sass('src/dashboard.scss', 'shetlend/css/')
   .options({ processCssUrls: false })
 ;
 

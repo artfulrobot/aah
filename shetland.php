@@ -1,15 +1,15 @@
 <?php
 
-require_once 'aah.civix.php';
-use CRM_Aah_ExtensionUtil as E;
+require_once 'shetlend.civix.php';
+use CRM_Shetlend_ExtensionUtil as E;
 
 /**
  * Implements hook_civicrm_config().
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config/ 
  */
-function aah_civicrm_config(&$config) {
-  _aah_civix_civicrm_config($config);
+function shetlend_civicrm_config(&$config) {
+  _shetlend_civix_civicrm_config($config);
 }
 
 /**
@@ -17,8 +17,8 @@ function aah_civicrm_config(&$config) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_xmlMenu
  */
-function aah_civicrm_xmlMenu(&$files) {
-  _aah_civix_civicrm_xmlMenu($files);
+function shetlend_civicrm_xmlMenu(&$files) {
+  _shetlend_civix_civicrm_xmlMenu($files);
 }
 
 /**
@@ -26,8 +26,8 @@ function aah_civicrm_xmlMenu(&$files) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_install
  */
-function aah_civicrm_install() {
-  _aah_civix_civicrm_install();
+function shetlend_civicrm_install() {
+  _shetlend_civix_civicrm_install();
 }
 
 /**
@@ -35,8 +35,8 @@ function aah_civicrm_install() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_postInstall
  */
-function aah_civicrm_postInstall() {
-  _aah_civix_civicrm_postInstall();
+function shetlend_civicrm_postInstall() {
+  _shetlend_civix_civicrm_postInstall();
 }
 
 /**
@@ -44,8 +44,8 @@ function aah_civicrm_postInstall() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_uninstall
  */
-function aah_civicrm_uninstall() {
-  _aah_civix_civicrm_uninstall();
+function shetlend_civicrm_uninstall() {
+  _shetlend_civix_civicrm_uninstall();
 }
 
 /**
@@ -53,8 +53,8 @@ function aah_civicrm_uninstall() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_enable
  */
-function aah_civicrm_enable() {
-  _aah_civix_civicrm_enable();
+function shetlend_civicrm_enable() {
+  _shetlend_civix_civicrm_enable();
 }
 
 /**
@@ -62,8 +62,8 @@ function aah_civicrm_enable() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_disable
  */
-function aah_civicrm_disable() {
-  _aah_civix_civicrm_disable();
+function shetlend_civicrm_disable() {
+  _shetlend_civix_civicrm_disable();
 }
 
 /**
@@ -71,8 +71,8 @@ function aah_civicrm_disable() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_upgrade
  */
-function aah_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
-  return _aah_civix_civicrm_upgrade($op, $queue);
+function shetlend_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
+  return _shetlend_civix_civicrm_upgrade($op, $queue);
 }
 
 /**
@@ -83,8 +83,8 @@ function aah_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_managed
  */
-function aah_civicrm_managed(&$entities) {
-  _aah_civix_civicrm_managed($entities);
+function shetlend_civicrm_managed(&$entities) {
+  _shetlend_civix_civicrm_managed($entities);
 }
 
 /**
@@ -96,8 +96,8 @@ function aah_civicrm_managed(&$entities) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_caseTypes
  */
-function aah_civicrm_caseTypes(&$caseTypes) {
-  _aah_civix_civicrm_caseTypes($caseTypes);
+function shetlend_civicrm_caseTypes(&$caseTypes) {
+  _shetlend_civix_civicrm_caseTypes($caseTypes);
 }
 
 /**
@@ -110,8 +110,8 @@ function aah_civicrm_caseTypes(&$caseTypes) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_angularModules
  */
-function aah_civicrm_angularModules(&$angularModules) {
-  _aah_civix_civicrm_angularModules($angularModules);
+function shetlend_civicrm_angularModules(&$angularModules) {
+  _shetlend_civix_civicrm_angularModules($angularModules);
 }
 
 /**
@@ -119,8 +119,8 @@ function aah_civicrm_angularModules(&$angularModules) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_alterSettingsFolders
  */
-function aah_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
-  _aah_civix_civicrm_alterSettingsFolders($metaDataFolders);
+function shetlend_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
+  _shetlend_civix_civicrm_alterSettingsFolders($metaDataFolders);
 }
 
 /**
@@ -130,37 +130,37 @@ function aah_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_entityTypes
  */
-function aah_civicrm_entityTypes(&$entityTypes) {
-  _aah_civix_civicrm_entityTypes($entityTypes);
+function shetlend_civicrm_entityTypes(&$entityTypes) {
+  _shetlend_civix_civicrm_entityTypes($entityTypes);
 }
 
 /**
  * Implements hook_civicrm_thems().
  */
-function aah_civicrm_themes(&$themes) {
-  _aah_civix_civicrm_themes($themes);
+function shetlend_civicrm_themes(&$themes) {
+  _shetlend_civix_civicrm_themes($themes);
 }
 
 /**
  * Implements hook_civicrm_coreResourceList().
  */
-function aah_civicrm_coreResourceList(&$items, $region) {
-  if (!CRM_Aah::isActive()) {
+function shetlend_civicrm_coreResourceList(&$items, $region) {
+  if (!CRM_Shetlend::isActive()) {
     return;
   }
 
   if ($region == 'html-header') {
     $resources = CRM_Core_Resources::singleton();
-    $resources->addStyleFile('aah', 'aah/css/bootstrap.css', -500, 'html-header');
+    $resources->addStyleFile('shetlend', 'shetlend/css/bootstrap.css', -500, 'html-header');
     // $resources->addStyleFile('civicrm', 'css/crm-i.css', -500, 'html-header');
-    // Seems we do not need this: $resources->addStyleFile('aah', 'aah/css/civicrm.css', 99, 'html-header');
+    // Seems we do not need this: $resources->addStyleFile('shetlend', 'shetlend/css/civicrm.css', 99, 'html-header');
 
     //CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'base/js/modal.js', 1000, 'html-header');
     //CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'base/js/button.js', 1000, 'html-header');
     ////CRM_Core_Resources::singleton()->addScriptFile('org.civicrm.shoreditch', 'js/noConflict.js', 1001, 'html-header');
 
-    $resources->addScriptFile('aah', 'aah/js/bootstrap.js', 1000, 'html-header');
-    $resources->addScriptFile('aah', 'aah/js/aah.js', 1000, 'html-header');
+    $resources->addScriptFile('shetlend', 'shetlend/js/bootstrap.js', 1000, 'html-header');
+    $resources->addScriptFile('shetlend', 'shetlend/js/shetlend.js', 1000, 'html-header');
   }
 }
 
@@ -171,21 +171,21 @@ function aah_civicrm_coreResourceList(&$items, $region) {
  *
  * We add various classes to the body element which enables our CSS to work.
  *
- * - always added: "aah-theme", "bootstrap3"
+ * - always added: "shetlend-theme", "bootstrap3"
  * - URL path, e.g. civicrm-contact-view
  * - URL path, e.g. civicrm-contact-view
  * - page name, e.g. crm-name-crm-case-page-tab
  *
  */
-function aah_civicrm_pageRun(&$page) {
+function shetlend_civicrm_pageRun(&$page) {
 
 }
 
 /**
  */
-function aah_civicrm_alterContent(  &$content, $context, $tplName, &$object ) {
+function shetlend_civicrm_alterContent(  &$content, $context, $tplName, &$object ) {
 
-  if (!CRM_Aah::isActive()) {
+  if (!CRM_Shetlend::isActive()) {
     // Don't do anything if we're not supposed to be active (then why were we called?)
     return;
   }
@@ -197,7 +197,7 @@ function aah_civicrm_alterContent(  &$content, $context, $tplName, &$object ) {
   }
 
   $classes = ['crm-name-' . $object->getVar('_name'), implode('-', $object->urlPath)];
-  $safeClasses = '"aah-theme", "bootstrap3"';
+  $safeClasses = '"shetlend-theme", "bootstrap3"';
   foreach ($classes as $_) {
     $_ = strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', $_));
     if ($_) {
@@ -205,11 +205,11 @@ function aah_civicrm_alterContent(  &$content, $context, $tplName, &$object ) {
     }
   }
   $script = "document.addEventListener('DOMContentLoaded', function() { document.body.classList.add($safeClasses); });console.warn('running $context for $tplName');";
-  $content = "<div class='aah-wrapper'>$content</div><script>$script</script>";
+  $content = "<div class='shetlend-wrapper'>$content</div><script>$script</script>";
 
   // CRM_Core_Resources::singleton()->addScript($script);
 
   //if ($pageName == 'CRM_Contact_Page_View_Summary')
-    // CRM_Core_Resources::singleton()->addScriptFile('aah', 'js/contact-summary.js');
+    // CRM_Core_Resources::singleton()->addScriptFile('shetlend', 'js/contact-summary.js');
 
 }

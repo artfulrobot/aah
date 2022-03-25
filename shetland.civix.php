@@ -6,10 +6,10 @@
  * The ExtensionUtil class provides small stubs for accessing resources of this
  * extension.
  */
-class CRM_Aah_ExtensionUtil {
-  const SHORT_NAME = 'aah';
-  const LONG_NAME = 'aah';
-  const CLASS_PREFIX = 'CRM_Aah';
+class CRM_Shetlend_ExtensionUtil {
+  const SHORT_NAME = 'shetlend';
+  const LONG_NAME = 'shetlend';
+  const CLASS_PREFIX = 'CRM_Shetlend';
 
   /**
    * Translate a string using the extension's domain.
@@ -77,14 +77,14 @@ class CRM_Aah_ExtensionUtil {
 
 }
 
-use CRM_Aah_ExtensionUtil as E;
+use CRM_Shetlend_ExtensionUtil as E;
 
 /**
  * (Delegated) Implements hook_civicrm_config().
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config
  */
-function _aah_civix_civicrm_config(&$config = NULL) {
+function _shetlend_civix_civicrm_config(&$config = NULL) {
   static $configured = FALSE;
   if ($configured) {
     return;
@@ -114,8 +114,8 @@ function _aah_civix_civicrm_config(&$config = NULL) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_xmlMenu
  */
-function _aah_civix_civicrm_xmlMenu(&$files) {
-  foreach (_aah_civix_glob(__DIR__ . '/xml/Menu/*.xml') as $file) {
+function _shetlend_civix_civicrm_xmlMenu(&$files) {
+  foreach (_shetlend_civix_glob(__DIR__ . '/xml/Menu/*.xml') as $file) {
     $files[] = $file;
   }
 }
@@ -125,9 +125,9 @@ function _aah_civix_civicrm_xmlMenu(&$files) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_install
  */
-function _aah_civix_civicrm_install() {
-  _aah_civix_civicrm_config();
-  if ($upgrader = _aah_civix_upgrader()) {
+function _shetlend_civix_civicrm_install() {
+  _shetlend_civix_civicrm_config();
+  if ($upgrader = _shetlend_civix_upgrader()) {
     $upgrader->onInstall();
   }
 }
@@ -137,9 +137,9 @@ function _aah_civix_civicrm_install() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_postInstall
  */
-function _aah_civix_civicrm_postInstall() {
-  _aah_civix_civicrm_config();
-  if ($upgrader = _aah_civix_upgrader()) {
+function _shetlend_civix_civicrm_postInstall() {
+  _shetlend_civix_civicrm_config();
+  if ($upgrader = _shetlend_civix_upgrader()) {
     if (is_callable([$upgrader, 'onPostInstall'])) {
       $upgrader->onPostInstall();
     }
@@ -151,9 +151,9 @@ function _aah_civix_civicrm_postInstall() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_uninstall
  */
-function _aah_civix_civicrm_uninstall() {
-  _aah_civix_civicrm_config();
-  if ($upgrader = _aah_civix_upgrader()) {
+function _shetlend_civix_civicrm_uninstall() {
+  _shetlend_civix_civicrm_config();
+  if ($upgrader = _shetlend_civix_upgrader()) {
     $upgrader->onUninstall();
   }
 }
@@ -163,9 +163,9 @@ function _aah_civix_civicrm_uninstall() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_enable
  */
-function _aah_civix_civicrm_enable() {
-  _aah_civix_civicrm_config();
-  if ($upgrader = _aah_civix_upgrader()) {
+function _shetlend_civix_civicrm_enable() {
+  _shetlend_civix_civicrm_config();
+  if ($upgrader = _shetlend_civix_upgrader()) {
     if (is_callable([$upgrader, 'onEnable'])) {
       $upgrader->onEnable();
     }
@@ -178,9 +178,9 @@ function _aah_civix_civicrm_enable() {
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_disable
  * @return mixed
  */
-function _aah_civix_civicrm_disable() {
-  _aah_civix_civicrm_config();
-  if ($upgrader = _aah_civix_upgrader()) {
+function _shetlend_civix_civicrm_disable() {
+  _shetlend_civix_civicrm_config();
+  if ($upgrader = _shetlend_civix_upgrader()) {
     if (is_callable([$upgrader, 'onDisable'])) {
       $upgrader->onDisable();
     }
@@ -199,21 +199,21 @@ function _aah_civix_civicrm_disable() {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_upgrade
  */
-function _aah_civix_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
-  if ($upgrader = _aah_civix_upgrader()) {
+function _shetlend_civix_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
+  if ($upgrader = _shetlend_civix_upgrader()) {
     return $upgrader->onUpgrade($op, $queue);
   }
 }
 
 /**
- * @return CRM_Aah_Upgrader
+ * @return CRM_Shetlend_Upgrader
  */
-function _aah_civix_upgrader() {
-  if (!file_exists(__DIR__ . '/CRM/Aah/Upgrader.php')) {
+function _shetlend_civix_upgrader() {
+  if (!file_exists(__DIR__ . '/CRM/Shetlend/Upgrader.php')) {
     return NULL;
   }
   else {
-    return CRM_Aah_Upgrader_Base::instance();
+    return CRM_Shetlend_Upgrader_Base::instance();
   }
 }
 
@@ -229,7 +229,7 @@ function _aah_civix_upgrader() {
  *
  * @return array
  */
-function _aah_civix_find_files($dir, $pattern) {
+function _shetlend_civix_find_files($dir, $pattern) {
   return CRM_Utils_File::findFiles($dir, $pattern);
 }
 
@@ -240,8 +240,8 @@ function _aah_civix_find_files($dir, $pattern) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_managed
  */
-function _aah_civix_civicrm_managed(&$entities) {
-  $mgdFiles = _aah_civix_find_files(__DIR__, '*.mgd.php');
+function _shetlend_civix_civicrm_managed(&$entities) {
+  $mgdFiles = _shetlend_civix_find_files(__DIR__, '*.mgd.php');
   sort($mgdFiles);
   foreach ($mgdFiles as $file) {
     $es = include $file;
@@ -266,12 +266,12 @@ function _aah_civix_civicrm_managed(&$entities) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_caseTypes
  */
-function _aah_civix_civicrm_caseTypes(&$caseTypes) {
+function _shetlend_civix_civicrm_caseTypes(&$caseTypes) {
   if (!is_dir(__DIR__ . '/xml/case')) {
     return;
   }
 
-  foreach (_aah_civix_glob(__DIR__ . '/xml/case/*.xml') as $file) {
+  foreach (_shetlend_civix_glob(__DIR__ . '/xml/case/*.xml') as $file) {
     $name = preg_replace('/\.xml$/', '', basename($file));
     if ($name != CRM_Case_XMLProcessor::mungeCaseType($name)) {
       $errorMessage = sprintf("Case-type file name is malformed (%s vs %s)", $name, CRM_Case_XMLProcessor::mungeCaseType($name));
@@ -294,12 +294,12 @@ function _aah_civix_civicrm_caseTypes(&$caseTypes) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_angularModules
  */
-function _aah_civix_civicrm_angularModules(&$angularModules) {
+function _shetlend_civix_civicrm_angularModules(&$angularModules) {
   if (!is_dir(__DIR__ . '/ang')) {
     return;
   }
 
-  $files = _aah_civix_glob(__DIR__ . '/ang/*.ang.php');
+  $files = _shetlend_civix_glob(__DIR__ . '/ang/*.ang.php');
   foreach ($files as $file) {
     $name = preg_replace(':\.ang\.php$:', '', basename($file));
     $module = include $file;
@@ -315,8 +315,8 @@ function _aah_civix_civicrm_angularModules(&$angularModules) {
  *
  * Find any and return any files matching "*.theme.php"
  */
-function _aah_civix_civicrm_themes(&$themes) {
-  $files = _aah_civix_glob(__DIR__ . '/*.theme.php');
+function _shetlend_civix_civicrm_themes(&$themes) {
+  $files = _shetlend_civix_glob(__DIR__ . '/*.theme.php');
   foreach ($files as $file) {
     $themeMeta = include $file;
     if (empty($themeMeta['name'])) {
@@ -342,7 +342,7 @@ function _aah_civix_civicrm_themes(&$themes) {
  *
  * @return array
  */
-function _aah_civix_glob($pattern) {
+function _shetlend_civix_glob($pattern) {
   $result = glob($pattern);
   return is_array($result) ? $result : [];
 }
@@ -358,7 +358,7 @@ function _aah_civix_glob($pattern) {
  *
  * @return bool
  */
-function _aah_civix_insert_navigation_menu(&$menu, $path, $item) {
+function _shetlend_civix_insert_navigation_menu(&$menu, $path, $item) {
   // If we are done going down the path, insert menu
   if (empty($path)) {
     $menu[] = [
@@ -379,7 +379,7 @@ function _aah_civix_insert_navigation_menu(&$menu, $path, $item) {
         if (!isset($entry['child'])) {
           $entry['child'] = [];
         }
-        $found = _aah_civix_insert_navigation_menu($entry['child'], implode('/', $path), $item);
+        $found = _shetlend_civix_insert_navigation_menu($entry['child'], implode('/', $path), $item);
       }
     }
     return $found;
@@ -389,9 +389,9 @@ function _aah_civix_insert_navigation_menu(&$menu, $path, $item) {
 /**
  * (Delegated) Implements hook_civicrm_navigationMenu().
  */
-function _aah_civix_navigationMenu(&$nodes) {
+function _shetlend_civix_navigationMenu(&$nodes) {
   if (!is_callable(['CRM_Core_BAO_Navigation', 'fixNavigationMenu'])) {
-    _aah_civix_fixNavigationMenu($nodes);
+    _shetlend_civix_fixNavigationMenu($nodes);
   }
 }
 
@@ -399,17 +399,17 @@ function _aah_civix_navigationMenu(&$nodes) {
  * Given a navigation menu, generate navIDs for any items which are
  * missing them.
  */
-function _aah_civix_fixNavigationMenu(&$nodes) {
+function _shetlend_civix_fixNavigationMenu(&$nodes) {
   $maxNavID = 1;
   array_walk_recursive($nodes, function($item, $key) use (&$maxNavID) {
     if ($key === 'navID') {
       $maxNavID = max($maxNavID, $item);
     }
   });
-  _aah_civix_fixNavigationMenuItems($nodes, $maxNavID, NULL);
+  _shetlend_civix_fixNavigationMenuItems($nodes, $maxNavID, NULL);
 }
 
-function _aah_civix_fixNavigationMenuItems(&$nodes, &$maxNavID, $parentID) {
+function _shetlend_civix_fixNavigationMenuItems(&$nodes, &$maxNavID, $parentID) {
   $origKeys = array_keys($nodes);
   foreach ($origKeys as $origKey) {
     if (!isset($nodes[$origKey]['attributes']['parentID']) && $parentID !== NULL) {
@@ -424,7 +424,7 @@ function _aah_civix_fixNavigationMenuItems(&$nodes, &$maxNavID, $parentID) {
       $origKey = $newKey;
     }
     if (isset($nodes[$origKey]['child']) && is_array($nodes[$origKey]['child'])) {
-      _aah_civix_fixNavigationMenuItems($nodes[$origKey]['child'], $maxNavID, $nodes[$origKey]['attributes']['navID']);
+      _shetlend_civix_fixNavigationMenuItems($nodes[$origKey]['child'], $maxNavID, $nodes[$origKey]['attributes']['navID']);
     }
   }
 }
@@ -434,7 +434,7 @@ function _aah_civix_fixNavigationMenuItems(&$nodes, &$maxNavID, $parentID) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_alterSettingsFolders
  */
-function _aah_civix_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
+function _shetlend_civix_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
   $settingsDir = __DIR__ . DIRECTORY_SEPARATOR . 'settings';
   if (!in_array($settingsDir, $metaDataFolders) && is_dir($settingsDir)) {
     $metaDataFolders[] = $settingsDir;
@@ -448,6 +448,6 @@ function _aah_civix_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_entityTypes
  */
-function _aah_civix_civicrm_entityTypes(&$entityTypes) {
+function _shetlend_civix_civicrm_entityTypes(&$entityTypes) {
   $entityTypes = array_merge($entityTypes, []);
 }

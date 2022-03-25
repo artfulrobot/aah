@@ -1,5 +1,5 @@
 <?php
-// This does maths on all the rem font sizes. Because aah started with a 16px
+// This does maths on all the rem font sizes. Because shetlend started with a 16px
 // rem size, but then bootstrap 3 insists on a 10px rem size, we had to adjust.
 // Script kept in case it is useful in future.
 exit; // remove this in development if you want to use it.
