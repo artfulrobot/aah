@@ -20,68 +20,72 @@ $icon-font-path: '../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
 
 // Without this, bootstrap thinks all labels should be white, which makes them hard to read on white backgrounds...
 $label-color: inherit;
-/*!
- * Bootstrap v3.4.1 (https://getbootstrap.com/)
- * Copyright 2011-2019 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
 
-// Core variables and mixins
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-// Reset and dependencies
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/print";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
+// Namespace bootstrap under body.shetland-theme (I think Civi adds this class)
 
-// Core CSS
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
+.shetland-theme {
+  /*!
+   * Bootstrap v3.4.1 (https://getbootstrap.com/)
+   * Copyright 2011-2019 Twitter, Inc.
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   */
 
-// Components
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/navs";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/navbar";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/pagination";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/pager";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/labels";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/badges";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/alerts";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/media";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/list-group";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/panels";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/wells";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/close";
+  // Core variables and mixins
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/variables";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-// Components w/ JavaScript
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/modals";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/popovers";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+  // Reset and dependencies
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/print";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/glyphicons";
 
-// Utility classes
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
-@import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
-// }}}
+  // Core CSS
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/type";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/code";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/grid";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/tables";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/forms";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/buttons";
 
+  // Components
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/component-animations";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/dropdowns";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/button-groups";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/input-groups";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/navs";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/navbar";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/breadcrumbs";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/pagination";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/pager";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/labels";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/badges";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/jumbotron";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/thumbnails";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/alerts";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/progress-bars";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/media";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/list-group";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/panels";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-embed";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/wells";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/close";
+
+  // Components w/ JavaScript
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/modals";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/popovers";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/carousel";
+
+  // Utility classes
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/utilities";
+  @import "~bootstrap-sass/assets/stylesheets/bootstrap/responsive-utilities";
+  // }}}
+
+}
 
 // Since bootstrap is going to introduce styles on html, body, we need to do this:
-body {
-  font-size: $font-size-base;
-}
+// body { font-size: $font-size-base; }
 // Borrow shoreditch's wizard CSS
 @import 'wizard.scss';

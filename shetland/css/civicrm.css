@@ -1,22 +1,21 @@
 @charset "UTF-8";
 :root {
-  --ahetland-primary-hue: 206;
-  --ahetland-primary-sat: 84%;
-  --ahetland-primary-lightness: 50%;
-  --ahetland-primary-hsl: var(--ahetland-primary-hue), var(--ahetland-primary-sat), var(--ahetland-primary-lightness);
-  --ahetland-primary-shade-hsl: var(--ahetland-primary-hue), var(--ahetland-primary-sat), calc(var(--ahetland-primary-lightness) * 0.75);
-  --ahetland-secondary-hue: var(--ahetland-primary-hue);
-  --ahetland-secondary-sat: 97%;
-  --ahetland-secondary-lightness: 25%;
-  --ahetland-secondary-hsl: var(--ahetland-secondary-hue), var(--ahetland-secondary-sat), var(--ahetland-secondary-lightness);
-  --ahetland-blend-hsl: var(--ahetland-primary-hue), 90%, 37.5%;
+  ---primary-hue: 206;
+  ---primary-sat: 84%;
+  ---primary-lightness: 50%;
+  ---primary-hsl: var(--primary-hue), var(--primary-sat), var(--primary-lightness);
+  ---primary-shade-hsl: var(--primary-hue), var(--primary-sat), calc(var(--primary-lightness) * 0.75);
+  ---secondary-hue: var(--primary-hue);
+  ---secondary-sat: 97%;
+  ---secondary-lightness: 25%;
+  ---secondary-hsl: var(--secondary-hue), var(--secondary-sat), var(--secondary-lightness);
+  ---blend-hsl: var(--primary-hue), 90%, 37.5%;
 }
 
 #crm-container {
-  padding-top: 1.6rem;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
-  font-size: 16px !important;
+  padding-top: 3.75rem;
+  padding-left: 3.75rem;
+  padding-right: 3.75rem;
 }
 #crm-container h1.page-header {
   display: none;
@@ -25,16 +24,12 @@
   max-width: none;
 }
 
-body > .ui-dialog.crm-container {
-  font-size: 16px !important;
-}
-
 .crm-contaner a,
 .crm-contaner a:visited {
-  color: hsl(var(--ahetland-primary-hsl));
+  color: hsl(var(---primary-hsl));
 }
 .crm-contaner a:hover {
-  color: hsl(var(--ahetland-secondary-hsl));
+  color: hsl(var(---secondary-hsl));
 }
 
 body.shetland-theme h1#page-title,
@@ -120,8 +115,8 @@ body.shetland-theme.crm-name-advanced #access {
   max-width: none;
 }
 body.shetland-theme.crm-name-crm-group-page-group h1#page-title, body.shetland-theme.crm-name-ruleview h1#page-title, body.shetland-theme.crm-name-crm-mailing-page-browse h1#page-title, body.civicrm-contact-view-case h1#page-title, body.shetland-theme.crm-name-crm-contact-page-dashboard h1#page-title, body.shetland-theme.civicrm-contact-view h1#page-title, body.shetland-theme.crm-name-advanced h1#page-title {
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
+  padding-left: 3.75rem;
+  padding-right: 3.75rem;
 }
 
 body.page-civicrm #page-title,
@@ -183,8 +178,8 @@ body.shetland-theme #header #page-title {
 }
 
 .crm-container h3 {
-  margin: 4rem 0 0.8rem;
-  font-size: 2rem;
+  margin: 1.5rem 0 0.8rem;
+  font-size: 1.25rem;
 }
 
 .crm-i-green {
@@ -196,12 +191,12 @@ body.shetland-theme #header #page-title {
 }
 
 .crm-i-blue {
-  color: hsl(var(--ahetland-secondary-hsl));
+  color: hsl(var(---secondary-hsl));
 }
 
 #crm-container div#alpha-filter {
   background-color: #f8f8f8;
-  padding: 0.4rem 1.6rem;
+  padding: 1.5rem 1.6rem;
 }
 
 .crm-action-menu::before {
@@ -258,7 +253,7 @@ a:visited.ui-button,
   border: none;
   border-radius: 0;
   background: #a1d1f7;
-  color: hsl(var(--ahetland-primary-hsl));
+  color: hsl(var(---primary-hsl));
 }
 .ui-state-active:hover,
 .ui-widget-content .ui-state-active:hover,
@@ -270,7 +265,7 @@ a:visited.ui-button,
 .ui-widget-content .ui-state-active a:visited,
 .ui-widget-header .ui-state-active a:link,
 .ui-widget-header .ui-state-active a:visited {
-  color: hsl(var(--ahetland-primary-hsl));
+  color: hsl(var(---primary-hsl));
 }
 
 .ui-state-hover,
@@ -332,17 +327,17 @@ a.ui-button:active,
 }
 
 body.shetland-theme #access {
-  margin-top: 5rem;
+  margin-top: 3.125rem;
 }
 
 .crm-actions-ribbon > ul {
-  margin: 1.6rem 0;
+  margin: 3.75rem 0;
   padding: 0;
 }
 .crm-actions-ribbon > ul li {
   list-style: none;
   display: inline-block;
-  margin-right: 1.6rem;
+  margin-right: 3.75rem;
 }
 
 .crm-actions-ribbon .ac_results {
@@ -350,9 +345,9 @@ body.shetland-theme #access {
   position: absolute;
   background: white;
   z-index: 10;
-  width: 27rem;
-  padding: 0.5rem 0;
-  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+  width: 4.375rem;
+  padding: 3.125rem 0;
+  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 .crm-actions-ribbon .ac_results ul {
   padding: 0;
@@ -364,7 +359,7 @@ body.shetland-theme #access {
 }
 .crm-actions-ribbon .ac_results ul li a {
   display: block;
-  padding: 0.25rem 1rem;
+  padding: 3.125rem 1rem;
   line-height: 1.2;
 }
 .crm-actions-ribbon .ac_results ul li a:hover {
@@ -372,16 +367,16 @@ body.shetland-theme #access {
 }
 
 .action-link {
-  margin: 1.6rem 0;
+  margin: 3.75rem 0;
 }
 .action-link a {
-  margin-right: 1.6rem;
+  margin-right: 3.75rem;
 }
 
 .crm-collapsible,
 .crm-accordion-wrapper {
-  margin-bottom: 1.6rem;
-  margin-top: 1.6rem;
+  margin-bottom: 3.75rem;
+  margin-top: 3.75rem;
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 .crm-collapsible:first-child,
@@ -395,19 +390,19 @@ body.shetland-theme #access {
 
 .collapsible-title,
 .crm-accordion-header {
-  padding: 0.8rem 1.6rem 0.8rem 4rem;
-  color: hsl(var(--ahetland-secondary-hsl));
+  padding: 3.125rem 1rem 0.5rem 2.5rem;
+  color: hsl(var(---secondary-hsl));
   background-color: #add3ed;
   transition: background-color 0.2s;
   cursor: pointer;
 }
 
 .crm-accordion-header.active {
-  background-color: var(--ahetland-blend-hsl);
-  color: hsl(var(--ahetland-secondary-hsl));
+  background-color: var(---blend-hsl);
+  color: hsl(var(---secondary-hsl));
 }
 .crm-accordion-header:hover, .crm-accordion-header.active:hover {
-  background-color: var(--ahetland-blend-hsl);
+  background-color: var(---blend-hsl);
 }
 
 .collapsible-title::before,
@@ -419,7 +414,7 @@ body.shetland-theme #access {
   display: block;
   position: absolute;
   margin-left: -2.4rem;
-  margin-top: 0.4rem;
+  margin-top: 2.5rem;
   transition: transform 0.3s;
   transform: rotateZ(90deg);
 }
@@ -427,7 +422,7 @@ body.shetland-theme #access {
 .crm-collapsible > .crm-summary-block,
 .crm-accordion-body {
   background: rgba(186, 208, 223, 0.27);
-  padding: 1.6rem;
+  padding: 3.75rem;
   border-radius: 0;
   border: none;
   overflow: auto;
@@ -450,7 +445,7 @@ body.shetland-theme #access {
 .crm-collapsible.collapsed .crm-accordion-header:hover,
 .crm-accordion-wrapper.collapsed .collapsible-title:hover,
 .crm-accordion-wrapper.collapsed .crm-accordion-header:hover {
-  background-color: var(--ahetland-blend-hsl);
+  background-color: var(---blend-hsl);
 }
 .crm-collapsible.collapsed .collapsible-title::before,
 .crm-collapsible.collapsed .crm-accordion-header::before,
@@ -473,8 +468,8 @@ input.crm-form-submit,
 .crm-container input[type=button],
 .crm-container input[type=submit] {
   display: inline-block;
-  background: hsl(var(--ahetland-primary-hsl));
-  padding: 0.4rem 1.6rem;
+  background: hsl(var(---primary-hsl));
+  padding: 1.5rem 1rem;
   border: none;
   border-radius: 3px;
   color: white;
@@ -496,7 +491,7 @@ button.crm-button.btn-secondary,
 input.crm-form-submit.btn-secondary,
 .crm-container input[type=button].btn-secondary,
 .crm-container input[type=submit].btn-secondary {
-  background: hsl(var(--ahetland-secondary-hsl));
+  background: hsl(var(---secondary-hsl));
 }
 a.crm-button > span[disabled],
 button.crm-button[disabled],
@@ -510,7 +505,7 @@ input.crm-form-submit[disabled],
 
 span.crm-button {
   position: relative;
-  margin-right: 1.6rem;
+  margin-right: 3.75rem;
   padding: 0;
   display: inline-block;
 }
@@ -519,20 +514,20 @@ span.crm-button i {
   pointer-events: none;
   color: white;
   line-height: 1;
-  left: 1.2rem;
+  left: 1.25rem;
   top: 50%;
   transform: translateY(-0.88rem);
 }
 span.crm-button input.crm-form-submit,
 span.crm-button input[type=button],
 span.crm-button input[type=submit] {
-  padding: 0.4rem 1.6rem 0.4rem 3.2rem;
+  padding: 1.5rem 1rem 0.25rem 2rem;
   box-shadow: none;
 }
 
 a.crm-button {
   position: relative;
-  margin-right: 1.6rem;
+  margin-right: 3.75rem;
   padding: 0;
   display: inline-block;
 }
@@ -540,14 +535,14 @@ a.crm-button.crm-button:link, a.crm-button.crm-button:active, a.crm-button.crm-b
   text-decoration: none;
 }
 a.crm-button > span {
-  padding-left: 3.6rem;
+  padding-left: 3.75rem;
 }
 a.crm-button i {
   position: absolute;
   pointer-events: none;
   color: white;
   line-height: 1;
-  left: 1.2rem;
+  left: 1.25rem;
   top: 50%;
   transform: translateY(-0.88rem);
 }
@@ -558,8 +553,8 @@ a.crm-button i {
 .crm-container .ui-button,
 .crm-container .ui-dialog-buttonset .ui-button {
   display: inline-block;
-  padding: 0.4rem 1.6rem;
-  background: hsl(var(--ahetland-primary-hsl));
+  padding: 1.5rem 1rem;
+  background: hsl(var(---primary-hsl));
   border: none;
   border-radius: 3px;
   color: white;
@@ -575,14 +570,14 @@ a.crm-button i {
 .crm-container .ui-button:hover,
 .crm-container .ui-dialog-buttonset .ui-button:active,
 .crm-container .ui-dialog-buttonset .ui-button:hover {
-  background-color: hsl(var(--ahetland-primary-shade-hsl));
+  background-color: hsl(var(---primary-shade-hsl));
   text-decoration: none;
 }
 
 .crm-inline-button,
 .crm-submit-buttons {
-  margin-bottom: 1.6rem;
-  margin-top: 1.6rem;
+  margin-bottom: 3.75rem;
+  margin-top: 3.75rem;
 }
 .crm-inline-button button.crm-button,
 .crm-inline-button span.crm-button,
@@ -590,7 +585,7 @@ a.crm-button i {
 .crm-submit-buttons button.crm-button,
 .crm-submit-buttons span.crm-button,
 .crm-submit-buttons a.crm-button {
-  margin-right: 1.6rem;
+  margin-right: 3.75rem;
 }
 
 td > .crm-submit-buttons:first-child {
@@ -601,16 +596,16 @@ td > .crm-submit-buttons:first-child {
 .ui-dialog-titlebar button, .ui-dialog-titlebar span.ui-button {
   border-radius: 5px;
   background: transparent;
-  border: solid 1px hsl(var(--ahetland-primary-hsl));
-  color: hsl(var(--ahetland-primary-hsl));
+  border: solid 1px hsl(var(---primary-hsl));
+  color: hsl(var(---primary-hsl));
   box-shadow: none;
-  width: 2.56rem;
+  width: 3.75rem;
   padding: 0;
 }
 .ui-dialog-titlebar .ui-dialog-titlebar-close:hover,
 .ui-dialog-titlebar button:hover, .ui-dialog-titlebar span.ui-button:hover {
   background: rgba(255, 255, 255, 0.5);
-  border: solid 1px hsl(var(--ahetland-primary-hsl));
+  border: solid 1px hsl(var(---primary-hsl));
 }
 
 .btn-slide {
@@ -621,7 +616,7 @@ td > .crm-submit-buttons:first-child {
   display: none;
   position: absolute;
   right: 0;
-  width: 24rem;
+  width: 2.5rem;
   padding: 0;
   margin: 0;
   background: white;
@@ -630,12 +625,12 @@ td > .crm-submit-buttons:first-child {
 }
 .btn-slide .panel li {
   list-style: none;
-  font-size: 1.4rem;
+  font-size: 1rem;
   padding: 0;
 }
 .btn-slide .panel li a {
   display: block;
-  padding: 0.4rem 1.6rem;
+  padding: 1.5rem 1rem;
   margin: 0;
   text-decoration: none;
 }
@@ -647,23 +642,22 @@ td > .crm-submit-buttons:first-child {
 .crm-hover-button {
   display: inline-block;
   padding: 0 0.8rem;
-  margin-right: 0.8rem;
+  margin-right: 5rem;
 }
 
 .crm-container .help, .crm-container #help {
-  padding: 1.6rem;
+  padding: 3.75rem;
   border-radius: 0;
   border: none;
   background: #e0effb;
-  border-left: 3.2rem solid #7cb5e1;
-  font-size: 1.6rem;
-  margin-bottom: 1.6rem;
+  border-left: 1.25rem solid #7cb5e1;
+  font-size: 1rem;
+  margin-bottom: 3.75rem;
 }
 .crm-container .help::before, .crm-container #help::before {
   position: absolute;
   margin-left: -3.52rem;
   content: "\f0eb";
-  font-size: 2rem;
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
@@ -672,22 +666,22 @@ td > .crm-submit-buttons:first-child {
 }
 
 body.shetland-theme fieldset {
-  padding-top: 4.8rem;
+  padding-top: 5rem;
   position: relative;
 }
 body.shetland-theme fieldset > legend {
   position: absolute;
-  top: 0.8rem;
-  left: 1.6rem;
+  top: 5rem;
+  left: 3.75rem;
   border-style: none;
 }
 body.shetland-theme fieldset.crm-collapsible {
   background: rgba(186, 208, 223, 0.27);
-  padding: 4.8rem 1.6rem 1.6rem;
+  padding: 3.125rem 1rem 1rem;
 }
 body.shetland-theme fieldset.crm-collapsible.collapsed {
   background: transparent;
-  padding: 4.8rem 0 0 0;
+  padding: 5rem 0 0 0;
 }
 body.shetland-theme fieldset.crm-collapsible > legend {
   top: 0;
@@ -697,7 +691,7 @@ body.shetland-theme fieldset.crm-collapsible > legend {
 
 .crm-form-block {
   background-color: white;
-  padding: 1.4rem;
+  padding: 2.5rem;
 }
 .crm-form-block .crm-form-block {
   background: transparent;
@@ -706,7 +700,7 @@ body.shetland-theme fieldset.crm-collapsible > legend {
 
 body.shetland-theme input[type=text], body.shetland-theme input[type=password], body.shetland-theme textarea {
   border-color: rgba(0, 0, 0, 0.2);
-  margin-bottom: 0.2rem;
+  margin-bottom: 1.25rem;
 }
 body.shetland-theme input[type=text].error, body.shetland-theme input[type=password].error, body.shetland-theme textarea.error {
   border-color: #a00;
@@ -716,7 +710,7 @@ body.shetland-theme .crm-error {
   color: white;
   border-radius: 3px;
   display: inline-block;
-  padding: 0.4rem 1rem;
+  padding: 1.5rem 1rem;
 }
 body.shetland-theme .ui-spinner input[type=text] {
   border: none;
@@ -740,21 +734,21 @@ body.shetland-theme .ui-spinner-button {
 .crm-form-checkbox + label, .crm-form-checkbox + .description,
 .crm-form-radio + label,
 .crm-form-radio + .description {
-  padding-left: 2.4rem;
-  margin-right: 2.4rem;
+  padding-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .crm-section {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 1.6rem;
+  margin-bottom: 3.75rem;
 }
 .crm-section > * {
   flex: 0 1 100%;
 }
 .crm-section > .label {
   flex: 0 0 19.2rem;
-  padding-right: 1.6rem;
+  padding-right: 3.75rem;
   font-size: inherit;
   display: inline-block;
   text-align: right;
@@ -764,7 +758,7 @@ body.shetland-theme .ui-spinner-button {
   white-space: normal;
 }
 .crm-section > .content + .label {
-  margin-left: 3.2rem;
+  margin-left: 1.25rem;
 }
 .crm-section > .content {
   flex: 1 0 19.2rem;
@@ -787,11 +781,11 @@ body.shetland-theme .ui-spinner-button {
   display: inline-block;
 }
 .crm-form-date-wrapper > input.crm-form-date {
-  width: 16rem;
-  margin-right: 1.6rem;
+  width: 3.75rem;
+  margin-right: 3.75rem;
 }
 .crm-form-date-wrapper > input.crm-form-time {
-  width: 9rem;
+  width: 5.625rem;
 }
 
 .crm-placeholder-icon::-moz-placeholder {
@@ -814,15 +808,15 @@ body.shetland-theme .ui-spinner-button {
 body.shetland-theme a.crm-icon-picker-button {
   display: inline-block;
   min-width: 10em;
-  height: 2.4rem;
+  height: 2.5rem;
   text-align: inherit;
   color: white;
 }
 
 #crmIconPicker a.ui-button {
   box-sizing: content-box;
-  margin-bottom: 0.8rem;
-  margin-right: 1.6rem;
+  margin-bottom: 5rem;
+  margin-right: 3.75rem;
   color: white !important;
 }
 
@@ -831,21 +825,21 @@ body.shetland-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text
 }
 
 .ui-progressbar-value {
-  background-color: hsl(var(--ahetland-primary-hsl)) !important;
+  background-color: hsl(var(---primary-hsl)) !important;
 }
 
 .icon.email-hold::before {
   content: "⛔";
   display: inline-block;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.5rem;
+  height: 2.5rem;
   text-align: center;
 }
 
 #crm-main-content-wrapper thead tr:first-child {
   position: -webkit-sticky;
   position: sticky;
-  top: 4.16rem;
+  top: 3.75rem;
   z-index: 20;
 }
 
@@ -859,8 +853,8 @@ div.messages {
   background: #fdf8e8;
   border: none;
   border-left: solid 3.2rem #eaa75c;
-  margin: 1.6rem 0;
-  padding: 1.6rem;
+  margin: 3.75rem 0;
+  padding: 3.75rem;
   position: relative;
 }
 div.status.error,
@@ -875,9 +869,9 @@ div.messages img[alt=status] {
 
 div.message .icon {
   position: absolute;
-  top: 1.6rem;
+  top: 3.75rem;
   left: -3.2rem;
-  width: 3.2rem;
+  width: 1.25rem;
   text-align: center;
 }
 div.message .icon::before {
@@ -891,22 +885,22 @@ div.message .icon::before {
 
 #crm-notification-container {
   width: 25%;
-  min-width: 20rem;
+  min-width: 0rem;
   color: #222;
   position: fixed;
-  top: 4.8rem;
-  right: 1.6rem;
+  top: 5rem;
+  right: 3.75rem;
   z-index: 100000;
 }
 
 #crm-notification-container .ui-notify-message a.ui-notify-cross {
   position: absolute;
-  top: 1.6rem;
-  right: 1.6rem;
+  top: 3.75rem;
+  right: 3.75rem;
   float: none;
   font-size: 1.6rem;
   text-shadow: none;
-  padding: 0.32rem 1.2rem;
+  padding: 1.25rem 1.2rem;
   color: white;
   border: none;
   border-radius: 2px;
@@ -920,7 +914,7 @@ div.message .icon::before {
 #crm-notification-container div.ui-notify-message-style {
   background: white;
   border-left: solid 4px #eaa75c;
-  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 #crm-notification-container div.ui-notify-message-style.success {
@@ -947,7 +941,7 @@ div.message .icon::before {
 #crm-notification-container div.ui-notify-message {
   position: relative;
   padding: 0;
-  margin-bottom: 1.6rem;
+  margin-bottom: 3.75rem;
   border-radius: 2px;
   max-height: calc(100vh - 45px);
   overflow: auto;
@@ -958,12 +952,12 @@ div.message .icon::before {
   background: #eaa75c;
   font-size: 1.4rem;
   margin: 0;
-  padding: 1.2rem 1.4rem 1rem 4.8rem;
-  min-height: 5.92rem;
+  padding: 1.25rem 1.4rem 1rem 4.8rem;
+  min-height: 1.25rem;
 }
 #crm-notification-container div.ui-notify-message .notify-content {
-  padding: 1rem 1.4rem;
-  font-size: 1.4rem;
+  padding: 0.625rem 1.4rem;
+  font-size: 0.875rem;
 }
 
 body.shetland-theme div.ui-notify-message div.icon, .crm-status-icon {
@@ -971,15 +965,15 @@ body.shetland-theme div.ui-notify-message div.icon, .crm-status-icon {
   text-indent: 0;
   float: none;
   position: absolute;
-  top: 1.6rem;
-  left: 1.6rem;
+  top: 3.75rem;
+  left: 3.75rem;
 }
 body.shetland-theme div.ui-notify-message div.icon::before, .crm-status-icon::before {
   content: "⚠";
   content: "✋";
   display: block;
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.5rem;
+  height: 2.5rem;
   text-align: center;
   color: white;
 }
@@ -997,13 +991,13 @@ body.shetland-theme div.ui-notify-message.success div.icon::before, .crm-status-
   top: 2px;
   right: 2px;
   z-index: 100000;
-  background: hsl(var(--ahetland-primary-hsl));
-  padding: 0.8rem 1.6rem;
+  background: hsl(var(---primary-hsl));
+  padding: 5rem 1.6rem;
   border-radius: 3px;
-  min-width: 12.8rem;
-  max-width: 20.8rem;
+  min-width: 5rem;
+  max-width: 5rem;
   text-align: left;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
 }
 .crm-status-box-outer.status-success {
   background: #97d462;
@@ -1062,7 +1056,7 @@ body.shetland-theme div.ui-notify-message.success div.icon::before, .crm-status-
 
 .crm-public-form-item .select2-container {
   width: 100% !important;
-  width: clamp(20rem, 100%, 35rem) !important;
+  width: clamp(12.5rem, 100%, 35rem) !important;
 }
 
 .select2-container .select2-choice,
@@ -1074,7 +1068,7 @@ body.shetland-theme div.ui-notify-message.success div.icon::before, .crm-status-
 }
 
 .select2-container .select2-choice .select2-arrow {
-  width: 2.88rem;
+  width: 5rem;
   border-left: 1px solid #aaa;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0;
@@ -1095,28 +1089,28 @@ body.shetland-theme div.ui-notify-message.success div.icon::before, .crm-status-
 
 .select2-container .select2-choice abbr {
   top: 10px;
-  right: 3.52rem;
+  right: 1.25rem;
 }
 
 .select2-container {
-  min-width: 11.2rem;
+  min-width: 1.25rem;
 }
 
 .select2-container-multi {
-  min-width: 22.4rem;
+  min-width: 2.5rem;
 }
 
 .select2-container .select2-choice {
-  height: 3.6rem;
+  height: 3.75rem;
 }
 
 .select2-arrow,
 .select2-chosen {
-  padding: 0.4rem 0;
+  padding: 2.5rem 0;
 }
 
 .select2-container .select2-choice > .select2-chosen {
-  margin-right: 3.2rem;
+  margin-right: 1.25rem;
 }
 
 .crm-select2-row-description {
@@ -1124,12 +1118,12 @@ body.shetland-theme div.ui-notify-message.success div.icon::before, .crm-status-
 }
 
 .select2-results {
-  font-size: 1.4rem;
+  font-size: 0.875rem;
 }
 
 .select2-results .crm-select2-row-description {
   display: block;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #555;
 }
 
@@ -1145,7 +1139,7 @@ body.shetland-theme div.ui-notify-message.success div.icon::before, .crm-status-
 
 .crm-summary-link {
   display: inline-block;
-  color: hsl(var(--ahetland-secondary-hsl));
+  color: hsl(var(---secondary-hsl));
 }
 
 .crm-summary-link .crm-icon {
@@ -1155,11 +1149,11 @@ body.shetland-theme div.ui-notify-message.success div.icon::before, .crm-status-
 }
 
 .crm-summary-display_name .crm-summary-link {
-  width: 3.2rem;
-  height: 3.2rem;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 .crm-summary-display_name .crm-summary-link .crm-icon {
-  line-height: 3.2rem;
+  line-height: 1.25rem;
 }
 
 .crm-summary-link .crm-icon.Individual-icon::before {
@@ -1182,9 +1176,9 @@ body.shetland-theme div.ui-notify-message.success div.icon::before, .crm-status-
   position: absolute;
   background: white;
   padding: 0 1.6rem;
-  font-size: 1.6rem;
+  font-size: 1rem;
   z-index: 21;
-  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .crm-summary-link.crm-tooltip-active .crm-tooltip-wrapper {
@@ -1195,12 +1189,12 @@ table.crm-table-group-summary td {
   padding: 0;
 }
 table.crm-table-group-summary .crm-section {
-  margin-bottom: 1rem;
+  margin-bottom: 0.625rem;
 }
 table.crm-table-group-summary .crm-section > .label {
   flex: 0 1 13rem;
   font-weight: normal;
-  font-size: 1.3rem;
+  font-size: 0.875rem;
   text-align: left;
   margin: 0;
   padding: 0 1.6rem 0 0;
@@ -1215,9 +1209,9 @@ table.crm-table-group-summary .crm-section .clear {
 }
 
 #civicrm-footer {
-  margin-top: 8rem;
+  margin-top: 5rem;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 0.875rem;
   opacity: 0.8;
 }
 
@@ -1240,12 +1234,12 @@ a.helpicon::before {
   display: inline-block;
   line-height: 1;
   text-align: center;
-  color: hsl(var(--ahetland-primary-hsl));
+  color: hsl(var(---primary-hsl));
 }
 
 #access {
-  margin-top: 1.6rem;
-  font-size: 1.4rem;
+  margin-top: 3.75rem;
+  font-size: 0.875rem;
 }
 
 body.shetland-theme .ui-tabs .ui-tabs-nav li {
@@ -1254,18 +1248,18 @@ body.shetland-theme .ui-tabs .ui-tabs-nav li {
 
 body.shetland-theme .ui-tabs .ui-tabs-nav li.ui-state-active {
   background: transparent;
-  border-bottom-color: hsl(var(--ahetland-primary-hsl));
+  border-bottom-color: hsl(var(---primary-hsl));
 }
 
 body.shetland-theme .crm-tab-button a,
 body.shetland-theme .ui-tabs .ui-tabs-nav li a {
-  padding: 0.8rem 1.6rem;
+  padding: 3.125rem 1rem;
 }
 body.shetland-theme .crm-tab-button a em,
 body.shetland-theme .ui-tabs .ui-tabs-nav li a em {
-  background: hsl(var(--ahetland-primary-hsl));
-  border-radius: 0.8rem;
-  font-size: 1.3rem;
+  background: hsl(var(---primary-hsl));
+  border-radius: 5rem;
+  font-size: 0.8125rem;
   padding: 0 0.48rem;
   color: white;
   font-style: normal;
@@ -1278,10 +1272,10 @@ body.shetland-theme .ui-tabs .ui-tabs-nav li a em:empty {
 
 body.shetland-theme ul li.crm-tab-button.ui-state-active {
   background: none;
-  border-bottom: solid 2px hsl(var(--ahetland-primary-hsl));
+  border-bottom: solid 2px hsl(var(---primary-hsl));
 }
 body.shetland-theme ul li.crm-tab-button em {
-  margin-left: 1.6rem;
+  margin-left: 3.75rem;
   display: inline-block;
 }
 
@@ -1294,7 +1288,7 @@ body.shetland-theme table {
   width: 100%;
 }
 body.shetland-theme table td, body.shetland-theme table th {
-  padding: 0.8rem 1.6rem;
+  padding: 5rem 1.6rem;
   background-clip: padding-box;
 }
 body.shetland-theme table td {
@@ -1327,7 +1321,7 @@ body.shetland-theme table.form-layout {
   width: 100%;
 }
 body.shetland-theme table.form-layout th, body.shetland-theme table.form-layout td {
-  padding: 0.4rem 0.8rem;
+  padding: 2.5rem 0.8rem;
   border: none;
 }
 
@@ -1335,9 +1329,9 @@ body.shetland-theme table.form-layout-compressed {
   width: 100%;
 }
 body.shetland-theme table.form-layout-compressed th, body.shetland-theme table.form-layout-compressed td {
-  padding: 0.4rem 0.8rem;
+  padding: 2.5rem 0.8rem;
   border: none;
-  font-size: 1.4rem;
+  font-size: 0.875re;
 }
 
 body.shetland-theme table.selector {
@@ -1351,9 +1345,9 @@ body.shetland-theme table.selector tr.disabled td pre {
 }
 body.shetland-theme table.selector th,
 body.shetland-theme table.selector td {
-  padding: 0.4rem 0.8rem;
+  padding: 2.5rem 0.8rem;
   border: none;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
 }
 body.shetland-theme table.selector th > .crm-form-checkbox,
 body.shetland-theme table.selector td > .crm-form-checkbox {
@@ -1361,7 +1355,7 @@ body.shetland-theme table.selector td > .crm-form-checkbox {
 }
 
 body.shetland-theme table.crm-info-panel {
-  margin: 0.25rem 0;
+  margin: 3.125rem 0;
 }
 body.shetland-theme table.crm-info-panel td, body.shetland-theme table.crm-info-panel th {
   border: none;
@@ -1370,7 +1364,7 @@ body.shetland-theme table.crm-info-panel td.label {
   font-size: inherit;
   text-align: right;
   font-weight: normal;
-  width: 16rem;
+  width: 3.75rem;
   white-space: normal;
 }
 
@@ -1379,7 +1373,7 @@ body.shetland-theme table.crm-info-panel td.label {
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
   border: none;
-  border: solid 1px hsl(var(--ahetland-primary-hsl));
+  border: solid 1px hsl(var(---primary-hsl));
   background-color: #e0effb;
   background-image: none;
 }
@@ -1404,9 +1398,9 @@ body.shetland-theme table.crm-info-panel td.label {
 .replace-plain {
   background: rgba(186, 208, 223, 0.27);
   border: solid 1px #e8e8e8;
-  padding: 1rem;
+  padding: 0.625rem;
   cursor: pointer;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
 }
 .replace-plain::before {
   display: block;
@@ -1425,13 +1419,13 @@ body.shetland-theme table.crm-info-panel td.label {
   background: white;
   top: 50%;
   transform: translateY(-50%);
-  left: 4rem;
-  right: 4rem;
+  left: 2.5rem;
+  right: 2.5rem;
   height: auto;
   z-index: 2;
   box-shadow: 0 0 0 100vw rgba(255, 255, 255, 0.9);
   overflow: auto;
-  outline: hsl(var(--ahetland-primary-hsl)) solid 1px;
+  outline: hsl(var(---primary-hsl)) solid 1px;
 }
 
 body.shetland-theme .hiddenElement {
@@ -1473,15 +1467,15 @@ body.shetland-theme .hiddenElement {
   max-width: none;
 }
 .shetland-theme.crm-name-crm-api4-page-api4explorer .checkbox-inline {
-  padding-left: 4rem;
+  padding-left: 2.5rem;
 }
 
 .shetland-theme #bootstrap-theme.api4-explorer-page .explorer-params-panel .panel-heading {
-  padding: 0.5rem 1rem;
+  padding: 3.125rem 1rem;
 }
 .shetland-theme #bootstrap-theme.api4-explorer-page .explorer-params-panel .panel-heading .form-inline {
   display: flex;
-  gap: 1rem;
+  gap: 0.625rem;
 }
 .shetland-theme #bootstrap-theme.api4-explorer-page .explorer-params-panel .panel-heading .form-inline > * {
   flex: 1 1 auto;
@@ -1490,7 +1484,7 @@ body.shetland-theme .hiddenElement {
   top: 0;
 }
 .shetland-theme #bootstrap-theme.api4-explorer-page fieldset {
-  padding-top: 3rem;
+  padding-top: 1.875rem;
 }
 .shetland-theme #bootstrap-theme.api4-explorer-page fieldset crm-api4-clause:first-child {
   margin-top: -3rem;
@@ -1505,8 +1499,8 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 
 .mosaico-templates-wrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(31.25rem, 1fr));
+  grid-gap: 1.25rem;
 }
 .mosaico-templates-wrapper span.thumbnail.crm-mosaico-template-item {
   float: none;
@@ -1518,12 +1512,12 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
   float: none;
 }
 .mosaico-templates-wrapper div > .crm-mosaico-template-item .crm-mosaico-template-actions-wrapper a.btn {
-  padding: 0.5rem 1rem;
+  padding: 3.125rem 1rem;
 }
 .mosaico-templates-wrapper div > .crm-mosaico-template-item .crm-mosaico-template-title-wrapper {
   text-align: left;
   height: unset;
-  padding: 1.6rem;
+  padding: 3.75rem;
 }
 .mosaico-templates-wrapper div > .crm-mosaico-template-item .crm-mosaico-template-title-wrapper p {
   position: static;
@@ -1542,7 +1536,7 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 }
 
 .crmMailing .preview-popup, .crmMailing .preview-contact, .crmMailing .preview-group {
-  height: 9.6rem;
+  height: 3.75rem;
 }
 
 .crm-tag-item {
@@ -1552,9 +1546,9 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
   border: solid 1px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   padding: 0 1rem;
-  margin-right: 1rem;
+  margin-right: 0.625rem;
   background: #e0effb;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
 }
 
 .crm-container div.crm-clear {
@@ -1571,13 +1565,13 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 }
 
 body.shetland-theme.civicrm-contact-view table.dataTable {
-  font-size: 1.5rem;
+  font-size: 0.875rem;
 }
 
 .crm-summary-display_name {
-  margin-top: 1.6rem;
-  font-size: 2.7rem;
-  color: hsl(var(--ahetland-secondary-hsl));
+  margin-top: 3.75rem;
+  font-size: 1.6875rem;
+  color: hsl(var(---secondary-hsl));
 }
 
 .crm-inline-edit {
@@ -1594,15 +1588,15 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
   position: absolute;
   top: -2.24rem;
   left: -1px;
-  height: 2.24rem;
+  height: 2.5rem;
   background: #f8f8f8;
   padding: 0 1.6rem;
-  line-height: 2.24rem;
-  border: solid 1px hsl(var(--ahetland-primary-hsl));
+  line-height: 2.5rem;
+  border: solid 1px hsl(var(---primary-hsl));
   border-bottom-style: none;
 }
 .crm-inline-edit:hover {
-  outline: hsl(var(--ahetland-primary-hsl)) solid 1px;
+  outline: hsl(var(---primary-hsl)) solid 1px;
 }
 .crm-inline-edit:hover .crm-edit-help {
   display: block;
@@ -1640,7 +1634,7 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor {
   display: flex;
   align-items: center;
-  padding: 0.8rem 1.6rem;
+  padding: 5rem 1.6rem;
 }
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor:focus {
   outline: none;
@@ -1651,20 +1645,20 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor span {
   flex: 1 1 auto;
   padding-left: 1em;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
   display: none;
 }
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list .ui-tabs-anchor em {
   flex: 0 0 auto;
-  background: hsl(var(--ahetland-secondary-hsl));
-  background: hsl(var(--ahetland-primary-hsl));
-  border-radius: 0.8rem;
-  font-size: 1.3rem;
+  background: hsl(var(---secondary-hsl));
+  background: hsl(var(---primary-hsl));
+  border-radius: 5rem;
+  font-size: 0.8125rem;
   padding: 0 0.48rem;
   color: white;
   font-style: normal;
   font-weight: bold;
-  margin-left: 0.5rem;
+  margin-left: 3.125rem;
 }
 .crm-contact-page #mainTabContainer .crm-contact-tabs-list .crm-count- em, .crm-contact-page #mainTabContainer .crm-contact-tabs-list .crm-count-0 em {
   display: none;
@@ -1683,13 +1677,13 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
   margin-bottom: 0;
 }
 .crm-contact-page #mainTabContainer .ui-tabs-panel {
-  padding: 1.6rem;
+  padding: 3.75rem;
 }
 
 @media screen and (min-width: 768px) {
   .crm-contact-page #mainTabContainer {
     display: grid;
-    grid-template-columns: 8rem auto;
+    grid-template-columns: 5rem auto;
   }
   .crm-contact-page #mainTabContainer .crm-contact-tabs-list {
     display: block;
@@ -1698,7 +1692,7 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
     margin: 0;
   }
   .crm-contact-page #mainTabContainer .crm-contact-tabs-list li.crm-tab-button .ui-tabs-anchor {
-    padding: 0.8rem 1rem;
+    padding: 5rem 1rem;
   }
   .crm-contact-page #mainTabContainer .crm-contact-tabs-list li.crm-tab-button a > span {
     display: block;
@@ -1706,13 +1700,13 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
 }
 @media screen and (min-width: 1100px) {
   .crm-contact-page #mainTabContainer {
-    grid-template-columns: 19.2rem auto;
+    grid-template-columns: 1.25rem auto;
   }
   .crm-contact-page #mainTabContainer .crm-contact-tabs-list li.crm-tab-button {
     white-space: normal;
   }
   .crm-contact-page #mainTabContainer .crm-contact-tabs-list li.crm-tab-button .ui-tabs-anchor {
-    padding: 0.8rem 1.6rem;
+    padding: 5rem 1.6rem;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1099px) {
@@ -1724,8 +1718,8 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
     transition: opacity 0.2s;
     position: absolute;
     background-color: #e6edf2;
-    padding: 0.64rem 0.8rem;
-    left: 4rem;
+    padding: 2.5rem 0.8rem;
+    left: 2.5rem;
     top: 0;
     bottom: 0;
     width: 0;
@@ -1733,19 +1727,19 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
   }
   .crm-contact-page #mainTabContainer .crm-contact-tabs-list li.crm-tab-button:hover a > span {
     opacity: 1;
-    width: 12.8rem;
+    width: 5rem;
   }
 }
 .crm-container div.contact_panel {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 1.6rem;
-  margin-bottom: 1.6rem;
+  grid-gap: 3.75rem;
+  margin-bottom: 3.75rem;
 }
 
 @media screen and (min-width: 768px) {
   .crm-container div.contact_panel {
-    grid-template-columns: repeat(2, minmax(24rem, 1fr));
+    grid-template-columns: repeat(2, minmax(15rem, 1fr));
   }
 }
 #crm-container div.contactCardRight,
@@ -1766,7 +1760,7 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
 
 #crm-contact-thumbnail {
   float: right;
-  padding: 1.6rem 1.6rem 0;
+  padding: 3.75rem 1.6rem 0;
 }
 
 .crm-summary-block {
@@ -1776,11 +1770,11 @@ body.shetland-theme.civicrm-contact-view table.dataTable {
 #contact-summary .crm-inline-block-content {
   background: white;
   background: #f8f8f8;
-  padding: 1.6rem;
+  padding: 3.75rem;
 }
 #contact-summary .crm-inline-block-content .crm-label,
 #contact-summary .crm-inline-edit-form .crm-label {
-  font-size: 1.4rem;
+  font-size: 0.875rem;
 }
 
 div.crm-summary-row {
@@ -1810,11 +1804,11 @@ form#Email table.crm-inline-edit-form td[colspan]:last-child {
 .crm-address-element {
   position: relative;
   display: inline-block;
-  margin-right: 2rem;
+  margin-right: 1.25rem;
 }
 
 table {
-  margin: 1.6rem 0;
+  margin: 3.75rem 0;
 }
 
 #crm-container th.contriTotalLeft,
@@ -1832,7 +1826,7 @@ table.activity-search-options td {
 }
 
 table.contact-activity-selector-activity tr.status-id-1 {
-  color: hsl(var(--ahetland-secondary-hsl));
+  color: hsl(var(---secondary-hsl));
 }
 table.contact-activity-selector-activity tr.status-id-1.status-overdue {
   color: #a00;
@@ -1847,12 +1841,12 @@ table.contact-activity-selector-activity tr.status-id-1 td.crmf-status_id > div:
 }
 
 #crm-record-log {
-  margin-top: 3.2rem;
-  font-size: 1.2rem;
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
   opacity: 0.8;
 }
 #crm-record-log span {
-  margin-right: 1.6rem;
+  margin-right: 3.75rem;
 }
 
 #crm-main-content-wrapper .crm-export-field-selector-outer thead tr:first-child {
@@ -1860,11 +1854,11 @@ table.contact-activity-selector-activity tr.status-id-1 td.crmf-status_id > div:
 }
 
 #crm-container #civicrm-dashboard h3.widget-header {
-  color: hsl(var(--ahetland-secondary-hsl));
-  font-size: 1.6rem;
+  color: hsl(var(---secondary-hsl));
+  font-size: 1rem;
 }
 #crm-container #civicrm-dashboard .crm-inactive-dashlet-fieldset legend {
-  font-size: 1.6rem;
+  font-size: 1rem;
   background-color: transparent;
 }
 #crm-container #civicrm-dashboard .crm-dashlet {
@@ -1875,15 +1869,15 @@ table.contact-activity-selector-activity tr.status-id-1 td.crmf-status_id > div:
   padding: 0 0.8rem;
 }
 #crm-container #civicrm-dashboard .crm-dashlet-header h3 {
-  color: hsl(var(--ahetland-secondary-hsl));
-  font-size: 1.6rem;
-  padding: 0.8rem 1.6rem 0.8rem 0.8rem;
+  color: hsl(var(---secondary-hsl));
+  font-size: 1rem;
+  padding: 5rem 1.6rem 0.8rem 0.8rem;
 }
 #crm-container #civicrm-dashboard .crm-dashlet-header a.crm-i {
-  padding: 0.8rem;
+  padding: 5rem;
 }
 #crm-container #civicrm-dashboard .crm-dashlet-header a.crm-i::before {
-  color: hsl(var(--ahetland-secondary-hsl));
+  color: hsl(var(---secondary-hsl));
 }
 #crm-container #civicrm-dashboard .crm-dashlet-header a.crm-dashlet-collapse::hover, #crm-container #civicrm-dashboard .crm-dashlet-header a.crm-dashlet-collapse::focus {
   outline: none;
@@ -1895,19 +1889,19 @@ table.contact-activity-selector-activity tr.status-id-1 td.crmf-status_id > div:
   /* xxx */
   content: "\f18e";
   font: normal normal normal 14px/1 FontAwesome;
-  font-size: 1.6rem;
+  font-size: 1rem;
   text-rendering: auto;
   display: block;
   transition: transform 0.3s;
   transform: rotateZ(90deg);
 }
 #crm-container #civicrm-dashboard .crm-dashlet-header a.crm-dashlet-collapse.fa-caret-down::before {
-  color: hsl(var(--ahetland-secondary-hsl));
+  color: hsl(var(---secondary-hsl));
 }
 #crm-container #civicrm-dashboard .crm-dashlet-header a.crm-dashlet-collapse.fa-caret-right::before {
   content: "\f18e";
   transform: none;
-  color: hsl(var(--ahetland-secondary-hsl));
+  color: hsl(var(---secondary-hsl));
 }
 
 .CRM_Event_Form_ManageEvent_Registration .crm-form-checkbox {
@@ -1952,17 +1946,17 @@ form#CaseView table.case-summary > tbody > tr > td {
 
 .crm-status-item {
   background: rgba(186, 208, 223, 0.27);
-  margin-bottom: 1.6rem;
+  margin-bottom: 3.75rem;
 }
 .crm-status-item > h3 {
   margin: 0;
-  padding: 1rem 1.6rem;
+  padding: 0.625rem 1.6rem;
 }
 .crm-status-item > h3 .css_right {
   float: right;
 }
 .crm-status-item .crm-status-message-body {
-  padding: 1.6rem;
+  padding: 3.75rem;
   margin: 0;
 }
 

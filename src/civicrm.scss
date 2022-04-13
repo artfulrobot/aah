@@ -1,20 +1,20 @@
 @import 'lib';
 
 :root {
-  --ahetland-primary-hue: 206;
-  --ahetland-primary-sat: 84%;
-  --ahetland-primary-lightness: 50%;
+  ---primary-hue: 206;
+  ---primary-sat: 84%;
+  ---primary-lightness: 50%;
 
-  --ahetland-primary-hsl: var(--ahetland-primary-hue), var(--ahetland-primary-sat), var(--ahetland-primary-lightness);
-  --ahetland-primary-shade-hsl: var(--ahetland-primary-hue), var(--ahetland-primary-sat), calc(var(--ahetland-primary-lightness) * 0.75);
+  ---primary-hsl: var(--primary-hue), var(--primary-sat), var(--primary-lightness);
+  ---primary-shade-hsl: var(--primary-hue), var(--primary-sat), calc(var(--primary-lightness) * 0.75);
 
-  --ahetland-secondary-hue: var(--ahetland-primary-hue);
-  --ahetland-secondary-sat: 97%;
-  --ahetland-secondary-lightness: 25%;
+  ---secondary-hue: var(--primary-hue);
+  ---secondary-sat: 97%;
+  ---secondary-lightness: 25%;
 
-  --ahetland-secondary-hsl: var(--ahetland-secondary-hue), var(--ahetland-secondary-sat), var(--ahetland-secondary-lightness);
+  ---secondary-hsl: var(--secondary-hue), var(--secondary-sat), var(--secondary-lightness);
 
-  --ahetland-blend-hsl: var(--ahetland-primary-hue), 90%, 37.5%;
+  ---blend-hsl: var(--primary-hue), 90%, 37.5%;
 
 }
 
@@ -28,13 +28,12 @@
 
 // General {{{
 #crm-container {
-  padding-top: 1.6rem;
-  padding-left: 1.6rem;
-  padding-right: 1.6rem;
+  padding-top: 3.75rem;
+  padding-left: 3.75rem;
+  padding-right: 3.75rem;
 
   // Not sure about this !important
-  font-size: $font-size-base !important;
-
+  // font-size: $font-size-base !important;
 
   h1.page-header {
     display:none; // CiviCRM seems to output this anyways.
@@ -46,14 +45,14 @@
 
 // jQuery modals are not inside #crm-container.
 body>.ui-dialog.crm-container {
-  font-size: $font-size-base !important;
+  // font-size: $font-size-base !important;
 }
 
 .crm-contaner {
   // Insist on our own colour links within a CiviCRM container.
   a,
-  a:visited { color: hsl(var(--ahetland-primary-hsl)); }
-  a:hover { color: hsl(var(--ahetland-secondary-hsl)); }
+  a:visited { color: hsl(var(---primary-hsl)); }
+  a:hover { color: hsl(var(---secondary-hsl)); }
 }
 
 // Provide some space at sides and assume a 1200px max by default.
@@ -131,8 +130,8 @@ body.shetland-theme {
     max-width: none;
   }
   h1#page-title {
-    padding-left: 1.6rem;
-    padding-right: 1.6rem;
+    padding-left: 3.75rem;
+    padding-right: 3.75rem;
   }
 }
 // }}}
@@ -154,7 +153,7 @@ body.shetland-theme #header #page-title {
 }
 // }}}
 
-// Override: Ashetland theme! {{{
+// Override: Aaah drupal theme! {{{
 #crm-container li { max-width: none; }
 // }}}
 // Print stuff {{{
@@ -195,8 +194,8 @@ body.shetland-theme #header #page-title {
 }
 // h3s are used throughout
 .crm-container h3 {
-  margin: 4rem 0 0.8rem;
-  font-size: (32rem/16); // 20px
+  margin: 1.5rem 0 0.8rem;
+  font-size: 1.25rem;
 }
 .crm-i-green {
   color: $colourGreenStrongBg;
@@ -207,12 +206,12 @@ body.shetland-theme #header #page-title {
 }
 
 .crm-i-blue {
-  color: hsl(var(--ahetland-secondary-hsl));
+  color: hsl(var(---secondary-hsl));
 }
 
 #crm-container div#alpha-filter {
   background-color: $colourWidgetBackground;
-  padding: 0.4rem 1.6rem;
+  padding: 1.5rem 1.6rem;
 }
 
 // Remove extra icons not needed
@@ -277,9 +276,9 @@ a:visited.ui-button,
   &:hover {
     background: $colourSubtleHoverLightBlueGrey;
   }
-  color: hsl(var(--ahetland-primary-hsl));
+  color: hsl(var(---primary-hsl));
   a:link, a:visited {
-    color: hsl(var(--ahetland-primary-hsl));
+    color: hsl(var(---primary-hsl));
   }
 }
 .ui-state-hover,
@@ -328,18 +327,18 @@ a.ui-button:active,
 // }}}
 // Component: #access footer {{{
 body.shetland-theme #access {
-  margin-top: 5rem;
+  margin-top: 3.125rem;
 }
 // }}}
 // Component: Actions ribbon (e.g. at top of Contact screen) and .action-link which seems to be very similar {{{
 .crm-actions-ribbon {
   &>ul {
-    margin: 1.6rem 0;
+    margin: 3.75rem 0;
     padding: 0;
     li {
       list-style: none;
       display: inline-block;
-      margin-right: 1.6rem;
+      margin-right: 3.75rem;
     }
   }
 }
@@ -351,9 +350,9 @@ body.shetland-theme #access {
   position: absolute;
   background: white;
   z-index: 10;
-  width: 27rem;
-  padding: 0.5rem 0;
-  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+  width: 4.375rem;
+  padding: 3.125rem 0;
+  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
 
   ul {
     padding: 0;
@@ -363,7 +362,7 @@ body.shetland-theme #access {
       margin: 0;
       a {
         display: block;
-        padding: 0.25rem 1rem;
+        padding: 3.125rem 1rem;
         line-height: 1.2;
         &:hover {
           background: $colourSubtleHoverLightBlueGrey;
@@ -373,9 +372,9 @@ body.shetland-theme #access {
   }
 }
 .action-link {
-  margin: 1.6rem 0;
+  margin: 3.75rem 0;
   a {
-    margin-right: 1.6rem;
+    margin-right: 3.75rem;
   }
 }
 
@@ -396,8 +395,8 @@ body.shetland-theme #access {
 
 .crm-collapsible, // Type 1
 .crm-accordion-wrapper { // Type 2
-  margin-bottom: 1.6rem;
-  margin-top: 1.6rem;
+  margin-bottom: 3.75rem;
+  margin-top: 3.75rem;
 
   border-bottom: solid 1px $colourFormElementsBorder;
 
@@ -411,8 +410,8 @@ body.shetland-theme #access {
 
 .collapsible-title, // type 1
 .crm-accordion-header { // type 2
-  padding: 0.8rem 1.6rem 0.8rem 4rem;
-  color: hsl(var(--ahetland-secondary-hsl));
+  padding: 3.125rem 1rem 0.5rem 2.5rem;
+  color: hsl(var(---secondary-hsl));
   background-color: $colourBlueGrey;
   transition: background-color 0.2s;
   cursor: pointer;
@@ -420,11 +419,11 @@ body.shetland-theme #access {
 
 .crm-accordion-header { // type 2 only
   &.active {
-    background-color: var(--ahetland-blend-hsl);
-    color: hsl(var(--ahetland-secondary-hsl));
+    background-color: var(---blend-hsl);
+    color: hsl(var(---secondary-hsl));
   }
   &:hover, &.active:hover {
-    background-color: var(--ahetland-blend-hsl);
+    background-color: var(---blend-hsl);
   }
 }
 
@@ -437,14 +436,14 @@ body.shetland-theme #access {
   display: block;
   position: absolute;
   margin-left: -2.4rem;
-  margin-top: 0.4rem;
+  margin-top: 2.5rem;
   transition: transform 0.3s;
   transform: rotateZ(90deg);
 }
 .crm-collapsible>.crm-summary-block, // type 1
 .crm-accordion-body { // type 2
   background: $colourLayeredBackground;
-  padding: 1.6rem;
+  padding: 3.75rem;
   border-radius: 0;
   border:none;
   overflow: auto; // force it to encompass floated elements.
@@ -465,7 +464,7 @@ body.shetland-theme #access {
   .crm-accordion-header { // type 2
     background-color: $colourLayeredBackground;
     &:hover {
-      background-color: var(--ahetland-blend-hsl);
+      background-color: var(---blend-hsl);
     }
   }
 
@@ -519,8 +518,8 @@ input.crm-form-submit,
 .crm-container input[type="button"],
 .crm-container input[type="submit"] {
   display:inline-block;
-  background: hsl(var(--ahetland-primary-hsl));
-  padding:0.4rem 1.6rem;
+  background: hsl(var(---primary-hsl));
+  padding: 1.5rem 1rem;
   border:none;
   border-radius: 3px;
   color:white;
@@ -533,7 +532,7 @@ input.crm-form-submit,
   }
 
   &.btn-secondary {
-    background: hsl(var(--ahetland-secondary-hsl));
+    background: hsl(var(---secondary-hsl));
   }
   &[disabled] {
     opacity:0.35;
@@ -543,7 +542,7 @@ input.crm-form-submit,
 
 span.crm-button {
   position: relative;
-  margin-right: 1.6rem; // space before next button in a list of buttons.
+  margin-right: 3.75rem; // space before next button in a list of buttons.
   padding: 0; // apply padding to the button itself, not the container (which is not clickable)
   display: inline-block;
 
@@ -552,7 +551,7 @@ span.crm-button {
     pointer-events: none;
     color: white;
     line-height: 1;
-    left: 1.2rem;
+    left: 1.25rem;
     // Center vertically
     top: 50%;
     transform: translateY(-0.88rem);
@@ -561,14 +560,14 @@ span.crm-button {
   input.crm-form-submit,
   input[type="button"],
   input[type="submit"] {
-    padding:0.4rem 1.6rem 0.4rem 3.2rem;
+    padding: 1.5rem 1rem 0.25rem 2rem;
     box-shadow: none;
   }
 }
 
 a.crm-button {
   position: relative;
-  margin-right: 1.6rem; // space before next button in a list of buttons.
+  margin-right: 3.75rem; // space before next button in a list of buttons.
   padding: 0; // apply padding to the button itself, not the container (which is not clickable)
   display: inline-block;
   &.crm-button:link,
@@ -578,14 +577,14 @@ a.crm-button {
   { text-decoration:none; }
 
   // &>span  much of this is above.
-  &>span { padding-left: 3.6rem; }
+  &>span { padding-left: 3.75rem; }
 
   i {
     position: absolute;
     pointer-events: none;
     color: white;
     line-height: 1;
-    left: 1.2rem;
+    left: 1.25rem;
     // Center vertically
     top: 50%;
     transform: translateY(-0.88rem);
@@ -603,8 +602,8 @@ a.crm-button {
 .crm-container .ui-dialog-buttonset .ui-button
 {
   display:inline-block;
-  padding:0.4rem 1.6rem;
-  background: hsl(var(--ahetland-primary-hsl));
+  padding: 1.5rem 1rem;
+  background: hsl(var(---primary-hsl));
   border:none;
   border-radius: 3px;
   color:white;
@@ -613,18 +612,18 @@ a.crm-button {
 
   &:active,
   &:hover {
-    background-color: hsl(var(--ahetland-primary-shade-hsl));
+    background-color: hsl(var(---primary-shade-hsl));
     text-decoration: none;
   }
 }
 // Sets of buttons.
 .crm-inline-button,
 .crm-submit-buttons {
-  margin-bottom: 1.6rem;
-  margin-top: 1.6rem;
+  margin-bottom: 3.75rem;
+  margin-top: 3.75rem;
   button.crm-button,
   span.crm-button,
-  a.crm-button { margin-right: 1.6rem; }
+  a.crm-button { margin-right: 3.75rem; }
 }
 // Remove top margin from buttons when they're the first child of a td
 td>.crm-submit-buttons:first-child {
@@ -638,15 +637,15 @@ td>.crm-submit-buttons:first-child {
   button, span.ui-button {
     border-radius: 5px;
     background: transparent;
-    border: solid 1px hsl(var(--ahetland-primary-hsl));
-    color: hsl(var(--ahetland-primary-hsl));
+    border: solid 1px hsl(var(---primary-hsl));
+    color: hsl(var(---primary-hsl));
     box-shadow: none;
-    width: 2.56rem; // There's inline style attribute applied forcing positioning, so this is as wide as we can go.
+    width: 3.75rem; // There's inline style attribute applied forcing positioning, so this is as wide as we can go.
     padding: 0;
 
     &:hover {
       background: rgba(255, 255, 255, 0.5);
-      border: solid 1px hsl(var(--ahetland-primary-hsl));
+      border: solid 1px hsl(var(---primary-hsl));
     }
   }
 }
@@ -660,7 +659,7 @@ td>.crm-submit-buttons:first-child {
     display: none;
     position: absolute;
     right: 0;
-    width: 24rem;
+    width: 2.5rem;
     padding: 0;
     margin: 0;
     background: white;
@@ -668,11 +667,11 @@ td>.crm-submit-buttons:first-child {
     z-index: 1;
     li {
       list-style: none;
-      font-size: 1.4rem;
+      font-size: 1rem;
       padding: 0;
       a {
         display: block;
-        padding: 0.4rem 1.6rem;
+        padding: 1.5rem 1rem;
         margin:0;
         text-decoration: none;
         &:hover {
@@ -690,23 +689,22 @@ td>.crm-submit-buttons:first-child {
 .crm-hover-button {
   display: inline-block;
   padding: 0 0.8rem;
-  margin-right: 0.8rem;
+  margin-right: 5rem;
 }
 // }}}
 // Component: help {{{
 .crm-container .help, .crm-container #help {
-  padding: 1.6rem;
+  padding: 3.75rem;
   border-radius: 0;
   border:none;
   background: $colourVeryLightBlue;
-  border-left: 3.2rem solid $colourArtfulMutedBlue;
-  font-size: 1.6rem;
-  margin-bottom: 1.6rem;
+  border-left: 1.25rem solid $colourArtfulMutedBlue;
+  font-size: 1rem;
+  margin-bottom: 3.75rem;
   &::before {
     position: absolute;
     margin-left: -3.52rem;
     content: "\F0EB";
-    font-size: 2rem;
     display: inline-block;
     font: normal normal normal 14px/1 FontAwesome;
     font-size: inherit;
@@ -717,22 +715,22 @@ td>.crm-submit-buttons:first-child {
 // }}}
 // Component: Fieldset inc. accordion fieldsets {{{
 body.shetland-theme fieldset {
-  padding-top: 4.8rem;
+  padding-top: 5rem;
   position: relative;
 
   &>legend {
     position: absolute;
-    top: 0.8rem;
-    left: 1.6rem;
+    top: 5rem;
+    left: 3.75rem;
     border-style:none;
   }
 
   &.crm-collapsible {
     background: $colourLayeredBackground;
-    padding: 4.8rem 1.6rem 1.6rem;
+    padding: 3.125rem 1rem 1rem;
     &.collapsed {
       background: transparent;
-      padding: 4.8rem 0 0 0;
+      padding: 5rem 0 0 0;
     }
 
     &>legend {
@@ -750,7 +748,7 @@ body.shetland-theme fieldset {
 // @see Contact Edit screen
 .crm-form-block {
   background-color: white;
-  padding: 1.4rem;
+  padding: 2.5rem;
   // Sometimes (e.g. search form) these are nested.
   .crm-form-block {
     background: transparent;
@@ -766,14 +764,14 @@ body.shetland-theme {
     &.error  {
       border-color: $colourRedDanger;
     }
-    margin-bottom: 0.2rem; // 2px - mainly to give some space to .crm-error which may follow.
+    margin-bottom: 1.25rem; // 2px - mainly to give some space to .crm-error which may follow.
   }
   .crm-error {
     background: $colourRedDanger;
     color: white;
     border-radius: 3px;
     display:inline-block;
-    padding: 0.4rem 1rem;
+    padding: 1.5rem 1rem;
   }
 
 
@@ -803,10 +801,10 @@ body.shetland-theme {
   }
 
   &+label, &+.description {
-    padding-left: 2.4rem;
+    padding-left: 2.5rem;
 
     // The right margin pushes the next checkbox away from the label for the previous.
-    margin-right: 2.4rem;
+    margin-right: 2.5rem;
   }
 }
 // These sections are used (at least) in the angular page template to group fields togehter {{{
@@ -814,7 +812,7 @@ body.shetland-theme {
 .crm-section {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: 1.6rem;
+  margin-bottom: 3.75rem;
 
   // Apply a default child selector because not /all/ crm-sections contain simple label, content parts.
   // This should make everything except label, content parts behave like a normal block.
@@ -824,7 +822,7 @@ body.shetland-theme {
 
   &>.label {
     flex: 0 0 19.2rem;
-    padding-right: 1.6rem;
+    padding-right: 3.75rem;
     font-size: inherit;
     display: inline-block;
     text-align: right; // Bootstrap sets it center
@@ -833,13 +831,13 @@ body.shetland-theme {
   }
   // When we have label, content, label, content, put some space between them.
   &>.content + .label {
-    margin-left: 3.2rem;
+    margin-left: 1.25rem;
   }
 
   &>.content {
     flex: 1 0 19.2rem;
 
-    //margin-right: 3.2rem;
+    //margin-right: 1.25rem;
 
     // Special treatment of radios, checkboxes.
     // 2021-05-05: This seemed to offer inline radios/checkboxes, but it really fails on mobile.
@@ -850,7 +848,7 @@ body.shetland-theme {
 
     //   &+label {
     //     display: inline;
-    //     margin-right: 6.4rem;
+    //     margin-right: 2.5rem;
     //     padding-left: 0;
     //   }
     // }
@@ -875,8 +873,8 @@ body.shetland-theme {
 .crm-form-date-wrapper {
   display: inline-block;
   &>input.crm-form-date { display:inline-block; }
-  &>input.crm-form-date { width: 16rem; margin-right: 1.6rem; }
-  &>input.crm-form-time { width: 9rem; }
+  &>input.crm-form-date { width: 3.75rem; margin-right: 3.75rem; }
+  &>input.crm-form-time { width: 5.625rem; }
 }
 // Date Picker elements use this
 .crm-placeholder-icon::placeholder {
@@ -894,15 +892,15 @@ body.shetland-theme {
 body.shetland-theme a.crm-icon-picker-button {
   display: inline-block;
   min-width: 10em;
-  height: 2.4rem;
+  height: 2.5rem;
   text-align: inherit;
   color: white;
 }
 
 #crmIconPicker a.ui-button {
   box-sizing: content-box;
-  margin-bottom: 0.8rem;
-  margin-right: 1.6rem;
+  margin-bottom: 5rem;
+  margin-right: 3.75rem;
   color: white !important;
 }
 
@@ -915,7 +913,7 @@ body.shetland-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text
 // Component: progress bar for web queue runners {{{
 .ui-progressbar-value {
   // normally it takes its colour from widget background
-  background-color: hsl(var(--ahetland-primary-hsl)) !important;
+  background-color: hsl(var(---primary-hsl)) !important;
 }
 // }}}
 // Component: various icons {{{
@@ -924,8 +922,8 @@ body.shetland-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text
   &::before {
     content:'\26d4'; // No Entry red sign
     display:inline-block;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.5rem;
+    height: 2.5rem;
     text-align:center;
   }
 }
@@ -934,7 +932,7 @@ body.shetland-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text
 // We limit this to the main content wrapper to exclude modals.
 #crm-main-content-wrapper thead tr:first-child {
 	position: sticky;
-	top: 4.16rem;
+	top: 3.75rem;
 	z-index: 20;
 }
 #crm-main-content-wrapper .crm-accordion-wrapper thead tr:first-child {
@@ -948,8 +946,8 @@ div.messages {
   background: $colourAmberLightBg;
   border: none;
   border-left: solid 3.2rem $colourAmberStrongBg;
-  margin: 1.6rem 0;
-  padding: 1.6rem;
+  margin: 3.75rem 0;
+  padding: 3.75rem;
 
   position: relative;
 
@@ -964,9 +962,9 @@ div.messages {
 div.message {
   .icon {
     position: absolute;
-    top: 1.6rem;
+    top: 3.75rem;
     left: -3.2rem;
-    width: 3.2rem;
+    width: 1.25rem;
     text-align: center;
 
     &::before {
@@ -987,23 +985,23 @@ div.message {
 
   // Normally 25% but allow ourselves at least 20rem so 200px
   width: 25%;
-	min-width: 20rem;
+	min-width: 0rem;
 
   color: $colourText;
   position: fixed;
-  top: 4.8rem;
-  right: 1.6rem;
+  top: 5rem;
+  right: 3.75rem;
   z-index: 100000;
 }
 // Close button
 #crm-notification-container .ui-notify-message a.ui-notify-cross {
   position: absolute;
-  top: 1.6rem;
-  right: 1.6rem;
+  top: 3.75rem;
+  right: 3.75rem;
 	float: none;
 	font-size: 1.6rem;
 	text-shadow: none;
-	padding: 0.32rem 1.2rem;
+	padding: 1.25rem 1.2rem;
 	color: white;
   border: none;
   border-radius: 2px;
@@ -1017,7 +1015,7 @@ div.message {
 #crm-notification-container div.ui-notify-message-style {
 	background: white;
   border-left: solid 4px $colourAmberStrongBg;
-	box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+	box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 // Special colours.
 #crm-notification-container div.ui-notify-message-style {
@@ -1037,7 +1035,7 @@ div.message {
 #crm-notification-container div.ui-notify-message {
   position: relative;
 	padding: 0;
-  margin-bottom: 1.6rem;
+  margin-bottom: 3.75rem;
 	border-radius: 2px;
 	max-height: calc(100vh - 45px);
 	overflow: auto;
@@ -1049,12 +1047,12 @@ div.message {
     background: $colourAmberStrongBg;
     font-size: 1.4rem;
     margin:0;
-    padding: 1.2rem 1.4rem 1rem 4.8rem;
-    min-height: 5.92rem; // Sometimes it is empty.
+    padding: 1.25rem 1.4rem 1rem 4.8rem;
+    min-height: 1.25rem; // Sometimes it is empty.
   }
   .notify-content {
-    padding: 1rem 1.4rem;
-    font-size: 1.4rem;
+    padding: 0.625rem 1.4rem;
+    font-size: 0.875rem;
   }
 
 }
@@ -1066,15 +1064,15 @@ body.shetland-theme div.ui-notify-message div.icon, .crm-status-icon {
   float:none;
 
   position: absolute;
-  top:1.6rem;
-  left:1.6rem;
+  top: 3.75rem;
+  left: 3.75rem;
 
   &::before {
     content:'\26A0';// Warning sign.
     content:'\270b'; // Hand up emoji
     display:block;
-    width: 2.4rem;
-    height: 2.4rem;
+    width: 2.5rem;
+    height: 2.5rem;
     text-align:center;
     color: white;
   }
@@ -1096,13 +1094,13 @@ body.shetland-theme div.ui-notify-message.success div.icon, .crm-status-icon.suc
   top: 2px;
   right: 2px;
   z-index: 100000;
-  background: hsl(var(--ahetland-primary-hsl));
-  padding: 0.8rem 1.6rem;
+  background: hsl(var(---primary-hsl));
+  padding: 5rem 1.6rem;
   border-radius: 3px;
-  min-width: 12.8rem;
-  max-width: 20.8rem;
+  min-width: 5rem;
+  max-width: 5rem;
   text-align: left;
-  font-size: 1.4rem;
+  font-size: 0.875rem;
 
   &.status-success {
     background: $colourGreenStrongBg;
@@ -1151,7 +1149,7 @@ body.shetland-theme div.ui-notify-message.success div.icon, .crm-status-icon.suc
 .crm-public-form-item .select2-container {
   width: 100% !important;
   // Prefer to keep it not fully 100% if we can help it.
-  width: clamp(20rem, 100%, 35rem) !important;
+  width: clamp(12.5rem, 100%, 35rem) !important;
 }
 
 //.select2-container-multi .select2-choices .select2-search-choice
@@ -1166,7 +1164,7 @@ body.shetland-theme div.ui-notify-message.success div.icon, .crm-status-icon.suc
 	background-image: none;
 }
 .select2-container .select2-choice .select2-arrow {
-  width: 2.88rem;
+  width: 5rem;
 	border-left: 1px solid #aaa;
   background-color: rgba(0,0,0,0.1);
   border-radius: 0;
@@ -1182,20 +1180,20 @@ body.shetland-theme div.ui-notify-message.success div.icon, .crm-status-icon.suc
 }
 .select2-container .select2-choice abbr {
   top: 10px;
-  right: 3.52rem;
+  right: 1.25rem;
 }
 .select2-container {
-  min-width: 11.2rem;
+  min-width: 1.25rem;
 }
 .select2-container-multi {
-  min-width: 22.4rem;
+  min-width: 2.5rem;
 }
 .select2-container .select2-choice {
-  height: 3.6rem;
+  height: 3.75rem;
 }
 .select2-arrow,
-.select2-chosen { padding: 0.4rem 0; }
-.select2-container .select2-choice > .select2-chosen { margin-right: 3.2rem; }
+.select2-chosen { padding: 2.5rem 0; }
+.select2-container .select2-choice > .select2-chosen { margin-right: 1.25rem; }
 
 // Row description is smaller secondary text
 // it should be only shown when the drop-down is open.
@@ -1204,11 +1202,11 @@ body.shetland-theme div.ui-notify-message.success div.icon, .crm-status-icon.suc
 }
 .select2-results {
   // this inherits 1rem = 10px in bs3 which is waaay too small.
-  font-size:1.4rem;
+  font-size:0.875rem;
 }
 .select2-results .crm-select2-row-description {
   display: block;
-  font-size: (19.2rem/16);
+  font-size: 1rem;
   color: $colourMidGrey;
 }
 
@@ -1227,24 +1225,24 @@ body.shetland-theme div.ui-notify-message.success div.icon, .crm-status-icon.suc
 // Component: Summary links {{{
 .crm-summary-link {
   display: inline-block;
-  color: hsl(var(--ahetland-secondary-hsl));
-  // width: 3.2rem; height: 3.2rem;
+  color: hsl(var(---secondary-hsl));
+  // width: 1.25rem; height: 1.25rem;
 }
 
 .crm-summary-link .crm-icon {
-  // line-height: 3.2rem;
+  // line-height: 1.25rem;
   font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
 }
 .crm-summary-display_name {
   .crm-summary-link {
-    width: 3.2rem;
-    height: 3.2rem;
+    width: 1.25rem;
+    height: 1.25rem;
   }
 
   .crm-summary-link .crm-icon {
-    line-height: 3.2rem;
+    line-height: 1.25rem;
   }
 }
 
@@ -1269,9 +1267,9 @@ body.shetland-theme div.ui-notify-message.success div.icon, .crm-status-icon.suc
   position: absolute;
   background: white;
   padding: 0 1.6rem;
-  font-size: 1.6rem;
+  font-size: 1rem;
   z-index: 21;
-  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+  box-shadow: -1rem 1rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .crm-summary-link.crm-tooltip-active .crm-tooltip-wrapper {
@@ -1282,12 +1280,12 @@ body.shetland-theme div.ui-notify-message.success div.icon, .crm-status-icon.suc
 table.crm-table-group-summary {
   td { padding:0; }
   .crm-section {
-    margin-bottom: 1rem;
+    margin-bottom: 0.625rem;
 
     &>.label {
       flex: 0 1 13rem;
       font-weight: normal;
-      font-size: 1.3rem;
+      font-size: 0.875rem;
       text-align: left;
       margin: 0;
       padding: 0 1.6rem 0 0 ;
@@ -1305,9 +1303,9 @@ table.crm-table-group-summary {
 // }}}
 // Component: Footer {{{
 #civicrm-footer {
-  margin-top: 8rem;
+  margin-top: 5rem;
   text-align: center;
-  font-size: (19.2rem/16);
+  font-size: 0.875rem;
   opacity: 0.8;
 }
 // Component: "Status" bit in the footer {{{
@@ -1336,14 +1334,14 @@ a.helpicon {
     display:inline-block;
     line-height: 1;
     text-align:center;
-    color: hsl(var(--ahetland-primary-hsl));
+    color: hsl(var(---primary-hsl));
   }
 }
 // }}}
 // Component: Access keys {{{
 #access {
-  margin-top: 1.6rem;
-  font-size: (22.4rem/16);
+  margin-top: 3.75rem;
+  font-size: 0.875rem;
 }
 // }}}
 // Component: Tabs (e.g. Contributions/Recurring Contributions) {{{
@@ -1356,18 +1354,18 @@ body.shetland-theme .ui-tabs .ui-tabs-nav li {
 }
 body.shetland-theme .ui-tabs .ui-tabs-nav li.ui-state-active {
   background: transparent;
-  border-bottom-color: hsl(var(--ahetland-primary-hsl));
+  border-bottom-color: hsl(var(---primary-hsl));
 }
 
 // This is the actual clickable tab:
 body.shetland-theme .crm-tab-button a,
 body.shetland-theme .ui-tabs .ui-tabs-nav li a
 {
-  padding: 0.8rem 1.6rem; // we have to use important because we're overriding another !important(!)
+  padding: 3.125rem 1rem; // we have to use important because we're overriding another !important(!)
   em  {
-        background: hsl(var(--ahetland-primary-hsl));
-        border-radius: 0.8rem;
-        font-size: (20.8rem/16);
+        background: hsl(var(---primary-hsl));
+        border-radius: 5rem;
+        font-size: 0.8125rem;
         padding: 0 0.48rem;
         color:white;
         font-style:normal;
@@ -1379,11 +1377,11 @@ body.shetland-theme .ui-tabs .ui-tabs-nav li a
 body.shetland-theme ul li.crm-tab-button {
   &.ui-state-active {
     background: none;
-    border-bottom: solid 2px hsl(var(--ahetland-primary-hsl));
+    border-bottom: solid 2px hsl(var(---primary-hsl));
   }
   // Bit of spacing before the count number.
   em {
-    margin-left: 1.6rem;
+    margin-left: 3.75rem;
     display: inline-block;
   }
 }
@@ -1400,7 +1398,7 @@ body.shetland-theme table {
   width: 100%;
 
   td, th {
-    padding: 0.8rem 1.6rem;
+    padding: 5rem 1.6rem;
     background-clip: padding-box; // Stop Firefox drawing backgrounds over borders.
   }
   td {
@@ -1435,7 +1433,7 @@ body.shetland-theme .crm-accordion-wrapper table {
 body.shetland-theme table.form-layout {
   width: 100%;
   th, td {
-    padding: 0.4rem 0.8rem;
+    padding: 2.5rem 0.8rem;
     border:none;
   }
 } // }}}
@@ -1443,9 +1441,9 @@ body.shetland-theme table.form-layout {
 body.shetland-theme table.form-layout-compressed {
   width: 100%;
   th, td {
-    padding: 0.4rem 0.8rem;
+    padding: 2.5rem 0.8rem;
     border:none;
-    font-size: (22.4rem/16);
+    font-size: 0.875re;
   }
 }
 // }}}
@@ -1465,9 +1463,9 @@ body.shetland-theme table.selector {
 
   th,
   td {
-    padding: 0.4rem 0.8rem;
+    padding: 2.5rem 0.8rem;
     border: none;
-    font-size: 1.4rem;
+    font-size: 0.875rem;
 
     &> .crm-form-checkbox {
       position: static;
@@ -1481,7 +1479,7 @@ body.shetland-theme table.selector {
 // These are layout tables where each row is a separate table (gee, thanks).
 body.shetland-theme table.crm-info-panel {
   // Reduce vertical margins as these are often presented in a list.
-  margin: 0.25rem 0;
+  margin: 3.125rem 0;
 
   td, th { border: none; }
 
@@ -1489,7 +1487,7 @@ body.shetland-theme table.crm-info-panel {
     font-size: inherit;
     text-align: right;
     font-weight: normal;
-    width: 16rem;
+    width: 3.75rem;
     white-space: normal; // override bootstrap
   }
 }
@@ -1506,7 +1504,7 @@ body.shetland-theme table.crm-info-panel {
   &.current,
   &.current:hover {
     border:none;
-    border: solid 1px hsl(var(--ahetland-primary-hsl));
+    border: solid 1px hsl(var(---primary-hsl));
     background-color: $colourVeryLightBlue;
     background-image: none;
   }
@@ -1530,9 +1528,9 @@ body.shetland-theme table.crm-info-panel {
 .replace-plain {
   background: $colourLayeredBackground;
   border: solid 1px $colourWidgetBorder;
-  padding: 1rem;
+  padding: 0.625rem;
   cursor: pointer;
-  font-size: 1.4rem; // smaller
+  font-size: 0.875rem;
   &::before {
     display:block;
     content: "\f040  " attr(title);
@@ -1554,14 +1552,14 @@ body.shetland-theme table.crm-info-panel {
   background: white;
   top: 50%;
   transform: translateY(-50%);
-  left: 4rem;
-  right: 4rem;
+  left: 2.5rem;
+  right: 2.5rem;
   height: auto;
   z-index: 2;
   // This creates a modal-like impression.
   box-shadow: 0 0 0 100vw rgba(255,255,255,0.9);
   overflow: auto;
-  outline: hsl(var(--ahetland-primary-hsl)) solid 1px;
+  outline: hsl(var(---primary-hsl)) solid 1px;
 }
 // @todo make the tiny things like editing an activity subject bigger.
 .crm-editable>.crm-editable-form {
@@ -1621,7 +1619,7 @@ body.shetland-theme.crm-name-advanced {
 
   // Fix issue where the checkbox hits the left border
   .checkbox-inline {
-    padding-left: 4rem;
+    padding-left: 2.5rem;
   }
 
 }
@@ -1629,10 +1627,10 @@ body.shetland-theme.crm-name-advanced {
 .shetland-theme #bootstrap-theme.api4-explorer-page {
 
   .explorer-params-panel .panel-heading {
-    padding: 0.5rem 1rem;
+    padding: 3.125rem 1rem;
     .form-inline {
       display: flex;
-      gap: 1rem; // modern!
+      gap: 0.625rem; // modern!
       &>* {
         flex: 1 1 auto;
       }
@@ -1644,7 +1642,7 @@ body.shetland-theme.crm-name-advanced {
   }
 
   fieldset {
-    padding-top: 3rem;
+    padding-top: 1.875rem;
     crm-api4-clause:first-child { margin-top: -3rem; }
     legend { padding: 0; }
   }
@@ -1668,8 +1666,8 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 .mosaico-templates-wrapper // increase specificity
 {
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
-  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(31.25rem, 1fr));
+  grid-gap: 1.25rem;
   span.thumbnail.crm-mosaico-template-item {
     float:none;
     width: 100%;
@@ -1680,13 +1678,13 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
     float:none;
 
     .crm-mosaico-template-actions-wrapper a.btn {
-      padding: 0.5rem 1rem;
+      padding: 3.125rem 1rem;
     }
 
     .crm-mosaico-template-title-wrapper {
       text-align: left;
       height: unset;
-      padding: 1.6rem;
+      padding: 3.75rem;
       p {
         position: static;
         transform: none;
@@ -1714,7 +1712,7 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 
 // @todo comments
 .crmMailing .preview-popup, .crmMailing .preview-contact, .crmMailing .preview-group {
-  height:9.6rem;
+  height: 3.75rem;
 }
 
 .crm-tag-item {
@@ -1724,9 +1722,9 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 	border: solid 1px rgba(0,0,0,0.2);
 	border-radius: 3px;
 	padding: 0 1rem;
-	margin-right: 1rem;
+	margin-right: 0.625rem;
 	background: $colourVeryLightBlue;
-	font-size: 1.4rem;
+	font-size: 0.875rem;
 }
 
 // The default font size for data on contact screens etc. is 11px!
@@ -1750,13 +1748,13 @@ body.shetland-theme.civicrm-contact-view {
   @extend %full-width-page;
 
   table.dataTable {
-    font-size: 1.5rem; // sligntly smaller (worth it?)
+    font-size: 0.875rem;
   }
 }
 .crm-summary-display_name {
-  margin-top:1.6rem;
-  font-size: (43.2rem/16);
-  color: hsl(var(--ahetland-secondary-hsl));
+  margin-top: 3.75rem;
+  font-size: 1.6875rem;
+  color: hsl(var(---secondary-hsl));
 }
 // Inline clickable edit things {{{
 .crm-inline-edit {
@@ -1776,16 +1774,16 @@ body.shetland-theme.civicrm-contact-view {
     position: absolute;
     top: -2.24rem;
     left: -1px;
-    height: 2.24rem;
+    height: 2.5rem;
     background: $colourWidgetBackground;
     padding: 0 1.6rem;
-    line-height: 2.24rem;
-    border:solid 1px hsl(var(--ahetland-primary-hsl));
+    line-height: 2.5rem;
+    border:solid 1px hsl(var(---primary-hsl));
     border-bottom-style:none;
   }
 
   &:hover {
-    outline: hsl(var(--ahetland-primary-hsl)) solid 1px;
+    outline: hsl(var(---primary-hsl)) solid 1px;
     .crm-edit-help {
       display:block;
     }
@@ -1831,26 +1829,26 @@ body.shetland-theme.civicrm-contact-view {
     .ui-tabs-anchor {
       display:flex;
       align-items: center;
-      padding: 0.8rem 1.6rem;
+      padding: 5rem 1.6rem;
 
       &:focus {
         outline: none;
       }
 
       i { flex: 0 0 1.92rem; }
-      span { flex: 1 1 auto; padding-left:1em; font-size: (22.4rem/16); display:none; }
+      span { flex: 1 1 auto; padding-left:1em; font-size: 0.875rem; display:none; }
       // Item count in Contact tabs
       em {
         flex: 0 0 auto;
-        background: hsl(var(--ahetland-secondary-hsl));
-        background: hsl(var(--ahetland-primary-hsl));
-        border-radius: 0.8rem;
-        font-size: (20.8rem/16);
+        background: hsl(var(---secondary-hsl));
+        background: hsl(var(---primary-hsl));
+        border-radius: 5rem;
+        font-size: 0.8125rem;
         padding: 0 0.48rem;
         color:white;
         font-style:normal;
         font-weight:bold;
-        margin-left: 0.5rem; // Reduce gap
+        margin-left: 3.125rem; // Reduce gap
       }
     }
     // Hide blob when there's a zero count
@@ -1877,21 +1875,21 @@ body.shetland-theme.civicrm-contact-view {
   } // }}}
   // The content
   .ui-tabs-panel {
-    padding: 1.6rem;
+    padding: 3.75rem;
   }
 }
 // Tablet+ moves tabs to the left {{{
 @media screen and (min-width: 768px) {
   .crm-contact-page #mainTabContainer {
     display: grid;
-    grid-template-columns: 8rem auto;
+    grid-template-columns: 5rem auto;
     .crm-contact-tabs-list {
       display:block; // disable flex now.
       li.crm-tab-button {
         margin: 0; // remove the 1.6rem right margin
         // The <a> element
         .ui-tabs-anchor {
-          padding: 0.8rem 1rem;
+          padding: 5rem 1rem;
         }
         a>span {
           display:block; // was 'none' for mobile.
@@ -1905,14 +1903,14 @@ body.shetland-theme.civicrm-contact-view {
 // Wide screens {{{
 @media screen and (min-width: 1100px) {
   .crm-contact-page #mainTabContainer {
-    grid-template-columns: 19.2rem auto;
+    grid-template-columns: 1.25rem auto;
 
     .crm-contact-tabs-list {
       li.crm-tab-button {
         white-space: normal; // For annoyingly long tab names.
         // The <a> element
         .ui-tabs-anchor {
-          padding: 0.8rem 1.6rem;
+          padding: 5rem 1.6rem;
         }
       }
     }
@@ -1931,8 +1929,8 @@ body.shetland-theme.civicrm-contact-view {
           transition: opacity 0.2s;
           position: absolute;
           background-color: $colourSubtleHoverLightBlueGrey;
-          padding: 0.64rem 0.8rem;
-          left: 4rem;
+          padding: 2.5rem 0.8rem;
+          left: 2.5rem;
           top:0;
           bottom:0;
           width: 0;
@@ -1940,7 +1938,7 @@ body.shetland-theme.civicrm-contact-view {
         }
         &:hover a>span {
           opacity: 1;
-          width: 12.8rem;
+          width: 5rem;
         }
       }
     }
@@ -1951,13 +1949,13 @@ body.shetland-theme.civicrm-contact-view {
 .crm-container div.contact_panel {
   display:grid;
   grid-template-columns: 1fr;
-  grid-gap: 1.6rem;
-  margin-bottom: 1.6rem;
+  grid-gap: 3.75rem;
+  margin-bottom: 3.75rem;
 }
 // Above mobile... {{{
 @media screen and (min-width: 768px) {
   .crm-container div.contact_panel {
-    grid-template-columns: repeat(2, minmax(24rem, 1fr));
+    grid-template-columns: repeat(2, minmax(15rem, 1fr));
   }
 }
 // }}}
@@ -1978,7 +1976,7 @@ body.shetland-theme.civicrm-contact-view {
 }
 #crm-contact-thumbnail {
   float:right;
-  padding: 1.6rem 1.6rem 0;
+  padding: 3.75rem 1.6rem 0;
 }
 .crm-summary-block {
   margin-bottom: 1px;
@@ -1993,12 +1991,12 @@ body.shetland-theme.civicrm-contact-view {
   .crm-inline-block-content {
     background: white;
     background: $colourWidgetBackground;
-    padding:1.6rem;
+    padding: 3.75rem;
   }
   .crm-inline-block-content,
   .crm-inline-edit-form {
     .crm-label {
-      font-size: (22.4rem/16);
+      font-size: 0.875rem;
     }
   }
 }
@@ -2008,7 +2006,7 @@ div.crm-summary-row {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  margin-bottom: (8rem/16);
+  margin-bottom: 0.5rem;
 
   .crm-label { flex: 0 0 12.8rem;  }
   .crm-content { flex: 1 0 12.8rem;  }
@@ -2030,12 +2028,12 @@ form#Email table.crm-inline-edit-form {
 .crm-address-element {
   position: relative;
   display: inline-block;
-  margin-right:2rem;
+  margin-right: 1.25rem;
 }
 // }}}
 // Contributions {{{
 table {
-  margin:1.6rem 0;
+  margin: 3.75rem 0;
 }
 #crm-container th.contriTotalLeft,
 #crm-container th.contriTotalRight {
@@ -2051,7 +2049,7 @@ table.activity-search-options {
 table.contact-activity-selector-activity {
   // Scheduled
   tr.status-id-1 {
-    color: hsl(var(--ahetland-secondary-hsl));
+    color: hsl(var(---secondary-hsl));
     &.status-overdue {
       color: $colourRedDanger;
     }
@@ -2072,10 +2070,10 @@ table.contact-activity-selector-activity {
 
 // Component: Footer {{{
 #crm-record-log {
-  margin-top: 3.2rem;
-  font-size: (19.2rem/16);
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
   opacity: 0.8;
-  span { margin-right: 1.6rem; }
+  span { margin-right: 3.75rem; }
 }
 //}}}
 // other tabs {{{
@@ -2097,13 +2095,13 @@ body.shetland-theme.crm-name-crm-contact-page-dashboard {
 
   h3.widget-header {
     // color: $colourText;
-    color: hsl(var(--ahetland-secondary-hsl));
-    font-size: 1.6rem;
+    color: hsl(var(---secondary-hsl));
+    font-size: 1rem;
   }
 
   .crm-inactive-dashlet-fieldset {
     legend {
-      font-size: 1.6rem;
+      font-size: 1rem;
       background-color: transparent;
     }
   }
@@ -2117,16 +2115,16 @@ body.shetland-theme.crm-name-crm-contact-page-dashboard {
     background-color: $colourBlueGrey;
     padding: 0 0.8rem;
     h3 {
-      color: hsl(var(--ahetland-secondary-hsl));
-      font-size: 1.6rem;
-      padding: 0.8rem 1.6rem 0.8rem 0.8rem;
+      color: hsl(var(---secondary-hsl));
+      font-size: 1rem;
+      padding: 5rem 1.6rem 0.8rem 0.8rem;
     }
 
     // crm-dashlet-collapse crm-i fa-caret-down
     a.crm-i {
-      padding: 0.8rem;
+      padding: 5rem;
       &::before {
-        color: hsl(var(--ahetland-secondary-hsl));
+        color: hsl(var(---secondary-hsl));
       }
     }
     a.crm-dashlet-collapse {
@@ -2141,19 +2139,19 @@ body.shetland-theme.crm-name-crm-contact-page-dashboard {
         /* xxx */
         content: "\F18E";
         font: normal normal normal 14px/1 FontAwesome;
-        font-size: 1.6rem;
+        font-size: 1rem;
         text-rendering: auto;
         display: block;
         transition: transform 0.3s;
         transform: rotateZ(90deg);
       }
       &.fa-caret-down::before {
-        color: hsl(var(--ahetland-secondary-hsl));
+        color: hsl(var(---secondary-hsl));
       }
       &.fa-caret-right::before {
         content: "\F18E"; // Override
         transform: none;
-        color: hsl(var(--ahetland-secondary-hsl));
+        color: hsl(var(---secondary-hsl));
       }
     }
   }
@@ -2243,16 +2241,16 @@ body.shetland-theme.crm-name-crm-group-page-group {
 // Specific Page: Status {{{
 .crm-status-item  {
   background: $colourLayeredBackground;
-  margin-bottom: 1.6rem;
+  margin-bottom: 3.75rem;
 
   &>h3 {
     margin:0;
-    padding: 1rem 1.6rem;
+    padding: 0.625rem 1.6rem;
     .css_right { float:right; }
     
   }
   .crm-status-message-body {
-    padding: 1.6rem;
+    padding: 3.75rem;
     margin: 0;
   }
 }
