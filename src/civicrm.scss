@@ -1204,6 +1204,8 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 .form-control.select2-container {
   padding: 0;
   border:none;
+  // BS3 sets a fixed height(!) for .form-control.
+  height: unset;
 }
 // }}}
 // Component: Summary links {{{
@@ -2242,4 +2244,64 @@ body.aah-theme.crm-name-crm-group-page-group {
 #crm-status-list .hush-menu button {
   border: solid 1px white;
 }
+// }}}
+// Sepecific Page: Search Kit {{{
+body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
+  max-width: unset;
+}
+// Un-setting unhelpful SK CSS.
+.aah-theme #bootstrap-theme.crm-search {
+
+  // Un-set pixel width(!) in SK core.
+  .api4-clause-badge { width: unset; }
+
+  // SK overrides fieldset. Also it uses fieldset without a legend, where as
+  // we assume fieldsets to have legends.
+  fieldset.crm-search-criteria-column,
+  fieldset#crm-search-build-functions,
+  fieldset#crm-search-admin-debug
+  {
+    padding-top: 2.2rem;
+    legend {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+    }
+  }
+  fieldset {
+    border-top: none;
+    background: $colourLayeredBackground;
+  }
+  fieldset legend {
+    background: none;
+    margin: 0;
+  }
+  .crm-search-loading-placeholder {
+    width: 100%; // why was it 80%?
+    // height: 100%;
+  }
+}
+.crm-search-admin-relative {
+  // Leave space for the absolutely positioned View Results thing.
+  padding-top:3.5rem;
+}
+// This is the container of most of the two columns (on wide screen)
+.crm-search-admin-relative .crm-flex-box {
+  gap: 1rem;
+}
+// The width of the Add field control is set by style attribute to 80px.
+// The best we can do is fix font size so it's readable to those who squint.
+.crm-search-display-table  th:last-child>.crm-action-menu {
+  font-size: 12px;
+}
+
+
+// Provide a little space between the With...Entity .form-inline element and the 'ON' clause.
+.api4-clause-fieldset {
+  margin-top: 0.5rem;
+  // background-color: $colourWidgetBackground;
+  background: $colourLayeredBackground;
+}
+
+
 // }}}
