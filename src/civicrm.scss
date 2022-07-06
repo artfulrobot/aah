@@ -1562,6 +1562,29 @@ body.aah-theme .hiddenElement { display: none; }
 }
 // }}}
 
+// Quicksearch results {{{
+ul.crm-quickSearch-results {
+  font-size: 1.4rem;
+  // Unhelpfully, jQueryUI sets a 200px width on this using style="", which is not big enough.
+  // We override this by allowing overflow on the ul and setting a width on the li.
+  overflow: visible;
+  border:none;
+
+  a {
+    padding: 0.25rem 1rem;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+  }
+  // Override jQueryUI rule: .ui-menu .ui-state-focus, .ui-menu .ui-state-active
+  &.ui-menu {
+    .ui-menu-item-uiMenuItemWrapper.ui-state-active {
+      // Override the odd -1px margin applied on hover.
+      margin:0;
+    }
+  }
+}
+// }}}
 // Specific Page: Admin overview {{{
 #id_Customize_Data_and_Screens_show,
 #id_Communications_show,
