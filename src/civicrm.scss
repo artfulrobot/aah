@@ -2294,11 +2294,40 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
   fieldset {
     border-top: none;
     background: $colourLayeredBackground;
+    // Reinstate our style - set to 6px, then again to 0px by crmSearchAdmin
+    padding-top: 4.8rem;
   }
   fieldset legend {
     background: none;
     margin: 0;
   }
+
+  fieldset.crm-draggable:nth-child(1) {
+ display: flex;
+ flex-wrap: wrap;
+ align-items: flex-start;
+}
+
+  .crm-search-admin-edit-columns {
+    fieldset {
+       display: flex;
+       flex-wrap: wrap;
+       align-items: flex-start;
+    }
+    .form-inline {
+      padding-right: 2rem;
+      padding-bottom: 0.5rem;
+    }
+  }
+  search-admin-display-table .form-inline {
+    padding-bottom: 0.5rem;
+  }
+  search-admin-display-table .form-control {
+    &.checkbox-inline, &.radio-inline {
+      padding-left: 3rem;
+    }
+  }
+
   .crm-search-loading-placeholder {
     width: 100%; // why was it 80%?
     // height: 100%;
@@ -2327,4 +2356,18 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
 }
 
 
+// }}}
+// Sepecific Page: Form Builder {{{
+body.aah-theme.page-civicrm-admin-afform {
+  @extend %full-width-page;
+}
+#afGuiEditor .panel-heading ul.nav-tabs {
+  // bootstrap uses float (yuk) for tabs.
+  // so create block formatting context to avoid affecting later elements.
+  overflow: auto;
+  margin-top: 0.4em; // not sure if this will work in all contexts.
+  &>li.active>a {
+    background: white;
+  }
+}
 // }}}
