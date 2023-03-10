@@ -1775,6 +1775,7 @@ body.aah-theme.civicrm-contact-view {
     background:white;
     overflow: auto;
     max-width: 100%;
+    max-height: calc(100vh - 10rem);
   }
 
   // content that comes up when you hover over an editable chunk of the contact page.
@@ -2039,6 +2040,23 @@ form#Email table.crm-inline-edit-form {
   display: inline-block;
   margin-right:2rem;
 }
+
+// Pop-up address editor
+
+#Address_1 {
+  // Without this our absolutely positioned checkboxes go weird if the content needs to scroll
+  position: relative;
+
+  // Try to force the lat, lon onto one line
+  label[for="address_1_geo_code_1"] {
+    width: 11ch;
+  }
+}
+#address_1_geo_code_1, #address_1_geo_code_2 {
+  display: inline-block;
+  width: 10ch;
+}
+
 // }}}
 // Contributions {{{
 table {
