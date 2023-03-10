@@ -919,7 +919,8 @@ body.aah-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
 	top: 4.16rem;
 	z-index: 20;
 }
-#crm-main-content-wrapper .crm-accordion-wrapper thead tr:first-child {
+#crm-main-content-wrapper .crm-accordion-wrapper thead tr:first-child,
+#crm-main-content-wrapper .crm-dashlet-content thead tr:first-child {
   position: static;
   top: 0;
 }
@@ -2124,6 +2125,12 @@ body.aah-theme.crm-name-crm-contact-page-dashboard {
   .col2-is-empty.col1-has-widgets>div {
     flex: 0 0 100%;
     min-height: 2rem;
+  }
+  // While editing dashboard, make the drop zones obvious.
+  .droppable-live {
+    border: solid 1px $colourArtfulBrightBlue;
+    margin: 1rem 0;
+    padding: 0.5rem;
   }
 
   h3.widget-header {
