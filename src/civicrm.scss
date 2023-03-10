@@ -2102,6 +2102,12 @@ body.aah-theme.crm-name-crm-contact-page-dashboard {
  // has own css, requires this specificity.
 #crm-container #civicrm-dashboard {
 
+  .col1-is-empty.col2-has-widgets>div,
+  .col2-is-empty.col1-has-widgets>div {
+    flex: 0 0 100%;
+    min-height: 2rem;
+  }
+
   h3.widget-header {
     // color: $colourText;
     color: $colourArtfulDarkBlue;
@@ -2256,7 +2262,7 @@ body.aah-theme.crm-name-crm-group-page-group {
     margin:0;
     padding: 1rem 1.6rem;
     .css_right { float:right; }
-    
+
   }
   .crm-status-message-body {
     padding: 1.6rem;
@@ -2280,26 +2286,32 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
 
   // SK overrides fieldset. Also it uses fieldset without a legend, where as
   // we assume fieldsets to have legends.
-  fieldset.crm-search-criteria-column,
-  fieldset#crm-search-build-functions,
-  fieldset#crm-search-admin-debug
-  {
-    padding-top: 2.2rem;
-    legend {
-      position: absolute;
-      top: 0.5rem;
-      left: 0.5rem;
-    }
-  }
+
+  // First, redefine default fieldsets (that use legends)
   fieldset {
     border-top: none;
     background: $colourLayeredBackground;
     // Reinstate our style - set to 6px, then again to 0px by crmSearchAdmin
-    padding-top: 4.8rem;
+    padding: 4.8rem 0.5rem 0.5rem 0.5rem;
+    legend {
+      position: absolute;
+      top: 0.5rem;
+      background: none;
+      margin: 0;
+      left: 0.5rem;
+    }
   }
-  fieldset legend {
-    background: none;
-    margin: 0;
+
+  // Next, allow for those without legends
+ // fieldset.crm-search-criteria-column,
+ // fieldset#crm-search-build-functions,
+ // fieldset#crm-search-admin-debug
+  //.crm-search-criteria-column>div>fieldset, // Matches the 'with's, but not the GroupBy, Where, Having (which use legend)
+  // .crm-search-criteria-column:first-child>fieldset:last-child, // Matches the GroupBy.
+  // .crm-search-admin-relative fieldset:not(.crm-search-admin-edit-columns fieldset):not(fieldset:last-child) // matches all fieldsets except the output column ones in Table edit.
+  .xxx // This proved too hard to achieve; needs core patch to add some meaningful classes.
+  {
+    padding-top: 0.5rem;
   }
 
   fieldset.crm-draggable:nth-child(1) {
