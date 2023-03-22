@@ -967,7 +967,6 @@ div.message {
 // }}}
 // Component: Notifications - popups {{{
 #crm-notification-container {
-
   // Normally 25% but allow ourselves at least 20rem so 200px
   width: 25%;
 	min-width: 20rem;
@@ -978,79 +977,69 @@ div.message {
   right: 1.6rem;
   z-index: 100000;
 }
-// Close button
-#crm-notification-container .ui-notify-message a.ui-notify-cross {
-  position: absolute;
-  top: 1.6rem;
-  right: 1.6rem;
-	float: none;
-	font-size: 1.6rem;
-	text-shadow: none;
-	padding: 0.32rem 1.2rem;
-	color: white;
-  border: none;
-  border-radius: 2px;
-  text-decoration: none;
-  &:hover, &:active {
-    color: $colourText;
-    text-decoration: none;
-  }
-}
-
-#crm-notification-container div.ui-notify-message-style {
-	background: white;
-  border-left: solid 4px $colourAmberStrongBg;
-	box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
-}
-// Special colours.
-#crm-notification-container div.ui-notify-message-style {
-  &.success {
-    border-left-color: $colourGreenStrongBg;
-    div.icon { color: white; }
-    h1 { background-color: $colourGreenStrongBg; color: white; }
-  }
-  &.error {
-    div.icon { color: white; }
-    border-left-color: $colourRedDanger;
-    h1 { background-color: $colourRedDanger; color: white; }
-  }
-}
-
 
 #crm-notification-container div.ui-notify-message {
-  position: relative;
-	padding: 0;
-  margin-bottom: 1.6rem;
-	border-radius: 2px;
-	max-height: calc(100vh - 45px);
-	overflow: auto;
-  color: $colourText;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  border: none;
+	box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  padding: 0;
 
+	background: $colourAmberStrongBg;
 
   h1 {
+    grid-column: 2;
+    grid-row: 1;
     color: black;
-    background: $colourAmberStrongBg;
     font-size: 1.4rem;
     margin:0;
-    padding: 1.2rem 1.4rem 1rem 4.8rem;
-    min-height: 5.92rem; // Sometimes it is empty.
-  }
-  .notify-content {
-    padding: 1rem 1.4rem;
-    font-size: 1.4rem;
+    padding: .32rem 0.5rem;
+    font-weight: bold;
   }
 
+  // Close button
+  a.ui-notify-cross {
+    grid-column: 3;
+
+    float: none;
+    font-size: 1.6rem;
+    text-shadow: none;
+    padding: 0.4rem 1rem 0.5rem; // desperate attempt to vertically centre an x
+    color: white;
+    border: none;
+    border-radius: 2px;
+    text-decoration: none;
+    line-height: 1.3;
+
+    &:hover, &:active {
+      background: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+    }
+  }
+
+  .notify-content {
+    grid-column: 1/4;
+    padding: 1rem 1.4rem;
+    font-size: 1.4rem;
+    background: white;
+    padding:0.25rem 0 0.25rem 0.7rem;
+  }
+
+  &.success { background: $colourGreenStrongBg; }
+  &.error {
+    background: $colourRedDanger;
+    h1 { color: white; }
+  }
 }
+
 
 // The ticks and other icons...
 body.aah-theme div.ui-notify-message div.icon, .crm-status-icon {
 	margin-right: 0; // override
   text-indent: 0;
   float:none;
-
-  position: absolute;
-  top:1.6rem;
-  left:1.6rem;
 
   &::before {
     content:'\26A0';// Warning sign.
