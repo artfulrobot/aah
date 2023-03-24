@@ -984,8 +984,10 @@ div.message {
   align-items: center;
   border: none;
 	box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
-  border-radius: 2px;
+  border-radius: 3px;
+  overflow:hidden; // crop to border-radius
   padding: 0;
+  margin-bottom: 0.5rem;
 
 	background: $colourAmberStrongBg;
 
@@ -1024,7 +1026,7 @@ div.message {
     padding: 1rem 1.4rem;
     font-size: 1.4rem;
     background: white;
-    padding:0.25rem 0 0.25rem 0.7rem;
+    padding:0.65rem 0 0.25rem 2.8rem;
   }
 
   &.success { background: $colourGreenStrongBg; }
