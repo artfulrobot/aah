@@ -1001,6 +1001,10 @@ div.message {
     font-weight: bold;
   }
 
+  div.icon {
+    padding-left: 1rem;
+  }
+
   // Close button
   a.ui-notify-cross {
     grid-column: 3;
@@ -1026,7 +1030,7 @@ div.message {
     padding: 1rem 1.4rem;
     font-size: 1.4rem;
     background: white;
-    padding:0.65rem 1rem 0.65rem 2.8rem;
+    padding:0.65rem 1rem 0.65rem 3.5rem;
     p:last-child { margin-bottom: 0; }
   }
 
