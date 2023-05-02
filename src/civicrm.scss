@@ -924,6 +924,18 @@ body.aah-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
 	top: 4.16rem;
 	z-index: 20;
 }
+// Note: if you have trouble with sticky header overlapping the
+// first row, it's to do with the parent element.
+// e.g. overflow: auto will trigger this.
+// A fix on the parent is:
+#crm-main-content-wrapper
+.support-sticky-table-header {
+  max-height: calc(100vh - 4.16rem);
+  thead tr:first-child {
+    top:0; // otherwise it's relative to the parent.
+  }
+}
+
 #crm-main-content-wrapper .crm-accordion-wrapper thead tr:first-child,
 #crm-main-content-wrapper .crm-dashlet-content thead tr:first-child {
   position: static;
@@ -1037,6 +1049,7 @@ div.message {
     background: white;
     padding:0.65rem 1rem 0.65rem 3.5rem;
     p:last-child { margin-bottom: 0; }
+    ul { padding-left: 1rem; }
   }
 
   &.success { background: $colourGreenStrongBg; }
