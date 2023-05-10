@@ -95,3 +95,13 @@ npx mix watch
 npx mix build -p
 
 ```
+
+## Themers
+
+Some CSS variables (custom properties) are now in use. e.g. buttons: their background is now `--aah-button-bg` and `--aah-button-bg-hover`. This means that you can set your button colours on, for example, the front end event registration pages or such, e.g.
+
+```css
+body.civicrm-event-register {
+  --aah-button-bg: red;
+}
+```

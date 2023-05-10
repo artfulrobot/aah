@@ -506,7 +506,7 @@ input.crm-form-submit,
 .crm-container input[type="button"],
 .crm-container input[type="submit"] {
   display:inline-block;
-  background: $colourArtfulBrightBlue;
+  background: var(--aah-button-bg);
   padding:0.4rem 1.6rem;
   border:none;
   border-radius: 3px;
@@ -516,11 +516,11 @@ input.crm-form-submit,
   vertical-align: baseline;
 
   &:hover {
-    background-color: darken($colourArtfulBrightBlue, 10%);
+    background: var(--aah-button-bg-hover);
   }
 
   &.btn-secondary {
-    background: $colourArtfulDarkBlue;
+    background: var(--aah-button-bg-secondary);
   }
   &[disabled] {
     opacity:0.35;
@@ -591,7 +591,7 @@ a.crm-button {
 {
   display:inline-block;
   padding:0.4rem 1.6rem;
-  background: $colourArtfulBrightBlue;
+  background: var(--aah-button-bg);
   border:none;
   border-radius: 3px;
   color:white;
@@ -600,7 +600,7 @@ a.crm-button {
 
   &:active,
   &:hover {
-    background-color: darken($colourArtfulBrightBlue, 10%);
+    background: var(--aah-button-bg-hover);
     text-decoration: none;
   }
 }
