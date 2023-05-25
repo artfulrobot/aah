@@ -903,6 +903,7 @@ body.aah-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
 .ui-progressbar-value {
   // normally it takes its colour from widget background
   background-color: $colourArtfulBrightBlue !important;
+  margin: 0; // was -1?
 }
 // }}}
 // Component: various icons {{{
