@@ -526,6 +526,11 @@ input.crm-form-submit,
     opacity:0.35;
     pointer-events: none;
   }
+  // If the button is using aria-pressed, i.e. it has on/off state,
+  // represent the on state with inset shadow.
+  &[aria-pressed="true"] {
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4) inset;
+  }
 }
 
 span.crm-button {
