@@ -2414,6 +2414,15 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
 
 
 // }}}
+// Search kit display {{{
+.crm-search-display-list li label {
+  font-weight: normal;
+}
+
+.crm-search-display-list li {
+  font-weight: bold;
+}
+// }}}
 // Sepecific Page: Form Builder {{{
 body.aah-theme.page-civicrm-admin-afform {
   @extend %full-width-page;
@@ -2428,3 +2437,4 @@ body.aah-theme.page-civicrm-admin-afform {
   }
 }
 // }}}
+// vim:foldmethod=marker
