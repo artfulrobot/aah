@@ -85,3 +85,9 @@ body {
 }
 // Borrow shoreditch's wizard CSS
 @import 'wizard.scss';
+
+// See https://github.com/civicrm/civicrm-core/pull/28448
+// Bootstrap3 styles these as block which is non-compliant with html standards
+summary {
+  display: list-item;
+}
