@@ -676,6 +676,16 @@ td>.crm-submit-buttons:first-child {
   }
 }
 // }}}
+
+
+#crm-main-content-wrapper .btn-group>button {
+  height: 2.3em;
+  border-radius: 0;
+  &:first-child { border-radius: 3px 0 0 3px; }
+  &:last-child  { border-radius: 0 3px 3px 0; }
+  &:first-child:last-child  { border-radius: 3px; }
+}
+
 // }}}
 // Component: crm-hover-button {{{
 // I think these can just be normal links, not sure what buttonising them does.

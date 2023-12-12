@@ -91,3 +91,10 @@ body {
 summary {
   display: list-item;
 }
+
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
+  background: var(--aah-bg-layer);
+  color: $colourArtfulDarkBlue;
+}
