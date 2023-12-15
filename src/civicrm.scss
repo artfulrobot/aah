@@ -67,6 +67,18 @@ body.aah-theme {
    position: absolute;
 }
 
+/* Inline form field 'post-help' and radio-button unselect */
+.crm-container .description:not(.price-set-option-content .description, .form-layout td.description, .form-layout-compressed td.description) {
+  font-size: 0.875em;
+  font-weight: normal;
+  white-space: normal;
+  width: auto;
+  color: #696969;
+  line-height: inherit;
+  padding: 0;
+  margin: 0;
+}
+
 .crm-container .crm-flex-box {
   display: flex;
   flex-wrap: wrap;
@@ -521,6 +533,12 @@ input.crm-form-submit,
 
   &.btn-secondary {
     background: var(--aah-button-bg-secondary);
+    background: transparent;
+    color: var(--aah-button-colour-secondary);
+    color: var(--aah-colour-brand);
+    &:hover {
+      background: var(--aah-button-bg-secondary-hover);
+    }
   }
   &[disabled] {
     opacity:0.35;
@@ -680,10 +698,13 @@ td>.crm-submit-buttons:first-child {
 
 #crm-main-content-wrapper .btn-group>button {
   height: 2.3em;
-  border-radius: 0;
+
+  // A button at the start needs left rounding
   &:first-child { border-radius: 3px 0 0 3px; }
-  &:last-child  { border-radius: 0 3px 3px 0; }
-  &:first-child:last-child  { border-radius: 3px; }
+  // A button at the end needs right rounding
+  &:last-of-type  { border-radius: 0 3px 3px 0; }
+  // A button on its own in a btn-group (duh) nees full rounding.
+  &:first-child:last-of-type  { border-radius: 3px; }
 }
 
 // }}}
@@ -2346,8 +2367,17 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
   fieldset {
     border-top: none;
     background: $colourLayeredBackground;
+
     // Reinstate our style - set to 6px, then again to 0px by crmSearchAdmin
     padding: 4.8rem 0.5rem 0.5rem 0.5rem;
+
+    &.crm-search-join,
+    &.crm-search-join-add,
+    &.crm-search-groupbys,
+    {
+      padding-top: 6px;
+    }
+
     legend {
       position: absolute;
       top: 0.5rem;
@@ -2356,24 +2386,16 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
       left: 0.5rem;
     }
   }
-
-  // Next, allow for those without legends
- // fieldset.crm-search-criteria-column,
- // fieldset#crm-search-build-functions,
- // fieldset#crm-search-admin-debug
-  //.crm-search-criteria-column>div>fieldset, // Matches the 'with's, but not the GroupBy, Where, Having (which use legend)
-  // .crm-search-criteria-column:first-child>fieldset:last-child, // Matches the GroupBy.
-  // .crm-search-admin-relative fieldset:not(.crm-search-admin-edit-columns fieldset):not(fieldset:last-child) // matches all fieldsets except the output column ones in Table edit.
-  .xxx // This proved too hard to achieve; needs core patch to add some meaningful classes.
-  {
-    padding-top: 0.5rem;
+  .crm-search-select-fields > div > fieldset {
+    padding-top: 6px;
   }
 
+
   fieldset.crm-draggable:nth-child(1) {
- display: flex;
- flex-wrap: wrap;
- align-items: flex-start;
-}
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
 
   .crm-search-admin-edit-columns {
     fieldset {
@@ -2395,11 +2417,45 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
     }
   }
 
-  .crm-search-loading-placeholder {
-    width: 100%; // why was it 80%?
-    // height: 100%;
+  // Within Wheres, this puts the "If" bubble to the left.
+  crm-search-clause > .api4-clause-group-sortable > div > div {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    & > .api4-clause-badge {
+      flex: 0 0 5ch;
+    }
+  }
+  .api4-clause-group-sortable > div:not(&:last-child) {
+    border-bottom: solid 1px  color-mix(in srgb, $colourArtfulMutedBlue 20%, transparent);
+  }
+  // Target the Add Where...
+  crm-search-clause > .api4-input:last-child {
+    padding: 1rem;
+
+  }
+
+  #expires_date ~ :where(input, a) {
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+  #expires_date ~ a {
+    padding-top: 1em;
   }
 }
+.aah-theme #bootstrap-theme .crm-search-loading-placeholder {
+    width: 100%; // why was it 80%?
+    background: transparent;
+    &:before {
+      width: 100%;
+      left: 0;
+      height: 100%;
+      background-image: none;
+      animation: aahblockoverlay 5s infinite;
+      border-radius: 3px;
+    }
+}
+
 .crm-search-admin-relative {
   // Leave space for the absolutely positioned View Results thing.
   padding-top:3.5rem;

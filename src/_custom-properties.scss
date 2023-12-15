@@ -1,6 +1,11 @@
 :root {
+  --aah-colour-brand: #{$colourArtfulBrightBlue};
+  --aah-colour-brand-dark: #{$colourArtfulDarkBlue};
+
   --aah-button-bg: #{$colourArtfulBrightBlue};
   --aah-button-bg-hover: #{darken($colourArtfulBrightBlue, 10%)};
-  --aah-button-bg-secondary: #{$colourArtfulDarkBlue};
+  --aah-button-bg-secondary: transparent;
+  --aah-button-bg-secondary-hover: #{$colourVeryLightBlue};
+  --aah-button-colour-secondary: #{$colourArtfulBrightBlue};
   --aah-bg-layer: #{$colourSubtleHoverLightBlueGreyTint};
 }
