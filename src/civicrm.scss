@@ -19,11 +19,15 @@
 
 
   h1.page-header {
-    display:none; // CiviCRM seems to output this anyways.
+    display: none; // CiviCRM seems to output this anyways.
   }
 
   // Don't limit width in CiviCRM since it uses background-color on some headings which then look odd.
-  h3, h4, h5 { max-width:none; }
+  h3,
+  h4,
+  h5 {
+    max-width: none;
+  }
 }
 
 // jQuery modals are not inside #crm-container.
@@ -32,39 +36,46 @@ body>.ui-dialog.crm-container {
 }
 
 .crm-contaner {
+
   // Insist on our own colour links within a CiviCRM container.
   a,
-  a:visited { color: $colourArtfulBrightBlue; }
-  a:hover { color: $colourArtfulDarkBlue; }
+  a:visited {
+    color: $colourArtfulBrightBlue;
+  }
+
+  a:hover {
+    color: $colourArtfulDarkBlue;
+  }
 }
 
 // Provide some space at sides and assume a 1200px max by default.
 // This is really annoying: the page is rendered before
 body.aah-theme {
+
   h1#page-title,
   #crm-main-content-wrapper,
-  #access
-  {
+  #access {
     max-width: 1200px;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
+
 //#crm-main-content-wrapper>.ng-scope {
 // }}}
 // Mostly functional rules copied from civicrm.css (5.35) {{{
 
 /* Use this class to hide text that should only be there for screen readers */
 .sr-only {
-   border: 0;
-   clip: rect(1px, 1px, 1px, 1px);
-   clip-path: inset(50%);
-   height: 1px;
-   width: 1px;
-   margin: -1px;
-   overflow: hidden;
-   padding: 0;
-   position: absolute;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
 }
 
 /* Inline form field 'post-help' and radio-button unselect */
@@ -84,21 +95,27 @@ body.aah-theme {
   flex-wrap: wrap;
   box-sizing: border-box;
 }
-.crm-container .crm-flex-box > * {
+
+.crm-container .crm-flex-box>* {
   flex: 1;
   box-sizing: border-box;
-  min-width: 0; /* prevents getting squashed by whitespace:nowrap content */
+  min-width: 0;
+  /* prevents getting squashed by whitespace:nowrap content */
 }
-.crm-container .crm-flex-box > .crm-flex-2 {
+
+.crm-container .crm-flex-box>.crm-flex-2 {
   flex: 2;
 }
-.crm-container .crm-flex-box > .crm-flex-3 {
+
+.crm-container .crm-flex-box>.crm-flex-3 {
   flex: 3;
 }
-.crm-container .crm-flex-box > .crm-flex-4 {
+
+.crm-container .crm-flex-box>.crm-flex-4 {
   flex: 4;
 }
-.crm-container .crm-flex-box > .crm-flex-5 {
+
+.crm-container .crm-flex-box>.crm-flex-5 {
   flex: 5;
 }
 
@@ -115,20 +132,24 @@ body.aah-theme {
 .crm-container .clear {
   clear: both;
 }
+
 // }}}
 // Full width pages {{{
 // More efficient to list here.
 %full-width-page {
+
   h1#page-title,
   #crm-main-content-wrapper,
   #access {
     max-width: none;
   }
+
   h1#page-title {
     padding-left: 1.6rem;
     padding-right: 1.6rem;
   }
 }
+
 // Allow .full-width-page on body.
 body.aah-theme.full-width-page {
   @extend %full-width-page;
@@ -136,67 +157,90 @@ body.aah-theme.full-width-page {
 
 // }}}
 // Avoid Flash Of Unstyled Content {{{
-body.page-civicrm #page-title, // Drupal specific!
+body.page-civicrm #page-title,
+// Drupal specific!
 .aah-wrapper {
   opacity: 0;
-  transition: opacity 0.3s ;
+  transition: opacity 0.3s;
 }
+
 body.aah-theme {
+
   #page-title,
-  .aah-wrapper { opacity: 1; }
+  .aah-wrapper {
+    opacity: 1;
+  }
 }
+
 // }}}
 // Page title {{{
 // There's a chance this is specific to the Drupal 7 aaah theme, sorry about that.
 body.aah-theme #header #page-title {
   margin: 0 1.6rem;
 }
+
 // }}}
 
 // Override: Aaah theme! {{{
-#crm-container li { max-width: none; }
+#crm-container li {
+  max-width: none;
+}
+
 // }}}
 // Print stuff {{{
 #printer-friendly,
-.ui-button.crm-dialog-titlebar-print
-{
-  display:none; // It's never really printer friendly...
+.ui-button.crm-dialog-titlebar-print {
+  display: none; // It's never really printer friendly...
 }
+
 @media print {
+
   #civicrm-footer,
   #access,
-  #civicrm-menu
-  { display:none; }
-  body.page-civicrm {
-    padding-top:0;
+  #civicrm-menu {
+    display: none;
   }
-} // }}}
+
+  body.page-civicrm {
+    padding-top: 0;
+  }
+}
+
+// }}}
 
 // Override: Mosaico. {{{
 #bootstrap-theme .crm-mosaico-template-item {
-  display:flex;
-  width:100%;
+  display: flex;
+  width: 100%;
 }
+
 #bootstrap-theme .crm-mosaico-template-item .crm-mosaico-template-title-wrapper {
-  height:unset;
+  height: unset;
   flex: 1 0 160px;
 }
+
 #bootstrap-theme .crm-mosaico-template-item .crm-mosaico-template-image-wrapper {
   flex: 0 0 160px;
-} // }}}
+}
+
+// }}}
 // Override: CiviCRM override default general styles {{{
-#civicrm-menu, #root-menu-div ul,
+#civicrm-menu,
+#root-menu-div ul,
 .ui-widget {
   font-family: Lato;
 }
+
 .ui-widget {
-  font-size:1em; // disable 1.1
+  font-size: 1em; // disable 1.1
 }
+
 // h3s are used throughout
 .crm-container h3 {
   margin: 4rem 0 0.8rem;
   font-size: (32rem/16); // 20px
 }
+
 .crm-i-green {
   color: $colourGreenStrongBg;
 }
@@ -218,11 +262,14 @@ body.aah-theme #header #page-title {
 .crm-action-menu::before {
   display: none;
 }
+
 // }}}
 // Override: Bootstrap {{{
 body.aah-theme {
 
-  .label { color:inherit; }
+  .label {
+    color: inherit;
+  }
 
   // Bootstrap says all .labels should be inline but CiviCRM uses the class on td...
   td.label {
@@ -234,25 +281,34 @@ body.aah-theme {
 
   // Tame headings in panels.
   .panel-heading {
-    h1, h2, h3 { margin: 0; }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+    }
   }
 }
+
 // }}}
 // Override: jQuery UI {{{
 .ui-widget-header {
-  background:$colourWidgetBackground;
-  border:none;
+  background: $colourWidgetBackground;
+  border: none;
 }
+
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
-  background:$colourWidgetBackground;
-  border:none;
+  background: $colourWidgetBackground;
+  border: none;
   border-radius: 0;
+
   &:hover {
     background: $colourSubtleHoverLightBlueGrey;
   }
 }
+
 .ui-state-default a,
 .ui-state-default a:link,
 .ui-state-default a:visited,
@@ -269,18 +325,23 @@ a:visited.ui-button,
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active {
-  background:$colourWidgetBackground;
-  border:none;
+  background: $colourWidgetBackground;
+  border: none;
   border-radius: 0;
   background: $colourWidgetSelectedBackground;
+
   &:hover {
     background: $colourSubtleHoverLightBlueGrey;
   }
+
   color: $colourArtfulBrightBlue;
-  a:link, a:visited {
+
+  a:link,
+  a:visited {
     color: $colourArtfulBrightBlue;
   }
 }
+
 .ui-state-hover,
 .ui-widget-content .ui-state-hover,
 .ui-widget-header .ui-state-hover,
@@ -304,37 +365,51 @@ a.ui-button:active,
 }
 
 @keyframes aahblockoverlay {
-  0% { background-color: $colourSubtleHoverLightBlueGreyTint; }
-  50% { background-color: $colourBackground; }
-  100% { background-color: $colourSubtleHoverLightBlueGreyTint; }
+  0% {
+    background-color: $colourSubtleHoverLightBlueGreyTint;
+  }
+
+  50% {
+    background-color: $colourBackground;
+  }
+
+  100% {
+    background-color: $colourSubtleHoverLightBlueGreyTint;
+  }
 }
+
 .crm-container .blockUI.blockOverlay {
   // background: url("../i/loading-overlay.gif") center center no-repeat white !important;
-//  background-color: $colourBackground !important;
+  //  background-color: $colourBackground !important;
   animation: aahblockoverlay 10s infinite;
 }
 
 // The date picker widget has a fixed width, so we need to fix the padding or it does not fit.
-.ui-datepicker th, .ui-datepicker td {
+.ui-datepicker th,
+.ui-datepicker td {
   // Feel ok about using !important here because this not something tht has the possiblity of nested elements.
   padding: 0 !important;
 }
+
 // }}}
 // Override: Case {{{
 .crmCaseType tr.addRow td {
   background: $colourSubtleHoverLightBlueGrey border-box !important;
 }
+
 // }}}
 // Component: #access footer {{{
 body.aah-theme #access {
   margin-top: 5rem;
 }
+
 // }}}
 // Component: Actions ribbon (e.g. at top of Contact screen) and .action-link which seems to be very similar {{{
 .crm-actions-ribbon {
   &>ul {
     margin: 1.6rem 0;
     padding: 0;
+
     li {
       list-style: none;
       display: inline-block;
@@ -342,8 +417,8 @@ body.aah-theme #access {
     }
   }
 }
-.crm-actions-ribbon
-.ac_results {
+
+.crm-actions-ribbon .ac_results {
   // Until Javascript sets display: block, hide the actions popup.
   display: none;
 
@@ -356,14 +431,17 @@ body.aah-theme #access {
 
   ul {
     padding: 0;
+
     li {
-      display:block;
+      display: block;
       padding: 0;
       margin: 0;
+
       a {
         display: block;
         padding: 0.25rem 1rem;
         line-height: 1.2;
+
         &:hover {
           background: $colourSubtleHoverLightBlueGrey;
         }
@@ -371,8 +449,10 @@ body.aah-theme #access {
     }
   }
 }
+
 .action-link {
   margin: 1.6rem 0;
+
   a {
     margin-right: 1.6rem;
   }
@@ -380,7 +460,98 @@ body.aah-theme #access {
 
 //}}}
 // Component: Accordions (various types). {{{
+// --------------themetest compliant---------------------
+// themetest/accordion8 - Recommended
+@keyframes crm-details-show {
+  from {
+    opacity: 0;
+    transform: translateY(-0.5rem);
+  }
 
+  50% {
+    transform: translateY(-0.1rem);
+  }
+}
+
+.crm-container {
+  details {
+    margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
+    border-bottom: solid 1px $colourFormElementsBorder;
+
+    &>summary {
+      display: block;
+      padding: 0.8rem 1.6rem 0.8rem 3rem;
+      color: $colourArtfulDarkBlue;
+      background-color: transparent;
+      transition: background-color 0.2s, border-radius 0.2s;
+      position: relative;
+
+      // cursor: pointer;
+      &:hover {
+        background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
+      }
+
+      &::before {
+        content: '';
+        border-width: .4rem;
+        border-style: solid;
+        border-color: transparent transparent transparent $colourArtfulDarkBlue;
+        position: absolute;
+        top: 1.5rem;
+        left: 1.5rem;
+        transform: rotate(0);
+        transform-origin: .2rem 50%;
+        transition: .25s transform ease;
+      }
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+    }
+
+    &.crm-accordion-bold {
+      &>summary {
+        background-color: $colourBlueGrey;
+      }
+    }
+
+    &[open]>summary {
+      border-radius: 4px 4px 0 0;
+
+      &::before {
+        transform: rotate(90deg);
+      }
+    }
+
+  }
+
+  details>.crm-accordion-body {
+    animation: crm-details-show 240ms ease-in-out;
+    // z-index: 1;
+    // transition: all 0.3s ease-in-out;
+    // color: transparent;
+    // overflow: hidden;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// themetest/accordion1
+// div.crm-accordion-wrapper[[.collapsed]]
+//   div.crm-accordion-header
+//   div.crm-accordion-body
+
+
+
+
+// --------------below here original---------------------
 // Type 1: e.g. custom fields on contact summary form:
 // div.crm-collapsible[[.collapsed]]
 //   div.collapsible-title
@@ -393,92 +564,124 @@ body.aah-theme #access {
 //   .crm-accordion-body
 
 
-.crm-collapsible, // Type 1
-.crm-accordion-wrapper { // Type 2
-  margin-bottom: 1.6rem;
-  margin-top: 1.6rem;
+.nope {
 
-  border-bottom: solid 1px $colourFormElementsBorder;
+  .crm-collapsible,
+  // Type 1
+  .crm-accordion-wrapper {
+    // Type 2
+    margin-bottom: 1.6rem;
+    margin-top: 1.6rem;
 
-  &:first-child {
-    margin-top: 0;
+    border-bottom: solid 1px $colourFormElementsBorder;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
 
-.collapsible-title, // type 1
-.crm-accordion-header { // type 2
-  padding: 0.8rem 1.6rem 0.8rem 4rem;
-  color: $colourArtfulDarkBlue;
-  background-color: $colourBlueGrey;
-  transition: background-color 0.2s;
-  cursor: pointer;
-}
-
-.crm-accordion-header { // type 2 only
-  &.active {
-    background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
+  .collapsible-title,
+  // type 1
+  .crm-accordion-header {
+    // type 2
+    padding: 0.8rem 1.6rem 0.8rem 4rem;
     color: $colourArtfulDarkBlue;
+    background-color: $colourBlueGrey;
+    transition: background-color 0.2s;
+    cursor: pointer;
   }
-  &:hover, &.active:hover {
-    background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
-  }
-}
 
-.collapsible-title::before, // type 1
-.crm-accordion-header::before { // type 2
-  content: "\F18E";
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: inherit;
-  text-rendering: auto;
-  display: block;
-  position: absolute;
-  margin-left: -2.4rem;
-  margin-top: 0.4rem;
-  transition: transform 0.3s;
-  transform: rotateZ(90deg);
-}
-.crm-collapsible>.crm-summary-block, // type 1
-.crm-accordion-body { // type 2
-  background: $colourLayeredBackground;
-  padding: 1.6rem;
-  border-radius: 0;
-  border:none;
-  overflow: auto; // force it to encompass floated elements.
-  transform: none;
-  // nicer animation on the body
-  opacity: 1;
-  transition: opacity 0.3s;
-}
-// When collapsed:
-.crm-collapsible.collapsed, // type 1
-.crm-accordion-wrapper.collapsed { // type 2
+  .crm-accordion-header {
 
-  // Remove the bottom border (asit tends to look like an underline)
-  border-bottom: none;
+    // type 2 only
+    &.active {
+      background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
+      color: $colourArtfulDarkBlue;
+    }
 
-  // Use a subtle backcolor.
-  .collapsible-title, // type 1
-  .crm-accordion-header { // type 2
-    background-color: $colourLayeredBackground;
-    &:hover {
+    &:hover,
+    &.active:hover {
       background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
     }
   }
 
-  // no rotation on the arrow pointing right.
-  .collapsible-title::before, // type 1
-  .crm-accordion-header::before { // type 2
-    transform: none;
+  .collapsible-title::before,
+  // type 1
+  .crm-accordion-header::before {
+    // type 2
+    content: "\F18E";
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    display: block;
+    position: absolute;
+    margin-left: -2.4rem;
+    margin-top: 0.4rem;
+    transition: transform 0.3s;
+    transform: rotateZ(90deg);
   }
 
-  &>.crm-summary-block, // type 1
-  .crm-accordion-body { // type 2
-    display: none;
-    opacity: 0;
+  div.crm-collapsible,
+  fieldset.crm-collapsible {
+
+    &>.crm-summary-block,
+    // type 1
+    &>.crm-accordion-body {
+      // type 2
+      background: $colourLayeredBackground;
+      padding: 1.6rem;
+      border-radius: 0;
+      border: none;
+      overflow: auto; // force it to encompass floated elements.
+      transform: none;
+      // nicer animation on the body
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
   }
+
+  // When collapsed:
+  div.crm-collapsible.collapsed,
+  // type 1
+  div.crm-accordion-wrapper.collapsed {
+    // type 2
+
+    // Remove the bottom border (asit tends to look like an underline)
+    border-bottom: none;
+
+    // Use a subtle backcolor.
+    .collapsible-title,
+    // type 1
+    .crm-accordion-header {
+      // type 2
+      background-color: $colourLayeredBackground;
+
+      &:hover {
+        background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
+      }
+    }
+
+    // no rotation on the arrow pointing right.
+    .collapsible-title::before,
+    // type 1
+    .crm-accordion-header::before {
+      // type 2
+      transform: none;
+    }
+
+    &>.crm-summary-block,
+    // type 1
+    .crm-accordion-body {
+      // type 2
+      display: none;
+      opacity: 0;
+    }
+  }
+
 }
 
 // }}}
@@ -513,16 +716,17 @@ body.aah-theme #access {
 // Generally, things that should look like buttons:
 a.crm-button>span,
 button.crm-button,
-#crm-main-content-wrapper button, // type 4
+#crm-main-content-wrapper button,
+// type 4
 input.crm-form-submit,
 .crm-container input[type="button"],
 .crm-container input[type="submit"] {
-  display:inline-block;
+  display: inline-block;
   background: var(--aah-button-bg);
-  padding:0.4rem 1.6rem;
-  border:none;
+  padding: 0.4rem 1.6rem;
+  border: none;
   border-radius: 3px;
-  color:white;
+  color: white;
   text-shadow: none;
   box-shadow: none;
   vertical-align: baseline;
@@ -536,14 +740,17 @@ input.crm-form-submit,
     background: transparent;
     color: var(--aah-button-colour-secondary);
     color: var(--aah-colour-brand);
+
     &:hover {
       background: var(--aah-button-bg-secondary-hover);
     }
   }
+
   &[disabled] {
-    opacity:0.35;
+    opacity: 0.35;
     pointer-events: none;
   }
+
   // If the button is using aria-pressed, i.e. it has on/off state,
   // represent the on state with inset shadow.
   &[aria-pressed="true"] {
@@ -571,7 +778,7 @@ span.crm-button {
   input.crm-form-submit,
   input[type="button"],
   input[type="submit"] {
-    padding:0.4rem 1.6rem 0.4rem 3.2rem;
+    padding: 0.4rem 1.6rem 0.4rem 3.2rem;
     box-shadow: none;
   }
 }
@@ -581,14 +788,18 @@ a.crm-button {
   margin-right: 1.6rem; // space before next button in a list of buttons.
   padding: 0; // apply padding to the button itself, not the container (which is not clickable)
   display: inline-block;
+
   &.crm-button:link,
   &.crm-button:active,
   &.crm-button:visited,
-  &.crm-button:hover
-  { text-decoration:none; }
+  &.crm-button:hover {
+    text-decoration: none;
+  }
 
   // &>span  much of this is above.
-  &>span { padding-left: 3.6rem; }
+  &>span {
+    padding-left: 3.6rem;
+  }
 
   i {
     position: absolute;
@@ -610,16 +821,15 @@ a.crm-button {
 .crm-container a.button:link,
 .crm-container a.button:visited,
 .crm-container .ui-button,
-.crm-container .ui-dialog-buttonset .ui-button
-{
-  display:inline-block;
-  padding:0.4rem 1.6rem;
+.crm-container .ui-dialog-buttonset .ui-button {
+  display: inline-block;
+  padding: 0.4rem 1.6rem;
   background: var(--aah-button-bg);
-  border:none;
+  border: none;
   border-radius: 3px;
-  color:white;
+  color: white;
   text-shadow: none;
-  box-shadow: 0 0 6px rgba(0,0,0,0.2);
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 
   &:active,
   &:hover {
@@ -627,15 +837,20 @@ a.crm-button {
     text-decoration: none;
   }
 }
+
 // Sets of buttons.
 .crm-inline-button,
 .crm-submit-buttons {
   margin-bottom: 1.6rem;
   margin-top: 1.6rem;
+
   button.crm-button,
   span.crm-button,
-  a.crm-button { margin-right: 1.6rem; }
+  a.crm-button {
+    margin-right: 1.6rem;
+  }
 }
+
 // Remove top margin from buttons when they're the first child of a td
 td>.crm-submit-buttons:first-child {
   margin-top: 0;
@@ -644,8 +859,10 @@ td>.crm-submit-buttons:first-child {
 // Buttons in title bars.
 .ui-dialog-titlebar {
 
-  .ui-dialog-titlebar-close, // This class is mis-used for various types of button.
-  button, span.ui-button {
+  .ui-dialog-titlebar-close,
+  // This class is mis-used for various types of button.
+  button,
+  span.ui-button {
     border-radius: 5px;
     background: transparent;
     border: solid 1px $colourArtfulBrightBlue;
@@ -664,7 +881,7 @@ td>.crm-submit-buttons:first-child {
 // 'more' buttons {{{
 .btn-slide {
   position: relative;
-  cursor:pointer;
+  cursor: pointer;
 
   .panel {
     display: none;
@@ -676,15 +893,18 @@ td>.crm-submit-buttons:first-child {
     background: white;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
     z-index: 1;
+
     li {
       list-style: none;
       font-size: 1.4rem;
       padding: 0;
+
       a {
         display: block;
         padding: 0.4rem 1.6rem;
-        margin:0;
+        margin: 0;
         text-decoration: none;
+
         &:hover {
           background: $colourSubtleHoverLightBlueGrey;
           text-decoration: none;
@@ -693,6 +913,7 @@ td>.crm-submit-buttons:first-child {
     }
   }
 }
+
 // }}}
 
 
@@ -700,11 +921,19 @@ td>.crm-submit-buttons:first-child {
   height: 2.3em;
 
   // A button at the start needs left rounding
-  &:first-child { border-radius: 3px 0 0 3px; }
+  &:first-child {
+    border-radius: 3px 0 0 3px;
+  }
+
   // A button at the end needs right rounding
-  &:last-of-type  { border-radius: 0 3px 3px 0; }
+  &:last-of-type {
+    border-radius: 0 3px 3px 0;
+  }
+
   // A button on its own in a btn-group (duh) nees full rounding.
-  &:first-child:last-of-type  { border-radius: 3px; }
+  &:first-child:last-of-type {
+    border-radius: 3px;
+  }
 }
 
 // }}}
@@ -715,16 +944,19 @@ td>.crm-submit-buttons:first-child {
   padding: 0 0.8rem;
   margin-right: 0.8rem;
 }
+
 // }}}
 // Component: help {{{
-.crm-container .help, .crm-container #help {
+.crm-container .help,
+.crm-container #help {
   padding: 1.6rem;
   border-radius: 0;
-  border:none;
+  border: none;
   background: $colourVeryLightBlue;
   border-left: 3.2rem solid $colourArtfulMutedBlue;
   font-size: 1.6rem;
   margin-bottom: 1.6rem;
+
   &::before {
     position: absolute;
     margin-left: -3.52rem;
@@ -737,6 +969,7 @@ td>.crm-submit-buttons:first-child {
     color: white;
   }
 }
+
 // }}}
 // Component: Fieldset inc. accordion fieldsets {{{
 body.aah-theme fieldset {
@@ -747,12 +980,13 @@ body.aah-theme fieldset {
     position: absolute;
     top: 0.8rem;
     left: 1.6rem;
-    border-style:none;
+    border-style: none;
   }
 
   &.crm-collapsible {
     background: $colourLayeredBackground;
     padding: 4.8rem 1.6rem 1.6rem;
+
     &.collapsed {
       background: transparent;
       padding: 4.8rem 0 0 0;
@@ -765,6 +999,7 @@ body.aah-theme fieldset {
     }
   }
 }
+
 // }}}
 // Component: form-block {{{
 // This is used a lot. We give it a white background although often it's under
@@ -774,28 +1009,36 @@ body.aah-theme fieldset {
 .crm-form-block {
   background-color: white;
   padding: 1.4rem;
+
   // Sometimes (e.g. search form) these are nested.
   .crm-form-block {
     background: transparent;
     padding: 0;
   }
 }
+
 // }}}
 // Component: Form elements {{{
 // Note: crm-public-form-item
 body.aah-theme {
-  input[type="text"], input[type="password"], textarea {
+
+  input[type="text"],
+  input[type="password"],
+  textarea {
     border-color: $colourFormElementsBorder;
-    &.error  {
+
+    &.error {
       border-color: $colourRedDanger;
     }
+
     margin-bottom: 0.2rem; // 2px - mainly to give some space to .crm-error which may follow.
   }
+
   .crm-error {
     background: $colourRedDanger;
     color: white;
     border-radius: 3px;
-    display:inline-block;
+    display: inline-block;
     padding: 0.4rem 1rem;
   }
 
@@ -804,14 +1047,17 @@ body.aah-theme {
   .ui-spinner input[type="text"] {
     border: none;
   }
+
   .ui-spinner-button {
     box-shadow: none;
     border-radius: 0;
-    background: rgba(0,0,0,0.03);
+    background: rgba(0, 0, 0, 0.03);
   }
+
   // }}}
 
 }
+
 // Stop the labels butting right up against the tick boxes.
 // Using padding so we don't create an unclickable gap.
 .crm-form-checkbox,
@@ -825,13 +1071,15 @@ body.aah-theme {
     display: inline-block;
   }
 
-  &+label, &+.description {
+  &+label,
+  &+.description {
     padding-left: 2.4rem;
 
     // The right margin pushes the next checkbox away from the label for the previous.
     margin-right: 2.4rem;
   }
 }
+
 // These sections are used (at least) in the angular page template to group fields togehter {{{
 // They contain a div.label and a div.value.
 .crm-section {
@@ -851,11 +1099,17 @@ body.aah-theme {
     font-size: inherit;
     display: inline-block;
     text-align: right; // Bootstrap sets it center
+
     &,
-    label { white-space: normal; } // Bootstrap says no wrap
+    label {
+      white-space: normal;
+    }
+
+    // Bootstrap says no wrap
   }
+
   // When we have label, content, label, content, put some space between them.
-  &>.content + .label {
+  &>.content+.label {
     margin-left: 3.2rem;
   }
 
@@ -883,8 +1137,9 @@ body.aah-theme {
 // Public forms, e.g. contribute.
 // .crm-section inside public forms: keep things simple.
 .crm-public-form-item .crm-section {
-  display:block;
+  display: block;
 }
+
 // Go back to blocks layout on mobile.
 @media screen and (max-width: 767px) {
   .crm-profile-view .crm-section .label {
@@ -897,10 +1152,21 @@ body.aah-theme {
 // }}}
 .crm-form-date-wrapper {
   display: inline-block;
-  &>input.crm-form-date { display:inline-block; }
-  &>input.crm-form-date { width: 16rem; margin-right: 1.6rem; }
-  &>input.crm-form-time { width: 9rem; }
+
+  &>input.crm-form-date {
+    display: inline-block;
+  }
+
+  &>input.crm-form-date {
+    width: 16rem;
+    margin-right: 1.6rem;
+  }
+
+  &>input.crm-form-time {
+    width: 9rem;
+  }
 }
+
 // Date Picker elements use this
 .crm-placeholder-icon::placeholder {
   font: normal normal normal 14px/1 FontAwesome;
@@ -910,8 +1176,12 @@ body.aah-theme {
 // Component: form-inline {{{
 // Used in APIv4 explorer if nowhere else.
 .form-inline {
-  &>span { display: inline-block; vertical-align: baseline; }
+  &>span {
+    display: inline-block;
+    vertical-align: baseline;
+  }
 }
+
 // }}}
 // Component: icon picker {{{
 body.aah-theme a.crm-icon-picker-button {
@@ -941,35 +1211,38 @@ body.aah-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
   background-color: $colourArtfulBrightBlue !important;
   margin: 0; // was -1?
 }
+
 // }}}
 // Component: various icons {{{
 //.icon privacy-flag email-hold
 .icon.email-hold {
   &::before {
-    content:'\26d4'; // No Entry red sign
-    display:inline-block;
+    content: '\26d4'; // No Entry red sign
+    display: inline-block;
     width: 2.4rem;
     height: 2.4rem;
-    text-align:center;
+    text-align: center;
   }
 }
+
 // }}}
 // Component: sticky table heads. xxx probably want to tame this... {{{
 // We limit this to the main content wrapper to exclude modals.
 #crm-main-content-wrapper thead tr:first-child {
-	position: sticky;
-	top: 4.16rem;
-	z-index: 20;
+  position: sticky;
+  top: 4.16rem;
+  z-index: 20;
 }
+
 // Note: if you have trouble with sticky header overlapping the
 // first row, it's to do with the parent element.
 // e.g. overflow: auto will trigger this.
 // A fix on the parent is:
-#crm-main-content-wrapper
-.support-sticky-table-header {
+#crm-main-content-wrapper .support-sticky-table-header {
   max-height: calc(100vh - 4.16rem);
+
   thead tr:first-child {
-    top:0; // otherwise it's relative to the parent.
+    top: 0; // otherwise it's relative to the parent.
   }
 }
 
@@ -978,6 +1251,7 @@ body.aah-theme a.crm-icon-picker-button.ui-button-text-only .ui-button-text {
   position: static;
   top: 0;
 }
+
 // }}}
 // Component: Notifications - non popups {{{
 div.status,
@@ -994,10 +1268,14 @@ div.messages {
     background: $colourAmberLightBg;
     border-left-color: $colourRedDanger;
   }
+
   // Hide unsightly image icon.
-  img[alt="status"] { display:none; }
+  img[alt="status"] {
+    display: none;
+  }
 
 }
+
 div.message {
   .icon {
     position: absolute;
@@ -1014,6 +1292,7 @@ div.message {
       text-rendering: auto;
       color: white;
     }
+
     // &.inform-icon::before (default)
   }
 }
@@ -1023,7 +1302,7 @@ div.message {
 #crm-notification-container {
   // Normally 25% but allow ourselves at least 20rem so 200px
   width: 25%;
-	min-width: 20rem;
+  min-width: 20rem;
 
   color: $colourText;
   position: fixed;
@@ -1037,20 +1316,20 @@ div.message {
   grid-template-columns: auto 1fr auto;
   align-items: center;
   border: none;
-	box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
+  box-shadow: -1.6rem 1.6rem 3.2rem rgba(0, 0, 0, 0.2);
   border-radius: 3px;
-  overflow:hidden; // crop to border-radius
+  overflow: hidden; // crop to border-radius
   padding: 0;
   margin-bottom: 0.5rem;
 
-	background: $colourAmberStrongBg;
+  background: $colourAmberStrongBg;
 
   h1 {
     grid-column: 2;
     grid-row: 1;
     color: black;
     font-size: 1.4rem;
-    margin:0;
+    margin: 0;
     padding: .32rem 0.5rem;
     font-weight: bold;
   }
@@ -1073,7 +1352,8 @@ div.message {
     text-decoration: none;
     line-height: 1.3;
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background: rgba(255, 255, 255, 0.2);
       text-decoration: none;
     }
@@ -1084,37 +1364,56 @@ div.message {
     padding: 1rem 1.4rem;
     font-size: 1.4rem;
     background: white;
-    padding:0.65rem 1rem 0.65rem 3.5rem;
-    p:last-child { margin-bottom: 0; }
-    ul { padding-left: 1rem; }
+    padding: 0.65rem 1rem 0.65rem 3.5rem;
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      padding-left: 1rem;
+    }
   }
 
-  &.success { background: $colourGreenStrongBg; }
+  &.success {
+    background: $colourGreenStrongBg;
+  }
+
   &.error {
     background: $colourRedDanger;
-    h1 { color: white; }
+
+    h1 {
+      color: white;
+    }
   }
 }
 
 
 // The ticks and other icons...
-body.aah-theme div.ui-notify-message div.icon, .crm-status-icon {
-	margin-right: 0; // override
+body.aah-theme div.ui-notify-message div.icon,
+.crm-status-icon {
+  margin-right: 0; // override
   text-indent: 0;
-  float:none;
+  float: none;
 
   &::before {
-    content:'\26A0';// Warning sign.
-    content:'\270b'; // Hand up emoji
-    display:block;
+    content: '\26A0'; // Warning sign.
+    content: '\270b'; // Hand up emoji
+    display: block;
     width: 2.4rem;
     height: 2.4rem;
-    text-align:center;
+    text-align: center;
     color: white;
   }
 }
-body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success {
-  &::before { content:'\2714'; } // Tick.
+
+body.aah-theme div.ui-notify-message.success div.icon,
+.crm-status-icon.success {
+  &::before {
+    content: '\2714';
+  }
+
+  // Tick.
 }
 
 // }}}
@@ -1125,6 +1424,7 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 .crm-status-box-msg {
   color: white;
 }
+
 .crm-status-box-outer {
   position: fixed;
   top: 2px;
@@ -1140,18 +1440,27 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 
   &.status-success {
     background: $colourGreenStrongBg;
-    .crm-status-box-msg { color: white; }
+
+    .crm-status-box-msg {
+      color: white;
+    }
   }
+
   &.status-error {
     background: $colourRedDanger;
-    .crm-status-box-msg { color: white; }
+
+    .crm-status-box-msg {
+      color: white;
+    }
   }
 }
+
 // Spinner for notifications .status-start notifications e.g. loading/saving.
 .crm-status-box-outer.status-start .crm-status-box-inner {
   // Allow space for spinner.
   padding-left: 2.5ch;
 }
+
 // The spinner.
 .crm-status-box-outer.status-start .crm-status-box-inner::before {
   position: absolute;
@@ -1159,7 +1468,7 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
   transform: translateY(-50%);
   margin-left: -2.5ch;
   display: block;
-  content:'';
+  content: '';
   line-height: 1;
   animation: loading-status-message 1s infinite;
   transform-origin: center;
@@ -1168,13 +1477,23 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
   border: dashed 1px white;
   border-radius: 2ch;
 }
+
 @keyframes loading-status-message {
-  0% { transform:translateY(-50%); }
-  100% { transform: translateY(-50%) rotateZ(360deg); }
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(-50%) rotateZ(360deg);
+  }
 }
+
 // }}}
 // Component: Radio inputs in [public] Profile forms {{{
-.crm-profile .radio-wrapper { display:block; }
+.crm-profile .radio-wrapper {
+  display: block;
+}
+
 // }}}
 // Component: Select 2 {{{
 
@@ -1193,53 +1512,71 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 .select2-container .select2-choice,
 .select2-container .select2-choices .select2-choice,
 .select2-container .select2-choices .select2-search-choice {
-	// background-color: $colourSubtleHoverLightBlueGrey;
-	// background-color: $colourWidgetBackground;
-	background-color: white;
-	filter: none;
-	background-image: none;
+  // background-color: $colourSubtleHoverLightBlueGrey;
+  // background-color: $colourWidgetBackground;
+  background-color: white;
+  filter: none;
+  background-image: none;
 }
+
 .select2-container .select2-choice .select2-arrow {
   width: 2.88rem;
-	border-left: 1px solid #aaa;
-  background-color: rgba(0,0,0,0.1);
+  border-left: 1px solid #aaa;
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 0;
-	filter: none;
-	background-image:none;
+  filter: none;
+  background-image: none;
   text-align: center;
-  b { width: 18px;display:inline-block; }
+
+  b {
+    width: 18px;
+    display: inline-block;
+  }
 }
+
 .select2-container .select2-choice,
 .select2-container-multi .select2-choices {
-  border-color: rgba(0,0,0,0.2);
+  border-color: rgba(0, 0, 0, 0.2);
   border-radius: 2px;
 }
+
 .select2-container .select2-choice abbr {
   top: 10px;
   right: 3.52rem;
 }
+
 .select2-container {
   min-width: 11.2rem;
 }
+
 .select2-container-multi {
   min-width: 22.4rem;
 }
+
 .select2-container .select2-choice {
   height: 3.6rem;
 }
+
 .select2-arrow,
-.select2-chosen { padding: 0.4rem 0; }
-.select2-container .select2-choice > .select2-chosen { margin-right: 3.2rem; }
+.select2-chosen {
+  padding: 0.4rem 0;
+}
+
+.select2-container .select2-choice>.select2-chosen {
+  margin-right: 3.2rem;
+}
 
 // Row description is smaller secondary text
 // it should be only shown when the drop-down is open.
 .crm-select2-row-description {
-  display:none;
+  display: none;
 }
+
 .select2-results {
   // this inherits 1rem = 10px in bs3 which is waaay too small.
-  font-size:1.4rem;
+  font-size: 1.4rem;
 }
+
 .select2-results .crm-select2-row-description {
   display: block;
   font-size: (19.2rem/16);
@@ -1255,10 +1592,11 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 // When used with a bootstrap .form-control...
 .form-control.select2-container {
   padding: 0;
-  border:none;
+  border: none;
   // BS3 sets a fixed height(!) for .form-control.
   height: unset;
 }
+
 // }}}
 // Component: Summary links {{{
 .crm-summary-link {
@@ -1273,6 +1611,7 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
   font-size: inherit;
   text-rendering: auto;
 }
+
 .crm-summary-display_name {
   .crm-summary-link {
     width: 3.2rem;
@@ -1293,6 +1632,7 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
   content: "\F0F7";
   display: inline-block;
 }
+
 .crm-summary-link .crm-icon.Organization-subtype-icon::before {
   // fa-users
   content: "\f0c0";
@@ -1316,7 +1656,10 @@ body.aah-theme div.ui-notify-message.success div.icon, .crm-status-icon.success 
 
 // The table of info
 table.crm-table-group-summary {
-  td { padding:0; }
+  td {
+    padding: 0;
+  }
+
   .crm-section {
     margin-bottom: 1rem;
 
@@ -1326,14 +1669,20 @@ table.crm-table-group-summary {
       font-size: 1.3rem;
       text-align: left;
       margin: 0;
-      padding: 0 1.6rem 0 0 ;
+      padding: 0 1.6rem 0 0;
       color: $colourText;
     }
+
     &>.content {
       flex: 1 0 13rem;
       margin: 0;
     }
-    .clear { display: none; } // We don't need this and it interferes with grid.
+
+    .clear {
+      display: none;
+    }
+
+    // We don't need this and it interferes with grid.
   }
 }
 
@@ -1346,6 +1695,7 @@ table.crm-table-group-summary {
   font-size: (19.2rem/16);
   opacity: 0.8;
 }
+
 // Component: "Status" bit in the footer {{{
 .status {
 
@@ -1353,13 +1703,16 @@ table.crm-table-group-summary {
     background: $colourRedDanger;
     border-radius: 2px;
     padding: 0 0.8rem;
-    margin:0 0.8rem;
-    color:white;
-    a:link, a:visited {
-      color:white;
+    margin: 0 0.8rem;
+    color: white;
+
+    a:link,
+    a:visited {
+      color: white;
     }
   }
 }
+
 // }}}
 //}}}
 // Component: help icon {{{
@@ -1369,18 +1722,20 @@ a.helpicon {
     font-size: inherit;
     text-rendering: auto;
     content: "\F059";
-    display:inline-block;
+    display: inline-block;
     line-height: 1;
-    text-align:center;
+    text-align: center;
     color: $colourArtfulBrightBlue;
   }
 }
+
 // }}}
 // Component: Access keys {{{
 #access {
   margin-top: 1.6rem;
   font-size: (22.4rem/16);
 }
+
 // }}}
 // Component: Tabs (e.g. Contributions/Recurring Contributions) {{{
 
@@ -1390,6 +1745,7 @@ a.helpicon {
 body.aah-theme .ui-tabs .ui-tabs-nav li {
   border-bottom: solid 2px transparent;
 }
+
 body.aah-theme .ui-tabs .ui-tabs-nav li.ui-state-active {
   background: transparent;
   border-bottom-color: $colourArtfulBrightBlue;
@@ -1397,26 +1753,31 @@ body.aah-theme .ui-tabs .ui-tabs-nav li.ui-state-active {
 
 // This is the actual clickable tab:
 body.aah-theme .crm-tab-button a,
-body.aah-theme .ui-tabs .ui-tabs-nav li a
-{
+body.aah-theme .ui-tabs .ui-tabs-nav li a {
   padding: 0.8rem 1.6rem; // we have to use important because we're overriding another !important(!)
-  em  {
-        background: $colourArtfulBrightBlue;
-        border-radius: 0.8rem;
-        font-size: (20.8rem/16);
-        padding: 0 0.48rem;
-        color:white;
-        font-style:normal;
-        font-weight:bold;
-        &:empty { display: none; }
+
+  em {
+    background: $colourArtfulBrightBlue;
+    border-radius: 0.8rem;
+    font-size: (20.8rem/16);
+    padding: 0 0.48rem;
+    color: white;
+    font-style: normal;
+    font-weight: bold;
+
+    &:empty {
+      display: none;
+    }
   }
 }
+
 // @todo specify that ul!
 body.aah-theme ul li.crm-tab-button {
   &.ui-state-active {
     background: none;
     border-bottom: solid 2px $colourArtfulBrightBlue;
   }
+
   // Bit of spacing before the count number.
   em {
     margin-left: 1.6rem;
@@ -1427,27 +1788,32 @@ body.aah-theme ul li.crm-tab-button {
 // Bootstrap tabs.
 .panel-heading.nav-tabs {
   // Remove margin when used as a panel heading as it causes an unsightly white bit.
-  margin-top:0;
+  margin-top: 0;
 }
+
 // }}}
 // Component: tables {{{
 body.aah-theme table {
   border-collapse: collapse;
   width: 100%;
 
-  td, th {
+  td,
+  th {
     padding: 0.8rem 1.6rem;
     background-clip: padding-box; // Stop Firefox drawing backgrounds over borders.
   }
+
   td {
     border: solid 1px $colourWidgetBorder;
   }
+
   thead {
     th {
       background-color: $colourSubtleHoverLightBlueGrey;
       border: solid 1px $colourSubtleHoverLightBlueGreyTint;
     }
   }
+
   tbody {
     th {
       background-color: mix($colourSubtleHoverLightBlueGrey, white);
@@ -1455,11 +1821,20 @@ body.aah-theme table {
     }
   }
 }
+
 body.aah-theme .cke_dialog_container table {
   width: auto;
-  td, th { padding: 0 0.5rem; }
-  td { border: none; }
+
+  td,
+  th {
+    padding: 0 0.5rem;
+  }
+
+  td {
+    border: none;
+  }
 }
+
 // When tables are on a background colour, we need to differentiate them.
 
 body.aah-theme .crm-accordion-wrapper table {
@@ -1470,29 +1845,38 @@ body.aah-theme .crm-accordion-wrapper table {
 // Component: table.form-layout {{{
 body.aah-theme table.form-layout {
   width: 100%;
-  th, td {
+
+  th,
+  td {
     padding: 0.4rem 0.8rem;
-    border:none;
+    border: none;
   }
-} // }}}
+}
+
+// }}}
 // Component: table.form-layout-compressed {{{
 body.aah-theme table.form-layout-compressed {
   width: 100%;
-  th, td {
+
+  th,
+  td {
     padding: 0.4rem 0.8rem;
-    border:none;
+    border: none;
     font-size: (22.4rem/16);
   }
 }
+
 // }}}
 // Component: table selector {{{
 body.aah-theme table.selector {
   width: 100%;
+
   tr.disabled td {
     // Nb. applying opacity here caused inaccessible 'more' menus. See issue https://github.com/artfulrobot/aah/issues/17
 
     // Faded text.
     color: #aaa;
+
     // Also fade 'pre' boxes, e.g. scheduled jobs page.
     pre {
       opacity: 0.5;
@@ -1505,7 +1889,7 @@ body.aah-theme table.selector {
     border: none;
     font-size: 1.4rem;
 
-    &> .crm-form-checkbox {
+    &>.crm-form-checkbox {
       position: static;
     }
   }
@@ -1519,7 +1903,10 @@ body.aah-theme table.crm-info-panel {
   // Reduce vertical margins as these are often presented in a list.
   margin: 0.25rem 0;
 
-  td, th { border: none; }
+  td,
+  th {
+    border: none;
+  }
 
   td.label {
     font-size: inherit;
@@ -1529,6 +1916,7 @@ body.aah-theme table.crm-info-panel {
     white-space: normal; // override bootstrap
   }
 }
+
 // }}}
 // Component: data tables {{{
 .dataTables_wrapper {
@@ -1537,30 +1925,45 @@ body.aah-theme table.crm-info-panel {
   // Reality: doing this makes something odd happen, and hides the first row!
   // Better to apply it to the container.
 }
+
 .dataTables_wrapper .dataTables_paginate .paginate_button {
   padding: 0 0.8rem;
+
   &.current,
   &.current:hover {
-    border:none;
+    border: none;
     border: solid 1px $colourArtfulBrightBlue;
     background-color: $colourVeryLightBlue;
     background-image: none;
   }
 }
+
 // Make the alternate row shading more subtle.
-.crm-container .odd-row, .crm-container .odd, tbody.scrollContent {
+.crm-container .odd-row,
+.crm-container .odd,
+tbody.scrollContent {
   background-color: $colourWidgetBackground;
 }
-.crm-container .even-row, .crm-container .even, tbody.scrollContent tr.alternateRow {
-	background-color: $colourWidgetBackgroundLightest;
+
+.crm-container .even-row,
+.crm-container .even,
+tbody.scrollContent tr.alternateRow {
+  background-color: $colourWidgetBackgroundLightest;
 }
-.crm-container table.row-highlight tr.even-row:hover, .crm-container table.row-highlight tr.even:hover, .crm-container .even-row.crm-row-selected, .crm-container .even.crm-row-selected,
-.crm-container table.row-highlight tr:hover, .crm-container .crm-row-selected {
+
+.crm-container table.row-highlight tr.even-row:hover,
+.crm-container table.row-highlight tr.even:hover,
+.crm-container .even-row.crm-row-selected,
+.crm-container .even.crm-row-selected,
+.crm-container table.row-highlight tr:hover,
+.crm-container .crm-row-selected {
   background-color: $colourSubtleHoverLightBlueGrey;
 }
+
 .crm-container .crm-row-selected {
   background-color: $colourAmberLightBg;
 }
+
 // }}}
 // Component: wysiwyg editor widgets {{{
 .replace-plain {
@@ -1569,20 +1972,23 @@ body.aah-theme table.crm-info-panel {
   padding: 1rem;
   cursor: pointer;
   font-size: 1.4rem; // smaller
+
   &::before {
-    display:block;
+    display: block;
     content: "\f040  " attr(title);
     white-space: pre; // otherwise we lose the space after the icon.
     font: normal normal normal 14px/1 FontAwesome;
     text-rendering: auto;
   }
 }
+
 // }}}
 // Component: Matt’s checksum extension {{{
 // Flex does not work here.
-#Checksum > div > div.crm-section {
+#Checksum>div>div.crm-section {
   display: block;
 }
+
 // }}}
 // Component? Inline edit {{{
 .crm-inline-edit.form {
@@ -1595,23 +2001,28 @@ body.aah-theme table.crm-info-panel {
   height: auto;
   z-index: 2;
   // This creates a modal-like impression.
-  box-shadow: 0 0 0 100vw rgba(255,255,255,0.9);
+  box-shadow: 0 0 0 100vw rgba(255, 255, 255, 0.9);
   overflow: auto;
   outline: $colourArtfulBrightBlue solid 1px;
 }
+
 // @todo make the tiny things like editing an activity subject bigger.
-.crm-editable>.crm-editable-form {
-}
+.crm-editable>.crm-editable-form {}
+
 // }}}
 // Functional class: hiddenElement {{{
 // Used on the main CiviCRM dashboard page, not sure if it has more general use.
-body.aah-theme .hiddenElement { display: none; }
+body.aah-theme .hiddenElement {
+  display: none;
+}
+
 // }}}
 // Functional class: .prettyprint {{{
 // Used on the APIv4 explorer
 .prettyprint {
   white-space: pre-wrap;
 }
+
 // }}}
 
 // Quicksearch results {{{
@@ -1620,22 +2031,26 @@ ul.crm-quickSearch-results {
   // Unhelpfully, jQueryUI sets a 200px width on this using style="", which is not big enough.
   // We override this by allowing overflow on the ul and setting a width on the li.
   overflow: visible;
-  border:none;
+  border: none;
 
   a {
     padding: 0.25rem 1rem;
-    &:hover, &:focus {
+
+    &:hover,
+    &:focus {
       text-decoration: none;
     }
   }
+
   // Override jQueryUI rule: .ui-menu .ui-state-focus, .ui-menu .ui-state-active
   &.ui-menu {
     .ui-menu-item-uiMenuItemWrapper.ui-state-active {
       // Override the odd -1px margin applied on hover.
-      margin:0;
+      margin: 0;
     }
   }
 }
+
 // }}}
 // Specific Page: Admin overview {{{
 #id_Customize_Data_and_Screens_show,
@@ -1661,18 +2076,20 @@ ul.crm-quickSearch-results {
 #id_CiviReport,
 #id_CiviCampaign,
 #id_CiviMember,
-#id_CiviEvent
-{
+#id_CiviEvent {
   background: white;
 }
+
 // }}}
 // Specific Page: Advanced Search {{{
 body.aah-theme.crm-name-advanced {
   @extend %full-width-page;
 }
+
 // }}}
 // Specific Page: APIv4 explorer {{{
 .aah-theme.crm-name-crm-api4-page-api4explorer {
+
   // Allow full width page.
   #crm-main-content-wrapper {
     max-width: none;
@@ -1684,17 +2101,21 @@ body.aah-theme.crm-name-advanced {
   }
 
 }
+
 // override some very specific styling in api4.css
 .aah-theme #bootstrap-theme.api4-explorer-page {
 
   .explorer-params-panel .panel-heading {
     padding: 0.5rem 1rem;
+
     .form-inline {
       display: flex;
       gap: 1rem; // modern!
+
       &>* {
         flex: 1 1 auto;
       }
+
       button {
         // Override -5px;
         top: 0;
@@ -1704,15 +2125,22 @@ body.aah-theme.crm-name-advanced {
 
   fieldset {
     padding-top: 3rem;
-    crm-api4-clause:first-child { margin-top: -3rem; }
-    legend { padding: 0; }
+
+    crm-api4-clause:first-child {
+      margin-top: -3rem;
+    }
+
+    legend {
+      padding: 0;
+    }
   }
 
 
 }
+
 // Specific Page: Mailings Draft and Unscheduled {{{
 // The HTML for the top of this is truly hideous. So the css is hacky.
-form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-child {
+form.CRM_Mailing_Form_Search>.crm-search-form-block>table>tbody td:first-child {
   min-width: 45%;
 }
 
@@ -1725,18 +2153,21 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 // the mosaic message templates extension where the title also includes
 // the template subject.
 .mosaico-templates-wrapper // increase specificity
-{
-  display:grid;
+
+  {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50rem, 1fr));
   grid-gap: 2rem;
+
   span.thumbnail.crm-mosaico-template-item {
-    float:none;
+    float: none;
     width: 100%;
     display: grid;
     grid-template-columns: 165px 1fr; // fixed thumbs, auto
   }
+
   div>.crm-mosaico-template-item {
-    float:none;
+    float: none;
 
     .crm-mosaico-template-actions-wrapper a.btn {
       padding: 0.5rem 1rem;
@@ -1746,6 +2177,7 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
       text-align: left;
       height: unset;
       padding: 1.6rem;
+
       p {
         position: static;
         transform: none;
@@ -1754,6 +2186,7 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
     }
   }
 }
+
 // }}}
 
 // This affects a lot, including the content pane of tabbed content.
@@ -1766,41 +2199,46 @@ form.CRM_Mailing_Form_Search > .crm-search-form-block > table > tbody td:first-c
 
 // I don't know why but CiviCRM sets a -10px margin on this that we have to undo.
 #crm-container div.crm-summary-contactname-block {
-  margin-top:0;
+  margin-top: 0;
 }
 
 
 
 // @todo comments
-.crmMailing .preview-popup, .crmMailing .preview-contact, .crmMailing .preview-group {
-  height:9.6rem;
+.crmMailing .preview-popup,
+.crmMailing .preview-contact,
+.crmMailing .preview-group {
+  height: 9.6rem;
 }
 
 .crm-tag-item {
-	line-height: 1.25;
-	white-space: nowrap;
+  line-height: 1.25;
+  white-space: nowrap;
   display: inline-block;
-	border: solid 1px rgba(0,0,0,0.2);
-	border-radius: 3px;
-	padding: 0 1rem;
-	margin-right: 1rem;
-	background: $colourVeryLightBlue;
-	font-size: 1.4rem;
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  padding: 0 1rem;
+  margin-right: 1rem;
+  background: $colourVeryLightBlue;
+  font-size: 1.4rem;
 }
 
 // The default font size for data on contact screens etc. is 11px!
 .crm-container div.crm-clear {
-  font-size:inherit;
+  font-size: inherit;
 }
 
 
-.crm-container input { box-sizing: border-box; }
+.crm-container input {
+  box-sizing: border-box;
+}
 
 
 #secondaryTabContainer {
-  border:none;
-  padding:0;
+  border: none;
+  padding: 0;
 }
+
 // }}}
 // Specific Page: Contact page {{{
 
@@ -1812,11 +2250,13 @@ body.aah-theme.civicrm-contact-view {
     font-size: 1.5rem; // sligntly smaller (worth it?)
   }
 }
+
 .crm-summary-display_name {
-  margin-top:1.6rem;
+  margin-top: 1.6rem;
   font-size: (43.2rem/16);
   color: $colourArtfulDarkBlue;
 }
+
 // Inline clickable edit things {{{
 .crm-inline-edit {
   position: relative;
@@ -1824,7 +2264,7 @@ body.aah-theme.civicrm-contact-view {
   // The edit forms within:
   .crm-container-snippet {
     padding: 0 1rem;
-    background:white;
+    background: white;
     overflow: auto;
     max-width: 100%;
     max-height: calc(100vh - 10rem);
@@ -1832,7 +2272,7 @@ body.aah-theme.civicrm-contact-view {
 
   // content that comes up when you hover over an editable chunk of the contact page.
   .crm-edit-help {
-    display:none;
+    display: none;
     position: absolute;
     top: -2.24rem;
     left: -1px;
@@ -1840,28 +2280,31 @@ body.aah-theme.civicrm-contact-view {
     background: $colourWidgetBackground;
     padding: 0 1.6rem;
     line-height: 2.24rem;
-    border:solid 1px $colourArtfulBrightBlue;
-    border-bottom-style:none;
+    border: solid 1px $colourArtfulBrightBlue;
+    border-bottom-style: none;
   }
 
   &:hover {
     outline: $colourArtfulBrightBlue solid 1px;
+
     .crm-edit-help {
-      display:block;
+      display: block;
     }
   }
 
-} // }}}
+}
+
+// }}}
 // Main tabs (make 'em vertical) {{{
 .crm-contact-page #mainTabContainer {
-  padding:0;
-  border:none;
+  padding: 0;
+  border: none;
 
   // The tabs {{{
   .crm-contact-tabs-list {
-    padding:0;
+    padding: 0;
     background-color: $colourSubtleHoverLightBlueGrey;
-    border-left: solid 1px rgba(0,0,0,0.1);
+    border-left: solid 1px rgba(0, 0, 0, 0.1);
     margin: 0;
     border-radius: 0;
     // Start with mobile: tabs are in flex
@@ -1870,26 +2313,30 @@ body.aah-theme.civicrm-contact-view {
 
     li.crm-tab-button {
       flex: 1 0 auto;
-      margin:0 1.6rem 0 0;
-      background:none;
-      display:block;
-      float:none;
-      top:0;
-      margin-right:0;
+      margin: 0 1.6rem 0 0;
+      background: none;
+      display: block;
+      float: none;
+      top: 0;
+      margin-right: 0;
 
       &:first-child {
-        border-top:none;
+        border-top: none;
       }
 
-      a { float:none; }
+      a {
+        float: none;
+      }
+
       // This would be an accessibility fail, but as it happens you can't tab through the tabs anyway...
 
       //&:not(.ui-tabs-active)
-      border-bottom: solid 1px rgba(0,0,0,0.05);
+      border-bottom: solid 1px rgba(0, 0, 0, 0.05);
     }
+
     // This is the <a> element
     .ui-tabs-anchor {
-      display:flex;
+      display: flex;
       align-items: center;
       padding: 0.8rem 1.6rem;
 
@@ -1897,8 +2344,17 @@ body.aah-theme.civicrm-contact-view {
         outline: none;
       }
 
-      i { flex: 0 0 1.92rem; }
-      span { flex: 1 1 auto; padding-left:1em; font-size: (22.4rem/16); display:none; }
+      i {
+        flex: 0 0 1.92rem;
+      }
+
+      span {
+        flex: 1 1 auto;
+        padding-left: 1em;
+        font-size: (22.4rem/16);
+        display: none;
+      }
+
       // Item count in Contact tabs
       em {
         flex: 0 0 auto;
@@ -1907,59 +2363,74 @@ body.aah-theme.civicrm-contact-view {
         border-radius: 0.8rem;
         font-size: (20.8rem/16);
         padding: 0 0.48rem;
-        color:white;
-        font-style:normal;
-        font-weight:bold;
+        color: white;
+        font-style: normal;
+        font-weight: bold;
         margin-left: 0.5rem; // Reduce gap
       }
     }
+
     // Hide blob when there's a zero count
-    .crm-count-, .crm-count-0 {
-      em { display:none; }
+    .crm-count-,
+    .crm-count-0 {
+      em {
+        display: none;
+      }
     }
+
     // active / selected tab
     li.crm-tab-button.ui-state-active {
       background: $colourWidgetBackground; //xxx
       // border-bottom:none;
     }
+
     // active <a>
     li.crm-tab-button.ui-state-active .ui-tabs-anchor {
       background: $colourWidgetBackground;
       background: white;
       color: black;
-      border-bottom:none;
+      border-bottom: none;
       font-weight: bold;
     }
+
     li.ui-tabs-active {
       // Remove the -1px margin bottom added by jQueryUI
-      margin-bottom:0;
+      margin-bottom: 0;
     }
-  } // }}}
+  }
+
+  // }}}
   // The content
   .ui-tabs-panel {
     padding: 1.6rem;
   }
 }
+
 // Tablet+ moves tabs to the left {{{
 @media screen and (min-width: 768px) {
   .crm-contact-page #mainTabContainer {
     display: grid;
     grid-template-columns: 8rem auto;
+
     .crm-contact-tabs-list {
-      display:block; // disable flex now.
+      display: block; // disable flex now.
+
       li.crm-tab-button {
         margin: 0; // remove the 1.6rem right margin
+
         // The <a> element
         .ui-tabs-anchor {
           padding: 0.8rem 1rem;
         }
+
         a>span {
-          display:block; // was 'none' for mobile.
+          display: block; // was 'none' for mobile.
         }
       }
     }
   }
 }
+
 // }}}
 
 // Wide screens {{{
@@ -1970,6 +2441,7 @@ body.aah-theme.civicrm-contact-view {
     .crm-contact-tabs-list {
       li.crm-tab-button {
         white-space: normal; // For annoyingly long tab names.
+
         // The <a> element
         .ui-tabs-anchor {
           padding: 0.8rem 1.6rem;
@@ -1978,6 +2450,7 @@ body.aah-theme.civicrm-contact-view {
     }
   }
 }
+
 // }}}
 // pop-up tab text for intermediate screens {{{
 @media screen and (min-width: 768px) and (max-width: 1099px) {
@@ -1986,6 +2459,7 @@ body.aah-theme.civicrm-contact-view {
     .crm-contact-tabs-list {
       li.crm-tab-button {
         position: relative;
+
         a>span {
           opacity: 0;
           transition: opacity 0.2s;
@@ -1993,11 +2467,12 @@ body.aah-theme.civicrm-contact-view {
           background-color: $colourSubtleHoverLightBlueGrey;
           padding: 0.64rem 0.8rem;
           left: 4rem;
-          top:0;
-          bottom:0;
+          top: 0;
+          bottom: 0;
           width: 0;
           z-index: 1;
         }
+
         &:hover a>span {
           opacity: 1;
           width: 12.8rem;
@@ -2005,21 +2480,25 @@ body.aah-theme.civicrm-contact-view {
       }
     }
   }
-}// }}}
- // }}}
+}
+
+// }}}
+// }}}
 // Contact summary tab {{{
 .crm-container div.contact_panel {
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr;
   grid-gap: 1.6rem;
   margin-bottom: 1.6rem;
 }
+
 // Above mobile... {{{
 @media screen and (min-width: 768px) {
   .crm-container div.contact_panel {
     grid-template-columns: repeat(2, minmax(24rem, 1fr));
   }
 }
+
 // }}}
 
 // These containers split left and right sections.
@@ -2031,15 +2510,23 @@ body.aah-theme.civicrm-contact-view {
   width: auto;
   background: $colourWidgetBackground;
   border-left: solid 1px $colourWidgetBorder;
+
   // Keep all content at this height.
   // &>div, &>div>div, &>div>div>div { height: 100%; }
-  &>div:first-child { margin-top: 0; }
-  &>div:last-child { margin-bottom: 0; }
+  &>div:first-child {
+    margin-top: 0;
+  }
+
+  &>div:last-child {
+    margin-bottom: 0;
+  }
 }
+
 #crm-contact-thumbnail {
-  float:right;
+  float: right;
   padding: 1.6rem 1.6rem 0;
 }
+
 .crm-summary-block {
   margin-bottom: 1px;
 }
@@ -2053,8 +2540,9 @@ body.aah-theme.civicrm-contact-view {
   .crm-inline-block-content {
     background: white;
     background: $colourWidgetBackground;
-    padding:1.6rem;
+    padding: 1.6rem;
   }
+
   .crm-inline-block-content,
   .crm-inline-edit-form {
     .crm-label {
@@ -2070,27 +2558,37 @@ div.crm-summary-row {
   align-items: baseline;
   margin-bottom: (8rem/16);
 
-  .crm-label { flex: 0 0 12.8rem;  }
-  .crm-content { flex: 1 0 12.8rem;  }
+  .crm-label {
+    flex: 0 0 12.8rem;
+  }
+
+  .crm-content {
+    flex: 1 0 12.8rem;
+  }
 
 }
 
 // Make the dividing line sharper and more subtle.
 body.aah-theme .separator {
-  border-bottom: solid 1px rgba(0,0,0,0.2);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
 // Email form contains extraneous column.
 form#Email table.crm-inline-edit-form {
-  td:last-child { display: none; }
-  td[colspan]:last-child { display: table-cell; }
+  td:last-child {
+    display: none;
+  }
+
+  td[colspan]:last-child {
+    display: table-cell;
+  }
 }
 
 // Since we're absolutely positioning the inputs, we need this or they get a bit lost:
 .crm-address-element {
   position: relative;
   display: inline-block;
-  margin-right:2rem;
+  margin-right: 2rem;
 }
 
 // Pop-up address editor
@@ -2104,7 +2602,9 @@ form#Email table.crm-inline-edit-form {
     width: 11ch;
   }
 }
-#address_1_geo_code_1, #address_1_geo_code_2 {
+
+#address_1_geo_code_1,
+#address_1_geo_code_2 {
   display: inline-block;
   width: 10ch;
 }
@@ -2112,23 +2612,35 @@ form#Email table.crm-inline-edit-form {
 // }}}
 // Contributions {{{
 table {
-  margin:1.6rem 0;
+  margin: 1.6rem 0;
 }
+
 #crm-container th.contriTotalLeft,
 #crm-container th.contriTotalRight {
-  border:none;
+  border: none;
 }
+
 // }}}
 // Activity tab {{{
 // Death to the table layout...
 table.activity-search-options {
-  tr { display: flex; flex-wrap: wrap; }
-  td { flex: 1 0 19.2rem; display: block; }
+  tr {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  td {
+    flex: 1 0 19.2rem;
+    display: block;
+  }
 }
+
 table.contact-activity-selector-activity {
+
   // Scheduled
   tr.status-id-1 {
     color: $colourArtfulDarkBlue;
+
     &.status-overdue {
       color: $colourRedDanger;
     }
@@ -2139,12 +2651,13 @@ table.contact-activity-selector-activity {
 
       &::before {
         display: inline-block;
-        padding-right:0.7em;
+        padding-right: 0.7em;
         content: '⚠️';
       }
     }
   }
 }
+
 // }}}
 
 // Component: Footer {{{
@@ -2152,8 +2665,12 @@ table.contact-activity-selector-activity {
   margin-top: 3.2rem;
   font-size: (19.2rem/16);
   opacity: 0.8;
-  span { margin-right: 1.6rem; }
+
+  span {
+    margin-right: 1.6rem;
+  }
 }
+
 //}}}
 // other tabs {{{
 // }}}
@@ -2163,13 +2680,15 @@ table.contact-activity-selector-activity {
   // Remove sticky applied above.
   position: static;
 }
+
 // }}}
 // Specific Page: Dashboard {{{
 // WIP: this replaces dashboard.css
 body.aah-theme.crm-name-crm-contact-page-dashboard {
   @extend %full-width-page;
 }
- // has own css, requires this specificity.
+
+// has own css, requires this specificity.
 #crm-container #civicrm-dashboard {
 
   .col1-is-empty.col2-has-widgets>div,
@@ -2177,6 +2696,7 @@ body.aah-theme.crm-name-crm-contact-page-dashboard {
     flex: 0 0 100%;
     min-height: 2rem;
   }
+
   // While editing dashboard, make the drop zones obvious.
   .droppable-live {
     border: solid 1px $colourArtfulBrightBlue;
@@ -2201,10 +2721,12 @@ body.aah-theme.crm-name-crm-contact-page-dashboard {
   .crm-dashlet {
     box-shadow: none;
   }
+
   // Nb. there is no way to tell if an accordion is open or closed in the angular version.
   .crm-dashlet-header {
     background-color: $colourBlueGrey;
     padding: 0 0.8rem;
+
     h3 {
       color: $colourArtfulDarkBlue;
       font-size: 1.6rem;
@@ -2214,18 +2736,23 @@ body.aah-theme.crm-name-crm-contact-page-dashboard {
     // crm-dashlet-collapse crm-i fa-caret-down
     a.crm-i {
       padding: 0.8rem;
+
       &::before {
         color: $colourArtfulDarkBlue;
       }
     }
+
     a.crm-dashlet-collapse {
+
       &::hover,
       &::focus {
         outline: none;
       }
+
       &::focus {
         color: white;
       }
+
       &::before {
         /* xxx */
         content: "\F18E";
@@ -2236,9 +2763,11 @@ body.aah-theme.crm-name-crm-contact-page-dashboard {
         transition: transform 0.3s;
         transform: rotateZ(90deg);
       }
+
       &.fa-caret-down::before {
         color: $colourArtfulDarkBlue;
       }
+
       &.fa-caret-right::before {
         content: "\F18E"; // Override
         transform: none;
@@ -2248,22 +2777,26 @@ body.aah-theme.crm-name-crm-contact-page-dashboard {
   }
 
 }
+
 // }}}
 // Specific Page: Events Config {{{
 .CRM_Event_Form_ManageEvent_Registration {
   // We need to change the checkboxes (radios?) away from absolute since
   // this page puts a helpicon right by it.
   .crm-form-checkbox //, .crm-form-radio
-  {
+
+    {
     position: static;
   }
 }
+
 // }}}
 // Specific Page: Extensions {{{
 // Hide the counts in <em> - they don't contain anything
-.crm-container .ui-tabs .ui-tabs-nav.crm-extensions-tabs-list  li a em {
-  display:none;
+.crm-container .ui-tabs .ui-tabs-nav.crm-extensions-tabs-list li a em {
+  display: none;
 }
+
 // }}}
 // Specific Page: Case (new) {{{
 // #crm-main-content-wrapper td.view-value input { display: block; content: ''; }
@@ -2273,8 +2806,13 @@ form#CaseView {
     width: 100%;
 
     // Remove vertical margins on tables within tds
-    .form-layout-compressed { margin:0; }
-    .form-layout-compressed td { font-size: inherit; }
+    .form-layout-compressed {
+      margin: 0;
+    }
+
+    .form-layout-compressed td {
+      font-size: inherit;
+    }
 
     // Remove bootstrap's .label styles
     td.label {
@@ -2289,25 +2827,32 @@ form#CaseView {
       flex-wrap: wrap;
       justify-content: space-between;
 
-      &>td { flex: 0 0 auto; border: none; }
+      &>td {
+        flex: 0 0 auto;
+        border: none;
+      }
     }
   }
 }
+
 // }}}
 // Specific Page: Case View {{{
 body.civicrm-contact-view-case {
   @extend %full-width-page;
 }
+
 // }}}
 // Specific Page: CiviMail {{{
 body.aah-theme.crm-name-crm-mailing-page-browse {
   @extend %full-width-page;
 }
+
 // }}}
 // Specific page: CiviRules {{{
 body.aah-theme.crm-name-ruleview {
   @extend %full-width-page;
 }
+
 // }}}
 // Specific page: Drupal user register form {{{
 #user-register-form {
@@ -2317,48 +2862,60 @@ body.aah-theme.crm-name-ruleview {
     }
   }
 }
+
 // }}}
 // Specific Page: Manage Groups {{{
 body.aah-theme.crm-name-crm-group-page-group {
   @extend %full-width-page;
 }
+
 // }}}
 // Specific Page: Membership renewal (admin form) {{{
 // Issue 22. The help icon crashes into the absolutely positioned checkbox.
 #is_different_contribution_contact {
   position: static;
 }
+
 //}}}
 // Specific Page: Status {{{
-.crm-status-item  {
+.crm-status-item {
   background: $colourLayeredBackground;
   margin-bottom: 1.6rem;
 
   &>h3 {
-    margin:0;
+    margin: 0;
     padding: 1rem 1.6rem;
-    .css_right { float:right; }
+
+    .css_right {
+      float: right;
+    }
 
   }
+
   .crm-status-message-body {
     padding: 1.6rem;
     margin: 0;
   }
 }
+
 // Override button colours.
 #crm-status-list .hush-menu button {
   border: solid 1px white;
 }
+
 // }}}
 // Sepecific Page: Search Kit {{{
 body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
   max-width: unset;
 }
+
 // Un-setting unhelpful SK CSS.
 .aah-theme #bootstrap-theme.crm-search {
 
   // Un-set pixel width(!) in SK core.
-  .api4-clause-badge { width: unset; }
+  .api4-clause-badge {
+    width: unset;
+  }
 
   // SK overrides fieldset. Also it uses fieldset without a legend, where as
   // we assume fieldsets to have legends.
@@ -2373,8 +2930,7 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
 
     &.crm-search-join,
     &.crm-search-join-add,
-    &.crm-search-groupbys,
-    {
+    &.crm-search-groupbys {
       padding-top: 6px;
     }
 
@@ -2386,7 +2942,8 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
       left: 0.5rem;
     }
   }
-  .crm-search-select-fields > div > fieldset {
+
+  .crm-search-select-fields>div>fieldset {
     padding-top: 6px;
   }
 
@@ -2399,74 +2956,87 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
 
   .crm-search-admin-edit-columns {
     fieldset {
-       display: flex;
-       flex-wrap: wrap;
-       align-items: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
     }
+
     .form-inline {
       padding-right: 2rem;
       padding-bottom: 0.5rem;
     }
   }
+
   search-admin-display-table .form-inline {
     padding-bottom: 0.5rem;
   }
+
   search-admin-display-table .form-control {
-    &.checkbox-inline, &.radio-inline {
+
+    &.checkbox-inline,
+    &.radio-inline {
       padding-left: 3rem;
     }
   }
 
   // Within Wheres, this puts the "If" bubble to the left.
-  crm-search-clause > .api4-clause-group-sortable > div > div {
+  crm-search-clause>.api4-clause-group-sortable>div>div {
     display: flex;
     gap: 1rem;
     padding: 1rem;
-    & > .api4-clause-badge {
+
+    &>.api4-clause-badge {
       flex: 0 0 5ch;
     }
   }
-  .api4-clause-group-sortable > div:not(&:last-child) {
-    border-bottom: solid 1px  color-mix(in srgb, $colourArtfulMutedBlue 20%, transparent);
+
+  .api4-clause-group-sortable>div:not(&:last-child) {
+    border-bottom: solid 1px color-mix(in srgb, $colourArtfulMutedBlue 20%, transparent);
   }
+
   // Target the Add Where...
-  crm-search-clause > .api4-input:last-child {
+  crm-search-clause>.api4-input:last-child {
     padding: 1rem;
 
   }
 
-  #expires_date ~ :where(input, a) {
+  #expires_date~ :where(input, a) {
     margin-bottom: 0;
     margin-right: 0;
   }
-  #expires_date ~ a {
+
+  #expires_date~a {
     padding-top: 1em;
   }
 }
+
 .aah-theme #bootstrap-theme .crm-search-loading-placeholder {
-    width: 100%; // why was it 80%?
-    background: transparent;
-    &:before {
-      width: 100%;
-      left: 0;
-      height: 100%;
-      background-image: none;
-      animation: aahblockoverlay 5s infinite;
-      border-radius: 3px;
-    }
+  width: 100%; // why was it 80%?
+  background: transparent;
+
+  &:before {
+    width: 100%;
+    left: 0;
+    height: 100%;
+    background-image: none;
+    animation: aahblockoverlay 5s infinite;
+    border-radius: 3px;
+  }
 }
 
 .crm-search-admin-relative {
   // Leave space for the absolutely positioned View Results thing.
-  padding-top:3.5rem;
+  padding-top: 3.5rem;
 }
+
 // This is the container of most of the two columns (on wide screen)
 .crm-search-admin-relative .crm-flex-box {
   gap: 1rem;
 }
+
 // The width of the Add field control is set by style attribute to 80px.
 // The best we can do is fix font size so it's readable to those who squint.
-.crm-search-display-table  th:last-child>.crm-action-menu {
+.crm-search-display-table th:last-child>.crm-action-menu {
   font-size: 12px;
 }
 
@@ -2488,19 +3058,23 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
 .crm-search-display-list li {
   font-weight: bold;
 }
+
 // }}}
 // Sepecific Page: Form Builder {{{
 body.aah-theme.page-civicrm-admin-afform {
   @extend %full-width-page;
 }
+
 #afGuiEditor .panel-heading ul.nav-tabs {
   // bootstrap uses float (yuk) for tabs.
   // so create block formatting context to avoid affecting later elements.
   overflow: auto;
   margin-top: 0.4em; // not sure if this will work in all contexts.
+
   &>li.active>a {
     background: white;
   }
 }
+
 // }}}
 // vim:foldmethod=marker
