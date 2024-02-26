@@ -111,7 +111,8 @@ fieldset.crm-collapsible {
 }
 
 // Container: The 'light' container style
-.crm-container details.crm-accordion-light {
+.crm-container details.crm-accordion-light,
+.crm-accordion-wrapper.crm-case_search-accordion {
   @include accordion-container-light;
 }
 
