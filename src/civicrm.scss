@@ -459,127 +459,7 @@ body.aah-theme #access {
 }
 
 //}}}
-// Component: Accordions (various types). {{{
-// --------------themetest compliant---------------------
-// themetest/accordion8 - Recommended
-// details[[.crm-accordion-bold]][[.crm-accordion-light]]
-//   summary
-//   div.crm-accordion-body
-@keyframes crm-details-show {
-  from {
-    opacity: 0;
-    transform: translateY(-0.5rem);
-  }
-
-  50% {
-    transform: translateY(-0.1rem);
-  }
-}
-
-@mixin accordion-container {
-  margin-bottom: 1.6rem;
-  margin-top: 1.6rem;
-  border-radius: 4px;
-  padding-left: 3rem;
-  padding-right: 1.6rem;
-  border: solid 1px $colourLayeredBackground;
-  background: $colourLayeredBackground;
-}
-
-@mixin accordion-container-light {
-  background: transparent;
-}
-
-@mixin accordion-container-open {}
-
-@mixin accordion-container-open-light {}
-
-@mixin accordion-summary {
-  display: block;
-  padding: 0.8rem 1.6rem 0.8rem 3rem;
-  margin-left: -3rem;
-  margin-right: -1.6rem;
-  color: $colourArtfulDarkBlue;
-  font-weight: bold;
-  transition: background-color 0.2s;
-  position: relative;
-  cursor: pointer;
-
-  &:hover {
-    background-color: mix($colourArtfulBrightBlueHigh, $colourSubtleHoverLightBlueGrey, 50%);
-  }
-
-  &::before {
-    content: '';
-    border-width: .4rem;
-    border-style: solid;
-    border-color: transparent transparent transparent $colourArtfulBrightBlue;
-    position: absolute;
-    top: 1.5rem;
-    left: 1.5rem;
-    transform: rotate(0);
-    transform-origin: .2rem 50%;
-    transition: .25s transform ease;
-  }
-
-  &::-webkit-details-marker {
-    display: none;
-  }
-}
-
-@mixin accordion-summary-open {
-  &::before {
-    transform: rotate(90deg);
-  }
-}
-
-@mixin accordion-body {
-  animation: crm-details-show 240ms ease-in-out;
-  padding: 1rem 0;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-.crm-container details,
-.crm-accordion-wrapper {
-  @include accordion-container;
-}
-
-.crm-container details>summary,
-.crm-accordion-wrapper>.crm-accordion-header {
-  @include accordion-summary;
-}
-
-.crm-container details.crm-accordion-light {
-  @include accordion-container-light;
-}
-
-.crm-container details[open],
-.crm-accordion-wrapper:not(.collapsed) {
-  @include accordion-summary-open;
-}
-
-.crm-container details.crm-accordion-light[open] {
-  @include accordion-container-open-light;
-}
-
-.crm-container details[open]>summary,
-.crm-accordion-wrapper:not(.collapsed)>.crm-accordion-header {
-  @include accordion-summary-open;
-}
-
-.crm-container details>.crm-accordion-body,
-.crm-accordion-wrapper>.crm-accordion-body {
-  @include accordion-body;
-}
-
-// }}}
+@import 'accordions';
 // Component: Buttons {{{
 
 // Some buttons look like this (type1)
@@ -870,32 +750,39 @@ td>.crm-submit-buttons:first-child {
 // }}}
 // Component: Fieldset inc. accordion fieldsets {{{
 body.aah-theme fieldset {
-  // Allow a lot of padding for the legend.
-  padding-top: 4.8rem;
-  position: relative;
+  border: none;
 
   &>legend {
-    position: absolute;
-    top: 0.8rem;
-    left: 1.6rem;
-    border-style: none;
+    float: left;
+    width: 100%;
   }
 
-  &.crm-collapsible {
-    background: $colourLayeredBackground;
-    padding: 4.8rem 1.6rem 1.6rem;
+  // Allow a lot of padding for the legend.
+  // padding-top: 4.8rem;
+  // position: relative;
+  //
+  // &>legend {
+  //   position: absolute;
+  //   top: 0.8rem;
+  //   left: 1.6rem;
+  //   border-style: none;
+  // }
 
-    &.collapsed {
-      background: transparent;
-      padding: 4.8rem 0 0 0;
-    }
-
-    &>legend {
-      top: 0;
-      left: 0;
-      font-size: inherit; // override bootstrap's 24px.
-    }
-  }
+  // &.crm-collapsible {
+  //   background: $colourLayeredBackground;
+  //   padding: 4.8rem 1.6rem 1.6rem;
+  //
+  //   &.collapsed {
+  //     background: transparent;
+  //     padding: 4.8rem 0 0 0;
+  //   }
+  //
+  //   &>legend {
+  //     top: 0;
+  //     left: 0;
+  //     font-size: inherit; // override bootstrap's 24px.
+  //   }
+  // }
 }
 
 // }}}
