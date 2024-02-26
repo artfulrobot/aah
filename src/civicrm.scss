@@ -462,6 +462,9 @@ body.aah-theme #access {
 // Component: Accordions (various types). {{{
 // --------------themetest compliant---------------------
 // themetest/accordion8 - Recommended
+// details[[.crm-accordion-bold]][[.crm-accordion-light]]
+//   summary
+//   div.crm-accordion-body
 @keyframes crm-details-show {
   from {
     opacity: 0;
@@ -473,75 +476,178 @@ body.aah-theme #access {
   }
 }
 
-.crm-container {
-  details {
-    margin-bottom: 1.6rem;
-    margin-top: 1.6rem;
-    border-bottom: solid 1px $colourFormElementsBorder;
+@mixin accordion-container {
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
+  border-radius: 4px;
+  padding-left: 3rem;
+  padding-right: 1.6rem;
+  border: solid 1px $colourLayeredBackground;
+  background: $colourLayeredBackground;
+}
 
-    &>summary {
-      display: block;
-      padding: 0.8rem 1.6rem 0.8rem 3rem;
-      color: $colourArtfulDarkBlue;
-      background-color: transparent;
-      transition: background-color 0.2s, border-radius 0.2s;
-      position: relative;
+@mixin accordion-container-light {
+  background: transparent;
+}
 
-      // cursor: pointer;
-      &:hover {
-        background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
-      }
+@mixin accordion-container-open {}
 
-      &::before {
-        content: '';
-        border-width: .4rem;
-        border-style: solid;
-        border-color: transparent transparent transparent $colourArtfulDarkBlue;
-        position: absolute;
-        top: 1.5rem;
-        left: 1.5rem;
-        transform: rotate(0);
-        transform-origin: .2rem 50%;
-        transition: .25s transform ease;
-      }
+@mixin accordion-container-open-light {}
 
-      &::-webkit-details-marker {
-        display: none;
-      }
-    }
+@mixin accordion-summary {
+  display: block;
+  padding: 0.8rem 1.6rem 0.8rem 3rem;
+  margin-left: -3rem;
+  margin-right: -1.6rem;
+  color: $colourArtfulDarkBlue;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  position: relative;
+  cursor: pointer;
 
-    &.crm-accordion-bold {
-      &>summary {
-        background-color: $colourBlueGrey;
-      }
-    }
-
-    &[open]>summary {
-      border-radius: 4px 4px 0 0;
-
-      &::before {
-        transform: rotate(90deg);
-      }
-    }
-
+  &:hover {
+    background-color: mix($colourArtfulBrightBlueHigh, $colourSubtleHoverLightBlueGrey, 50%);
   }
 
-  details>.crm-accordion-body {
-    animation: crm-details-show 240ms ease-in-out;
-    // z-index: 1;
-    // transition: all 0.3s ease-in-out;
-    // color: transparent;
-    // overflow: hidden;
+  &::before {
+    content: '';
+    border-width: .4rem;
+    border-style: solid;
+    border-color: transparent transparent transparent $colourArtfulBrightBlue;
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    transform: rotate(0);
+    transform-origin: .2rem 50%;
+    transition: .25s transform ease;
+  }
 
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+  &::-webkit-details-marker {
+    display: none;
   }
 }
+
+@mixin accordion-summary-open {
+  &::before {
+    transform: rotate(90deg);
+  }
+}
+
+@mixin accordion-body {
+  animation: crm-details-show 240ms ease-in-out;
+  padding: 1rem 0;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.crm-container details,
+.crm-accordion-wrapper {
+  @include accordion-container;
+}
+
+.crm-container details>summary,
+.crm-accordion-wrapper>.crm-accordion-header {
+  @include accordion-summary;
+}
+
+.crm-container details.crm-accordion-light {
+  @include accordion-container-light;
+}
+
+.crm-container details[open],
+.crm-accordion-wrapper:not(.collapsed) {
+  @include accordion-summary-open;
+}
+
+.crm-container details.crm-accordion-light[open] {
+  @include accordion-container-open-light;
+}
+
+.crm-container details[open]>summary,
+.crm-accordion-wrapper:not(.collapsed)>.crm-accordion-header {
+  @include accordion-summary-open;
+}
+
+.crm-container details>.crm-accordion-body,
+.crm-accordion-wrapper>.crm-accordion-body {
+  @include accordion-body;
+}
+
+// .crm-container {
+//   details {
+//     margin-bottom: 1.6rem;
+//     margin-top: 1.6rem;
+//     border-bottom: solid 1px $colourFormElementsBorder;
+//
+//     &>summary {
+//       display: block;
+//       padding: 0.8rem 1.6rem 0.8rem 3rem;
+//       color: $colourArtfulDarkBlue;
+//       background-color: transparent;
+//       transition: background-color 0.2s, border-radius 0.2s;
+//       position: relative;
+//
+//       // cursor: pointer;
+//       &:hover {
+//         background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
+//       }
+//
+//       &::before {
+//         content: '';
+//         border-width: .4rem;
+//         border-style: solid;
+//         border-color: transparent transparent transparent $colourArtfulDarkBlue;
+//         position: absolute;
+//         top: 1.5rem;
+//         left: 1.5rem;
+//         transform: rotate(0);
+//         transform-origin: .2rem 50%;
+//         transition: .25s transform ease;
+//       }
+//
+//       &::-webkit-details-marker {
+//         display: none;
+//       }
+//     }
+//
+//     &.crm-accordion-bold {
+//       &>summary {
+//         background-color: $colourBlueGrey;
+//       }
+//     }
+//
+//     &[open]>summary {
+//       border-radius: 4px 4px 0 0;
+//
+//       &::before {
+//         transform: rotate(90deg);
+//       }
+//     }
+//
+//   }
+//
+//   details>.crm-accordion-body {
+//     animation: crm-details-show 240ms ease-in-out;
+//     // z-index: 1;
+//     // transition: all 0.3s ease-in-out;
+//     // color: transparent;
+//     // overflow: hidden;
+//
+//     &:first-child {
+//       margin-top: 0;
+//     }
+//
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+// }
 
 // themetest/accordion1
 // div.crm-accordion-wrapper[[.collapsed]]
