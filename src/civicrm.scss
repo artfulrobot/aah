@@ -35,7 +35,7 @@ body>.ui-dialog.crm-container {
   font-size: $font-size-base !important;
 }
 
-.crm-contaner {
+.crm-container {
 
   // Insist on our own colour links within a CiviCRM container.
   a,
@@ -2411,8 +2411,8 @@ body.aah-theme.civicrm-contact-view {
     padding: 0;
     background-color: $colourSubtleHoverLightBlueGrey;
     border-left: solid 1px rgba(0, 0, 0, 0.1);
+    border-radius: 4px 0 0 4px;
     margin: 0;
-    border-radius: 0;
     // Start with mobile: tabs are in flex
     display: flex;
     flex-wrap: wrap;
