@@ -579,217 +579,6 @@ body.aah-theme #access {
   @include accordion-body;
 }
 
-// .crm-container {
-//   details {
-//     margin-bottom: 1.6rem;
-//     margin-top: 1.6rem;
-//     border-bottom: solid 1px $colourFormElementsBorder;
-//
-//     &>summary {
-//       display: block;
-//       padding: 0.8rem 1.6rem 0.8rem 3rem;
-//       color: $colourArtfulDarkBlue;
-//       background-color: transparent;
-//       transition: background-color 0.2s, border-radius 0.2s;
-//       position: relative;
-//
-//       // cursor: pointer;
-//       &:hover {
-//         background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
-//       }
-//
-//       &::before {
-//         content: '';
-//         border-width: .4rem;
-//         border-style: solid;
-//         border-color: transparent transparent transparent $colourArtfulDarkBlue;
-//         position: absolute;
-//         top: 1.5rem;
-//         left: 1.5rem;
-//         transform: rotate(0);
-//         transform-origin: .2rem 50%;
-//         transition: .25s transform ease;
-//       }
-//
-//       &::-webkit-details-marker {
-//         display: none;
-//       }
-//     }
-//
-//     &.crm-accordion-bold {
-//       &>summary {
-//         background-color: $colourBlueGrey;
-//       }
-//     }
-//
-//     &[open]>summary {
-//       border-radius: 4px 4px 0 0;
-//
-//       &::before {
-//         transform: rotate(90deg);
-//       }
-//     }
-//
-//   }
-//
-//   details>.crm-accordion-body {
-//     animation: crm-details-show 240ms ease-in-out;
-//     // z-index: 1;
-//     // transition: all 0.3s ease-in-out;
-//     // color: transparent;
-//     // overflow: hidden;
-//
-//     &:first-child {
-//       margin-top: 0;
-//     }
-//
-//     &:last-child {
-//       margin-bottom: 0;
-//     }
-//   }
-// }
-
-// themetest/accordion1
-// div.crm-accordion-wrapper[[.collapsed]]
-//   div.crm-accordion-header
-//   div.crm-accordion-body
-
-
-
-
-// --------------below here original---------------------
-// Type 1: e.g. custom fields on contact summary form:
-// div.crm-collapsible[[.collapsed]]
-//   div.collapsible-title
-//   div.crm-summary-block
-//     div.crm-inline-edit ...
-
-// Type 2:
-// .crm-accordion-wrapper[[.collapsed]]
-//   .crm-accordion-header[[.active]]
-//   .crm-accordion-body
-
-
-.nope {
-
-  .crm-collapsible,
-  // Type 1
-  .crm-accordion-wrapper {
-    // Type 2
-    margin-bottom: 1.6rem;
-    margin-top: 1.6rem;
-
-    border-bottom: solid 1px $colourFormElementsBorder;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  .collapsible-title,
-  // type 1
-  .crm-accordion-header {
-    // type 2
-    padding: 0.8rem 1.6rem 0.8rem 4rem;
-    color: $colourArtfulDarkBlue;
-    background-color: $colourBlueGrey;
-    transition: background-color 0.2s;
-    cursor: pointer;
-  }
-
-  .crm-accordion-header {
-
-    // type 2 only
-    &.active {
-      background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
-      color: $colourArtfulDarkBlue;
-    }
-
-    &:hover,
-    &.active:hover {
-      background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
-    }
-  }
-
-  .collapsible-title::before,
-  // type 1
-  .crm-accordion-header::before {
-    // type 2
-    content: "\F18E";
-    font: normal normal normal 14px/1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    display: block;
-    position: absolute;
-    margin-left: -2.4rem;
-    margin-top: 0.4rem;
-    transition: transform 0.3s;
-    transform: rotateZ(90deg);
-  }
-
-  div.crm-collapsible,
-  fieldset.crm-collapsible {
-
-    &>.crm-summary-block,
-    // type 1
-    &>.crm-accordion-body {
-      // type 2
-      background: $colourLayeredBackground;
-      padding: 1.6rem;
-      border-radius: 0;
-      border: none;
-      overflow: auto; // force it to encompass floated elements.
-      transform: none;
-      // nicer animation on the body
-      opacity: 1;
-      transition: opacity 0.3s;
-    }
-  }
-
-  // When collapsed:
-  div.crm-collapsible.collapsed,
-  // type 1
-  div.crm-accordion-wrapper.collapsed {
-    // type 2
-
-    // Remove the bottom border (asit tends to look like an underline)
-    border-bottom: none;
-
-    // Use a subtle backcolor.
-    .collapsible-title,
-    // type 1
-    .crm-accordion-header {
-      // type 2
-      background-color: $colourLayeredBackground;
-
-      &:hover {
-        background-color: mix($colourArtfulBrightBlueHigh, $colourArtfulBrightBlue, 50%);
-      }
-    }
-
-    // no rotation on the arrow pointing right.
-    .collapsible-title::before,
-    // type 1
-    .crm-accordion-header::before {
-      // type 2
-      transform: none;
-    }
-
-    &>.crm-summary-block,
-    // type 1
-    .crm-accordion-body {
-      // type 2
-      display: none;
-      opacity: 0;
-    }
-  }
-
-}
-
 // }}}
 // Component: Buttons {{{
 
@@ -818,10 +607,12 @@ body.aah-theme #access {
 //   i.crm-i.fa-xxx
 //   button text
 //
+// Also: .btn-secondary-outline
 
 // Generally, things that should look like buttons:
 a.crm-button>span,
 button.crm-button,
+.crm-container a.btn,
 #crm-main-content-wrapper button,
 // type 4
 input.crm-form-submit,
@@ -832,20 +623,21 @@ input.crm-form-submit,
   padding: 0.4rem 1.6rem;
   border: none;
   border-radius: 3px;
-  color: white;
   text-shadow: none;
   box-shadow: none;
   vertical-align: baseline;
+  color: white;
+
+  // &:visited { color: white; }
 
   &:hover {
     background: var(--aah-button-bg-hover);
   }
 
-  &.btn-secondary {
+  &.btn-secondary,
+  &.btn-secondary-outline {
     background: var(--aah-button-bg-secondary);
-    background: transparent;
     color: var(--aah-button-colour-secondary);
-    color: var(--aah-colour-brand);
 
     &:hover {
       background: var(--aah-button-bg-secondary-hover);
@@ -1024,7 +816,6 @@ td>.crm-submit-buttons:first-child {
 
 
 #crm-main-content-wrapper .btn-group>button {
-  height: 2.3em;
 
   // A button at the start needs left rounding
   &:first-child {
@@ -1079,6 +870,7 @@ td>.crm-submit-buttons:first-child {
 // }}}
 // Component: Fieldset inc. accordion fieldsets {{{
 body.aah-theme fieldset {
+  // Allow a lot of padding for the legend.
   padding-top: 4.8rem;
   position: relative;
 
@@ -3028,31 +2820,14 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
 
   // First, redefine default fieldsets (that use legends)
   fieldset {
-    border-top: none;
-    background: $colourLayeredBackground;
-
-    // Reinstate our style - set to 6px, then again to 0px by crmSearchAdmin
-    padding: 4.8rem 0.5rem 0.5rem 0.5rem;
-
-    &.crm-search-join,
-    &.crm-search-join-add,
-    &.crm-search-groupbys {
-      padding-top: 6px;
-    }
+    // override core stuff
+    border: none;
+    border-radius: 4px;
 
     legend {
-      position: absolute;
-      top: 0.5rem;
-      background: none;
-      margin: 0;
-      left: 0.5rem;
+      background-color: transparent;
     }
   }
-
-  .crm-search-select-fields>div>fieldset {
-    padding-top: 6px;
-  }
-
 
   fieldset.crm-draggable:nth-child(1) {
     display: flex;
