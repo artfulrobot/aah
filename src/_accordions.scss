@@ -102,6 +102,11 @@ body.aah-theme fieldset.crm-collapsible>.collapsible-title {
   margin-bottom: 0;
 }
 
+// Some elements don't seem to initialise properly, e.g. Groups tab » Smart groups, shows 'collapsed' but without display:none on the body.
+.crm-accordion-wrapper.collapsed>.crm-accordion-body {
+  display: none;
+}
+
 // Container: The outer container
 .crm-container details,
 .crm-accordion-wrapper,
