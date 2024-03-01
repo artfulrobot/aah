@@ -3,13 +3,14 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
   max-width: unset;
 }
 
+// Our buttons are bulkier
+.aah-theme #bootstrap-theme .crm-search-admin-search-listing-buttons {
+  min-width: 105px;
+}
+
 // Un-setting unhelpful SK CSS.
 .aah-theme #bootstrap-theme.crm-search {
 
-  // Our buttons are bulkier
-   .crm-search-admin-search-listing-buttons {
-     min-width: 105px;
-   }
   // Un-set pixel width(!) in SK core.
   .api4-clause-badge {
     width: unset;
