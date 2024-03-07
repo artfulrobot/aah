@@ -107,6 +107,11 @@ body.aah-theme fieldset.crm-collapsible>.collapsible-title {
   display: none;
 }
 
+// Some, e.g. advanced search, use details, apply .collapsed but don't remove collapsed when opened
+.crm-accordion-wrapper.collapsed[open]>.crm-accordion-body {
+  display: block;
+}
+
 // Container: The outer container
 .crm-container details,
 .crm-accordion-wrapper,
