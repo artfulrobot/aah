@@ -142,22 +142,5 @@ body.crm-name-crm-search-page-admin.aah-theme #crm-main-content-wrapper {
 }
 
 // }}}
-// Sepecific Page: Form Builder {{{
-body.aah-theme.page-civicrm-admin-afform {
-  @extend %full-width-page;
-}
-
-#afGuiEditor .panel-heading ul.nav-tabs {
-  // bootstrap uses float (yuk) for tabs.
-  // so create block formatting context to avoid affecting later elements.
-  overflow: auto;
-  margin-top: 0.4em; // not sure if this will work in all contexts.
-
-  &>li.active>a {
-    background: white;
-  }
-}
-
-// }}}
 
 // vim:foldmethod=marker

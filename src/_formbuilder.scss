@@ -1,0 +1,22 @@
+// Form Builder specific styles
+
+body.aah-theme.page-civicrm-admin-afform {
+  @extend %full-width-page;
+}
+
+#afGuiEditor .panel-heading ul.nav-tabs {
+  // (bootstrap uses float (yuk) for tabs.)
+  margin: 0;
+
+  &>li.active>a {
+    background: white;
+  }
+}
+
+#afGuiEditor .af-gui-entity-palette-select-list {
+  // I don't know why this is needed, but without it
+  // the div has zero width(!). It's the div on the 2nd tab on
+  // form builder where there are all the filter possibilities listed.
+  width: 100%;
+
+}
