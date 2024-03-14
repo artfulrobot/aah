@@ -841,6 +841,11 @@ body.aah-theme {
 
   // }}}
 
+  // Number inputs have the little up/down buttons which can cover up the actual input.
+  input[type="number"] {
+    min-width: 7em;
+  }
+
 }
 
 // Stop the labels butting right up against the tick boxes.
