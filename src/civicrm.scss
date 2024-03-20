@@ -809,14 +809,21 @@ body.aah-theme {
 
   input[type="text"],
   input[type="password"],
+  input[type="url"],
+  input[type="email"],
+  input[type="number"],
   textarea {
-    border-color: $colourFormElementsBorder;
+    margin-bottom: 0.2rem; // 2px - mainly to give some space to .crm-error which may follow.
+    border-radius: 3px;
+    border: solid 1px $colourFormElementsBorder;
+    background: white;
+    padding: 0.5rem;
+    color: #222;
 
     &.error {
       border-color: $colourRedDanger;
     }
 
-    margin-bottom: 0.2rem; // 2px - mainly to give some space to .crm-error which may follow.
   }
 
   .crm-error {
@@ -1365,6 +1372,9 @@ body.aah-theme div.ui-notify-message.success div.icon,
 .select2-results {
   // this inherits 1rem = 10px in bs3 which is waaay too small.
   font-size: 1.4rem;
+}
+li.select2-result {
+  max-width: none;
 }
 
 .select2-results .crm-select2-row-description {
