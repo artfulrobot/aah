@@ -126,19 +126,6 @@ fieldset.crm-collapsible {
   @include accordion-container-light;
 }
 
-// Container: Changes to the container when open
-.crm-container details[open],
-.crm-accordion-wrapper:not(.collapsed),
-.crm-collapsible:not(.collapsed) {
-  @include accordion-summary-open;
-}
-
-// Container: Changes to the container when open - light version
-.crm-container details.crm-accordion-light[open] {
-  @include accordion-container-open-light;
-}
-
-
 // Summary: always shown and toggles body.
 .crm-container details>summary,
 .crm-accordion-wrapper>.crm-accordion-header,
@@ -149,8 +136,8 @@ body.aah-theme fieldset>.collapsible-title {
 
 // Summary: Changes when open
 .crm-container details[open]>summary,
-.crm-accordion-wrapper:not(.collapsed)>.crm-accordion-header,
-.crm-collapsible:not(.collapsed)>.crm-collapsible-title {
+.crm-accordion-wrapper:not(details, .collapsed)>.crm-accordion-header,
+.crm-collapsible:not(.collapsed)>.collapsible-title {
   @include accordion-summary-open;
 }
 
