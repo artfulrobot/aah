@@ -195,6 +195,7 @@ body.aah-theme #header #page-title {
 
 @media print {
 
+  #civicrm-menu-nav,
   #civicrm-footer,
   #access,
   #civicrm-menu {
@@ -1373,6 +1374,7 @@ body.aah-theme div.ui-notify-message.success div.icon,
   // this inherits 1rem = 10px in bs3 which is waaay too small.
   font-size: 1.4rem;
 }
+
 li.select2-result {
   max-width: none;
 }
