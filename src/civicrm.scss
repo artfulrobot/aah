@@ -757,6 +757,7 @@ body.aah-theme fieldset {
     float: left;
     width: 100%;
   }
+  &>legend + * { clear: both; }
 
   // Allow a lot of padding for the legend.
   // padding-top: 4.8rem;
