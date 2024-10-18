@@ -1,1 +1,30 @@
 // empty
+
+/* Hacks for 5.72.2 */
+#civicrm-dashboard .crm-flex-box {
+  gap: 2rem;
+}
+
+#crm-container #civicrm-dashboard .crm-dashlet-header {
+  display: flex;
+
+  h3 {
+    margin: 0;
+    order: 2;
+    flex: 1 1 auto;
+  }
+  .crm-i:where(.fa-caret-down, .fa-caret-right) {
+    order: 2;
+  }
+
+  a.crm-i {
+    order: 3;
+  }
+
+  a.crm-i.fa-times {
+    order: 4;
+  }
+}
+
+
+
