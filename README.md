@@ -1,4 +1,14 @@
-# aah
+# aah: dead/deprecated/superseded
+
+This theme is now dead! Long live Thames theme. From CiviCRM 6 (v soon) there's a built in entirely rewritten theme / set of themes called RiverLea which has "streams" (sub themes) that ape various popular themes including Aah, as Thames.
+
+**this theme will not be maintained further**
+
+The new theme is jot identical but similar and has many benefits: dark mode support, WCAG accessible colours, better search kit support.
+
+--------
+
+
 
 Some screenshots:
 
