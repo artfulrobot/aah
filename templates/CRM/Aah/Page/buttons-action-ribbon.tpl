@@ -6,7 +6,7 @@
 
     <li class="crm-contact-activity crm-summary-block">
       <div id="crm-contact-actions-wrapper" data-edit-params="{&quot;cid&quot;: &quot;260&quot;, &quot;class_name&quot;: &quot;CRM_Contact_Page_Inline_Actions&quot;}">
-        <a id="crm-contact-actions-link" href="#" class="button"><span><i class="crm-i fa-bars"></i>&nbsp;     Actions  </span></a>          <div class="ac_results" id="crm-contact-actions-list">
+        <a id="crm-contact-actions-link" href="#" class="button"><span><i class="crm-i fa-bars" role="img" aria-hidden="true"></i>&nbsp;     Actions  </span></a>          <div class="ac_results" id="crm-contact-actions-list">
           <div class="crm-contact-actions-list-inner">
             <div class="crm-contact_activities-list">
 
@@ -14,32 +14,32 @@
                 <li class="crm-activity-tab"><a href="#" data-tab="activity">Record Activity:</a></li>
                 <li class="crm-activity-type_68">
                   <a href="#" data-tab="activity">
-                    <i class="crm-i fa-plus-square-o"></i> Volunteer Commendation
+                    <i class="crm-i fa-plus-square-o" role="img" aria-hidden="true"></i> Volunteer Commendation
                   </a>
                 </li>
                 <li class="crm-activity-type_67">
                   <a href="#" data-tab="activity">
-                    <i class="crm-i fa-plus-square-o"></i> Volunteer
+                    <i class="crm-i fa-plus-square-o" role="img" aria-hidden="true"></i> Volunteer
                   </a>
                 </li>
                 <li class="crm-activity-type_1">
                   <a href="#" data-tab="activity">
-                    <i class="crm-i fa-slideshare"></i> Meeting
+                    <i class="crm-i fa-slideshare" role="img" aria-hidden="true"></i> Meeting
                   </a>
                 </li>
                 <li class="crm-activity-type_2">
                   <a href="#" data-tab="activity">
-                    <i class="crm-i fa-phone"></i> Phone Call
+                    <i class="crm-i fa-phone" role="img" aria-hidden="true"></i> Phone Call
                   </a>
                 </li>
                 <li class="crm-activity-type_22">
                   <a href="#" data-tab="activity">
-                    <i class="crm-i fa-file-pdf-o"></i> Print/Merge Document
+                    <i class="crm-i fa-file-pdf-o" role="img" aria-hidden="true"></i> Print/Merge Document
                   </a>
                 </li>
                 <li class="crm-activity-type_55">
                   <a href="#" data-tab="activity">
-                    <i class="crm-i fa-comment-o"></i> Interview
+                    <i class="crm-i fa-comment-o" role="img" aria-hidden="true"></i> Interview
                   </a>
                 </li>
 
@@ -51,22 +51,22 @@
               <ul class="contact-print">
                 <li class="crm-contact-crm-contact-print">
                   <a href="#" title="Print Summary" data-tab="print" class="print">
-                    <span><i class="crm-i fa-print"></i> Print Summary</span>
+                    <span><i class="crm-i fa-print" role="img" aria-hidden="true"></i> Print Summary</span>
                   </a>
                 </li>
                 <li class="crm-contact-crm-contact-vcard">
                   <a href="#" title="vCard" data-tab="vcard" class="vcard">
-                    <span><i class="crm-i fa-list-alt"></i> vCard</span>
+                    <span><i class="crm-i fa-list-alt" role="img" aria-hidden="true"></i> vCard</span>
                   </a>
                 </li>
                 <li class="crm-contact-crm-contact-dashboard">
                   <a href="#" title="Contact Dashboard" data-tab="dashboard" class="dashboard">
-                    <span><i class="crm-i fa-tachometer"></i> Contact Dashboard</span>
+                    <span><i class="crm-i fa-tachometer" role="img" aria-hidden="true"></i> Contact Dashboard</span>
                   </a>
                 </li>
                 <li class="crm-contact-crm-contact-user-add">
                   <a href="#" title="Create User Record" data-tab="user-add" class="user-add">
-                    <span><i class="crm-i fa-user-plus"></i> Create User Record</span>
+                    <span><i class="crm-i fa-user-plus" role="img" aria-hidden="true"></i> Create User Record</span>
                   </a>
                 </li>
               </ul>
@@ -111,9 +111,9 @@
       </div>
     </li>
     <li>
-      <a class="button edit" href="#"><span><i class="crm-i fa-pencil"></i>&nbsp;                 Edit              </span></a>            </li>
+      <a class="button edit" href="#"><span><i class="crm-i fa-pencil" role="img" aria-hidden="true"></i>&nbsp;                 Edit              </span></a>            </li>
     <li class="crm-delete-action crm-contact-delete">
-      <a class="button delete" href="#"><span><i class="crm-i fa-trash"></i>&nbsp;               Delete Contact            </span></a>          </li>
+      <a class="button delete" href="#"><span><i class="crm-i fa-trash" role="img" aria-hidden="true"></i>&nbsp;               Delete Contact            </span></a>          </li>
   </ul>
   <div class="clear"></div>
 </div>

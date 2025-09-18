@@ -3,7 +3,7 @@
 <div class="crm-actions-ribbon crm-event-manage-tab-actions-ribbon">
       <ul id="actions">
       <li><div id="crm-event-links-wrapper">
-            <a id="crm-event-links-link" href="#" class="button"><span><i class="crm-i fa-bars"></i>&nbsp; Event Links</span></a>
+            <a id="crm-event-links-link" href="#" class="button"><span><i class="crm-i fa-bars" role="img" aria-hidden="true"></i>&nbsp; Event Links</span></a>
             <div class="ac_results" id="crm-event-links-list">
                  <div class="crm-event-links-list-inner">
                    <ul>
@@ -17,7 +17,7 @@
         </div></li>
 
       <li><div id="crm-participant-wrapper">
-            <a id="crm-participant-link" href="#" class="button"><span><i class="crm-i fa-bars"></i>&nbsp; Find Participants</span></a>            <div class="ac_results" id="crm-participant-list">
+            <a id="crm-participant-link" href="#" class="button"><span><i class="crm-i fa-bars" role="img" aria-hidden="true"></i>&nbsp; Find Participants</span></a>            <div class="ac_results" id="crm-participant-list">
                  <div class="crm-participant-list-inner">
                    <ul>
                               <li><a class="crm-participant-counted" href="#">Registered, Attended, Pending (pay later), Partially paid, Pending refund</a></li>
@@ -41,19 +41,19 @@
 
 
     <span class="crm-button crm-button-type-upload crm-button_qf_EventInfo_upload crm-i-button">
-      <i class="crm-i fa-check"></i>
+      <i class="crm-i fa-check" role="img" aria-hidden="true"></i>
       <input class="crm-form-submit default validate" accesskey="S" crm-icon="fa-check" name="_qf_EventInfo_upload" value="Save" type="submit" id="_qf_EventInfo_upload-top">
     </span>
 
 
     <span class="crm-button crm-button-type-upload crm-button_qf_EventInfo_upload_done crm-i-button">
-      <i class="crm-i fa-check-circle"></i>
+      <i class="crm-i fa-check-circle" role="img" aria-hidden="true"></i>
       <input class="crm-form-submit validate" crm-icon="fa-check-circle" name="_qf_EventInfo_upload_done" value="Save and Done" type="submit" id="_qf_EventInfo_upload_done-top">
     </span>
 
 
     <span class="crm-button crm-button-type-cancel crm-button_qf_EventInfo_cancel crm-i-button">
-      <i class="crm-i fa-times"></i>
+      <i class="crm-i fa-times" role="img" aria-hidden="true"></i>
       <input class="crm-form-submit cancel" crm-icon="fa-times" name="_qf_EventInfo_cancel" value="Cancel" type="submit" id="_qf_EventInfo_cancel-top">
     </span>
     </div>
